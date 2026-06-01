@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { Reveal } from '@/components/Reveal';
+import { PreRegisterButton } from '@/components/PreRegisterModal';
 
 export const metadata: Metadata = {
   title: 'Changelog',
@@ -23,9 +23,9 @@ interface Release {
 const RELEASES: Release[] = [
   {
     version: 'v1.0-GA',
-    date: 'May 2026',
-    tag: 'Stable',
-    summary: 'General availability — the full streamerOS cockpit ships.',
+    date: 'September 2026',
+    tag: 'Upcoming',
+    summary: 'General availability — the full streamerOS cockpit ships this September.',
     changes: [
       'Official stable release for Windows 10 and 11',
       'Launch of the Auto-Hype Director — the visual, node-based scene-automation engine',
@@ -124,10 +124,10 @@ export default function ChangelogPage() {
 
         <Reveal>
           <p className="mt-4 text-center text-sm text-zinc-500">
-            Ready to try the latest?{' '}
-            <Link href="/download" className="text-cyan-400 hover:underline">
-              Download v1.0-GA
-            </Link>
+            Want it the moment it ships?{' '}
+            <PreRegisterButton className="text-cyan-400 hover:underline">
+              Pre-register for launch
+            </PreRegisterButton>
             .
           </p>
         </Reveal>

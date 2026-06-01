@@ -14,6 +14,7 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
+import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
@@ -328,17 +329,15 @@ export default function AutoHypeGuidePage() {
               The Auto-Hype Director ships in streamerOS v1.0-GA — free, open
               source, and running at a 1.8% CPU footprint.
             </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Link
-                href="/download"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-cyan-400 px-6 py-3 text-sm font-semibold text-[#05070A] transition hover:bg-cyan-300"
-              >
-                Download v1.0-GA
+            <LaunchBadge className="mt-8" />
+            <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <PreRegisterButton className="inline-flex items-center justify-center gap-2 rounded-lg bg-cyan-400 px-6 py-3 text-sm font-semibold text-[#05070A] transition hover:bg-cyan-300">
+                Pre-Register for Launch
                 <ArrowRight className="h-4 w-4" aria-hidden />
-              </Link>
+              </PreRegisterButton>
               <Link
                 href="/features"
-                className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/10 px-6 py-3 text-sm font-semibold text-zinc-200 transition hover:border-white/20 hover:bg-white/5"
+                className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-white/10 px-6 py-3 text-sm font-semibold text-zinc-200 transition-all duration-200 hover:border-white/20 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
               >
                 Back to all features
               </Link>

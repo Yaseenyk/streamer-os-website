@@ -3,6 +3,7 @@
 import { motion, type Variants } from 'framer-motion';
 import { Check, Heart, Sparkles } from 'lucide-react';
 import { siteConfig } from '@/config/site';
+import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -18,6 +19,8 @@ interface Tier {
   cta: string;
   href: string;
   featured: boolean;
+  /** Free Core opens the pre-registration modal instead of linking to a binary. */
+  preRegister?: boolean;
 }
 
 const TIERS: Tier[] = [
@@ -32,9 +35,10 @@ const TIERS: Tier[] = [
       '1.8% CPU footprint',
       'Zero-cloud privacy',
     ],
-    cta: 'Download v1.0-GA',
+    cta: 'Pre-Register for Launch',
     href: siteConfig.downloadUrl,
     featured: false,
+    preRegister: true,
   },
   {
     name: 'Supporter Edition',
@@ -70,6 +74,7 @@ export default function Pricing() {
           streamerOS costs nothing and always will. The Supporter Edition is a
           one-time thank-you that keeps indie development alive.
         </p>
+        <LaunchBadge className="mt-6" />
       </motion.div>
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2">
@@ -115,19 +120,25 @@ export default function Pricing() {
               ))}
             </ul>
 
-            <a
-              href={tier.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`mt-8 inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold transition ${
-                tier.featured
-                  ? 'bg-purple-500 text-white hover:bg-purple-400'
-                  : 'border border-white/15 text-zinc-100 hover:border-white/30 hover:bg-white/5'
-              }`}
-            >
-              {tier.featured && <Heart className="h-4 w-4" aria-hidden />}
-              {tier.cta}
-            </a>
+            {tier.preRegister ? (
+              <PreRegisterButton className="mt-8 inline-flex items-center justify-center gap-2 rounded-lg border border-white/15 px-5 py-3 text-sm font-semibold text-zinc-100 transition hover:border-white/30 hover:bg-white/5">
+                {tier.cta}
+              </PreRegisterButton>
+            ) : (
+              <a
+                href={tier.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`mt-8 inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 ${
+                  tier.featured
+                    ? 'bg-purple-500 text-white hover:bg-purple-400 hover:shadow-[0_0_15px_rgba(168,85,247,0.3)]'
+                    : 'border border-white/15 text-zinc-100 hover:border-white/30 hover:bg-white/5'
+                }`}
+              >
+                {tier.featured && <Heart className="h-4 w-4" aria-hidden />}
+                {tier.cta}
+              </a>
+            )}
           </motion.div>
         ))}
       </div>

@@ -15,6 +15,7 @@ import {
 import { ArrowRight, Gauge, ShieldCheck, Workflow } from 'lucide-react';
 import Pricing from '@/components/Pricing';
 import { NodeGraph } from '@/components/NodeGraph';
+import { usePreRegister } from '@/components/PreRegisterModal';
 
 // ---------------------------------------------------------------------------
 // Motion vocabulary
@@ -214,12 +215,14 @@ function Marquee() {
 // ---------------------------------------------------------------------------
 // ShineLink — primary CTA with a periodic sweeping shine
 // ---------------------------------------------------------------------------
-function ShineLink({ href, children }: { href: string; children: ReactNode }) {
+function ShineLink({ children }: { children: ReactNode }) {
   const reduce = useReducedMotion();
+  const { open } = usePreRegister();
   return (
-    <Link
-      href={href}
-      className="group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-cyan-400 px-6 py-3 text-sm font-semibold text-[#05070A] transition hover:bg-cyan-300"
+    <button
+      type="button"
+      onClick={open}
+      className="group relative inline-flex cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-cyan-400 px-6 py-3 text-sm font-semibold text-[#05070A] transition hover:bg-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
     >
       {!reduce && (
         <motion.span
@@ -234,7 +237,7 @@ function ShineLink({ href, children }: { href: string; children: ReactNode }) {
         {children}
         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
       </span>
-    </Link>
+    </button>
   );
 }
 
@@ -335,7 +338,7 @@ function Hero() {
               className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-zinc-300"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
-              v1.0-GA · now available for Windows
+              Launching September 2026 · Windows
             </motion.span>
 
             <motion.h1
@@ -356,10 +359,10 @@ function Hero() {
             </motion.p>
 
             <motion.div variants={fadeUp} className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <ShineLink href="/download">Download v1.0-GA</ShineLink>
+              <ShineLink>Pre-Register for Launch</ShineLink>
               <Link
                 href="/features"
-                className="inline-flex items-center justify-center rounded-lg border border-white/15 px-6 py-3 text-sm font-semibold text-zinc-200 transition hover:border-white/30 hover:bg-white/5"
+                className="inline-flex cursor-pointer items-center justify-center rounded-lg border border-white/15 px-6 py-3 text-sm font-semibold text-zinc-200 transition-all duration-200 hover:border-white/30 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
               >
                 Explore the features
               </Link>

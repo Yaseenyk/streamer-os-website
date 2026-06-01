@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingContact from '@/components/FloatingContact';
+import { PreRegisterProvider } from '@/components/PreRegisterModal';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
@@ -90,10 +91,12 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       <body
         className={`${inter.className} min-h-screen bg-[#05070A] text-zinc-100 antialiased selection:bg-cyan-400/30 selection:text-white`}
       >
-        <Header />
-        {children}
-        <Footer />
-        <FloatingContact />
+        <PreRegisterProvider>
+          <Header />
+          {children}
+          <Footer />
+          <FloatingContact />
+        </PreRegisterProvider>
       </body>
     </html>
   );

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { ArrowRight, Check, Gauge, ShieldCheck, Workflow, type LucideIcon } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
+import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
 import { NodeGraph } from '@/components/NodeGraph';
 
 export const metadata: Metadata = {
@@ -235,16 +236,16 @@ export default function FeaturesPage() {
               See it run on your machine.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              streamerOS is free and open source. Download v1.0-GA and watch the
-              cockpit disappear into the background.
+              streamerOS is free and open source. Pre-register for the September launch and
+              watch the cockpit disappear into the background.
             </p>
-            <Link
-              href="/download"
-              className="mt-8 inline-flex items-center justify-center gap-2 rounded-lg bg-cyan-400 px-6 py-3 text-sm font-semibold text-[#05070A] transition hover:bg-cyan-300"
-            >
-              Download v1.0-GA
-              <ArrowRight className="h-4 w-4" aria-hidden />
-            </Link>
+            <div className="mt-8 flex flex-col items-center gap-4">
+              <LaunchBadge />
+              <PreRegisterButton className="inline-flex items-center justify-center gap-2 rounded-lg bg-cyan-400 px-6 py-3 text-sm font-semibold text-[#05070A] transition hover:bg-cyan-300">
+                Pre-Register for Launch
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </PreRegisterButton>
+            </div>
           </Reveal>
         </div>
       </section>

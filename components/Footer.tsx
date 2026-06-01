@@ -12,7 +12,8 @@ const PRODUCT: FooterLink[] = [
   { label: 'Ultra-Light Performance', href: '/features/performance' },
   { label: 'Zero-Cloud Privacy', href: '/features/zero-cloud' },
   { label: 'Playbook', href: '/playbook' },
-  { label: 'Download', href: '/download' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Pre-Register', href: '/download' },
   { label: 'Pricing', href: '/#pricing' },
   { label: 'Changelog', href: '/changelog' },
 ];
@@ -57,7 +58,7 @@ function FooterColumn({ title, links }: { title: string; links: FooterLink[] }) 
           <li key={link.label}>
             <Link
               href={link.href}
-              className="text-sm text-zinc-400 transition-colors hover:text-zinc-100"
+              className="inline-block rounded text-sm text-zinc-400 transition-colors hover:text-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
             >
               {link.label}
             </Link>

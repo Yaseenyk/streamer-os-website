@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Reveal } from '@/components/Reveal';
-import { siteConfig } from '@/config/site';
+import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
 
 export const metadata: Metadata = {
   title: 'Download',
   description:
-    'Download streamerOS v1.0-GA for Windows — free, open source, and ready in seconds.',
+    'Pre-register for streamerOS — the Rust-powered, local-first streaming cockpit for Windows, launching September 2026.',
   alternates: { canonical: 'https://yaseenyk.github.io/streamer-os-website/download' },
 };
 
@@ -21,8 +21,8 @@ const REQUIREMENTS = [
 
 const STEPS = [
   {
-    title: 'Download the installer',
-    body: 'Grab the v1.0-GA installer for Windows — a standard signed MSI / NSIS package.',
+    title: 'Get the installer at launch',
+    body: 'When streamerOS ships this September, you’ll grab a standard signed MSI / NSIS package for Windows.',
   },
   {
     title: 'Run the installer',
@@ -52,7 +52,8 @@ export default function DownloadPage() {
           </Reveal>
           <Reveal delay={0.16}>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              Free, open source, and on your desktop in under a minute.
+              Free, open source, and landing on your desktop this September. Pre-register and
+              we’ll send the build the day it ships.
             </p>
           </Reveal>
         </div>
@@ -62,21 +63,14 @@ export default function DownloadPage() {
         {/* Download card */}
         <Reveal>
           <div className="rounded-2xl border border-cyan-400/30 bg-white/[0.03] p-8 text-center shadow-[0_0_60px_-20px_rgba(34,211,238,0.4)] sm:p-10">
-            <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">
-              streamerOS v1.0-GA
-            </p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight">For Windows 10 &amp; 11</h2>
+            <LaunchBadge />
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight">For Windows 10 &amp; 11</h2>
             <p className="mt-2 text-sm text-zinc-400">
               64-bit · free forever · no account required
             </p>
-            <a
-              href={siteConfig.downloadUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center justify-center rounded-lg bg-cyan-400 px-8 py-3.5 text-sm font-semibold text-[#05070A] transition hover:bg-cyan-300"
-            >
-              Download v1.0-GA
-            </a>
+            <PreRegisterButton className="mt-6 inline-flex items-center justify-center rounded-lg bg-cyan-400 px-8 py-3.5 text-sm font-semibold text-[#05070A] transition hover:bg-cyan-300">
+              Pre-Register for Launch
+            </PreRegisterButton>
             <p className="mt-4 text-xs text-zinc-500">
               Prefer to build from source? streamerOS is{' '}
               <Link href="/features" className="text-cyan-400 hover:underline">

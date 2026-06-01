@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X, ChevronDown, Workflow, Gauge, ShieldCheck, type LucideIcon } from 'lucide-react';
 import { Logo } from '@/components/Logo';
+import { usePreRegister } from '@/components/PreRegisterModal';
 
 interface FeatureLink {
   label: string;
@@ -36,6 +37,7 @@ const FEATURE_LINKS: FeatureLink[] = [
 
 const NAV_LINKS = [
   { label: 'Playbook', href: '/playbook' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Pricing', href: '/#pricing' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Changelog', href: '/changelog' },
@@ -45,6 +47,7 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isFeaturesOpen, setIsFeaturesOpen] = useState(false);
   const [isMobileFeaturesOpen, setIsMobileFeaturesOpen] = useState(false);
+  const { open: openPreRegister } = usePreRegister();
 
   const closeMenu = () => {
     setIsMobileMenuOpen(false);
@@ -101,7 +104,7 @@ export default function Header() {
                 onClick={() => setIsFeaturesOpen((open) => !open)}
                 aria-haspopup="true"
                 aria-expanded={isFeaturesOpen}
-                className="flex items-center gap-1 text-sm text-zinc-400 transition-colors hover:text-zinc-100"
+                className="flex cursor-pointer items-center gap-1 rounded text-sm text-zinc-400 transition-colors hover:text-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
               >
                 Features
                 <ChevronDown
@@ -126,7 +129,7 @@ export default function Header() {
                           <Link
                             key={feature.href}
                             href={feature.href}
-                            className="flex items-start gap-3 rounded-lg px-3 py-2.5 transition-colors hover:bg-white/5"
+                            className="flex items-start gap-3 rounded-lg px-3 py-2.5 transition-colors hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
                           >
                             <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-cyan-400">
                               <Icon className="h-4 w-4" strokeWidth={1.75} aria-hidden />
@@ -152,7 +155,7 @@ export default function Header() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-sm text-zinc-400 transition-colors hover:text-zinc-100"
+                className="rounded text-sm text-zinc-400 transition-colors hover:text-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
               >
                 {link.label}
               </Link>
@@ -161,12 +164,13 @@ export default function Header() {
 
           <div className="flex items-center gap-2">
             {/* Desktop CTA */}
-            <Link
-              href="/download"
-              className="hidden items-center rounded-lg bg-cyan-400 px-4 py-2 text-sm font-semibold text-[#05070A] transition hover:bg-cyan-300 sm:inline-flex"
+            <button
+              type="button"
+              onClick={openPreRegister}
+              className="hidden cursor-pointer items-center rounded-lg bg-cyan-400 px-4 py-2 text-sm font-semibold text-[#05070A] transition-all duration-200 hover:bg-cyan-300 hover:shadow-[0_0_15px_rgba(6,182,212,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 sm:inline-flex"
             >
-              Download
-            </Link>
+              Pre-Register
+            </button>
 
             {/* Mobile toggle */}
             <button
@@ -175,7 +179,7 @@ export default function Header() {
               aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-zinc-300 transition-colors hover:bg-white/5 hover:text-zinc-100 sm:hidden"
+              className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg text-zinc-300 transition-colors hover:bg-white/5 hover:text-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 sm:hidden"
             >
               {isMobileMenuOpen ? (
                 <X className="h-5 w-5" aria-hidden />
@@ -208,7 +212,7 @@ export default function Header() {
                   onClick={() => setIsMobileFeaturesOpen((open) => !open)}
                   aria-expanded={isMobileFeaturesOpen}
                   aria-controls="mobile-features"
-                  className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-lg font-medium text-zinc-200 transition-colors hover:bg-white/5 hover:text-white"
+                  className="flex w-full cursor-pointer items-center justify-between rounded-lg px-4 py-3 text-lg font-medium text-zinc-200 transition-colors hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
                 >
                   Features
                   <ChevronDown
@@ -237,7 +241,7 @@ export default function Header() {
                               key={feature.href}
                               href={feature.href}
                               onClick={closeMenu}
-                              className="flex items-center gap-3 rounded-lg px-4 py-3 text-zinc-300 transition-colors hover:bg-white/5 hover:text-white"
+                              className="flex items-center gap-3 rounded-lg px-4 py-3 text-zinc-300 transition-colors hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
                             >
                               <Icon
                                 className="h-5 w-5 shrink-0 text-cyan-400"
@@ -264,19 +268,22 @@ export default function Header() {
                   key={link.label}
                   href={link.href}
                   onClick={closeMenu}
-                  className="rounded-lg px-4 py-3 text-lg font-medium text-zinc-200 transition-colors hover:bg-white/5 hover:text-white"
+                  className="rounded-lg px-4 py-3 text-lg font-medium text-zinc-200 transition-colors hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
                 >
                   {link.label}
                 </Link>
               ))}
 
-              <Link
-                href="/download"
-                onClick={closeMenu}
-                className="mt-4 inline-flex items-center justify-center rounded-lg bg-cyan-400 px-4 py-3 text-sm font-semibold text-[#05070A] transition hover:bg-cyan-300"
+              <button
+                type="button"
+                onClick={() => {
+                  closeMenu();
+                  openPreRegister();
+                }}
+                className="mt-4 inline-flex cursor-pointer items-center justify-center rounded-lg bg-cyan-400 px-4 py-3 text-sm font-semibold text-[#05070A] transition-all duration-200 hover:bg-cyan-300 hover:shadow-[0_0_15px_rgba(6,182,212,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
               >
-                Download
-              </Link>
+                Pre-Register for Launch
+              </button>
             </nav>
           </motion.div>
         )}

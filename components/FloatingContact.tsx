@@ -58,7 +58,7 @@ export default function FloatingContact() {
                 type="button"
                 onClick={() => setIsOpen(false)}
                 aria-label="Close contact form"
-                className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition-colors hover:bg-white/5 hover:text-white"
+                className="inline-flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg text-slate-400 transition-colors hover:bg-white/5 hover:text-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
               >
                 <X className="h-4 w-4" aria-hidden />
               </button>
@@ -80,7 +80,7 @@ export default function FloatingContact() {
             exit={{ opacity: 0, transition: { duration: 0.1 } }}
             whileHover={{ scale: 1.06 }}
             whileTap={{ scale: 0.95 }}
-            className="flex h-14 w-14 items-center justify-center text-cyan-300 transition-colors hover:text-cyan-200"
+            className="flex h-14 w-14 cursor-pointer items-center justify-center text-cyan-300 transition-colors hover:text-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
           >
             <MessageCircle className="h-6 w-6" strokeWidth={1.75} aria-hidden />
           </motion.button>
