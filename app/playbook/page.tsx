@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     'Real-world automation scenarios built with the Auto-Hype Director — boss-fight ' +
     'facecam push-ins, match-win celebrations, clutch focus cuts, AFK breaks, and ' +
     'auto-marked clip moments.',
+  alternates: { canonical: 'https://yaseenyk.github.io/streamer-os-website/playbook' },
 };
 
 // ---------------------------------------------------------------------------
@@ -187,7 +188,7 @@ export default function PlaybookPage() {
     <main>
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/5">
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[url(/grid.svg)] opacity-50" />
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:64px_64px] opacity-50" />
         <div aria-hidden className="pointer-events-none absolute left-1/2 top-0 h-[320px] w-[720px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[130px]" />
         <div className="relative mx-auto max-w-4xl px-6 py-24 text-center sm:py-28">
           <Reveal>

@@ -14,6 +14,7 @@ import {
 } from 'framer-motion';
 import { ArrowRight, Gauge, ShieldCheck, Workflow } from 'lucide-react';
 import Pricing from '@/components/Pricing';
+import { NodeGraph } from '@/components/NodeGraph';
 
 // ---------------------------------------------------------------------------
 // Motion vocabulary
@@ -91,7 +92,7 @@ function BentoCard({ className = '', children }: { className?: string; children:
   const borderGlow = useMotionTemplate`radial-gradient(360px circle at ${mx}px ${my}px, rgba(34,211,238,0.55), transparent 65%)`;
 
   return (
-    <motion.div
+    <motion.article
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
       style={{
@@ -120,7 +121,7 @@ function BentoCard({ className = '', children }: { className?: string; children:
         }}
       />
       <div className="relative h-full">{children}</div>
-    </motion.div>
+    </motion.article>
   );
 }
 
@@ -319,7 +320,7 @@ function Hero() {
   return (
     <section className="relative overflow-hidden">
       <MeshBackground />
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[url(/grid.svg)] opacity-40" />
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:64px_64px] opacity-40" />
 
       <div className="relative mx-auto max-w-6xl px-6 pb-24 pt-28 sm:pt-36">
         <motion.div style={reduce ? undefined : { y: headlineY, opacity: headlineOpacity }}>
@@ -428,12 +429,7 @@ function BentoFeatures() {
                 the instant the room peaks.
               </p>
               <div className="mt-6 flex-1 rounded-xl border border-white/10 bg-[#0a0e15]/60 p-3 sm:p-5">
-                {/* eslint-disable-next-line @next/next/no-img-element -- static local SVG illustration; static export, so next/image adds no value */}
-                <img
-                  src="/node-graph.svg"
-                  alt="Two trigger nodes feeding a logic gate into an action node"
-                  className="w-full"
-                />
+                <NodeGraph className="w-full" />
               </div>
             </div>
           </BentoCard>

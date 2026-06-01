@@ -29,6 +29,8 @@ export default function ContactForm() {
       email: formData.get('email'),
       subject: formData.get('subject'),
       message: formData.get('message'),
+      // Honeypot — forwarded so Formspree can silently drop bot submissions.
+      _gotcha: formData.get('_gotcha'),
     };
 
     setIsSubmitting(true);
@@ -69,6 +71,16 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+      {/* Honeypot: hidden from humans, bots tend to fill it in. */}
+      <input
+        type="text"
+        name="_gotcha"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ display: 'none' }}
+      />
+
       {errorMessage && (
         <p
           role="alert"

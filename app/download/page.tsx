@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Download',
   description:
     'Download streamerOS v1.0-GA for Windows — free, open source, and ready in seconds.',
+  alternates: { canonical: 'https://yaseenyk.github.io/streamer-os-website/download' },
 };
 
 // The "recommended" profile is streamerOS's documented target hardware.
@@ -38,7 +39,7 @@ export default function DownloadPage() {
     <main>
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/5">
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[url(/grid.svg)] opacity-50" />
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:64px_64px] opacity-50" />
         <div aria-hidden className="pointer-events-none absolute left-1/2 top-0 h-[320px] w-[720px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[130px]" />
         <div className="relative mx-auto max-w-3xl px-6 py-24 text-center sm:py-28">
           <Reveal>

@@ -3,12 +3,14 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { ArrowRight, Check, Gauge, ShieldCheck, Workflow, type LucideIcon } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
+import { NodeGraph } from '@/components/NodeGraph';
 
 export const metadata: Metadata = {
   title: 'Features',
   description:
     'A deep dive into streamerOS — a 1.8% CPU Rust core, the Auto-Hype Director ' +
     'scene-automation engine, and a zero-cloud, local-first architecture.',
+  alternates: { canonical: 'https://yaseenyk.github.io/streamer-os-website/features' },
 };
 
 // --- Deep-dive section ------------------------------------------------------
@@ -114,8 +116,7 @@ function ZeroCloudVisual() {
 function GraphVisual() {
   return (
     <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 sm:p-6">
-      {/* eslint-disable-next-line @next/next/no-img-element -- static local SVG illustration; static export, so next/image adds no value */}
-      <img src="/node-graph.svg" alt="Two trigger nodes feeding a logic gate into an action node" className="w-full" />
+      <NodeGraph className="w-full" />
     </div>
   );
 }
@@ -136,7 +137,7 @@ export default function FeaturesPage() {
     <main>
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/5">
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[url(/grid.svg)] opacity-50" />
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:64px_64px] opacity-50" />
         <div aria-hidden className="pointer-events-none absolute left-1/2 top-0 h-[320px] w-[720px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[130px]" />
         <div className="relative mx-auto max-w-4xl px-6 py-24 text-center sm:py-28">
           <Reveal>

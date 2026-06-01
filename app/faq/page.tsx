@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     'Frequently asked questions about streamerOS — OBS integration, privacy, ' +
     'platform support, system requirements, pricing, and performance.',
+  alternates: { canonical: 'https://yaseenyk.github.io/streamer-os-website/faq' },
 };
 
 interface FaqItem {
@@ -50,12 +51,30 @@ const FAQ_ITEMS: FaqItem[] = [
   },
 ];
 
+// FAQPage structured data — built from the same FAQ_ITEMS rendered below so the
+// markup always matches the visible content (a Google rich-results requirement).
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+
 export default function FaqPage() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/5">
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[url(/grid.svg)] opacity-50" />
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:64px_64px] opacity-50" />
         <div aria-hidden className="pointer-events-none absolute left-1/2 top-0 h-[320px] w-[720px] -translate-x-1/2 rounded-full bg-purple-600/10 blur-[130px]" />
         <div className="relative mx-auto max-w-3xl px-6 py-24 text-center sm:py-28">
           <Reveal>

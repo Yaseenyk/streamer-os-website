@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     'Why we built streamerOS — a Rust-powered, local-first streaming cockpit born ' +
     'out of frustration with bloated tools, dropped frames, and missed hype moments.',
+  alternates: { canonical: 'https://yaseenyk.github.io/streamer-os-website/about' },
 };
 
 interface Value {

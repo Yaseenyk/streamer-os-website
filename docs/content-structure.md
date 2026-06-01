@@ -151,12 +151,13 @@ warranty disclaimer, and the Supporter Edition. Both dated **May 22, 2026**
 | `Reveal.tsx` | features, download, changelog, faq | Shared scroll fade-and-rise primitive |
 
 ## Static assets (`public/`)
-- `grid.svg` — faint grid background used in page heroes.
-- `node-graph.svg` — Auto-Hype Director illustration (home + features).
-- Next.js defaults: `file.svg`, `globe.svg`, `next.svg`, `vercel.svg`,
-  `window.svg`.
-- ⚠️ **Missing:** `/og.png` (referenced by OpenGraph/Twitter metadata) is not
-  present — flagged as a TODO in `app/layout.tsx`.
+- None. The site is code-and-SVG-only — there are no external image requests,
+  so no image 404s are possible:
+  - The Auto-Hype Director illustration is an inline SVG component
+    (`components/NodeGraph.tsx`), used on the home and features pages.
+  - The faint hero grid is a pure-CSS background (layered `linear-gradient`s),
+    not an image file.
+  - OpenGraph/Twitter metadata is text-only — no `og.png` is referenced.
 
 ## Configuration & environment
 - `next.config.ts` — `output: 'export'`, `images.unoptimized: true`.

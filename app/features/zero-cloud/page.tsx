@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     'streamerOS is local-first by architecture: no accounts, no backend ' +
     'servers, and chat logs, audio feeds, and API keys that never leave your ' +
     'machine. Total privacy by design.',
+  alternates: { canonical: 'https://yaseenyk.github.io/streamer-os-website/features/zero-cloud' },
 };
 
 // ---------------------------------------------------------------------------
@@ -158,7 +159,7 @@ export default function ZeroCloudGuidePage() {
     <main>
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/5">
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[url(/grid.svg)] opacity-50" />
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:64px_64px] opacity-50" />
         <div aria-hidden className="pointer-events-none absolute left-1/2 top-0 h-[320px] w-[720px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[130px]" />
         <div className="relative mx-auto max-w-4xl px-6 py-24 text-center sm:py-28">
           <Reveal>
