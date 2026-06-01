@@ -16,7 +16,7 @@ const REQUIREMENTS = [
   { label: 'Operating system', value: 'Windows 10 or 11 (64-bit)' },
   { label: 'Recommended memory', value: '16 GB RAM' },
   { label: 'Recommended CPU', value: 'An 8-core processor' },
-  { label: 'Local AI features', value: 'A discrete GPU (RTX 3060-class or better)' },
+  { label: 'Local AI features', value: 'A discrete Graphics Processing Unit (GPU) — RTX 3060-class or better' },
 ];
 
 const STEPS = [

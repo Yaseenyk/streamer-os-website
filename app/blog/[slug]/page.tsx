@@ -142,8 +142,29 @@ export default async function BlogPostPage({ params }: { params: PageParams }) {
     day: 'numeric',
   });
 
+  const url = `${SITE_URL}/blog/${slug}`;
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: meta.title,
+    description: meta.description,
+    datePublished: meta.date,
+    dateModified: meta.date,
+    author: { '@type': 'Person', name: meta.author },
+    keywords: meta.tags.join(', '),
+    url,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    publisher: { '@type': 'Organization', name: 'streamerOS', url: SITE_URL },
+  };
+
   return (
     <main className="mx-auto max-w-3xl px-6 py-24 sm:py-32">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleJsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
       <article>
         <header>
           {meta.tags.length > 0 && (

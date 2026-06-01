@@ -62,7 +62,7 @@ const jsonLd = {
   description: DESCRIPTION,
   url: SITE_URL,
   // Free and open source; the $29 Supporter Edition is an optional one-time purchase.
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  offers: { '@type': 'Offer', price: '0.00', priceCurrency: 'USD' },
   featureList: [
     'Auto-Hype Director — node-based OBS scene automation',
     '1.8% CPU footprint under a live 1080p60 game',
