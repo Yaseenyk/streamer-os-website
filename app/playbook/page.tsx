@@ -105,7 +105,7 @@ const SCENARIOS: Scenario[] = [
   {
     icon: Swords,
     eyebrow: 'Scenario 01',
-    title: 'The Boss Fight.',
+    title: 'The Boss Fight: Pushing In the OBS Facecam on a Chat-Velocity Hype Spike',
     prose: [
       'You’re forty minutes into a brutal boss attempt and the run is finally going right. You can’t feel it from inside the fight, but chat can — the messages start stacking faster, the emotes pour in, and the room leans forward all at once. That surge of chat velocity is the most honest hype signal you have, and it’s happening at the exact moment your hands are least free to do anything about it.',
       'So you let the Auto-Hype Director watch it for you. A Trigger node tracks chat velocity and fires the instant it crosses your hype threshold and holds there. It flows into a Logic node that keeps the rule from twitching on a single spike, and out to an Action node that switches OBS to a tighter facecam angle — pushing the camera in on your reaction right as the room peaks. You never touch a hotkey; the broadcast simply tightens around the moment.',
@@ -120,7 +120,7 @@ const SCENARIOS: Scenario[] = [
   {
     icon: Trophy,
     eyebrow: 'Scenario 02',
-    title: 'The Victory Screen.',
+    title: 'The Victory Screen: Triggering a Celebration Scene from Game-State and Audio Signals',
     prose: [
       'The match ends and the win lands. This is the beat your highlight reel is made of — but it’s also the beat you’re most likely to fumble, because you’re busy celebrating, not reaching for a scene switch. A win deserves more than you flatly cutting to a static screen three seconds too late.',
       'The Auto-Hype Director catches it by combining two signals. A game-state Trigger fires the moment the match resolves to a victory, and an audio-level Trigger confirms the room actually erupted — your mic and game audio spiking together. A Logic gate requires both to be true, so a quiet, anticlimactic win won’t set it off. When they line up, the Action node fires a massive celebratory scene transition: confetti overlay, hype music sting, the works — perfectly timed, every single time.',
@@ -136,7 +136,7 @@ const SCENARIOS: Scenario[] = [
   {
     icon: Crosshair,
     eyebrow: 'Scenario 03',
-    title: 'The Clutch.',
+    title: 'The Clutch: Switching OBS Studio to a Focus Scene When Chat Goes Silent',
     prose: [
       'You’re in a 1v5. The whole lobby is on you, and there is no universe where you take a hand off the mouse to reach for an OBS hotkey and swap to your “Tryhard / Focus” scene — the moment you do, you lose the round. Meanwhile chat goes dead silent, everyone holding their breath at once.',
       'The Auto-Hype Director reads that silence for exactly what it is. A Trigger watches chat velocity freeze near zero and switches you to a clean Focus scene, stripping away the overlays that would distract you. Then, when you clutch it, chat detonates — velocity spikes and sentiment turns pure hype — and streamerOS instantly cuts to your Victory / Replay scene. You never touched a key; the broadcast told your story for you.',
@@ -152,7 +152,7 @@ const SCENARIOS: Scenario[] = [
   {
     icon: Coffee,
     eyebrow: 'Scenario 04',
-    title: 'The Snack Break.',
+    title: 'The Snack Break: Auto-Triggering a BRB Scene from Idle Game Audio and Chat',
     prose: [
       'You step away for thirty seconds to grab food. Thirty seconds becomes five minutes. You forgot to hit the BRB screen — so a few thousand people are now watching an empty chair and a paused game, and the energy you spent all stream building quietly drains away.',
       'streamerOS notices the room going quiet on its own: zero game audio and chat velocity falling off for five straight minutes. A Logic node makes sure it’s a real break and not a brief lull, then the Action node fades gently into your AFK / Be Right Back scene and mutes your mic — so the kitchen stays off-stream and your viewers get a tidy “back soon” instead of an empty chair.',
@@ -167,7 +167,7 @@ const SCENARIOS: Scenario[] = [
   {
     icon: Ghost,
     eyebrow: 'Scenario 05',
-    title: 'The Jump Scare.',
+    title: 'The Jump Scare: Auto-Marking Clip Moments from an Emote-Sentiment Spike',
     prose: [
       'The horror game finally gets you. You scream, you flinch clean out of frame — and chat instantly floods with OMEGALUL and LMAO. It’s a perfect clip moment, the kind that makes the rounds the next day, and right now it’s slipping past completely unmarked.',
       'The sentiment engine reads the emote flood for exactly what it is — a massive spike of laughter — and a Logic node confirms it’s well above your laughter threshold rather than a stray emote or two. The Action node fires a temporary black-and-white “Wasted” filter over your webcam for ten seconds and drops a clip marker. The bit lands on its own, the moment gets saved, and you just keep playing.',
@@ -178,6 +178,38 @@ const SCENARIOS: Scenario[] = [
       { kind: 'logic', icon: GitMerge, label: 'Above laughter threshold', detail: 'real, not a trickle' },
       { kind: 'action', icon: MonitorPlay, label: 'Webcam Filter = Wasted (10s)', detail: 'the bit lands itself' },
     ],
+  },
+];
+
+// ---------------------------------------------------------------------------
+// Plain-text concept definitions — entity-rich, answer-first blocks sized for
+// clean AI / LLM summarization snippets.
+// ---------------------------------------------------------------------------
+const GLOSSARY: { term: string; definition: string }[] = [
+  {
+    term: 'Auto-Hype Director',
+    definition:
+      'The Auto-Hype Director is streamerOS’s visual, node-based automation engine. It links Trigger nodes (chat velocity, game state, audio level, emote sentiment), Logic nodes, and Action nodes so that Open Broadcaster Software (OBS) Studio scenes switch automatically the instant your stream peaks — without touching a hotkey.',
+  },
+  {
+    term: 'Chat Velocity',
+    definition:
+      'Chat velocity is the rate of incoming chat messages over a short rolling window, such as messages per second. streamerOS treats a sharp rise in chat velocity as a real-time hype signal, and a sustained drop toward zero as a lull, using both to drive automatic scene changes.',
+  },
+  {
+    term: 'Interprocess Communication (IPC)',
+    definition:
+      'Interprocess Communication (IPC) is the set of operating-system mechanisms that let two separate local applications — such as streamerOS and Open Broadcaster Software (OBS) Studio — exchange data and commands directly on the same machine, without routing anything over the internet.',
+  },
+  {
+    term: 'Local Loopback Adapter',
+    definition:
+      'A local loopback adapter, reachable at the IP address 127.0.0.1, routes network traffic entirely inside your own computer’s memory. streamerOS communicates with OBS Studio over this loopback connection, so scene-switch commands never leave the device and execute in milliseconds.',
+  },
+  {
+    term: 'Zero-Cloud Architecture',
+    definition:
+      'Zero-cloud architecture means the software runs and stores all of its data on the local machine, with no remote server, user account, or backend. For streamerOS, your chat, audio, credentials, and automation rules never leave your computer.',
   },
 ];
 
@@ -241,6 +273,28 @@ export default function PlaybookPage() {
           );
         })}
       </div>
+
+      {/* Key concepts — plain-text definitions for clean AI / LLM summarization */}
+      <section className="border-t border-white/5">
+        <div className="mx-auto max-w-3xl px-6 py-20 sm:py-24">
+          <Reveal>
+            <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">
+              Key concepts
+            </p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+              streamerOS Automation Glossary: Key Terms Defined
+            </h2>
+          </Reveal>
+          <div className="mt-8 space-y-8">
+            {GLOSSARY.map(({ term, definition }) => (
+              <Reveal key={term}>
+                <h3 className="text-lg font-semibold text-zinc-100">{term}</h3>
+                <p className="mt-2 max-w-prose leading-relaxed text-slate-300">{definition}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CTA */}
       <section className="border-t border-white/5">

@@ -56,10 +56,11 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: 'streamerOS',
-  applicationCategory: 'MultimediaApplication',
-  operatingSystem: 'Windows 10, Windows 11',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Windows',
   softwareVersion: '1.0',
-  description: DESCRIPTION,
+  description:
+    'A high-performance, zero-cloud desktop local automation framework for live broadcasters optimizing OBS Studio performance.',
   url: SITE_URL,
   // Free and open source; the $29 Supporter Edition is an optional one-time purchase.
   offers: { '@type': 'Offer', price: '0.00', priceCurrency: 'USD' },
