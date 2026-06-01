@@ -1,7 +1,9 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
+// Static export — `next build` emits a fully static site (no Node runtime).
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'export',
+  images: { unoptimized: true },
 };
 
 export default nextConfig;

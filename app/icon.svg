@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <g filter="url(#glow)">
+    <path d="M 75 22 L 35 22 C 25 22, 20 27, 20 37 L 20 40 C 20 50, 25 55, 35 55 L 65 55 C 75 55, 80 60, 80 70 L 80 73 C 80 83, 75 88, 65 88 L 25 88"
+          fill="none"
+          stroke="url(#brandGrad)"
+          stroke-width="10"
+          stroke-linecap="round"
+          stroke-linejoin="round" />
+    <circle cx="75" cy="22" r="6" fill="#22d3ee" />
+    <circle cx="25" cy="88" r="6" fill="#a855f7" />
+  </g>
+</svg>

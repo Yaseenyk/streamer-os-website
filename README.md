@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# streamerOS — Marketing Site
 
-## Getting Started
+The marketing website for **streamerOS**, the ultra-lightweight desktop
+cockpit for live streamers. A high-performance, statically-exported site.
 
-First, run the development server:
+> This repository is the marketing site only. The streamerOS desktop
+> application lives in a separate repository.
+
+## Tech stack
+
+- **Next.js** — App Router, configured for static export
+- **Tailwind CSS**
+- **Framer Motion** — hero & scroll animations
+- **Lucide React** — icons
+
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The dev server runs at `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Before the contact form will work, create a `.env.local` from `.env.example`
+and set `NEXT_PUBLIC_FORM_ENDPOINT` (see **Environment variables** below).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Build
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+Because `next.config.ts` sets `output: 'export'`, `next build` emits a fully
+static site into `./out` — plain HTML, CSS, and JS, with no Node server at
+runtime.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Environment variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Variable | Required | Description |
+| --- | --- | --- |
+| `NEXT_PUBLIC_FORM_ENDPOINT` | Yes — for the contact form | URL the contact form POSTs to, e.g. a Formspree or Web3Forms endpoint. |
 
-## Deploy on Vercel
+The `NEXT_PUBLIC_` prefix means the value is **inlined into the client bundle
+at build time**. A static export has no server to read it at runtime, so it
+must be set **before** `next build` runs — changing it requires a rebuild.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment to Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is a **static export** (`output: 'export'` in `next.config.ts`):
+the build produces a static `out/` directory with no serverless functions or
+Node runtime.
+
+1. Import the repository into Vercel — it auto-detects Next.js.
+2. In **Project Settings → Environment Variables**, add
+   `NEXT_PUBLIC_FORM_ENDPOINT`. Set it **before the first build**, since the
+   value is baked into the static bundle at build time (a later change needs a
+   redeploy).
+3. Deploy. Vercel runs `next build` and serves the static output.
+
+The contact form submits directly from the browser to the external
+`NEXT_PUBLIC_FORM_ENDPOINT` service — no backend or serverless function is
+required.
