@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 172" role="img" aria-label="streamerOS">
+  <defs>
+    <linearGradient id="stkGrad" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#22d3ee"></stop><stop offset="1" stop-color="#a855f7"></stop>
+    </linearGradient>
+    <linearGradient id="stkText" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22d3ee"></stop><stop offset="1" stop-color="#a855f7"></stop>
+    </linearGradient>
+    <filter id="stkGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.8" result="b"></feGaussianBlur>
+      <feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+    </filter>
+  </defs>
+  <g transform="translate(91 6) scale(0.78)">
+    <g filter="url(#stkGlow)" fill="url(#stkGrad)">
+      <rect x="14.25" y="39" width="7.5" height="22" rx="3.75"></rect>
+      <rect x="24.92" y="30" width="7.5" height="40" rx="3.75"></rect>
+      <rect x="35.58" y="21" width="7.5" height="58" rx="3.75"></rect>
+      <rect x="46.25" y="13" width="7.5" height="74" rx="3.75"></rect>
+      <rect x="56.92" y="21" width="7.5" height="58" rx="3.75"></rect>
+      <rect x="67.58" y="30" width="7.5" height="40" rx="3.75"></rect>
+      <rect x="78.25" y="39" width="7.5" height="22" rx="3.75"></rect>
+    </g>
+    <circle cx="50" cy="13" r="7" fill="none" stroke="#22d3ee" stroke-width="1.4" stroke-opacity="0.5"></circle>
+    <circle cx="50" cy="13" r="3.4" fill="#67e8f9"></circle>
+  </g>
+  <text x="130" y="158" text-anchor="middle" font-family="&#39;Inter&#39;, system-ui, sans-serif" font-size="38" font-weight="800" letter-spacing="-1.7" fill="#F8FAFC">streamer<tspan fill="url(#stkText)">OS</tspan></text>
+</svg>

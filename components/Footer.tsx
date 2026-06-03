@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { siteConfig } from '@/config/site';
-import { Logo } from '@/components/Logo';
+import { SignalLogo } from '@/components/SignalLogo';
 
 interface FooterLink {
   label: string;
@@ -77,7 +77,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center">
-              <Logo className="h-8 w-auto" />
+              <SignalLogo className="text-2xl" />
             </Link>
             <p className="mt-4 max-w-xs text-sm text-zinc-500">
               The ultra-lightweight desktop cockpit for live streamers. 1.8% CPU, zero cloud.

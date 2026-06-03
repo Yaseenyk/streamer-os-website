@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X, ChevronDown, Workflow, Gauge, ShieldCheck, type LucideIcon } from 'lucide-react';
-import { Logo } from '@/components/Logo';
+import { SignalLogo } from '@/components/SignalLogo';
 import { usePreRegister } from '@/components/PreRegisterModal';
 
 interface FeatureLink {
@@ -87,7 +87,7 @@ export default function Header() {
         <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
           {/* Logo */}
           <Link href="/" onClick={closeMenu} className="flex items-center">
-            <Logo className="h-8 w-auto" />
+            <SignalLogo animated className="text-2xl" />
           </Link>
 
           {/* Desktop nav */}

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" role="img" aria-label="streamerOS background">
+  <defs>
+    <radialGradient id="bgGlowCyan" cx="22%" cy="18%" r="55%">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.22"></stop>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"></stop>
+    </radialGradient>
+    <radialGradient id="bgGlowPurp" cx="84%" cy="30%" r="52%">
+      <stop offset="0" stop-color="#a855f7" stop-opacity="0.20"></stop>
+      <stop offset="1" stop-color="#a855f7" stop-opacity="0"></stop>
+    </radialGradient>
+    <radialGradient id="bgGlowCyan2" cx="55%" cy="105%" r="55%">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.12"></stop>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"></stop>
+    </radialGradient>
+    <pattern id="bgGrid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"></path>
+    </pattern>
+    <linearGradient id="bgVignette" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#05070A" stop-opacity="0"></stop>
+      <stop offset="1" stop-color="#05070A" stop-opacity="0.55"></stop>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="#05070A"></rect>
+  <rect width="1920" height="1080" fill="url(#bgGrid)"></rect>
+  <rect width="1920" height="1080" fill="url(#bgGlowCyan)"></rect>
+  <rect width="1920" height="1080" fill="url(#bgGlowPurp)"></rect>
+  <rect width="1920" height="1080" fill="url(#bgGlowCyan2)"></rect>
+  <rect width="1920" height="1080" fill="url(#bgVignette)"></rect>
+</svg>
