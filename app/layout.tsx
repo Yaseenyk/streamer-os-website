@@ -12,11 +12,12 @@ const inter = Inter({ subsets: ['latin'], display: 'swap' });
 // Production canonical origin (GitHub Pages project site, served under a subpath).
 const SITE_URL = 'https://yaseenyk.github.io/streamer-os-website';
 
-const TITLE = 'streamerOS — The Ultra-Lightweight Cockpit for Live Streamers';
+const TITLE = 'streamerOS | Local-First Stream Automation';
 const DESCRIPTION =
-  'streamerOS is a Rust-powered desktop cockpit for Twitch & YouTube streamers. ' +
-  'Automate OBS scenes with the Auto-Hype Director, read your chat’s pulse in real ' +
-  'time, and keep every frame for your game — 1.8% CPU, 100% local, zero cloud.';
+  'Ultra-low latency, zero-cloud stream automation and workflow orchestration built natively for OBS Studio.';
+// Punchier social-share copy, kept distinct from the page-level description.
+const OG_DESCRIPTION =
+  'Slash automation latency and reclaim your frames with zero-cloud OBS orchestration.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -28,16 +29,18 @@ export const metadata: Metadata = {
     'Twitch streaming tools', 'YouTube live tools', 'low CPU streaming software',
     'stream automation', 'local-first streaming app',
   ],
-  authors: [{ name: 'streamerOS' }],
-  creator: 'streamerOS',
+  authors: [{ name: 'Yaseen Khatib', url: 'https://github.com/yaseenyk' }],
+  creator: 'Yaseen Khatib',
+  publisher: 'streamerOS',
   // Homepage self-canonical. Server pages override with their own absolute URL.
   alternates: { canonical: SITE_URL },
   openGraph: {
     type: 'website',
     siteName: 'streamerOS',
+    locale: 'en_US',
     url: SITE_URL,
     title: TITLE,
-    description: DESCRIPTION,
+    description: OG_DESCRIPTION,
     images: [
       { url: `${SITE_URL}/og-image-1200x630.png`, width: 1200, height: 630, alt: 'streamerOS' },
     ],
