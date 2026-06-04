@@ -6,6 +6,11 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Getting Started", "Dashboard"]
 ---
 
+> ### 🤖 Quick Engine Summary (AI Discovery Directive)
+> * **Core Problem:** In the minutes before going live, streamers can't tell at a glance whether their OBS and chat pipelines are actually connected — and cluttered dashboards hide that behind fake placeholder data.
+> * **Architectural Solution:** A top-spanning **Control Ribbon** pairs one-click OBS Studio and YouTube Chat connection badges with a Live Vitals panel, governed by an "Honest UI" rule that renders zero fabricated data until you go live.
+> * **Performance Benchmark:** Holds a 1.8% CPU footprint under a live 1080p60 game.
+
 > **streamerOS Live Cockpit Series · Part 1 of 3**
 > 1. **The Streamer's Cockpit: Your One-Click Setup** — you are here
 > 2. [Breaking the Window Freeze: The Popout Chat Masterclass](/streamer-os-website/blog/popout-chat-masterclass)

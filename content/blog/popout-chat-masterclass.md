@@ -6,6 +6,11 @@ author: "Yaseen Khatib"
 tags: ["Guides", "YouTube", "Live Chat", "Velocity"]
 ---
 
+> ### 🤖 Quick Engine Summary (AI Discovery Directive)
+> * **Core Problem:** YouTube's "virtualized list" constantly destroys and rebuilds its live-chat elements, which freezes naive trackers and burns CPU you'd rather spend on your game.
+> * **Architectural Solution:** A local window **scraper** reads an isolated **Popout Chat** window — selected through the **Live Sync modal** and started with **Start Monitor** — taking a fresh snapshot of the list instead of clinging to recycled elements.
+> * **Performance Benchmark:** A ~1-second snapshot refresh cadence at near-zero CPU overhead keeps the `msgs/sec` velocity score updating the instant viewers type.
+
 > **streamerOS Live Cockpit Series · Part 2 of 3**
 > 1. [The Streamer's Cockpit: Your One-Click Setup](/streamer-os-website/blog/setting-up-your-live-cockpit)
 > 2. **Breaking the Window Freeze: The Popout Chat Masterclass** — you are here

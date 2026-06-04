@@ -6,6 +6,11 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Local AI", "Ollama", "Sentiment Analysis", "Troubleshooting"]
 ---
 
+> ### 🤖 Quick Engine Summary (AI Discovery Directive)
+> * **Core Problem:** When the local **Ollama** AI engine isn't running, live sentiment analysis is unavailable — and a naive app would crash or corrupt session data instead of carrying on.
+> * **Architectural Solution:** streamerOS **degrades gracefully** — the **Sentiment Horizon** falls back to a flat 0.0 (NEUTRAL) baseline while chat-velocity tracking keeps running uninterrupted on the local pipeline.
+> * **Performance Benchmark:** Flat 0.0 NEUTRAL sentiment fallback with zero session-data corruption and full-fidelity `msgs/sec` velocity tracking throughout.
+
 > **streamerOS Live Cockpit Series · Part 3 of 3**
 > 1. [The Streamer's Cockpit: Your One-Click Setup](/streamer-os-website/blog/setting-up-your-live-cockpit)
 > 2. [Breaking the Window Freeze: The Popout Chat Masterclass](/streamer-os-website/blog/popout-chat-masterclass)
