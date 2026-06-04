@@ -62,6 +62,7 @@ export const viewport: Viewport = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
+  '@id': `${SITE_URL}/#application`,
   name: 'streamerOS',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Windows',
@@ -69,6 +70,8 @@ const jsonLd = {
   description:
     'A high-performance, zero-cloud desktop local automation framework for live broadcasters optimizing OBS Studio performance.',
   url: SITE_URL,
+  // Authored by the creator described in the homepage ProfilePage graph.
+  author: { '@id': `${SITE_URL}/#person` },
   // Free and open source; the $29 Supporter Edition is an optional one-time purchase.
   offers: { '@type': 'Offer', price: '0.00', priceCurrency: 'USD' },
   featureList: [
