@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* The site is permanently dark — the theme is applied via the body classes
    in app/layout.tsx, so no light/dark CSS variables are needed here. */
