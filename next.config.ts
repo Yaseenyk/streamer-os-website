@@ -12,10 +12,15 @@ const nextConfig: NextConfig = {
 
 // Plugins are passed as strings/serializable tuples — required by Turbopack,
 // which is the default compiler on Next 16 and can't accept function refs.
+// rehype-pretty-code options must stay JSON-serializable (no transformer fns).
 const withMDX = createMDX({
   options: {
     remarkPlugins: ['remark-gfm'],
-    rehypePlugins: ['rehype-slug', ['rehype-autolink-headings', { behavior: 'wrap' }]],
+    rehypePlugins: [
+      'rehype-slug',
+      ['rehype-pretty-code', { theme: 'poimandres', keepBackground: true }],
+      ['rehype-autolink-headings', { behavior: 'wrap' }],
+    ],
   },
 });
 

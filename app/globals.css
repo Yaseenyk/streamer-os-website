@@ -3,3 +3,66 @@
 
 /* The site is permanently dark — the theme is applied via the body classes
    in app/layout.tsx, so no light/dark CSS variables are needed here. */
+
+/* ---- rehype-pretty-code (Shiki) ----
+   Styles the highlighted code blocks emitted into the docs `prose` content.
+   The `poimandres` theme paints token colors + the <pre> background inline
+   (keepBackground: true); these rules handle layout, scrolling, line
+   highlighting, and overriding Tailwind Typography's default <pre>/<code>. */
+
+[data-rehype-pretty-code-figure] {
+  margin-block: 1.5rem;
+}
+
+[data-rehype-pretty-code-figure] pre {
+  overflow-x: auto;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(255 255 255 / 0.08);
+  padding-block: 0.875rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* Let Shiki's per-token colors win over Typography's prose code styling. */
+[data-rehype-pretty-code-figure] pre code {
+  display: grid;
+  background: transparent;
+  color: inherit;
+  font-weight: inherit;
+  counter-reset: line;
+}
+
+/* Typography wraps inline `code` in quotes — never inside a code block. */
+[data-rehype-pretty-code-figure] pre code::before,
+[data-rehype-pretty-code-figure] pre code::after {
+  content: none;
+}
+
+/* Per-line padding so highlighted lines span the full width on scroll. */
+[data-rehype-pretty-code-figure] [data-line] {
+  padding-inline: 1.25rem;
+  border-left: 2px solid transparent;
+}
+
+[data-highlighted-line] {
+  background-color: rgb(34 211 238 / 0.1); /* cyan-400/10 */
+  border-left-color: rgb(34 211 238 / 0.6);
+}
+
+/* Optional code-block title (```ts title="...") rendered above the <pre>. */
+[data-rehype-pretty-code-title] {
+  border: 1px solid rgb(255 255 255 / 0.08);
+  border-bottom: 0;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  background-color: rgb(255 255 255 / 0.03);
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  color: rgb(103 232 249); /* cyan-300 */
+}
+
+[data-rehype-pretty-code-title] + pre {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
