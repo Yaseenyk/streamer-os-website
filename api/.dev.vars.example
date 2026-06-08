@@ -1,0 +1,13 @@
+# Cloudflare Worker secrets for the streamerOS RAG chatbot.
+# Copy this file to `.dev.vars` (gitignored) for local `wrangler dev`, and set
+# the same three keys in production via `npx wrangler secret put <NAME>`.
+
+# Google Generative AI API key — powers gemini-embedding-001 (retrieval) and
+# gemini-flash-latest (generation).
+GOOGLE_GENERATIVE_AI_API_KEY=
+
+# Upstash Vector REST endpoint URL for the 768-dim COSINE index.
+UPSTASH_VECTOR_REST_URL=
+
+# Upstash Vector REST token. Use the READ-WRITE token (ingestion + queries).
+UPSTASH_VECTOR_REST_TOKEN=
