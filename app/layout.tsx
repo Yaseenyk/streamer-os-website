@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingContact from '@/components/FloatingContact';
+import SupportChatbot from '@/components/SupportChatbot';
 import { PreRegisterProvider } from '@/components/PreRegisterModal';
 import './globals.css';
 
@@ -107,6 +108,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           {children}
           <Footer />
           <FloatingContact />
+          <SupportChatbot />
         </PreRegisterProvider>
       </body>
     </html>

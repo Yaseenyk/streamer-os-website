@@ -35,7 +35,7 @@ export default function FloatingContact() {
     <motion.div
       layout
       transition={{ layout: { duration: 0.4, ease: EASE } }}
-      className={`fixed bottom-6 right-6 z-[100] overflow-hidden border border-white/10 bg-slate-950/90 shadow-2xl shadow-black/50 backdrop-blur-md ${
+      className={`fixed bottom-24 right-6 z-[100] overflow-hidden border border-white/10 bg-slate-950/90 shadow-2xl shadow-black/50 backdrop-blur-md ${
         isOpen ? 'w-96 max-w-[calc(100vw-3rem)] rounded-2xl' : 'rounded-full'
       }`}
     >
