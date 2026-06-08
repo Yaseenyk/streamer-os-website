@@ -1,0 +1,4 @@
+name = "streameros-chatbot"
+main = "src/index.ts"
+compatibility_date = "2026-06-08"
+compatibility_flags = ["nodejs_compat"]
