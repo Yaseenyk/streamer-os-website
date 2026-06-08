@@ -3,46 +3,47 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Bot, Send, X } from 'lucide-react';
+import { useChat } from '@ai-sdk/react';
+import { DefaultChatTransport, type UIMessage } from 'ai';
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-type Role = 'user' | 'assistant';
+// Inlined at build time. Production (GitHub Pages) sets NEXT_PUBLIC_CHAT_API to
+// the deployed Worker URL; local dev falls back to the Hono Worker on 8787.
+const CHAT_API = process.env.NEXT_PUBLIC_CHAT_API || 'http://localhost:8787/chat';
 
-interface Message {
-  id: number;
-  role: Role;
-  content: string;
+const GREETING =
+  "Hey! I'm the streamerOS AI assistant. Ask me about setup, system requirements, or troubleshooting.";
+
+// v6 UIMessages carry their text in parts[], not a flat content string.
+function messageText(message: UIMessage): string {
+  return message.parts
+    .filter((part) => part.type === 'text')
+    .map((part) => ('text' in part ? part.text : ''))
+    .join('');
 }
-
-const MOCK_REPLY =
-  'Hi there! I am loading my knowledge base. Soon I will be connected to ' +
-  'Gemini 1.5 Flash to answer your streaming questions natively.';
-
-const INITIAL_MESSAGES: Message[] = [
-  {
-    id: 0,
-    role: 'assistant',
-    content: "Hey! I'm the streamerOS AI assistant. Ask me about setup, system requirements, or troubleshooting.",
-  },
-];
 
 export default function SupportChatbot() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>(INITIAL_MESSAGES);
+  // useChat (v3) no longer manages the input field, so we keep a local one.
   const [input, setInput] = useState('');
-  const [isTyping, setIsTyping] = useState(false);
 
-  // Monotonic id source — survives re-renders without colliding like Date.now().
-  const nextId = useRef(INITIAL_MESSAGES.length);
+  const { messages, sendMessage, status } = useChat({
+    transport: new DefaultChatTransport({ api: CHAT_API }),
+  });
+
+  const isLoading = status === 'submitted' || status === 'streaming';
+  // Show the typing dots after a send until the assistant's stream begins.
+  const showTyping = isLoading && messages[messages.length - 1]?.role !== 'assistant';
+
   const scrollRef = useRef<HTMLDivElement>(null);
-  const replyTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Pin the message list to the latest message whenever it grows or typing toggles.
+  // Pin the message list to the latest content as it grows or streams.
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' });
-  }, [messages, isTyping]);
+  }, [messages, status]);
 
-  // Escape closes the panel — matches FloatingContact's dismiss behavior.
+  // Escape closes the panel.
   useEffect(() => {
     if (!isOpen) return;
     const onKeyDown = (e: KeyboardEvent) => {
@@ -52,28 +53,12 @@ export default function SupportChatbot() {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [isOpen]);
 
-  // Clear any pending mock-reply timer on unmount.
-  useEffect(() => {
-    return () => {
-      if (replyTimer.current) clearTimeout(replyTimer.current);
-    };
-  }, []);
-
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const trimmed = input.trim();
-    if (!trimmed || isTyping) return;
-
-    const userMessage: Message = { id: nextId.current++, role: 'user', content: trimmed };
-    setMessages((prev) => [...prev, userMessage]);
+    const text = input.trim();
+    if (!text || isLoading) return;
+    sendMessage({ text });
     setInput('');
-    setIsTyping(true);
-
-    // Mock the round-trip: brief "typing…" pause, then a hardcoded assistant reply.
-    replyTimer.current = setTimeout(() => {
-      setMessages((prev) => [...prev, { id: nextId.current++, role: 'assistant', content: MOCK_REPLY }]);
-      setIsTyping(false);
-    }, 1200);
   };
 
   return (
@@ -119,24 +104,32 @@ export default function SupportChatbot() {
 
             {/* Message area */}
             <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
+              {messages.length === 0 && (
+                <div className="flex justify-start">
+                  <p className="max-w-[85%] rounded-2xl rounded-bl-sm border border-cyan-400/10 bg-slate-900/80 px-3.5 py-2 text-sm text-cyan-100/90">
+                    {GREETING}
+                  </p>
+                </div>
+              )}
+
               {messages.map((message) =>
                 message.role === 'user' ? (
                   <div key={message.id} className="flex justify-end">
-                    <p className="max-w-[80%] rounded-2xl rounded-br-sm bg-white/10 px-3.5 py-2 text-sm text-zinc-100">
-                      {message.content}
+                    <p className="max-w-[80%] whitespace-pre-wrap rounded-2xl rounded-br-sm bg-white/10 px-3.5 py-2 text-sm text-zinc-100">
+                      {messageText(message)}
                     </p>
                   </div>
                 ) : (
                   <div key={message.id} className="flex justify-start">
-                    <p className="max-w-[85%] rounded-2xl rounded-bl-sm border border-cyan-400/10 bg-slate-900/80 px-3.5 py-2 text-sm text-cyan-100/90">
-                      {message.content}
+                    <p className="max-w-[85%] whitespace-pre-wrap rounded-2xl rounded-bl-sm border border-cyan-400/10 bg-slate-900/80 px-3.5 py-2 text-sm text-cyan-100/90">
+                      {messageText(message)}
                     </p>
                   </div>
                 ),
               )}
 
-              {/* Typing indicator */}
-              {isTyping && (
+              {/* Typing indicator (driven by isLoading / status) */}
+              {showTyping && (
                 <div className="flex justify-start">
                   <div className="flex items-center gap-1 rounded-2xl rounded-bl-sm border border-cyan-400/10 bg-slate-900/80 px-3.5 py-3">
                     <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-cyan-400 [animation-delay:-0.3s]" />
@@ -160,7 +153,7 @@ export default function SupportChatbot() {
                 />
                 <button
                   type="submit"
-                  disabled={!input.trim() || isTyping}
+                  disabled={!input.trim() || isLoading}
                   aria-label="Send message"
                   className="inline-flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-lg bg-cyan-400 text-[#05070A] transition-all hover:bg-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 disabled:cursor-not-allowed disabled:opacity-40"
                 >
