@@ -87,7 +87,7 @@ Context:
 ${context}`;
 
   const result = streamText({
-    model: google('gemini-flash-latest'),
+    model: google('gemini-flash-lite-latest'),
     system,
     messages: await convertToModelMessages(messages),
   });
