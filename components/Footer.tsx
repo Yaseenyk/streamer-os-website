@@ -82,6 +82,12 @@ export default function Footer() {
             <p className="mt-4 max-w-xs text-sm text-zinc-500">
               The ultra-lightweight desktop cockpit for live streamers. 1.8% CPU, zero cloud.
             </p>
+            <a
+              href={`mailto:${siteConfig.contactEmail}`}
+              className="mt-4 inline-block rounded text-sm text-zinc-400 transition-colors hover:text-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+            >
+              {siteConfig.contactEmail}
+            </a>
           </div>
 
           <FooterColumn title="Product" links={PRODUCT} />

@@ -2,6 +2,7 @@
 
 import { motion, type Variants } from 'framer-motion';
 import ContactForm from '@/components/ContactForm';
+import { siteConfig } from '@/config/site';
 
 const container: Variants = {
   hidden: {},
@@ -28,6 +29,15 @@ export default function ContactFormWrapper() {
         <p className="mt-4 text-slate-400">
           Have a question about the Supporter Edition, or want to report a bug?
           Drop us a line.
+        </p>
+        <p className="mt-3 text-sm text-slate-500">
+          Prefer email? Reach us at{' '}
+          <a
+            href={`mailto:${siteConfig.contactEmail}`}
+            className="rounded text-cyan-400 underline-offset-2 transition-colors hover:text-cyan-300 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+          >
+            {siteConfig.contactEmail}
+          </a>
         </p>
       </motion.section>
 
