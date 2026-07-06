@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, X, ChevronDown, Workflow, Gauge, ShieldCheck, type LucideIcon } from 'lucide-react';
+import { Menu, X, ChevronDown, Workflow, Gauge, ShieldCheck, LayoutGrid, type LucideIcon } from 'lucide-react';
 import { SignalLogo } from '@/components/SignalLogo';
 import { usePreRegister } from '@/components/PreRegisterModal';
 
@@ -15,6 +15,12 @@ interface FeatureLink {
 }
 
 const FEATURE_LINKS: FeatureLink[] = [
+  {
+    label: 'All Features',
+    href: '/features',
+    description: 'The full cockpit — 13 tools.',
+    icon: LayoutGrid,
+  },
   {
     label: 'Auto-Hype Director',
     href: '/features/auto-hype',
