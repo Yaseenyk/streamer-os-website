@@ -5,7 +5,6 @@ import createMDX from '@next/mdx';
 const nextConfig: NextConfig = {
   output: 'export',
   images: { unoptimized: true },
-  basePath: '/streamer-os-website',
   // Let `.md`/`.mdx` files act as routes (App Router docs hub under app/docs).
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
 };

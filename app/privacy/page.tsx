@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     'streamerOS runs entirely on your machine. We do not collect, transmit, ' +
     'or store your chat data, credentials, or OBS configuration.',
-  alternates: { canonical: 'https://yaseenyk.github.io/streamer-os-website/privacy' },
+  alternates: { canonical: 'https://streamerosai.com/privacy' },
 };
 
 const H2 = 'text-xl font-semibold text-zinc-100';

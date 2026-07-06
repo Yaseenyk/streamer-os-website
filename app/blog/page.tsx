@@ -3,7 +3,7 @@ import { Reveal } from '@/components/Reveal';
 import { InteractiveBlogGrid } from '@/components/InteractiveBlogGrid';
 import { getAllPostMeta } from '@/lib/posts';
 
-const SITE_URL = 'https://yaseenyk.github.io/streamer-os-website';
+const SITE_URL = 'https://streamerosai.com';
 
 export const metadata: Metadata = {
   title: 'Blog',

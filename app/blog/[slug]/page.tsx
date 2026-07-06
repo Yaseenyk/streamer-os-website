@@ -10,7 +10,7 @@ import LocalVsCloudDiagram from '@/components/LocalVsCloudDiagram';
 import TelemetryLoopVisualizer from '@/components/TelemetryLoopVisualizer';
 import { getPostBySlug, getPostSlugs } from '@/lib/posts';
 
-const SITE_URL = 'https://yaseenyk.github.io/streamer-os-website';
+const SITE_URL = 'https://streamerosai.com';
 
 // Approved layout tokens → their components. Posts stay pure markdown data;
 // tokens are swapped for components here, never executed from the post itself.

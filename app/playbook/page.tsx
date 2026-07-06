@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     'Real-world automation scenarios built with the Auto-Hype Director — boss-fight ' +
     'facecam push-ins, match-win celebrations, clutch focus cuts, AFK breaks, and ' +
     'auto-marked clip moments.',
-  alternates: { canonical: 'https://yaseenyk.github.io/streamer-os-website/playbook' },
+  alternates: { canonical: 'https://streamerosai.com/playbook' },
 };
 
 // ---------------------------------------------------------------------------

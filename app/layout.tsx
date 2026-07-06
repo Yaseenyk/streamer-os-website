@@ -11,7 +11,7 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
 // Production canonical origin (GitHub Pages project site, served under a subpath).
-const SITE_URL = 'https://yaseenyk.github.io/streamer-os-website';
+const SITE_URL = 'https://streamerosai.com';
 
 const TITLE = 'streamerOS | Local-First Stream Automation';
 const DESCRIPTION =
@@ -96,7 +96,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         />
         <script
           defer
-          data-domain="yaseenyk.github.io/streamer-os-website"
+          data-domain="streamerosai.com"
           src="https://plausible.io/js/script.js"
         />
       </head>

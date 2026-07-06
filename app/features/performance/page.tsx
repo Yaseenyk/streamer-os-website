@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     'How streamerOS holds a 1.8% CPU footprint under a live 1080p60 game. ' +
     'A Rust + Tauri core that leaves your frames for the stream.',
-  alternates: { canonical: 'https://yaseenyk.github.io/streamer-os-website/features/performance' },
+  alternates: { canonical: 'https://streamerosai.com/features/performance' },
 };
 
 // ---------------------------------------------------------------------------

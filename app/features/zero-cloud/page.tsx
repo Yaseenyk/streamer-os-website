@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     'streamerOS is local-first by architecture: no accounts, no backend ' +
     'servers, and chat logs, audio feeds, and API keys that never leave your ' +
     'machine. Total privacy by design.',
-  alternates: { canonical: 'https://yaseenyk.github.io/streamer-os-website/features/zero-cloud' },
+  alternates: { canonical: 'https://streamerosai.com/features/zero-cloud' },
 };
 
 // ---------------------------------------------------------------------------

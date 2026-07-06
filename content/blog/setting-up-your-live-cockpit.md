@@ -13,8 +13,8 @@ tags: ["Guides", "Getting Started", "Dashboard"]
 
 > **streamerOS Live Cockpit Series · Part 1 of 3**
 > 1. **The Streamer's Cockpit: Your One-Click Setup** — you are here
-> 2. [Breaking the Window Freeze: The Popout Chat Masterclass](/streamer-os-website/blog/popout-chat-masterclass)
-> 3. [Waking Up the Brain: Handling the "Ollama Offline" Banner](/streamer-os-website/blog/fixing-the-ollama-offline-banner)
+> 2. [Breaking the Window Freeze: The Popout Chat Masterclass](/blog/popout-chat-masterclass)
+> 3. [Waking Up the Brain: Handling the "Ollama Offline" Banner](/blog/fixing-the-ollama-offline-banner)
 
 Welcome to the new standard for live stream monitoring. We built streamerOS to give you a professional, high-fidelity command center that runs completely locally on your machine. No bloat, no delayed web hooks, and no hunting through complex menus — just instant, at-a-glance telemetry to help you read your audience and direct your stream.
 
@@ -33,7 +33,7 @@ At the very top of your dashboard sits your **Control Ribbon** — a single row 
 On the left side of the ribbon you'll find compact status badges for **OBS Studio** and **YouTube Chat**. If they're disconnected, you don't need to dig through settings. Each one shows a high-contrast cyan icon — click it and streamerOS routes you straight to where you need to go:
 
 - The **OBS Studio** badge opens the **OBS Bridge**, where streamerOS connects to OBS over the local connection.
-- The **YouTube Chat** badge opens the **Live Sync modal**, where you'll point streamerOS at your chat (we cover that in detail in [Part 2](/streamer-os-website/blog/popout-chat-masterclass)).
+- The **YouTube Chat** badge opens the **Live Sync modal**, where you'll point streamerOS at your chat (we cover that in detail in [Part 2](/blog/popout-chat-masterclass)).
 
 Connect, click, and you're ready.
 
@@ -70,10 +70,10 @@ That's the "Honest UI" rule in action, not a glitch. With no live traffic yet, t
 Because they genuinely are offline. Rather than display a misleading "0," the Live Vitals show honest placeholders until you're broadcasting. Uptime is the one vital that starts moving immediately — it's a real ticking clock for your session.
 
 ### Where do I actually connect my chat?
-Click the **YouTube Chat** badge in the Control Ribbon to open the **Live Sync modal**, then point it at your popout chat window and hit **Start Monitor**. That whole flow is the subject of [Part 2](/streamer-os-website/blog/popout-chat-masterclass).
+Click the **YouTube Chat** badge in the Control Ribbon to open the **Live Sync modal**, then point it at your popout chat window and hit **Start Monitor**. That whole flow is the subject of [Part 2](/blog/popout-chat-masterclass).
 
 ---
 
 ## Next Up
 
-Now that you can read your cockpit, it's time to feed it the data that makes it sing: your live chat. In **[Part 2: Breaking the Window Freeze — The Popout Chat Masterclass](/streamer-os-website/blog/popout-chat-masterclass)**, we'll connect your YouTube chat through the Live Sync modal using the local window scraper, explain why the "Popout Chat" trick is so powerful, and show how streamerOS keeps your velocity scores updating in real time at almost zero CPU cost.
+Now that you can read your cockpit, it's time to feed it the data that makes it sing: your live chat. In **[Part 2: Breaking the Window Freeze — The Popout Chat Masterclass](/blog/popout-chat-masterclass)**, we'll connect your YouTube chat through the Live Sync modal using the local window scraper, explain why the "Popout Chat" trick is so powerful, and show how streamerOS keeps your velocity scores updating in real time at almost zero CPU cost.
