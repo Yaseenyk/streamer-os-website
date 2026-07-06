@@ -799,6 +799,7 @@ const creatorJsonLd = {
         '@id': 'https://streamerosai.com/#person',
         name: 'Yaseen Khatib',
         jobTitle: 'Senior Full-Stack Developer',
+        email: 'contact@streamerosai.com',
         knowsAbout: ['TypeScript', 'Node.js', 'Systems Architecture', 'OBS WebSocket Protocol'],
       },
     },

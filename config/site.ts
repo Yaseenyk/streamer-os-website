@@ -10,4 +10,6 @@ export const siteConfig = {
   twitterUrl: 'https://twitter.com/streamerOS',
   discordUrl: 'https://discord.gg/streamerOS',
   githubUrl: 'https://github.com/streamerOS/streamerOS',
+  /** Public contact address (custom domain, forwarded to the team inbox). */
+  contactEmail: 'contact@streamerosai.com',
 } as const;
