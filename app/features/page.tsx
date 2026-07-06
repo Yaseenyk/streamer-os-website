@@ -1,138 +1,262 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
-import { ArrowRight, Check, Gauge, ShieldCheck, Workflow, type LucideIcon } from 'lucide-react';
+import {
+  ArrowRight,
+  Activity,
+  BrainCircuit,
+  Clapperboard,
+  FileBarChart,
+  Flame,
+  Gauge,
+  Handshake,
+  MessageSquareText,
+  MonitorPlay,
+  Palette,
+  Scissors,
+  ShieldCheck,
+  Sparkles,
+  Workflow,
+  type LucideIcon,
+} from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
-import { NodeGraph } from '@/components/NodeGraph';
 
 export const metadata: Metadata = {
   title: 'Features',
   description:
-    'A deep dive into streamerOS — a 1.8% CPU Rust core, the Auto-Hype Director ' +
-    'scene-automation engine, and a zero-cloud, local-first architecture.',
+    'The full streamerOS cockpit — reactive OBS automation, hype-scored clip ' +
+    'finding, live viral markers, a sponsor media-kit generator, a lead CRM, and ' +
+    'a local AI sidekick. One lightweight Windows app, zero cloud.',
   alternates: { canonical: 'https://streamerosai.com/features' },
 };
 
-// --- Deep-dive section ------------------------------------------------------
-interface DeepDiveProps {
+// ---------------------------------------------------------------------------
+// A feature is either shipping in the current build (GA) or landing in v1.1.
+// The badge is a promise to the visitor — never mark a v1.1 feature as live.
+// ---------------------------------------------------------------------------
+type Status = 'ga' | 'soon';
+
+interface Feature {
   icon: LucideIcon;
+  name: string;
+  tagline: string;
+  pain: string;
+  status: Status;
+  href?: string;
+}
+
+interface Category {
   eyebrow: string;
   title: string;
-  body: string;
-  points: string[];
-  visual: ReactNode;
-  reverse?: boolean;
-  cta?: { label: string; href: string };
+  blurb: string;
+  features: Feature[];
 }
 
-function DeepDive({ icon: Icon, eyebrow, title, body, points, visual, reverse, cta }: DeepDiveProps) {
+const CATEGORIES: Category[] = [
+  {
+    eyebrow: 'Production',
+    title: 'Run the broadcast.',
+    blurb: 'Control OBS and your on-screen look without ever alt-tabbing out of the game.',
+    features: [
+      {
+        icon: MonitorPlay,
+        name: 'OBS Bridge',
+        tagline:
+          'Auto-discovers OBS over WebSocket, lists your scenes, and switches the program feed — no fragile plugins.',
+        pain: 'Kills the alt-tab scramble to change scenes mid-game.',
+        status: 'ga',
+        href: '/features/obs-bridge',
+      },
+      {
+        icon: Palette,
+        name: 'Aura Studio',
+        tagline:
+          'A live "Canvas of Light" that reads your game telemetry and chat velocity every second and shifts your overlay vibe — Calm to Hype — on its own.',
+        pain: 'Your stream reacts to the moment without you touching a thing.',
+        status: 'ga',
+        href: '/features/aura-studio',
+      },
+      {
+        icon: Sparkles,
+        name: 'Aura Scene Builder',
+        tagline:
+          'A drag-and-drop overlay editor. Build scenes, import your own assets, and render them straight into OBS — no third-party design tool.',
+        pain: 'Stops you paying for and juggling a separate overlay app.',
+        status: 'ga',
+      },
+    ],
+  },
+  {
+    eyebrow: 'Automation',
+    title: 'Hands off the keyboard.',
+    blurb: 'Let the app watch the signals and do the repetitive work while you play.',
+    features: [
+      {
+        icon: Workflow,
+        name: 'Auto-Director',
+        tagline:
+          'A visual node editor that fires OBS scene switches automatically from chat-velocity spikes, Super Chats, and in-game combat — edge-triggered so OBS is never spammed.',
+        pain: 'Perfect scene timing while both hands are on the game.',
+        status: 'ga',
+        href: '/features/auto-hype',
+      },
+      {
+        icon: Scissors,
+        name: 'Clip Library',
+        tagline:
+          'Scans your local recordings and scores every VOD by a hype metric — peak chat velocity, Super Chats, and sentiment — so the best moments float to the top.',
+        pain: 'No more scrubbing a 4-hour VOD hunting for the good part.',
+        status: 'ga',
+        href: '/features/clip-library',
+      },
+      {
+        icon: Flame,
+        name: 'Viral Moments',
+        tagline:
+          'Watches chat velocity live, auto-drops a marker on every hype spike, and exports the timestamps to CSV for your editor.',
+        pain: 'Every clip-worthy moment is bookmarked the instant it happens.',
+        status: 'ga',
+        href: '/features/viral-moments',
+      },
+      {
+        icon: Clapperboard,
+        name: 'Shorts Factory',
+        tagline:
+          'Agentic post-production: pick a VOD, mark a moment, and crop 16:9 down to a vertical 9:16 short with a bundled FFmpeg engine.',
+        pain: 'Turns last night’s stream into TikTok/Shorts content without an editor.',
+        status: 'soon',
+      },
+    ],
+  },
+  {
+    eyebrow: 'Business',
+    title: 'Get paid to stream.',
+    blurb: 'The unglamorous revenue work — pitching sponsors and tracking deals — handled locally.',
+    features: [
+      {
+        icon: FileBarChart,
+        name: 'Media Kit Generator',
+        tagline:
+          'Import your YouTube and Twitch analytics exports, and it computes duration-weighted reach stats and exports a branded, sponsor-ready PDF media kit.',
+        pain: 'A professional pitch deck in minutes instead of a weekend in Canva.',
+        status: 'ga',
+        href: '/features/media-kit',
+      },
+      {
+        icon: Handshake,
+        name: 'Sponsor CRM',
+        tagline:
+          'A lead pipeline built for creators — track every sponsor conversation from first DM to signed deal, stored locally on your machine.',
+        pain: 'Stops sponsor leads dying in a messy inbox and spreadsheet.',
+        status: 'ga',
+        href: '/features/sponsor-crm',
+      },
+    ],
+  },
+  {
+    eyebrow: 'Intelligence',
+    title: 'A brain that runs on your PC.',
+    blurb: 'Local AI, powered by Ollama on your own hardware — no account, no data leaving the box.',
+    features: [
+      {
+        icon: MessageSquareText,
+        name: 'AI Sidekick',
+        tagline:
+          'A streaming local-AI assistant that knows your live stats and can drive the app for you — switch a scene, pull recent chat, build an overlay — all by asking.',
+        pain: 'Answers "what was my peak last Tuesday?" and acts on it, mid-stream.',
+        status: 'ga',
+      },
+      {
+        icon: Activity,
+        name: 'Viral Engine',
+        tagline:
+          'Analyzes what makes titles and thumbnails land, then generates a thumbnail strategy and tag cloud for your next upload.',
+        pain: 'Takes the guesswork out of packaging a VOD for discovery.',
+        status: 'ga',
+      },
+      {
+        icon: MessageSquareText,
+        name: 'Live Chat Sentiment',
+        tagline:
+          'Classifies the mood of your chat in real time — peak and lowest points tracked through the whole session and fed to the AI.',
+        pain: 'See the room turn before it shows up in your numbers.',
+        status: 'ga',
+      },
+      {
+        icon: ShieldCheck,
+        name: 'Brand Guard (Voice)',
+        tagline:
+          'Local Whisper speech recognition listens to your mic for off-limits or competitor words and warns you before a sponsor hears them.',
+        pain: 'Protects sponsor contracts from an accidental slip on-air.',
+        status: 'soon',
+      },
+      {
+        icon: BrainCircuit,
+        name: 'Creator Memory',
+        tagline:
+          'A private vector memory that lets the AI Sidekick recall your entire back-catalogue — past streams, decisions, and stats — when you ask.',
+        pain: 'Your AI remembers your channel’s history, not just this session.',
+        status: 'soon',
+      },
+    ],
+  },
+];
+
+// ---------------------------------------------------------------------------
+function StatusBadge({ status }: { status: Status }) {
+  if (status === 'ga') {
+    return (
+      <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/30 bg-emerald-400/[0.08] px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-widest text-emerald-300">
+        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" aria-hidden />
+        Available now
+      </span>
+    );
+  }
   return (
-    <Reveal className="grid items-center gap-10 lg:grid-cols-2">
-      <div className={reverse ? 'lg:order-2' : undefined}>
-        <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-cyan-400">
+    <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-400/30 bg-amber-400/[0.08] px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-widest text-amber-300">
+      <span className="h-1.5 w-1.5 rounded-full bg-amber-400" aria-hidden />
+      Coming in v1.1
+    </span>
+  );
+}
+
+function FeatureCard({ feature }: { feature: Feature }) {
+  const { icon: Icon, name, tagline, pain, status, href } = feature;
+  const inner = (
+    <article className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-colors duration-300 hover:border-cyan-400/40 hover:bg-white/[0.06]">
+      <div className="flex items-start justify-between gap-3">
+        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-cyan-400">
           <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
-        </div>
-        <p className="mt-5 font-mono text-xs uppercase tracking-widest text-cyan-400/80">
-          {eyebrow}
-        </p>
-        <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">{title}</h2>
-        <p className="mt-3 leading-relaxed text-zinc-400">{body}</p>
-        <ul className="mt-5 space-y-2">
-          {points.map((point) => (
-            <li key={point} className="flex items-start gap-3 text-sm text-zinc-300">
-              <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" strokeWidth={2.5} aria-hidden />
-              {point}
-            </li>
-          ))}
-        </ul>
-        {cta && (
-          <Link
-            href={cta.href}
-            className="mt-6 inline-flex items-center gap-2 font-mono text-sm text-cyan-400 transition-colors hover:text-cyan-300"
-          >
-            {cta.label}
-            <ArrowRight className="h-4 w-4" aria-hidden />
-          </Link>
+        </span>
+        <StatusBadge status={status} />
+      </div>
+      <h3 className="mt-5 flex items-center gap-2 text-lg font-semibold text-zinc-100">
+        {name}
+        {href && (
+          <ArrowRight
+            className="h-4 w-4 text-cyan-400 opacity-0 transition-opacity group-hover:opacity-100"
+            aria-hidden
+          />
         )}
-      </div>
-      <div className={reverse ? 'lg:order-1' : undefined}>{visual}</div>
-    </Reveal>
-  );
-}
-
-// --- Visuals ----------------------------------------------------------------
-const STATS = [
-  { value: '1.8%', label: 'Sustained CPU under a live game' },
-  { value: '152 MB', label: 'Resident memory, every feature on' },
-  { value: '315 ms', label: 'Time to first local-AI token' },
-];
-
-function PerfVisual() {
-  return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8">
-      <div className="space-y-6">
-        {STATS.map((stat) => (
-          <div key={stat.label} className="flex items-baseline justify-between gap-4 border-b border-white/5 pb-5 last:border-0 last:pb-0">
-            <span className="bg-[linear-gradient(to_right,#22d3ee,#a855f7)] bg-clip-text font-mono text-3xl font-semibold text-transparent sm:text-4xl">
-              {stat.value}
-            </span>
-            <span className="text-right text-xs text-zinc-500">{stat.label}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-const LOCAL_ITEMS = [
-  'Chat messages',
-  'Microphone audio',
-  'Twitch & YouTube credentials',
-  'OBS configuration',
-  'Your automation rules',
-];
-
-function ZeroCloudVisual() {
-  return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8">
-      <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">
-        Stays on your machine
+      </h3>
+      <p className="mt-2 text-sm leading-relaxed text-zinc-400">{tagline}</p>
+      <p className="mt-4 border-t border-white/5 pt-4 text-sm font-medium text-cyan-200/80">
+        {pain}
       </p>
-      <ul className="mt-5 space-y-3">
-        {LOCAL_ITEMS.map((item) => (
-          <li key={item} className="flex items-center gap-3 text-sm text-zinc-200">
-            <Check className="h-4 w-4 shrink-0 text-cyan-400" strokeWidth={2.5} aria-hidden />
-            {item}
-          </li>
-        ))}
-      </ul>
-      <p className="mt-6 border-t border-white/5 pt-5 font-mono text-xs text-zinc-500">
-        0 analytics SDKs · 0 cloud accounts · 0 servers
-      </p>
-    </div>
+    </article>
+  );
+
+  return href ? (
+    <Link href={href} className="block h-full">
+      {inner}
+    </Link>
+  ) : (
+    inner
   );
 }
 
-function GraphVisual() {
-  return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 sm:p-6">
-      <NodeGraph className="w-full" />
-    </div>
-  );
-}
-
-// --- Supporting features ----------------------------------------------------
-const SUPPORTING = [
-  { title: 'Sponsor media kits', body: 'Branded PDF media kits, generated locally from your own analytics exports.' },
-  { title: 'Brand-safety guard', body: 'Listens for off-limits words in your live audio and warns you before a sponsor does.' },
-  { title: 'Viral hook markers', body: 'Timestamps every hype spike so the best moments are trivial to clip later.' },
-  { title: 'Local AI sidekick', body: 'A Hinglish-aware assistant that answers questions about your own back-catalogue.' },
-  { title: 'Native OBS control', body: 'Talks to OBS over WebSocket — scene switching with no fragile plugins.' },
-  { title: 'Open source', body: 'Every line is public. Free forever, with an optional $29 Supporter Edition.' },
-];
-
-// --- Page -------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 export default function FeaturesPage() {
   return (
     <main>
@@ -151,77 +275,82 @@ export default function FeaturesPage() {
           </Reveal>
           <Reveal delay={0.16}>
             <p className="mx-auto mt-4 max-w-2xl text-zinc-400">
-              streamerOS is one lightweight desktop app doing the work of a rack of
-              tools — without ever costing you a frame.
+              streamerOS is one lightweight Windows app doing the work of a rack of
+              tools — reactive OBS automation, clip finding, sponsor pitching, and a
+              local AI brain — without ever costing you a frame.
             </p>
           </Reveal>
         </div>
       </section>
 
-      {/* Deep dives */}
-      <div className="mx-auto max-w-6xl space-y-24 px-6 py-24 sm:space-y-32 sm:py-32">
-        <DeepDive
-          icon={Gauge}
-          eyebrow="Performance"
-          title="A footprint you’ll forget is there."
-          body="streamerOS runs on a Rust core, profiled obsessively against a live 1080p60 game. It yields every spare cycle to your game and disappears into the background."
-          points={[
-            'Stays under a 1.8% CPU budget while a game runs foreground',
-            'Around 150 MB of memory with every feature enabled',
-            'Cold-starts to interactive in seconds',
-          ]}
-          visual={<PerfVisual />}
-        />
+      {/* Category sections */}
+      <div className="mx-auto max-w-6xl space-y-24 px-6 py-24 sm:py-28">
+        {CATEGORIES.map((category) => (
+          <section key={category.eyebrow}>
+            <Reveal className="max-w-2xl">
+              <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">
+                {category.eyebrow}
+              </p>
+              <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+                {category.title}
+              </h2>
+              <p className="mt-3 leading-relaxed text-zinc-400">{category.blurb}</p>
+            </Reveal>
 
-        <DeepDive
-          icon={Workflow}
-          eyebrow="Auto-Hype Director"
-          title="Scenes that follow your stream’s energy."
-          body="Wire chat-velocity and sentiment triggers into a visual node graph. When the room peaks, streamerOS switches your OBS scene the instant it happens — and throttles itself so OBS is never spammed."
-          points={[
-            'Drag-and-drop trigger, logic, and action nodes',
-            'Reacts to live chat velocity and sentiment',
-            'Edge-triggered — one switch per change, never a flood',
-          ]}
-          cta={{ label: 'Read the step-by-step guide', href: '/features/auto-hype' }}
-          visual={<GraphVisual />}
-          reverse
-        />
-
-        <DeepDive
-          icon={ShieldCheck}
-          eyebrow="Zero-Cloud"
-          title="Private because of how it’s built."
-          body="There is no streamerOS account and no cloud backend. Your chat, your audio, and your audience data are processed in memory on your computer — and never uploaded."
-          points={[
-            'No analytics SDKs, no telemetry, no tracking',
-            'Recordings hit disk only when you opt in, per session',
-            'A handful of audited, opt-in connections — nothing else',
-          ]}
-          visual={<ZeroCloudVisual />}
-        />
+            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {category.features.map((feature, i) => (
+                <Reveal key={feature.name} delay={(i % 3) * 0.08}>
+                  <FeatureCard feature={feature} />
+                </Reveal>
+              ))}
+            </div>
+          </section>
+        ))}
       </div>
 
-      {/* Supporting features */}
+      {/* Foundations strip — the cross-cutting promises */}
       <section className="border-t border-white/5">
-        <div className="mx-auto max-w-6xl px-6 py-24 sm:py-28">
+        <div className="mx-auto max-w-6xl px-6 py-20 sm:py-24">
           <Reveal className="max-w-2xl">
-            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-              And the rest of the deck.
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+              Built on three non-negotiables.
             </h2>
-            <p className="mt-4 text-zinc-400">
-              The three pillars get the spotlight — but the cockpit does more.
-            </p>
           </Reveal>
-
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {SUPPORTING.map((item, i) => (
-              <Reveal key={item.title} delay={(i % 3) * 0.08}>
-                <article className="h-full rounded-xl border border-white/10 bg-white/[0.04] p-6 transition-colors duration-300 hover:border-cyan-400/40 hover:bg-white/[0.07]">
-                  <span aria-hidden className="block h-2 w-2 rounded-full bg-cyan-400" />
-                  <h3 className="mt-4 text-base font-semibold text-zinc-100">{item.title}</h3>
+          <div className="mt-10 grid gap-5 sm:grid-cols-3">
+            {[
+              {
+                icon: Gauge,
+                title: 'Ultra-light',
+                body: 'A Rust core profiled against a live 1080p60 game. It yields every spare cycle to your game and disappears.',
+                href: '/features/performance',
+              },
+              {
+                icon: ShieldCheck,
+                title: 'Zero-cloud',
+                body: 'No account, no backend. Your chat, audio, and audience data are processed in memory on your PC and never uploaded.',
+                href: '/features/zero-cloud',
+              },
+              {
+                icon: Workflow,
+                title: 'Native OBS',
+                body: 'Talks to OBS over WebSocket v5 — real scene control with no brittle plugin chain to maintain.',
+                href: '/features/auto-hype',
+              },
+            ].map((item, i) => (
+              <Reveal key={item.title} delay={i * 0.08}>
+                <Link
+                  href={item.href}
+                  className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-colors hover:border-cyan-400/40 hover:bg-white/[0.06]"
+                >
+                  <span className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-cyan-400">
+                    <item.icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+                  </span>
+                  <h3 className="mt-5 flex items-center gap-2 text-lg font-semibold text-zinc-100">
+                    {item.title}
+                    <ArrowRight className="h-4 w-4 text-cyan-400 opacity-0 transition-opacity group-hover:opacity-100" aria-hidden />
+                  </h3>
                   <p className="mt-2 text-sm leading-relaxed text-zinc-400">{item.body}</p>
-                </article>
+                </Link>
               </Reveal>
             ))}
           </div>
@@ -236,7 +365,7 @@ export default function FeaturesPage() {
               See it run on your machine.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              streamerOS is free and open source. Pre-register for the September launch and
+              streamerOS is free and open source. Pre-register for the launch and
               watch the cockpit disappear into the background.
             </p>
             <div className="mt-8 flex flex-col items-center gap-4">
