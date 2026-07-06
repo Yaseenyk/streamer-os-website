@@ -66,6 +66,7 @@ const CATEGORIES: Category[] = [
           'Auto-discovers OBS over WebSocket, lists your scenes, and switches the program feed — no fragile plugins.',
         pain: 'Kills the alt-tab scramble to change scenes mid-game.',
         status: 'ga',
+        href: '/features/obs-bridge',
       },
       {
         icon: Palette,
@@ -74,6 +75,7 @@ const CATEGORIES: Category[] = [
           'A live "Canvas of Light" that reads your game telemetry and chat velocity every second and shifts your overlay vibe — Calm to Hype — on its own.',
         pain: 'Your stream reacts to the moment without you touching a thing.',
         status: 'ga',
+        href: '/features/aura-studio',
       },
       {
         icon: Sparkles,
@@ -106,6 +108,7 @@ const CATEGORIES: Category[] = [
           'Scans your local recordings and scores every VOD by a hype metric — peak chat velocity, Super Chats, and sentiment — so the best moments float to the top.',
         pain: 'No more scrubbing a 4-hour VOD hunting for the good part.',
         status: 'ga',
+        href: '/features/clip-library',
       },
       {
         icon: Flame,
@@ -114,6 +117,7 @@ const CATEGORIES: Category[] = [
           'Watches chat velocity live, auto-drops a marker on every hype spike, and exports the timestamps to CSV for your editor.',
         pain: 'Every clip-worthy moment is bookmarked the instant it happens.',
         status: 'ga',
+        href: '/features/viral-moments',
       },
       {
         icon: Clapperboard,
@@ -137,6 +141,7 @@ const CATEGORIES: Category[] = [
           'Import your YouTube and Twitch analytics exports, and it computes duration-weighted reach stats and exports a branded, sponsor-ready PDF media kit.',
         pain: 'A professional pitch deck in minutes instead of a weekend in Canva.',
         status: 'ga',
+        href: '/features/media-kit',
       },
       {
         icon: Handshake,
@@ -145,6 +150,7 @@ const CATEGORIES: Category[] = [
           'A lead pipeline built for creators — track every sponsor conversation from first DM to signed deal, stored locally on your machine.',
         pain: 'Stops sponsor leads dying in a messy inbox and spreadsheet.',
         status: 'ga',
+        href: '/features/sponsor-crm',
       },
     ],
   },
