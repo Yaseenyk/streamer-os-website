@@ -2,9 +2,14 @@
 
 import { useState, type FormEvent } from 'react';
 
-// Live Formspree endpoint (hardcoded per the GTM directive). Native fetch keeps
-// the bundle lean — no @formspree/react.
-const FORM_ENDPOINT = 'https://formspree.io/f/mwvzdngy';
+// Delivered via EmailJS's REST API (client-side, works on the static export) to
+// the site contact inbox. Native fetch keeps the bundle lean — no SDK. The
+// public key is safe to expose; that's EmailJS's design.
+const EMAILJS_ENDPOINT = 'https://api.emailjs.com/api/v1.0/email/send';
+const EMAILJS_SERVICE = 'service_560nh3i';
+const EMAILJS_TEMPLATE = 'template_dyb1k4x';
+const EMAILJS_PUBLIC_KEY = 'mB56akvK2qStLNadU';
+const CONTACT_INBOX = 'contact@streamerosai.com';
 
 // Shared glassmorphic field styling.
 const FIELD_CLASS =
@@ -24,27 +29,38 @@ export default function ContactForm() {
     // Read the form synchronously — `e.currentTarget` is nulled out once the
     // handler yields at the first `await`.
     const formData = new FormData(e.currentTarget);
-    const data = {
-      name: formData.get('name'),
-      email: formData.get('email'),
-      subject: formData.get('subject'),
-      message: formData.get('message'),
-      // Honeypot — forwarded so Formspree can silently drop bot submissions.
-      _gotcha: formData.get('_gotcha'),
-    };
+
+    // Honeypot — bots fill this hidden field. Report success without sending.
+    if (formData.get('_gotcha')) {
+      setIsSuccess(true);
+      return;
+    }
+
+    const name = String(formData.get('name') ?? '');
+    const email = String(formData.get('email') ?? '');
+    const subject = String(formData.get('subject') ?? '');
+    const message = String(formData.get('message') ?? '');
 
     setIsSubmitting(true);
     try {
-      const response = await fetch(FORM_ENDPOINT, {
+      const response = await fetch(EMAILJS_ENDPOINT, {
         method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          service_id: EMAILJS_SERVICE,
+          template_id: EMAILJS_TEMPLATE,
+          user_id: EMAILJS_PUBLIC_KEY,
+          template_params: {
+            name,
+            email,
+            message: `Subject: ${subject}\n\n${message}`,
+            to_email: CONTACT_INBOX,
+            reply_to: email,
+          },
+        }),
       });
       if (!response.ok) {
-        throw new Error(`Form endpoint returned ${response.status}`);
+        throw new Error(`EmailJS returned ${response.status}`);
       }
       setIsSuccess(true);
     } catch {
