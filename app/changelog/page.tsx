@@ -5,7 +5,7 @@ import { PreRegisterButton } from '@/components/PreRegisterModal';
 export const metadata: Metadata = {
   title: 'Changelog',
   description: 'Release history for streamerOS, starting with the v1.0-GA launch.',
-  alternates: { canonical: 'https://yaseenyk.github.io/streamer-os-website/changelog' },
+  alternates: { canonical: 'https://streamerosai.com/changelog' },
 };
 
 interface Release {

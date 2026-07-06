@@ -12,11 +12,11 @@ tags: ["Guides", "Local AI", "Ollama", "Sentiment Analysis", "Troubleshooting"]
 > * **Performance Benchmark:** Flat 0.0 NEUTRAL sentiment fallback with zero session-data corruption and full-fidelity `msgs/sec` velocity tracking throughout.
 
 > **streamerOS Live Cockpit Series · Part 3 of 3**
-> 1. [The Streamer's Cockpit: Your One-Click Setup](/streamer-os-website/blog/setting-up-your-live-cockpit)
-> 2. [Breaking the Window Freeze: The Popout Chat Masterclass](/streamer-os-website/blog/popout-chat-masterclass)
+> 1. [The Streamer's Cockpit: Your One-Click Setup](/blog/setting-up-your-live-cockpit)
+> 2. [Breaking the Window Freeze: The Popout Chat Masterclass](/blog/popout-chat-masterclass)
 > 3. **Waking Up the Brain: Handling the "Ollama Offline" Banner** — you are here
 
-So far in this series we've toured your [cockpit](/streamer-os-website/blog/setting-up-your-live-cockpit) and [connected your live chat](/streamer-os-website/blog/popout-chat-masterclass). You can now see *how fast* your community is reacting. The last upgrade is teaching streamerOS to understand *how your chat feels* — the difference between a thousand messages of pure hype and a thousand messages of confusion.
+So far in this series we've toured your [cockpit](/blog/setting-up-your-live-cockpit) and [connected your live chat](/blog/popout-chat-masterclass). You can now see *how fast* your community is reacting. The last upgrade is teaching streamerOS to understand *how your chat feels* — the difference between a thousand messages of pure hype and a thousand messages of confusion.
 
 That emotional read is your **Sentiment Horizon**, a live emotional tracker powered by a local AI engine called **Ollama** running on your own machine. If you've ever seen the warning banner below, this guide is for you — and the fix takes about thirty seconds.
 
@@ -44,7 +44,7 @@ A lot of software treats a missing dependency as a catastrophe — it crashes, t
 
 In plain terms, "degrades gracefully" means: when one optional feature is unavailable, the app calmly carries on without it instead of falling over. Here's exactly what happens when the AI brain is offline:
 
-- **Chat velocity keeps tracking flawlessly.** Your `msgs/sec` gauge and your Hype Heatmap don't depend on Ollama at all. They keep working exactly as they did in [Part 2](/streamer-os-website/blog/popout-chat-masterclass).
+- **Chat velocity keeps tracking flawlessly.** Your `msgs/sec` gauge and your Hype Heatmap don't depend on Ollama at all. They keep working exactly as they did in [Part 2](/blog/popout-chat-masterclass).
 - **Sentiment falls back to a flat, neutral baseline.** Instead of guessing or breaking, streamerOS simply records each message's emotional reading as a flat **0.0 (NEUTRAL)** baseline until the real AI comes online. No wild numbers, no garbage data.
 - **Nothing crashes and nothing gets corrupted.** Because the platform expects this scenario and handles it deliberately, your session data stays clean and intact the entire time.
 

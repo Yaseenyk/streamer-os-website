@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'Frequently asked questions about streamerOS — OBS integration, privacy, ' +
     'platform support, system requirements, pricing, and performance.',
-  alternates: { canonical: 'https://yaseenyk.github.io/streamer-os-website/faq' },
+  alternates: { canonical: 'https://streamerosai.com/faq' },
 };
 
 interface FaqItem {

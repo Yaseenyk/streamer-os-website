@@ -793,10 +793,10 @@ const creatorJsonLd = {
   '@graph': [
     {
       '@type': 'ProfilePage',
-      '@id': 'https://yaseenyk.github.io/streamer-os-website/#creator',
+      '@id': 'https://streamerosai.com/#creator',
       mainEntity: {
         '@type': 'Person',
-        '@id': 'https://yaseenyk.github.io/streamer-os-website/#person',
+        '@id': 'https://streamerosai.com/#person',
         name: 'Yaseen Khatib',
         jobTitle: 'Senior Full-Stack Developer',
         knowsAbout: ['TypeScript', 'Node.js', 'Systems Architecture', 'OBS WebSocket Protocol'],

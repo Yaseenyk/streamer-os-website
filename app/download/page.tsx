@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Download',
   description:
     'Pre-register for streamerOS — the Rust-powered, local-first streaming cockpit for Windows, launching September 2026.',
-  alternates: { canonical: 'https://yaseenyk.github.io/streamer-os-website/download' },
+  alternates: { canonical: 'https://streamerosai.com/download' },
 };
 
 // The "recommended" profile is streamerOS's documented target hardware.

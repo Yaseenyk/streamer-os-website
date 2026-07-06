@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   description:
     'A step-by-step visual guide to the Auto-Hype Director: build a node ' +
     'rule that switches your OBS scene automatically when chat catches fire.',
-  alternates: { canonical: 'https://yaseenyk.github.io/streamer-os-website/features/auto-hype' },
+  alternates: { canonical: 'https://streamerosai.com/features/auto-hype' },
 };
 
 // ---------------------------------------------------------------------------

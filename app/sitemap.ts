@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { getAllPostMeta } from '@/lib/posts';
 
-const BASE_URL = 'https://yaseenyk.github.io/streamer-os-website';
+const BASE_URL = 'https://streamerosai.com';
 
 // Required for `output: 'export'` — emit a static sitemap.xml at build time.
 export const dynamic = 'force-static';

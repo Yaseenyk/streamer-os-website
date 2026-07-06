@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     'The terms governing your use of streamerOS — open-source software ' +
     'provided free of charge, on an "as is" basis.',
-  alternates: { canonical: 'https://yaseenyk.github.io/streamer-os-website/terms' },
+  alternates: { canonical: 'https://streamerosai.com/terms' },
 };
 
 const H2 = 'text-xl font-semibold text-zinc-100';

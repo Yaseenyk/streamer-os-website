@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     'A deep dive into streamerOS — a 1.8% CPU Rust core, the Auto-Hype Director ' +
     'scene-automation engine, and a zero-cloud, local-first architecture.',
-  alternates: { canonical: 'https://yaseenyk.github.io/streamer-os-website/features' },
+  alternates: { canonical: 'https://streamerosai.com/features' },
 };
 
 // --- Deep-dive section ------------------------------------------------------
