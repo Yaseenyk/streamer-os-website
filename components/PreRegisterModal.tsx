@@ -12,12 +12,14 @@ import {
 import { AnimatePresence, motion } from 'framer-motion';
 import { Rocket, X } from 'lucide-react';
 
-// Pre-registration captures emails ahead of the September 2026 launch. POSTed to
-// Formspree via NEXT_PUBLIC_PREREGISTER_ENDPOINT (inlined at build time for the
-// static export). Falls back to the shared contact-form Formspree endpoint so the
-// modal works out of the box even when that env var isn't set.
-const PREREGISTER_ENDPOINT =
-  process.env.NEXT_PUBLIC_PREREGISTER_ENDPOINT || 'https://formspree.io/f/mwvzdngy';
+// Pre-registration captures emails ahead of the September 2026 launch. Delivered
+// via EmailJS's REST API (client-side, works on the static export) to the site
+// contact inbox. The public key is safe to expose — that's EmailJS's design.
+const EMAILJS_ENDPOINT = 'https://api.emailjs.com/api/v1.0/email/send';
+const EMAILJS_SERVICE = 'service_560nh3i';
+const EMAILJS_TEMPLATE = 'template_dyb1k4x';
+const EMAILJS_PUBLIC_KEY = 'mB56akvK2qStLNadU';
+const PREREGISTER_INBOX = 'contact@streamerosai.com';
 
 const FIELD_CLASS =
   'w-full rounded-lg border border-white/10 bg-white/[0.03] p-3 text-slate-100 ' +
@@ -170,27 +172,35 @@ function PreRegisterForm() {
     e.preventDefault();
     setErrorMessage(null);
 
-    if (!PREREGISTER_ENDPOINT) {
-      setErrorMessage('Pre-registration isn’t configured yet — please check back shortly.');
+    const formData = new FormData(e.currentTarget);
+    const email = String(formData.get('email') ?? '');
+
+    // Honeypot — bots fill this hidden field. Report success without sending.
+    if (formData.get('_gotcha')) {
+      setIsSuccess(true);
       return;
     }
 
-    const formData = new FormData(e.currentTarget);
-    const data = {
-      email: formData.get('email'),
-      // Honeypot — forwarded so the endpoint can silently drop bot submissions.
-      _gotcha: formData.get('_gotcha'),
-    };
-
     setIsSubmitting(true);
     try {
-      const response = await fetch(PREREGISTER_ENDPOINT, {
+      const response = await fetch(EMAILJS_ENDPOINT, {
         method: 'POST',
-        headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          service_id: EMAILJS_SERVICE,
+          template_id: EMAILJS_TEMPLATE,
+          user_id: EMAILJS_PUBLIC_KEY,
+          template_params: {
+            name: 'streamerOS Pre-Registration',
+            email,
+            message: `New streamerOS pre-registration from ${email}`,
+            to_email: PREREGISTER_INBOX,
+            reply_to: email,
+          },
+        }),
       });
       if (!response.ok) {
-        throw new Error(`Pre-register endpoint returned ${response.status}`);
+        throw new Error(`EmailJS returned ${response.status}`);
       }
       setIsSuccess(true);
     } catch {
