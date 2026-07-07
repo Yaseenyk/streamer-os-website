@@ -1,6 +1,5 @@
 import type { MetadataRoute } from 'next';
-
-const BASE_URL = 'https://streamerosai.com';
+import { SITE_URL as BASE_URL } from '@/config/site';
 
 // Required for `output: 'export'` — emit a static robots.txt at build time.
 export const dynamic = 'force-static';

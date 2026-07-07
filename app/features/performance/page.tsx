@@ -3,6 +3,9 @@ import Link from 'next/link';
 import { Activity, ArrowRight, Cpu, Gauge, Zap, type LucideIcon } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
+import FeatureFaq from '@/components/FeatureFaq';
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
@@ -12,6 +15,26 @@ export const metadata: Metadata = {
     'A Rust + Tauri core that leaves your frames for the stream.',
   alternates: { canonical: 'https://streamerosai.com/features/performance' },
 };
+
+// Answers stay within claims made elsewhere on the site (FAQ, feature pages).
+const FAQ_ITEMS: FaqEntry[] = [
+  {
+    q: 'How much CPU does streamerOS use while streaming?',
+    a: 'streamerOS holds a 1.8% CPU footprint profiled under a live 1080p60 game. The core is written in Rust with a Tauri shell — monitoring, automation, and telemetry all fit in that sliver.',
+  },
+  {
+    q: 'Will streamerOS steal frames from my game or OBS?',
+    a: 'No. It is built to yield spare cycles to your game and encoder — your frames stay with the game and the stream, not the tooling. That is the whole design constraint behind the Rust core.',
+  },
+  {
+    q: 'What are the minimum system requirements?',
+    a: 'Windows 10 or 11 (64-bit), 16 GB of RAM, and an 8-core CPU. The automation core is featherweight; the headroom mainly gives the optional on-device AI features room to run comfortably alongside your game and OBS Studio.',
+  },
+  {
+    q: 'Why is streamerOS Windows-only right now?',
+    a: 'It integrates deeply with the Windows audio subsystem and DirectX to keep the footprint tiny and the telemetry accurate under a live game. macOS and Linux are on the roadmap, but out of scope for v1.0.',
+  },
+];
 
 // ---------------------------------------------------------------------------
 // Faux "System Telemetry" monitor — a static representation of where CPU goes
@@ -106,6 +129,12 @@ const STATS: Stat[] = [
 export default function PerformanceGuidePage() {
   return (
     <main>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Features', path: '/features' },
+          { name: 'Ultra-Light Performance', path: '/features/performance' },
+        ])}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/5">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:64px_64px] opacity-50" />
@@ -200,6 +229,8 @@ export default function PerformanceGuidePage() {
           })}
         </div>
       </section>
+
+      <FeatureFaq items={FAQ_ITEMS} />
 
       {/* CTA */}
       <section className="border-t border-white/5">

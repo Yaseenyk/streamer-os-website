@@ -13,6 +13,9 @@ import {
 } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
+import FeatureFaq from '@/components/FeatureFaq';
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
@@ -23,6 +26,26 @@ export const metadata: Metadata = {
     'alt-tabbing.',
   alternates: { canonical: 'https://streamerosai.com/features/obs-bridge' },
 };
+
+// Answers stay within claims made elsewhere on the site (FAQ, feature pages).
+const FAQ_ITEMS: FaqEntry[] = [
+  {
+    q: 'How does streamerOS connect to OBS Studio?',
+    a: 'streamerOS auto-discovers your OBS instance over OBS WebSocket v5 — the official control interface built into OBS Studio — loads your scene list, and lets you switch the program feed from the cockpit. The connection runs entirely on your local machine; nothing routes through a server.',
+  },
+  {
+    q: 'Do I need to install an OBS plugin?',
+    a: 'No. The WebSocket server streamerOS talks to ships inside OBS Studio itself — you just enable it in OBS settings. There are no fragile third-party plugins to install, update, or debug.',
+  },
+  {
+    q: 'Can I switch OBS scenes without alt-tabbing out of my game?',
+    a: 'Yes. Your scenes appear in the streamerOS cockpit, so you can cut the program feed from there — or wire up the Auto-Hype Director and let streamerOS switch scenes automatically when chat reacts, with no manual input at all.',
+  },
+  {
+    q: 'Does the OBS connection ever leave my machine?',
+    a: 'No. streamerOS is zero-cloud by architecture: the OBS WebSocket link is a localhost connection between two apps on your PC. Your scene data and control commands never touch the internet.',
+  },
+];
 
 // ---------------------------------------------------------------------------
 // Faux connection panel — these only LOOK like the desktop app's OBS Bridge
@@ -189,6 +212,12 @@ function Step({ index, icon: Icon, eyebrow, title, body, last, mock }: StepProps
 export default function ObsBridgeGuidePage() {
   return (
     <main>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Features', path: '/features' },
+          { name: 'OBS Bridge', path: '/features/obs-bridge' },
+        ])}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/5">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:64px_64px] opacity-50" />
@@ -325,6 +354,8 @@ export default function ObsBridgeGuidePage() {
           </div>
         </Reveal>
       </section>
+
+      <FeatureFaq items={FAQ_ITEMS} />
 
       {/* CTA */}
       <section className="border-t border-white/5">

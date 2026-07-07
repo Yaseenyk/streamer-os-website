@@ -1,21 +1,107 @@
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbJsonLd } from '@/lib/seo';
+
 export const metadata = {
-  title: 'Installation',
+  title: 'Installation — Connect streamerOS to OBS Studio',
   description:
-    'System requirements and a quick-start guide for installing streamerOS on Windows 10/11.',
+    'Install streamerOS on Windows 10/11 and connect it to OBS Studio over OBS WebSocket v5 in four steps — no account, no plugins, no cloud.',
+  alternates: { canonical: 'https://streamerosai.com/docs/installation' },
+  openGraph: {
+    title: 'Installing streamerOS and connecting it to OBS Studio',
+    description:
+      'System requirements and a four-step quick start: enable the OBS WebSocket server, install streamerOS, and let it auto-discover OBS.',
+    url: 'https://streamerosai.com/docs/installation',
+  },
 };
+
+export const howToJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to install streamerOS and connect it to OBS Studio',
+  description:
+    'Install the streamerOS desktop app on Windows and connect it to OBS Studio over OBS WebSocket v5 — no account, no plugins, no cloud.',
+  totalTime: 'PT10M',
+  tool: [
+    { '@type': 'HowToTool', name: 'OBS Studio (with its built-in WebSocket server)' },
+    { '@type': 'HowToTool', name: 'A Windows 10/11 64-bit PC' },
+  ],
+  step: [
+    {
+      '@type': 'HowToStep',
+      name: 'Enable the WebSocket server in OBS Studio',
+      text: 'In OBS Studio, open Tools → WebSocket Server Settings and enable the server. This is the official control interface built into OBS — streamerOS connects to it locally, so no plugin is needed.',
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Download and run the streamerOS installer',
+      text: 'Grab the latest release and run the installer. There is no account to create and no sign-in — streamerOS is local-first.',
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Let streamerOS auto-discover OBS',
+      text: 'Launch streamerOS with OBS running. It auto-discovers your OBS instance over WebSocket v5 on your local machine and loads your scene list into the cockpit.',
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Optional: set up Ollama for local AI features',
+      text: 'The on-device AI features (AI Sidekick, sentiment analysis) run on a local Ollama install. Everything stays on your machine.',
+    },
+  ],
+};
+
+<JsonLd
+  data={breadcrumbJsonLd([
+    { name: 'Docs', path: '/docs' },
+    { name: 'Installation', path: '/docs/installation' },
+  ])}
+/>
+<JsonLd data={howToJsonLd} />
 
 # Installation
 
-> 🚧 Quick-start placeholder — the full guide is coming soon.
+streamerOS installs in minutes and connects to OBS Studio over **OBS WebSocket
+v5** — the official control interface that ships inside OBS. There is no
+account, no plugin, and no cloud service in the loop.
 
-## Requirements
+> 📅 streamerOS v1.0-GA launches **September 2026** for Windows.
+> [Pre-register on the download page](/download) to get the release the day it ships.
 
-- Windows 10 or 11 (64-bit)
-- 16 GB RAM, 8-core CPU
-- RTX 3060-class GPU (for local AI features)
+## System requirements
+
+- **OS:** Windows 10 or 11 (64-bit)
+- **Memory:** 16 GB RAM
+- **CPU:** 8 cores — the streamerOS core itself holds a
+  [1.8% CPU footprint](/features/performance); the headroom is for your game, OBS, and the optional local AI
+- **GPU:** RTX 3060-class (only needed for the local AI features)
+- **OBS Studio** with its built-in WebSocket server (see step 1 below)
 
 ## Quick start
 
-1. Download the latest `v1.0-GA` release.
-2. Run the installer — no account required.
-3. Connect OBS via WebSocket v5 and launch the Auto-Hype Director.
+### 1. Enable the WebSocket server in OBS
+
+In OBS Studio, open **Tools → WebSocket Server Settings** and enable the
+server. This is OBS's own control interface — streamerOS talks to it over your
+local machine only, so there are no third-party plugins to install.
+
+### 2. Install streamerOS
+
+Download the latest `v1.0-GA` release and run the installer. No account is
+required — the app is fully functional the moment it opens.
+
+### 3. Connect to OBS
+
+Launch streamerOS while OBS is running. The [OBS Bridge](/features/obs-bridge)
+auto-discovers your OBS instance, loads your scenes, and you can switch the
+program feed from the cockpit immediately.
+
+### 4. Optional: local AI via Ollama
+
+The AI features (AI Sidekick, chat sentiment) run on a local
+[Ollama](https://ollama.com) install — nothing is sent to a cloud model. Skip
+this step if you only want automation and telemetry.
+
+## Where to go next
+
+Build your first automation with the
+[Auto-Hype Director](/features/auto-hype) — a three-node rule that switches
+your OBS scene automatically when chat erupts.

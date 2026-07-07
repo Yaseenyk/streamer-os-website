@@ -14,6 +14,9 @@ import {
 } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
+import FeatureFaq from '@/components/FeatureFaq';
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
@@ -23,6 +26,22 @@ export const metadata: Metadata = {
     'from first DM to signed deal, stored locally on your own machine.',
   alternates: { canonical: 'https://streamerosai.com/features/sponsor-crm' },
 };
+
+// Answers stay within claims made elsewhere on the site (FAQ, feature pages).
+const FAQ_ITEMS: FaqEntry[] = [
+  {
+    q: 'What is the streamerOS Sponsor CRM?',
+    a: 'A lead pipeline built for creators, not sales teams. Every sponsor conversation gets tracked from first DM through negotiation to signed deal, so nothing slips through your inbox while you are busy streaming.',
+  },
+  {
+    q: 'Where is my sponsor and deal data stored?',
+    a: 'Locally, on your own machine. streamerOS has no account and no backend, so your pipeline, contact notes, and deal terms are never sitting on someone else’s server.',
+  },
+  {
+    q: 'Is the Sponsor CRM part of the free version?',
+    a: 'Yes. streamerOS is free and open source, and the free build is fully functional. The optional $29 Supporter Edition adds cosmetic perks and early access to new AI models — it does not gate the CRM or any core feature.',
+  },
+];
 
 // ---------------------------------------------------------------------------
 // Static pipeline "chips" — these only LOOK like the desktop CRM's lead cards.
@@ -183,6 +202,12 @@ function Step({ index, icon: Icon, eyebrow, title, body, last, mock }: StepProps
 export default function SponsorCrmGuidePage() {
   return (
     <main>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Features', path: '/features' },
+          { name: 'Sponsor CRM', path: '/features/sponsor-crm' },
+        ])}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/5">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:64px_64px] opacity-50" />
@@ -316,6 +341,8 @@ export default function SponsorCrmGuidePage() {
           />
         </div>
       </section>
+
+      <FeatureFaq items={FAQ_ITEMS} />
 
       {/* CTA */}
       <section className="border-t border-white/5">

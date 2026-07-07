@@ -21,6 +21,8 @@ import {
 } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbJsonLd } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Features',
@@ -260,6 +262,7 @@ function FeatureCard({ feature }: { feature: Feature }) {
 export default function FeaturesPage() {
   return (
     <main>
+      <JsonLd data={breadcrumbJsonLd([{ name: 'Features', path: '/features' }])} />
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/5">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:64px_64px] opacity-50" />

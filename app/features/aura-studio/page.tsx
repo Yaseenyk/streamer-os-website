@@ -14,6 +14,9 @@ import {
 } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
+import FeatureFaq from '@/components/FeatureFaq';
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
@@ -24,6 +27,26 @@ export const metadata: Metadata = {
     'to Hype on its own.',
   alternates: { canonical: 'https://streamerosai.com/features/aura-studio' },
 };
+
+// Answers stay within claims made elsewhere on the site (FAQ, feature pages).
+const FAQ_ITEMS: FaqEntry[] = [
+  {
+    q: 'What is Aura Studio?',
+    a: 'Aura Studio is a reactive overlay layer — a "Canvas of Light" — that reads your game telemetry and chat velocity every second and shifts your overlay’s vibe from Calm to Hype on its own. Your stream visually reacts to the room without you touching anything mid-broadcast.',
+  },
+  {
+    q: 'How does the overlay get into OBS Studio?',
+    a: 'You build it with the Aura Scene builder, a drag-and-drop overlay editor, and streamerOS renders it into OBS. There is no cloud overlay service in the loop — the whole pipeline runs locally next to OBS.',
+  },
+  {
+    q: 'Can I control when the overlay flips from Calm to Hype?',
+    a: 'Yes. Aura Studio has a hype-threshold calibration, so you decide how much chat energy it takes before the overlay escalates. A cozy chatting stream and a tournament grand final can run very different thresholds.',
+  },
+  {
+    q: 'Does a live reactive overlay cost me frames?',
+    a: 'No. streamerOS runs on a Rust core that holds a 1.8% CPU footprint under a live 1080p60 game — the overlay reacts in real time while your frames stay with the game and OBS.',
+  },
+];
 
 // ---------------------------------------------------------------------------
 // Static aura "tiles" — these only LOOK like the gallery in the desktop app.
@@ -167,6 +190,12 @@ function Step({ index, icon: Icon, eyebrow, title, body, last, mock }: StepProps
 export default function AuraStudioGuidePage() {
   return (
     <main>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Features', path: '/features' },
+          { name: 'Aura Studio', path: '/features/aura-studio' },
+        ])}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/5">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:64px_64px] opacity-50" />
@@ -343,6 +372,8 @@ export default function AuraStudioGuidePage() {
           />
         </div>
       </section>
+
+      <FeatureFaq items={FAQ_ITEMS} />
 
       {/* CTA */}
       <section className="border-t border-white/5">

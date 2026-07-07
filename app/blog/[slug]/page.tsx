@@ -9,8 +9,9 @@ import EncoderTuningGraphic from '@/components/EncoderTuningGraphic';
 import LocalVsCloudDiagram from '@/components/LocalVsCloudDiagram';
 import TelemetryLoopVisualizer from '@/components/TelemetryLoopVisualizer';
 import { getPostBySlug, getPostSlugs } from '@/lib/posts';
-
-const SITE_URL = 'https://streamerosai.com';
+import { SITE_URL } from '@/config/site';
+import { breadcrumbJsonLd } from '@/lib/seo';
+import JsonLd from '@/components/JsonLd';
 
 // Approved layout tokens → their components. Posts stay pure markdown data;
 // tokens are swapped for components here, never executed from the post itself.
@@ -154,16 +155,18 @@ export default async function BlogPostPage({ params }: { params: PageParams }) {
     keywords: meta.tags.join(', '),
     url,
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-    publisher: { '@type': 'Organization', name: 'streamerOS', url: SITE_URL },
+    // Resolves against the Organization node emitted by the root layout graph.
+    publisher: { '@id': `${SITE_URL}/#organization` },
   };
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-24 sm:py-32">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(articleJsonLd).replace(/</g, '\\u003c'),
-        }}
+      <JsonLd data={articleJsonLd} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Blog', path: '/blog' },
+          { name: meta.title, path: `/blog/${slug}` },
+        ])}
       />
       <article>
         <header>

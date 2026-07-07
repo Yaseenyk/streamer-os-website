@@ -1,7 +1,12 @@
-// Centralized external links for the marketing site. These are safe
+// Centralized site constants for the marketing site. External links are safe
 // placeholders — swap them for the real release, checkout, and social URLs
 // before launch. Internal routes (e.g. `/download`, `/#pricing`) stay inline
-// in the components; only off-site destinations live here.
+// in the components.
+
+/** Production canonical origin. Single source of truth — import this instead
+ *  of hardcoding the domain (metadata, sitemap, robots, JSON-LD all use it). */
+export const SITE_URL = 'https://streamerosai.com';
+
 export const siteConfig = {
   /** Where the "Download v1.0-GA" buttons send people to grab the binary. */
   downloadUrl: 'https://github.com/streamerOS/streamerOS/releases/latest',

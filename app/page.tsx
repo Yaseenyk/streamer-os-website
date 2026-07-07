@@ -785,25 +785,14 @@ function WallOfLove() {
 // ---------------------------------------------------------------------------
 // Page
 // ---------------------------------------------------------------------------
-// Creator profile graph. The SoftwareApplication node lives globally in the
-// root layout (@id …/#application); here we add the ProfilePage/Person and link
-// the app's author to this person by @id so the two resolve as one entity graph.
+// Creator profile page. The Organization, Person, and SoftwareApplication
+// nodes live globally in the root layout graph; this just marks the homepage
+// as the creator's profile page and points at the shared Person by @id.
 const creatorJsonLd = {
   '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'ProfilePage',
-      '@id': 'https://streamerosai.com/#creator',
-      mainEntity: {
-        '@type': 'Person',
-        '@id': 'https://streamerosai.com/#person',
-        name: 'Yaseen Khatib',
-        jobTitle: 'Senior Full-Stack Developer',
-        email: 'contact@streamerosai.com',
-        knowsAbout: ['TypeScript', 'Node.js', 'Systems Architecture', 'OBS WebSocket Protocol'],
-      },
-    },
-  ],
+  '@type': 'ProfilePage',
+  '@id': 'https://streamerosai.com/#creator',
+  mainEntity: { '@id': 'https://streamerosai.com/#person' },
 };
 
 export default function Home() {

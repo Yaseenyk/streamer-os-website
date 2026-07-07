@@ -1,7 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { getAllPostMeta } from '@/lib/posts';
-
-const BASE_URL = 'https://streamerosai.com';
+import { SITE_URL as BASE_URL } from '@/config/site';
 
 // Required for `output: 'export'` — emit a static sitemap.xml at build time.
 export const dynamic = 'force-static';
@@ -24,6 +23,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/download`, lastModified, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE_URL}/playbook`, lastModified, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/blog`, lastModified, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${BASE_URL}/docs`, lastModified, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${BASE_URL}/docs/installation`, lastModified, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/about`, lastModified, changeFrequency: 'yearly', priority: 0.5 },
     { url: `${BASE_URL}/faq`, lastModified, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/changelog`, lastModified, changeFrequency: 'monthly', priority: 0.5 },

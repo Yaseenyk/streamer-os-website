@@ -14,6 +14,9 @@ import {
 } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
+import FeatureFaq from '@/components/FeatureFaq';
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
@@ -23,6 +26,26 @@ export const metadata: Metadata = {
     'and exports the timestamps to CSV — so no clip-worthy moment is ever lost.',
   alternates: { canonical: 'https://streamerosai.com/features/viral-moments' },
 };
+
+// Answers stay within claims made elsewhere on the site (FAQ, feature pages).
+const FAQ_ITEMS: FaqEntry[] = [
+  {
+    q: 'How does streamerOS detect a viral moment while I am live?',
+    a: 'It watches your chat velocity in real time and auto-marks every hype spike with a timestamp the moment it happens. You keep playing; the marker is already placed by the time chat calms down.',
+  },
+  {
+    q: 'How do I get the markers into my video editor?',
+    a: 'Export them to CSV. Every marked spike carries its timestamp, so you or your editor can jump straight to the clip-worthy moments in the VOD instead of rewatching the whole broadcast.',
+  },
+  {
+    q: 'How is this different from the Clip Library?',
+    a: 'Viral Moments works live: it marks spikes during the broadcast. The Clip Library works after: it scores your recorded VODs by hype so the best segments rank themselves. Together they mean no clip-worthy moment is ever lost.',
+  },
+  {
+    q: 'Does moment detection need an internet service?',
+    a: 'No. The detector runs locally on your machine, reading the public chat of your own channel. streamerOS is zero-cloud — nothing about your stream is sent to a backend.',
+  },
+];
 
 // ---------------------------------------------------------------------------
 // Static faux-UI panels — these only LOOK like the desktop app's Viral Moments
@@ -124,6 +147,12 @@ function Step({ index, icon: Icon, eyebrow, title, body, last, mock }: StepProps
 export default function ViralMomentsGuidePage() {
   return (
     <main>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Features', path: '/features' },
+          { name: 'Viral Moments', path: '/features/viral-moments' },
+        ])}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/5">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:64px_64px] opacity-50" />
@@ -274,6 +303,8 @@ export default function ViralMomentsGuidePage() {
           />
         </div>
       </section>
+
+      <FeatureFaq items={FAQ_ITEMS} />
 
       {/* CTA */}
       <section className="border-t border-white/5">

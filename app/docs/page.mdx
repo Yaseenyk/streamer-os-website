@@ -1,13 +1,26 @@
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbJsonLd } from '@/lib/seo';
+
 export const metadata = {
   title: 'Technical Documentation',
   description:
     'Technical documentation for streamerOS — installation, configuration, and the internals of the Auto-Hype Director.',
+  alternates: { canonical: 'https://streamerosai.com/docs' },
+  openGraph: {
+    title: 'streamerOS Technical Documentation',
+    description:
+      'Installation, configuration, and the internals of the Auto-Hype Director.',
+    url: 'https://streamerosai.com/docs',
+  },
 };
+
+<JsonLd data={breadcrumbJsonLd([{ name: 'Docs', path: '/docs' }])} />
 
 # streamerOS Technical Documentation
 
 Welcome to the technical documentation for **streamerOS** — the Rust-powered,
-ultra-lightweight desktop cockpit for Twitch & YouTube streamers.
+ultra-lightweight desktop cockpit for Twitch & YouTube streamers, built as a
+companion to OBS Studio.
 
 These docs cover installation, configuration, and the internals of the
 Auto-Hype Director engine. For product information and downloads, head back to
@@ -15,5 +28,6 @@ the [main site](/).
 
 ## What you'll find here
 
-- **[Installation](/docs/installation)** — system requirements and a quick-start guide.
+- **[Installation](/docs/installation)** — system requirements and a quick-start guide,
+  including how to enable the OBS WebSocket server that streamerOS connects to.
 - More guides are on the way.

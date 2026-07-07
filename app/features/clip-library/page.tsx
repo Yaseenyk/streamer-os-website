@@ -14,6 +14,9 @@ import {
 } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
+import FeatureFaq from '@/components/FeatureFaq';
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
@@ -24,6 +27,26 @@ export const metadata: Metadata = {
     'automatically.',
   alternates: { canonical: 'https://streamerosai.com/features/clip-library' },
 };
+
+// Answers stay within claims made elsewhere on the site (FAQ, feature pages).
+const FAQ_ITEMS: FaqEntry[] = [
+  {
+    q: 'How does the Clip Library find my best stream moments?',
+    a: 'streamerOS scores your local VOD recordings with a hype score built from what your audience actually did: peak chat velocity (50%), Super Chats and paid actions (30%), and chat sentiment (20%). The highest-scoring moments float to the top automatically — no scrubbing through hours of footage.',
+  },
+  {
+    q: 'Do my VODs get uploaded to a cloud service for analysis?',
+    a: 'No. The scoring runs entirely on your machine against your local recordings. streamerOS is zero-cloud by architecture — your footage, telemetry, and scores never leave your disk.',
+  },
+  {
+    q: 'Does it work with both Twitch and YouTube streams?',
+    a: 'Yes. streamerOS reads Twitch and YouTube chat in real time, so the hype score reflects your whole audience regardless of where you broadcast — or if you multistream to both.',
+  },
+  {
+    q: 'How do I turn a scored moment into a clip for my editor?',
+    a: 'Pair the Clip Library with Viral Moments, which marks hype spikes live and exports the timestamps to CSV. Your editor jumps straight to the scored moments instead of hunting for them.',
+  },
+];
 
 // ---------------------------------------------------------------------------
 // Static faux-UI panels — these only LOOK like the desktop app's Clip Library.
@@ -154,6 +177,12 @@ function Step({ index, icon: Icon, eyebrow, title, body, last, mock }: StepProps
 export default function ClipLibraryGuidePage() {
   return (
     <main>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Features', path: '/features' },
+          { name: 'Clip Library', path: '/features/clip-library' },
+        ])}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/5">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:64px_64px] opacity-50" />
@@ -279,6 +308,8 @@ export default function ClipLibraryGuidePage() {
           />
         </div>
       </section>
+
+      <FeatureFaq items={FAQ_ITEMS} />
 
       {/* CTA */}
       <section className="border-t border-white/5">

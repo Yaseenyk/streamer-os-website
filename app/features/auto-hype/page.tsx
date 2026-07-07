@@ -15,6 +15,9 @@ import {
 } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
+import FeatureFaq from '@/components/FeatureFaq';
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
@@ -24,6 +27,26 @@ export const metadata: Metadata = {
     'rule that switches your OBS scene automatically when chat catches fire.',
   alternates: { canonical: 'https://streamerosai.com/features/auto-hype' },
 };
+
+// Answers stay within claims made elsewhere on the site (FAQ, feature pages).
+const FAQ_ITEMS: FaqEntry[] = [
+  {
+    q: 'Does the Auto-Hype Director work with OBS Studio?',
+    a: 'Yes — it is built natively for OBS Studio. streamerOS talks to OBS over OBS WebSocket v5, the official control interface, entirely on your local machine. When a rule fires, it switches your OBS scene directly — no plugins to install and no cloud round-trip.',
+  },
+  {
+    q: 'Do I need to know how to code or script?',
+    a: 'No. The Auto-Hype Director is a visual node editor: you drag Trigger, Logic, and Action nodes onto a canvas and wire them together. A working "chat erupts → cut to Victory scene" rule takes three nodes and no scripting.',
+  },
+  {
+    q: 'What can trigger an automatic OBS scene switch?',
+    a: 'Trigger nodes watch live signals like chat velocity, chat sentiment, Super Chats, and game state. You combine them through AND / OR logic gates, so a rule can be as simple as "chat velocity above 40 messages per second" or require several conditions at once.',
+  },
+  {
+    q: 'Will automation add lag to my stream?',
+    a: 'No. Everything runs locally next to OBS — there is no server in the loop. The whole streamerOS app holds a 1.8% CPU footprint under a live 1080p60 game, so your frames stay with the game and the scene cut lands the instant the trigger condition is met.',
+  },
+];
 
 // ---------------------------------------------------------------------------
 // Static node "chips" — these only LOOK like the desktop editor's nodes. The
@@ -159,6 +182,12 @@ function Step({ index, icon: Icon, eyebrow, title, body, last, mock }: StepProps
 export default function AutoHypeGuidePage() {
   return (
     <main>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Features', path: '/features' },
+          { name: 'Auto-Hype Director', path: '/features/auto-hype' },
+        ])}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/5">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:64px_64px] opacity-50" />
@@ -317,6 +346,8 @@ export default function AutoHypeGuidePage() {
           />
         </div>
       </section>
+
+      <FeatureFaq items={FAQ_ITEMS} />
 
       {/* CTA */}
       <section className="border-t border-white/5">

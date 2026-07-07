@@ -1,3 +1,13 @@
+How to switch OBS scenes automatically based on chat activity (no scripting)
+How to control OBS Studio from another app with OBS WebSocket v5
+How to automate OBS Studio for Twitch without installing plugins
+How to keep OBS CPU usage low while streaming with local automation
+How to set up an automatic OBS scene switcher for your Twitch stream
+How to make your OBS overlays react to chat hype automatically
+How to auto-clip your best Twitch moments without a cloud service
+How to run OBS automation on a low-end streaming PC
+How to build a hands-free OBS workflow for YouTube live streams
+Why local OBS automation beats cloud tools for latency and privacy
 How to auto-discover and connect your OBS instance in streamerOS
 How to set up Ollama so the streamerOS local AI features work
 How to configure your streamerOS workspace, export, and video folders

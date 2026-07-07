@@ -13,6 +13,9 @@ import {
 } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
+import FeatureFaq from '@/components/FeatureFaq';
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
@@ -22,6 +25,22 @@ export const metadata: Metadata = {
     'sponsor-ready PDF media kit — computed locally in minutes.',
   alternates: { canonical: 'https://streamerosai.com/features/media-kit' },
 };
+
+// Answers stay within claims made elsewhere on the site (FAQ, feature pages).
+const FAQ_ITEMS: FaqEntry[] = [
+  {
+    q: 'What do I need to generate a sponsor media kit?',
+    a: 'Just the analytics CSV exports that YouTube and Twitch already give you. streamerOS imports them, computes duration-weighted average and peak viewers plus watch time, and exports a branded, sponsor-ready PDF — in minutes, not an afternoon in a spreadsheet.',
+  },
+  {
+    q: 'Is my channel analytics data uploaded anywhere?',
+    a: 'No. The numbers are computed locally on your machine and the PDF is written to your own disk. streamerOS has no account and no backend — your analytics stay yours.',
+  },
+  {
+    q: 'Why do sponsors ask for a media kit?',
+    a: 'Sponsors evaluate creators on consistent, verifiable numbers — average and peak viewers, watch time, audience reach. A clean one-page kit answers those questions up front and makes you look professional before the negotiation even starts.',
+  },
+];
 
 // ---------------------------------------------------------------------------
 // Static faux-UI mocks — these only LOOK like the desktop app's Media Kit
@@ -104,6 +123,12 @@ function Step({ index, icon: Icon, eyebrow, title, body, last, mock }: StepProps
 export default function MediaKitGuidePage() {
   return (
     <main>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Features', path: '/features' },
+          { name: 'Media Kit Generator', path: '/features/media-kit' },
+        ])}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/5">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:64px_64px] opacity-50" />
@@ -246,6 +271,8 @@ export default function MediaKitGuidePage() {
           />
         </div>
       </section>
+
+      <FeatureFaq items={FAQ_ITEMS} />
 
       {/* CTA */}
       <section className="border-t border-white/5">

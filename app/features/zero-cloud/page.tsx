@@ -13,6 +13,9 @@ import {
 } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
+import FeatureFaq from '@/components/FeatureFaq';
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
@@ -23,6 +26,22 @@ export const metadata: Metadata = {
     'machine. Total privacy by design.',
   alternates: { canonical: 'https://streamerosai.com/features/zero-cloud' },
 };
+
+// Answers stay within claims made elsewhere on the site (FAQ, feature pages).
+const FAQ_ITEMS: FaqEntry[] = [
+  {
+    q: 'Does streamerOS require an account?',
+    a: 'No. There is no account, no login, and no backend server. You install it, connect OBS Studio over a local WebSocket, and stream — nothing about your setup is registered anywhere.',
+  },
+  {
+    q: 'What data leaves my machine?',
+    a: 'Your chat logs, audio feeds, and API keys are processed in memory and written only to your own disk — they never leave the machine. The only network traffic is a small, fixed set of opt-in connections: an update check and reading the public chat of a channel you choose. Neither carries personal data.',
+  },
+  {
+    q: 'Why does local-first matter for a streamer?',
+    a: 'Two reasons: latency and privacy. Automation with no cloud round-trip fires scene switches the instant chat reacts, and credentials that never touch a third-party server cannot leak from one. Cloud streaming tools cannot offer either guarantee.',
+  },
+];
 
 // ---------------------------------------------------------------------------
 // Static "Local-First Architecture" diagram. Twitch/YouTube and OBS feed INTO
@@ -158,6 +177,12 @@ function ArchitectureDiagram() {
 export default function ZeroCloudGuidePage() {
   return (
     <main>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Features', path: '/features' },
+          { name: 'Zero-Cloud Privacy', path: '/features/zero-cloud' },
+        ])}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/5">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:64px_64px] opacity-50" />
@@ -222,6 +247,8 @@ export default function ZeroCloudGuidePage() {
           })}
         </div>
       </section>
+
+      <FeatureFaq items={FAQ_ITEMS} />
 
       {/* CTA */}
       <section className="border-t border-white/5">

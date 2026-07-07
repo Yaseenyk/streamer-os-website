@@ -2,8 +2,7 @@ import type { Metadata } from 'next';
 import { Reveal } from '@/components/Reveal';
 import { InteractiveBlogGrid } from '@/components/InteractiveBlogGrid';
 import { getAllPostMeta } from '@/lib/posts';
-
-const SITE_URL = 'https://streamerosai.com';
+import { SITE_URL } from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'Blog',
