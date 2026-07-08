@@ -1,4 +1,3 @@
-How to switch OBS scenes automatically based on chat activity (no scripting)
 How to control OBS Studio from another app with OBS WebSocket v5
 How to automate OBS Studio for Twitch without installing plugins
 How to keep OBS CPU usage low while streaming with local automation
