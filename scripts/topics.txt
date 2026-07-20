@@ -1,4 +1,3 @@
-How to make your OBS overlays react to chat hype automatically
 How to auto-clip your best Twitch moments without a cloud service
 How to run OBS automation on a low-end streaming PC
 How to build a hands-free OBS workflow for YouTube live streams
