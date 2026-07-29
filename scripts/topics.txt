@@ -1,4 +1,3 @@
-Why local OBS automation beats cloud tools for latency and privacy
 How to auto-discover and connect your OBS instance in streamerOS
 How to set up Ollama so the streamerOS local AI features work
 How to configure your streamerOS workspace, export, and video folders
