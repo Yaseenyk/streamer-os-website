@@ -1,4 +1,3 @@
-How to switch OBS scenes from streamerOS without alt-tabbing
 How to build your first Auto-Director rule to switch scenes automatically
 How to trigger an OBS scene switch when your chat pops off with Auto-Director
 How to use game combat detection to automate your scenes in streamerOS
