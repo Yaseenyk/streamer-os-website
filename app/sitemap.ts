@@ -9,6 +9,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date();
 
   const staticRoutes: MetadataRoute.Sitemap = [
+    // Bare origin, no trailing slash — this must match the homepage's canonical
+    // tag, and under `trailingSlash: false` Next normalizes that to the bare
+    // form no matter what we pass to `alternates.canonical`. (The two forms are
+    // equivalent per RFC 3986 and Google normalizes them, so the only thing
+    // that matters is that the sitemap and the canonical agree.)
     { url: BASE_URL, lastModified, changeFrequency: 'monthly', priority: 1 },
     { url: `${BASE_URL}/features`, lastModified, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE_URL}/features/auto-hype`, lastModified, changeFrequency: 'monthly', priority: 0.8 },

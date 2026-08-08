@@ -34,6 +34,9 @@ export const metadata: Metadata = {
   creator: 'Yaseen Khatib',
   publisher: 'streamerOS',
   // Homepage self-canonical. Server pages override with their own absolute URL.
+  // Note: under `trailingSlash: false` Next normalizes the root canonical to the
+  // bare origin, so this always emits `https://streamerosai.com` — keep the
+  // sitemap's homepage entry in the same form.
   alternates: { canonical: SITE_URL },
   openGraph: {
     type: 'website',

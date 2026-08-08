@@ -63,12 +63,15 @@ jobs:
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        with:
-          # Automatically inject basePath in your Next.js configuration file and disable
-          # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
-          #
-          # You may remove this line if you want to manage the configuration yourself.
-          static_site_generator: next
+        # NOTE: do NOT set `static_site_generator: next` here. That option makes
+        # the action write its own `next.config.js`, which Next resolves ahead of
+        # our `next.config.ts` — silently dropping `pageExtensions` and the MDX
+        # plugin, so every `page.mdx` route (/docs, /docs/installation) vanished
+        # from the export and 404'd in production while building fine locally.
+        # See https://github.com/actions/configure-pages/issues/107.
+        # We already declare `output: 'export'` and `images.unoptimized` in
+        # next.config.ts, and a custom domain needs no basePath, so the
+        # injection bought us nothing.
       - name: Restore cache
         uses: actions/cache@v4
         with:
@@ -84,7 +87,10 @@ jobs:
       - name: Build with Next.js
         env:
           NEXT_PUBLIC_CHAT_API: ${{ vars.NEXT_PUBLIC_CHAT_API }}
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        # `npm run build`, not a bare `next build`, so the post-build
+        # verify-sitemap guard actually runs in CI — it's the check that would
+        # have caught /docs 404-ing in production on the day it broke.
+        run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
