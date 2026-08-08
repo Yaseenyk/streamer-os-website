@@ -1,12 +1,24 @@
 name: AI Blogger
 
 # Autonomous blog pipeline: OpenAI writes a streamer-focused post from
-# scripts/topics.txt and commits the resulting .md to main. Runs Mon/Wed/Fri
-# at 10:00 UTC (3 posts per week).
+# scripts/topics.txt and commits the resulting .md to main.
+#
+# SCHEDULE DISABLED 2026-08-08 — do not re-enable.
+#
+# This ran Mon/Wed/Fri at 10:00 UTC. Combined with the sister pipeline on the
+# yaseenkhatib subdomain it produced a corpus that Google classified as scaled
+# content abuse: on 2026-07-11 indexation across the domain fell from 127 to 66
+# pages in a single day and impressions dropped ~90%. Of the subdomain's ~165
+# URLs, 138 sit in "Discovered/Crawled - currently not indexed" — Google reads
+# them and declines to keep them.
+#
+# Every additional generated post re-confirms that classification, so the
+# schedule is removed rather than merely lengthened. Manual dispatch is kept
+# only so the script can be exercised; publishing its output to the live site
+# is not advisable until the existing corpus has been pruned and the domain has
+# recovered.
 on:
-  schedule:
-    - cron: "0 10 * * 1,3,5"
-  workflow_dispatch: {} # allow manual runs from the Actions tab
+  workflow_dispatch: {} # manual only — the cron schedule is intentionally gone
 
 # Needed so the workflow can push the generated post back to the repo.
 permissions:
