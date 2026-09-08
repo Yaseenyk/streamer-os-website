@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { siteConfig } from '@/config/site';
+import { BUILDER } from '@/config/engineering';
 import { SignalLogo } from '@/components/SignalLogo';
 
 interface FooterLink {
@@ -97,7 +98,16 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-zinc-500">© 2026 streamerOS. All rights reserved.</p>
+          <p className="text-sm text-zinc-500">
+            © 2026 streamerOS. All rights reserved. Built by{' '}
+            <a
+              href={BUILDER.url}
+              className="rounded text-zinc-400 underline-offset-4 transition-colors hover:text-cyan-400 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+            >
+              {BUILDER.name}
+            </a>
+            .
+          </p>
 
           <div className="flex items-center gap-4">
             {SOCIALS.map((social) => (
