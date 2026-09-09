@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Reveal } from '@/components/Reveal';
-import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
+import { LaunchBadge } from '@/components/PreRegisterModal';
+import { ScreenshotStrip } from '@/components/ScreenshotStrip';
+import { SHOTS } from '@/lib/shots';
+import InlineSignup from '@/components/InlineSignup';
 
 export const metadata: Metadata = {
   title: 'Download',
@@ -52,8 +55,8 @@ export default function DownloadPage() {
           </Reveal>
           <Reveal delay={0.16}>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              Free, open source, and landing on your desktop this November. Pre-register and
-              we’ll send the build the day it ships.
+              Free for 7 days, then $29 once — no subscription. Landing on your desktop
+              this November. Pre-register and we’ll send the build the day it ships.
             </p>
           </Reveal>
         </div>
@@ -68,19 +71,26 @@ export default function DownloadPage() {
             <p className="mt-2 text-sm text-zinc-400">
               64-bit · 7-day free trial · no account required
             </p>
-            <PreRegisterButton className="mt-6 inline-flex items-center justify-center rounded-lg bg-cyan-400 px-8 py-3.5 text-sm font-semibold text-[#05070A] transition hover:bg-cyan-300">
-              Pre-Register for Launch
-            </PreRegisterButton>
+            <InlineSignup variant="bare" source="download" className="mt-6" />
             <p className="mt-4 text-xs text-zinc-500">
-              Prefer to build from source? streamerOS is{' '}
+              Want to see what it does first?{' '}
               <Link href="/features" className="text-cyan-400 hover:underline">
-                fully open source
+                Every feature, screen by screen
               </Link>
               .
             </p>
           </div>
         </Reveal>
 
+      </div>
+
+      <ScreenshotStrip
+        heading="What lands on your desktop."
+        blurb="The build you get on launch day, captured running on Windows."
+        shots={[SHOTS.dashboard, SHOTS.autoDirector, SHOTS.obsBridge, SHOTS.viralMoments, SHOTS.sponsorCrm]}
+      />
+
+      <div className="mx-auto max-w-3xl space-y-16 px-6 pb-20">
         {/* System requirements */}
         <Reveal>
           <h2 className="text-xl font-semibold tracking-tight">System requirements</h2>

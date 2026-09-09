@@ -15,6 +15,8 @@ import { Reveal } from '@/components/Reveal';
 import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
 import FeatureFaq from '@/components/FeatureFaq';
 import JsonLd from '@/components/JsonLd';
+import { ScreenshotStrip } from '@/components/ScreenshotStrip';
+import { SHOTS } from '@/lib/shots';
 import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
 import { Screenshot } from '@/components/Screenshot';
 
@@ -358,12 +360,18 @@ export default function ObsBridgeGuidePage() {
 
 
       <Screenshot
-        src="/screenshots/auto-director.png"
-        alt="The OBS control deck connected over WebSocket v5"
+        src="/screenshots/obs-bridge.png"
+        alt="The streamerOS OBS Bridge connected over WebSocket v5, with a five-scene stream deck and the live scene highlighted"
         caption="Connected locally, no cloud"
       />
 
       <FeatureFaq items={FAQ_ITEMS} />
+
+      <ScreenshotStrip
+        heading="The bridge, end to end."
+        blurb="Connection, scene deck, and what it costs while your game is running."
+        shots={[SHOTS.obsBridge, SHOTS.obsConnection, SHOTS.streamDeck, SHOTS.sceneSwitcher, SHOTS.autoDirector]}
+      />
 
       {/* CTA */}
       <section className="border-t border-white/5">

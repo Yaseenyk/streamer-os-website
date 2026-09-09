@@ -16,6 +16,8 @@ import { Reveal } from '@/components/Reveal';
 import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
 import FeatureFaq from '@/components/FeatureFaq';
 import JsonLd from '@/components/JsonLd';
+import { ScreenshotStrip } from '@/components/ScreenshotStrip';
+import { SHOTS } from '@/lib/shots';
 import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
 import { Screenshot } from '@/components/Screenshot';
 
@@ -320,6 +322,12 @@ export default function ViralMomentsGuidePage() {
       />
 
       <FeatureFaq items={FAQ_ITEMS} />
+
+      <ScreenshotStrip
+        heading="Every signal behind a hype spike."
+        blurb="Velocity, sentiment and the chat traffic the two are measured from."
+        shots={[SHOTS.viralMoments, SHOTS.velocityStats, SHOTS.sentiment, SHOTS.chatTriage, SHOTS.topChatters]}
+      />
 
       {/* CTA */}
       <section className="border-t border-white/5">

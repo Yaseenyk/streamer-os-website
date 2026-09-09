@@ -16,6 +16,9 @@ import { Reveal } from '@/components/Reveal';
 import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
 import FeatureFaq from '@/components/FeatureFaq';
 import JsonLd from '@/components/JsonLd';
+import { ScreenshotStrip } from '@/components/ScreenshotStrip';
+import { SHOTS } from '@/lib/shots';
+import { Screenshot } from '@/components/Screenshot';
 import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
 
 export const metadata: Metadata = {
@@ -38,8 +41,8 @@ const FAQ_ITEMS: FaqEntry[] = [
     a: 'Locally, on your own machine. streamerOS has no account and no backend, so your pipeline, contact notes, and deal terms are never sitting on someone else’s server.',
   },
   {
-    q: 'Is the Sponsor CRM part of the free version?',
-    a: 'Yes. streamerOS is free and open source, and the free build is fully functional. The optional $29 Supporter Edition adds cosmetic perks and early access to new AI models — it does not gate the CRM or any core feature.',
+    q: 'Is the Sponsor CRM included, or an add-on?',
+    a: 'Included. The $29 licence unlocks every feature permanently — the Sponsor CRM is not a separate purchase, an add-on, or a higher tier. The free 7-day trial includes it too, with nothing held back.',
   },
 ];
 
@@ -234,6 +237,12 @@ export default function SponsorCrmGuidePage() {
         </div>
       </section>
 
+      <Screenshot
+        src="/screenshots/sponsor-crm.png"
+        alt="The Sponsor CRM pipeline board with leads across prospect, contacted, negotiating and won stages"
+        caption="Every deal, every stage, on your machine"
+      />
+
       {/* Walkthrough */}
       <section className="mx-auto max-w-5xl px-6 py-20 sm:py-24">
         <Reveal className="mx-auto max-w-2xl text-center">
@@ -343,6 +352,12 @@ export default function SponsorCrmGuidePage() {
       </section>
 
       <FeatureFaq items={FAQ_ITEMS} />
+
+      <ScreenshotStrip
+        heading="From lead to paid, on one machine."
+        blurb="The pipeline board, and the numbers a sponsor asks you for."
+        shots={[SHOTS.sponsorCrm, SHOTS.revenue, SHOTS.topChatters, SHOTS.chatArchive, SHOTS.dashboard]}
+      />
 
       {/* CTA */}
       <section className="border-t border-white/5">

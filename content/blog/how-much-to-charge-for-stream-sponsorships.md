@@ -119,20 +119,3 @@ If you can, take a flat base fee for your guaranteed reach and layer a performan
 Start with CPM as your anchor. Scale it for engagement, niche, exclusivity, and everything the brand is actually asking you to deliver. Decide between flat, performance, or a blend. And whatever number you land on — **back it with real average/peak viewership and watch time**, because a defensible number is a number that gets paid.
 
 Pull your data, build your kit with the [streamerOS Media Kit Generator](/features/media-kit), and walk into your next deal knowing exactly what you're worth.
-
----
-
-## Get 3 months free instead of 7 days
-
-streamerOS is a Windows-native cockpit that runs entirely on your PC — chat
-velocity, sentiment, OBS scene automation and your sponsor media kit. No cloud
-account, no telemetry upload, and a 1.8% CPU footprint so your game keeps its
-frames.
-
-It launches **November 2026**. The trial is 7 days; a full licence is **$29 once
-— not a subscription**.
-
-**Pre-register before launch and your trial is 3 months.**
-
-**[Claim 3 months free →](/download)** — one email, no card, and you get the
-build the day it ships.

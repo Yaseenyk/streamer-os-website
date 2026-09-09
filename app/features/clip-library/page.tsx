@@ -16,6 +16,9 @@ import { Reveal } from '@/components/Reveal';
 import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
 import FeatureFaq from '@/components/FeatureFaq';
 import JsonLd from '@/components/JsonLd';
+import { ScreenshotStrip } from '@/components/ScreenshotStrip';
+import { SHOTS } from '@/lib/shots';
+import { Screenshot } from '@/components/Screenshot';
 import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
 
 export const metadata: Metadata = {
@@ -215,7 +218,13 @@ export default function ClipLibraryGuidePage() {
         </div>
       </section>
 
-      {/* Walkthrough */}
+<Screenshot
+        src="/screenshots/clip-library.png"
+        alt="The streamerOS Clip Library listing local recordings ranked by hype score, with chat-velocity peaks and event counts per clip"
+        caption="Ranked by what chat actually did"
+      />
+
+            {/* Walkthrough */}
       <section className="mx-auto max-w-5xl px-6 py-20 sm:py-24">
         <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -316,6 +325,12 @@ export default function ClipLibraryGuidePage() {
       </section>
 
       <FeatureFaq items={FAQ_ITEMS} />
+
+      <ScreenshotStrip
+        heading="How a clip gets found."
+        blurb="The ranked library, and the live signals that scored each recording."
+        shots={[SHOTS.clipLibrary, SHOTS.viralMoments, SHOTS.velocityStats, SHOTS.chatTriage, SHOTS.sentiment]}
+      />
 
       {/* CTA */}
       <section className="border-t border-white/5">

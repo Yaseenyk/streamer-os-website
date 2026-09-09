@@ -90,20 +90,3 @@ Windows utilizes a built-in hardware scheduler to allocate GPU resources across 
 Once your core OBS configurations are securely locked down and your browser threads are cleaned up, the final step is ensuring your local chat bots and macro systems aren't introducing lag. This is precisely why we engineered **streamerOS**.
 
 Acting as a completely local, zero-cloud desktop utility that integrates natively with OBS WebSocket v5, streamerOS handles heavy chat data pipelines, overlay triggers, and system automations at an average footprint of **under 1.8% CPU usage**. By removing bloated cloud dependencies and execution latency, you gain a professional, data-driven broadcast environment that keeps your hardware focus entirely on what matters most: delivering pristine, uncompromised gameplay.
-
----
-
-## Get 3 months free instead of 7 days
-
-streamerOS is a Windows-native cockpit that runs entirely on your PC — chat
-velocity, sentiment, OBS scene automation and your sponsor media kit. No cloud
-account, no telemetry upload, and a 1.8% CPU footprint so your game keeps its
-frames.
-
-It launches **November 2026**. The trial is 7 days; a full licence is **$29 once
-— not a subscription**.
-
-**Pre-register before launch and your trial is 3 months.**
-
-**[Claim 3 months free →](/download)** — one email, no card, and you get the
-build the day it ships.

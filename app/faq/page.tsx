@@ -34,8 +34,8 @@ const FAQ_ITEMS: FaqItem[] = [
     a: 'Windows 10 or 11, 16 GB of RAM, and an 8-core CPU. The core monitoring and automation are featherweight; that headroom mainly gives the optional on-device AI features room to run comfortably alongside your game and OBS.',
   },
   {
-    q: 'Is streamerOS really free?',
-    a: 'Yes — streamerOS is free and open source, and the free build is fully functional. The optional $29 Supporter Edition is a one-time purchase that adds cosmetic perks and early access to new AI models; it helps fund development but changes nothing about what the free version can do.',
+    q: 'What does streamerOS cost?',
+    a: 'The trial is free for 7 days with no card, and nothing is held back during it — you get the whole cockpit. After that a full licence is $29 once. Not a subscription, no seat count, no account: you pay a single time and keep the version you bought, forever, offline. Pre-register before the November 2026 launch and your trial is 3 months instead of 7 days.',
   },
   {
     q: 'Will it slow down my game?',
@@ -47,7 +47,7 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: 'How do I get help or report a bug?',
-    a: 'Reach out through the contact page. streamerOS is open source, so issues and contributions are welcome on the public repository too.',
+    a: 'Reach out through the contact page and a human will answer. Bug reports are welcome — streamerOS runs entirely on your machine, so a description of what you were doing and your OBS version is usually enough to reproduce it.',
   },
 ];
 

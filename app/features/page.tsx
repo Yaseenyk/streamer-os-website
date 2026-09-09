@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import type { ReactNode } from 'react';
 import {
   ArrowRight,
   Activity,
@@ -22,6 +21,8 @@ import {
 import { Reveal } from '@/components/Reveal';
 import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
 import JsonLd from '@/components/JsonLd';
+import { ScreenshotStrip } from '@/components/ScreenshotStrip';
+import { SHOTS } from '@/lib/shots';
 import { breadcrumbJsonLd } from '@/lib/seo';
 
 export const metadata: Metadata = {
@@ -286,6 +287,19 @@ export default function FeaturesPage() {
         </div>
       </section>
 
+      <ScreenshotStrip
+        heading="Not a mockup. This is the build."
+        blurb="Every screen here is a capture of streamerOS running on Windows — the same cockpit that ships in November."
+        shots={[
+          SHOTS.dashboard,
+          SHOTS.autoDirector,
+          SHOTS.viralMoments,
+          SHOTS.obsBridge,
+          SHOTS.sponsorCrm,
+          SHOTS.clipLibrary,
+        ]}
+      />
+
       {/* Category sections */}
       <div className="mx-auto max-w-6xl space-y-24 px-6 py-24 sm:py-28">
         {CATEGORIES.map((category) => (
@@ -368,8 +382,8 @@ export default function FeaturesPage() {
               See it run on your machine.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              streamerOS is free and open source. Pre-register for the launch and
-              watch the cockpit disappear into the background.
+              Free for 7 days, then $29 once. Pre-register for the launch and watch
+              the cockpit disappear into the background.
             </p>
             <div className="mt-8 flex flex-col items-center gap-4">
               <LaunchBadge />

@@ -51,9 +51,12 @@ const TIERS: Tier[] = [
       'Works offline forever; the licence validates once',
       'No subscription, no seat count, no upsell',
     ],
-    cta: 'Buy a Licence',
+    // Checkout does not open until launch, so this reserves the price instead
+    // of sending people to a page that cannot sell them anything yet.
+    cta: 'Lock in launch access',
     href: siteConfig.supporterCheckoutUrl,
     featured: true,
+    preRegister: true,
   },
 ];
 
@@ -123,7 +126,14 @@ export default function Pricing() {
             </ul>
 
             {tier.preRegister ? (
-              <PreRegisterButton className="mt-8 inline-flex items-center justify-center gap-2 rounded-lg border border-white/15 px-5 py-3 text-sm font-semibold text-zinc-100 transition hover:border-white/30 hover:bg-white/5">
+              <PreRegisterButton
+                className={`mt-8 inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold transition-all duration-200 ${
+                  tier.featured
+                    ? 'bg-purple-500 text-white hover:bg-purple-400 hover:shadow-[0_0_15px_rgba(168,85,247,0.3)]'
+                    : 'border border-white/15 text-zinc-100 hover:border-white/30 hover:bg-white/5'
+                }`}
+              >
+                {tier.featured && <Heart className="h-4 w-4" aria-hidden />}
                 {tier.cta}
               </PreRegisterButton>
             ) : (

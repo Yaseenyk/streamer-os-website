@@ -82,7 +82,9 @@ const jsonLd = {
         height: 630,
       },
       email: siteConfig.contactEmail,
-      sameAs: [siteConfig.githubUrl, siteConfig.twitterUrl, siteConfig.discordUrl],
+      // githubUrl is omitted until the repository is public — a 404 in sameAs
+      // is a broken entity link for search engines.
+      sameAs: [siteConfig.twitterUrl, siteConfig.discordUrl],
       founder: { '@id': `${SITE_URL}/#person` },
     },
     {
@@ -105,8 +107,14 @@ const jsonLd = {
       url: SITE_URL,
       author: { '@id': `${SITE_URL}/#person` },
       publisher: { '@id': `${SITE_URL}/#organization` },
-      // Free and open source; the $29 Supporter Edition is an optional one-time purchase.
-      offers: { '@type': 'Offer', price: '0.00', priceCurrency: 'USD' },
+      // A free 7-day trial, then a one-time $29 licence. Priced as the licence
+      // so search results do not advertise the product as free.
+      offers: {
+        '@type': 'Offer',
+        price: '29.00',
+        priceCurrency: 'USD',
+        category: 'One-time licence, free 7-day trial',
+      },
       featureList: [
         'Auto-Hype Director — node-based OBS scene automation',
         '1.8% CPU footprint under a live 1080p60 game',
@@ -128,8 +136,24 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           data-domain="streamerosai.com"
           src="https://plausible.io/js/script.js"
         />
+        {/* Plausible's documented queue stub. The deferred script above has not
+            executed yet when the first signup can fire, so calls are buffered
+            here and replayed once it loads — without it, an early conversion is
+            silently dropped. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              'window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}',
+          }}
+        />
       </head>
+      {/* Browser extensions (password managers, ColorZilla's `cz-shortcut-listen`,
+          Grammarly and friends) add attributes to <body> before React hydrates,
+          which React then reports as a mismatch. This suppresses the warning for
+          this element's own attributes only — one level deep — so a genuine
+          mismatch anywhere inside the tree is still reported. */}
       <body
+        suppressHydrationWarning
         className={`${inter.className} min-h-screen bg-[#05070A] text-zinc-100 antialiased selection:bg-cyan-400/30 selection:text-white`}
       >
         <PreRegisterProvider>

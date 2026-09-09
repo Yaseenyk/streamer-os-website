@@ -5,6 +5,8 @@ import { Reveal } from '@/components/Reveal';
 import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
 import FeatureFaq from '@/components/FeatureFaq';
 import JsonLd from '@/components/JsonLd';
+import { ScreenshotStrip } from '@/components/ScreenshotStrip';
+import { SHOTS } from '@/lib/shots';
 import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
 import { Screenshot } from '@/components/Screenshot';
 
@@ -242,11 +244,17 @@ export default function PerformanceGuidePage() {
 
       <Screenshot
         src="/screenshots/dashboard.png"
-        alt="The streamerOS cockpit running alongside a live 1080p60 game"
-        caption="Live telemetry, 1.8% CPU"
+        alt="The streamerOS cockpit under a live stream, with its CPU and RAM cost shown in the status bar"
+        caption="The whole cockpit, live — cost in the status bar"
       />
 
       <FeatureFaq items={FAQ_ITEMS} />
+
+      <ScreenshotStrip
+        heading="The whole cockpit, and what it costs."
+        blurb="Everything running at once, with the CPU and RAM figures in frame."
+        shots={[SHOTS.dashboard, SHOTS.obsConnection, SHOTS.obsBridge, SHOTS.autoDirector, SHOTS.sceneSwitcher]}
+      />
 
       {/* CTA */}
       <section className="border-t border-white/5">
@@ -256,8 +264,8 @@ export default function PerformanceGuidePage() {
               Light enough to forget it&rsquo;s running.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              streamerOS v1.0-GA ships free and open source — a full broadcast
-              cockpit at a 1.8% CPU footprint.
+              streamerOS v1.0-GA is a full broadcast cockpit at a 1.8% CPU
+              footprint. Free for 7 days, then $29 once.
             </p>
             <LaunchBadge className="mt-8" />
             <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">

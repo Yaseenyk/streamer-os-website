@@ -4,22 +4,23 @@ import { Fragment, type ReactNode } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Reveal } from '@/components/Reveal';
-import InteractiveNodeVisualizer from '@/components/InteractiveNodeVisualizer';
 import EncoderTuningGraphic from '@/components/EncoderTuningGraphic';
 import LocalVsCloudDiagram from '@/components/LocalVsCloudDiagram';
-import TelemetryLoopVisualizer from '@/components/TelemetryLoopVisualizer';
-import { getPostBySlug, getPostSlugs } from '@/lib/posts';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+import InlineSignup from '@/components/InlineSignup';
+import { getAllPostMeta, getPostBySlug, getPostSlugs } from '@/lib/posts';
+import { getBlogCta, getRelatedPosts } from '@/lib/blog-cta';
 import { SITE_URL } from '@/config/site';
 import { breadcrumbJsonLd } from '@/lib/seo';
 import JsonLd from '@/components/JsonLd';
+import Image from 'next/image';
 
 // Approved layout tokens → their components. Posts stay pure markdown data;
 // tokens are swapped for components here, never executed from the post itself.
 const PLACEHOLDERS: Record<string, ReactNode> = {
-  '[LIVE_SYSTEM_DATALINK_LOOP]': <InteractiveNodeVisualizer />,
   '[OBS_ENCODER_TUNING_GRAPHIC]': <EncoderTuningGraphic />,
   '[LOCAL_VS_CLOUD_FLOW_DIAGRAM]': <LocalVsCloudDiagram />,
-  '[TELEMETRY_FEEDBACK_LOOP_VISUALIZER]': <TelemetryLoopVisualizer />,
 };
 
 function escapeRegExp(value: string): string {
@@ -133,9 +134,33 @@ function renderBody(content: string): ReactNode[] {
   });
 }
 
+/**
+ * Split the markdown at the "## " heading nearest the middle, so a mid-post
+ * callout lands on a section break rather than cutting a paragraph in half.
+ * Returns a single chunk for posts too short to be worth interrupting.
+ */
+function splitAtMiddleHeading(content: string): [string, string] {
+  const headings: number[] = [];
+  const pattern = /\n## /g;
+  let match: RegExpExecArray | null;
+  while ((match = pattern.exec(content)) !== null) headings.push(match.index);
+
+  // Two headings minimum, or the "middle" is just the top or bottom of the post.
+  if (headings.length < 3 || content.length < 2500) return [content, ''];
+
+  const target = content.length / 2;
+  const cut = headings.reduce((best, index) =>
+    Math.abs(index - target) < Math.abs(best - target) ? index : best,
+  );
+  return [content.slice(0, cut), content.slice(cut)];
+}
+
 export default async function BlogPostPage({ params }: { params: PageParams }) {
   const { slug } = await params;
   const { meta, content } = await getPostBySlug(slug);
+  const cta = getBlogCta(meta);
+  const related = getRelatedPosts(meta, await getAllPostMeta());
+  const [bodyStart, bodyRest] = splitAtMiddleHeading(content);
 
   const formattedDate = new Date(meta.date).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -189,8 +214,72 @@ export default async function BlogPostPage({ params }: { params: PageParams }) {
           </Reveal>
         </header>
 
-        <div className="mt-12">{renderBody(content)}</div>
+        <div className="mt-12">{renderBody(bodyStart)}</div>
+
+        {bodyRest && (
+          <>
+            <Reveal>
+              <aside className="my-10 overflow-hidden rounded-xl border border-white/10 bg-white/[0.03]">
+                <Image
+                  src={cta.shot.src}
+                  alt={cta.shot.alt}
+                  width={cta.shot.width}
+                  height={cta.shot.height}
+                  sizes="(max-width: 768px) 100vw, 720px"
+                  className="h-auto w-full border-b border-white/10"
+                />
+                <div className="p-5">
+                  <p className="text-sm leading-relaxed text-zinc-300">{cta.callout.text}</p>
+                  <Link
+                    href={cta.callout.href}
+                    className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-cyan-400 transition-colors hover:text-cyan-300"
+                  >
+                    {cta.callout.linkLabel}
+                    <ArrowRight className="h-4 w-4" aria-hidden />
+                  </Link>
+                </div>
+              </aside>
+            </Reveal>
+            <div>{renderBody(bodyRest)}</div>
+          </>
+        )}
       </article>
+
+      <Reveal>
+        <InlineSignup
+          className="mt-16"
+          source={`blog:${slug}`}
+          heading={cta.heading}
+          blurb={cta.blurb}
+        />
+      </Reveal>
+
+      {related.length > 0 && (
+        <Reveal>
+          <section className="mt-16 border-t border-white/10 pt-10">
+            <h2 className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">
+              Keep reading
+            </h2>
+            <ul className="mt-5 grid gap-3 sm:grid-cols-3">
+              {related.map((post) => (
+                <li key={post.slug}>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="group flex h-full flex-col rounded-xl border border-white/10 bg-white/[0.03] p-4 transition-colors hover:border-cyan-400/30 hover:bg-white/[0.06]"
+                  >
+                    <span className="text-sm font-semibold leading-snug text-zinc-100 group-hover:text-cyan-300">
+                      {post.title}
+                    </span>
+                    <span className="mt-2 line-clamp-3 text-xs leading-relaxed text-zinc-400">
+                      {post.description}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </Reveal>
+      )}
     </main>
   );
 }

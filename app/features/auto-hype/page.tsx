@@ -17,6 +17,8 @@ import { Reveal } from '@/components/Reveal';
 import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
 import FeatureFaq from '@/components/FeatureFaq';
 import JsonLd from '@/components/JsonLd';
+import { ScreenshotStrip } from '@/components/ScreenshotStrip';
+import { SHOTS } from '@/lib/shots';
 import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
 import { Screenshot } from '@/components/Screenshot';
 
@@ -365,6 +367,12 @@ export default function AutoHypeGuidePage() {
       />
 
       <FeatureFaq items={FAQ_ITEMS} />
+
+      <ScreenshotStrip
+        heading="Every part of the Auto-Hype Director."
+        blurb="The canvas, the signals it reads, and the OBS scene it ends up switching."
+        shots={[SHOTS.autoDirector, SHOTS.chatTriage, SHOTS.velocityStats, SHOTS.sceneSwitcher, SHOTS.dashboard]}
+      />
 
       {/* CTA */}
       <section className="border-t border-white/5">

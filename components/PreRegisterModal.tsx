@@ -11,15 +11,7 @@ import {
 } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Rocket, X } from 'lucide-react';
-
-// Pre-registration captures emails ahead of the November 2026 launch. Delivered
-// via EmailJS's REST API (client-side, works on the static export) to the site
-// contact inbox. The public key is safe to expose — that's EmailJS's design.
-const EMAILJS_ENDPOINT = 'https://api.emailjs.com/api/v1.0/email/send';
-const EMAILJS_SERVICE = 'service_560nh3i';
-const EMAILJS_TEMPLATE = 'template_dyb1k4x';
-const EMAILJS_PUBLIC_KEY = 'mB56akvK2qStLNadU';
-const PREREGISTER_INBOX = 'contact@streamerosai.com';
+import { SIGNUP_ERROR, submitPreRegistration } from '@/lib/preregister';
 
 const FIELD_CLASS =
   'w-full rounded-lg border border-white/10 bg-white/[0.03] p-3 text-slate-100 ' +
@@ -184,30 +176,10 @@ function PreRegisterForm() {
 
     setIsSubmitting(true);
     try {
-      const response = await fetch(EMAILJS_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          service_id: EMAILJS_SERVICE,
-          template_id: EMAILJS_TEMPLATE,
-          user_id: EMAILJS_PUBLIC_KEY,
-          template_params: {
-            name: 'streamerOS Pre-Registration',
-            email,
-            message: `New streamerOS pre-registration from ${email}`,
-            to_email: PREREGISTER_INBOX,
-            reply_to: email,
-          },
-        }),
-      });
-      if (!response.ok) {
-        throw new Error(`EmailJS returned ${response.status}`);
-      }
+      await submitPreRegistration(email, 'modal');
       setIsSuccess(true);
     } catch {
-      setErrorMessage(
-        'Something went wrong — you weren’t added to the list. Please try again in a moment.',
-      );
+      setErrorMessage(SIGNUP_ERROR);
     } finally {
       setIsSubmitting(false);
     }

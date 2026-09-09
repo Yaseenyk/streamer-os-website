@@ -50,12 +50,14 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className={H2}>The Supporter Edition</h2>
+          <h2 className={H2}>The licence</h2>
           <p className={P}>
-            The Supporter Edition is an optional, one-time purchase. It unlocks
-            cosmetic and early-access perks but does not change the open-source
-            license or the warranty disclaimer above — streamerOS remains free and
-            fully functional without it.
+            streamerOS is free to trial for 7 days with no payment details. After
+            that, continued use requires a one-time $29 licence, which unlocks every
+            feature permanently for the version you bought. It is not a
+            subscription and does not renew. The licence validates once and the
+            software then runs offline indefinitely. Nothing above changes the
+            warranty disclaimer.
           </p>
         </section>
 

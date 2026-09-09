@@ -16,6 +16,8 @@ import { Reveal } from '@/components/Reveal';
 import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
 import FeatureFaq from '@/components/FeatureFaq';
 import JsonLd from '@/components/JsonLd';
+import { ScreenshotStrip } from '@/components/ScreenshotStrip';
+import { SHOTS } from '@/lib/shots';
 import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
 import { Screenshot } from '@/components/Screenshot';
 
@@ -381,6 +383,12 @@ export default function AuraStudioGuidePage() {
       />
 
       <FeatureFaq items={FAQ_ITEMS} />
+
+      <ScreenshotStrip
+        heading="Overlays, and the state that drives them."
+        blurb="The gallery, the scene it feeds, and the live readings the vibe follows."
+        shots={[SHOTS.aura, SHOTS.sentiment, SHOTS.sceneSwitcher, SHOTS.obsBridge, SHOTS.dashboard]}
+      />
 
       {/* CTA */}
       <section className="border-t border-white/5">

@@ -110,20 +110,3 @@ word local.
 **What is the catch with local-first?**
 No sync, no phone dashboard, and you own your own backups. That is the whole
 trade.
-
----
-
-## Get 3 months free instead of 7 days
-
-streamerOS is a Windows-native cockpit that runs entirely on your PC — chat
-velocity, sentiment, OBS scene automation and your sponsor media kit. No cloud
-account, no telemetry upload, and a 1.8% CPU footprint so your game keeps its
-frames.
-
-It launches **November 2026**. The trial is 7 days; a full licence is **$29 once
-— not a subscription**.
-
-**Pre-register before launch and your trial is 3 months.**
-
-**[Claim 3 months free →](/download)** — one email, no card, and you get the
-build the day it ships.

@@ -27,7 +27,7 @@ export default function ContactFormWrapper() {
           Secure Channel.
         </h1>
         <p className="mt-4 text-slate-400">
-          Have a question about the Supporter Edition, or want to report a bug?
+          Have a question about pricing or licensing, or want to report a bug?
           Drop us a line.
         </p>
         <p className="mt-3 text-sm text-slate-500">

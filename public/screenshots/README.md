@@ -1,26 +1,45 @@
 # Product screenshots
 
-Drop the real screenshots here with these exact filenames. The site picks them
-up by name — no code change needed after that.
+Real captures of streamerOS, not mockups. Taken from the product repo running in
+**simulation mode** (`npm run dev:sim` in `streamerOS/`), which swaps every IPC
+surface for an in-memory mock so the whole UI runs in a plain browser with no
+Rust, no Tauri, no OBS and no Ollama.
 
-| filename            | what it should show                                    | used on |
-| ------------------- | ------------------------------------------------------ | ------- |
-| `dashboard.png`     | The main cockpit / bento dashboard                      | homepage hero, /features |
-| `auto-director.png` | The node canvas or OBS control deck mid-automation      | /features/auto-hype, /features/obs-bridge |
-| `viral-moments.png` | Velocity monitor with a hype spike marked               | /features/viral-moments, /features/clip-library |
-| `media-kit.png`     | The Media Kit generator, or the PDF it produces         | /features/media-kit, /features/sponsor-crm |
-| `aura.png`          | The Aura / vibe overlay reacting to game state          | /features/aura-studio |
-| `sentiment.png`     | Live chat sentiment horizon                             | /features/viral-moments |
+`components/Screenshot.tsx` renders a file only if it exists, so an empty slot
+costs nothing — drop a PNG in, rebuild, and the section appears.
+
+## What is here
+
+| filename            | shows                                                    | used on |
+| ------------------- | -------------------------------------------------------- | ------- |
+| `dashboard.png`     | The cockpit mid-stream — chat triage, super chats, sentiment, scene switcher | homepage, /features, /features/performance |
+| `auto-director.png` | The node canvas: chat-velocity trigger → logic → scene switch | /features, /features/auto-hype |
+| `viral-moments.png` | Velocity monitor with messages/sec, baseline and heat ratio | /features, /features/viral-moments |
+| `sponsor-crm.png`   | Sponsor pipeline board with stages and open-pipeline total | /features, /features/sponsor-crm |
+| `obs-bridge.png`    | OBS connection + the stream deck, live scene highlighted   | /features/obs-bridge |
+| `clip-library.png`  | Local recordings ranked by hype score                      | /features/clip-library |
+| `chat-archive.png`  | Saved stream chat, searchable, held locally                | /features/zero-cloud |
+| `aura.png`          | The overlay gallery                                        | /features/aura-studio |
+
+## Still missing
+
+| slot              | why it is empty |
+| ----------------- | ---------------- |
+| `media-kit.png`   | The PDF preview renders blank in simulation mode — `@react-pdf/renderer` gets no data from the mock. Capture this from a real run, or fix `mockMediaKit` to return a populated report. |
+
+## Re-capturing
+
+The cockpit's Chat Triage listens for the Rust `chat-message-received` **event**.
+Simulation mode mocks the `invoke` command surface but not the event channel, so
+`listen()` rejects in a browser and chat stays empty. To capture a populated
+cockpit, install a small `window.__TAURI_INTERNALS__` shim before app scripts run
+(it only needs `transformCallback` plus an `invoke` that answers
+`plugin:event|listen`), then dispatch `chat-message-received` payloads.
 
 Guidance that matters more than resolution:
 
 - **Real data beats clean data.** A dashboard with a live spike on it sells; an
-  empty one does not.
-- **Crop to the feature.** A full-window screenshot at 1080p is unreadable at
-  blog width. Crop to the panel the page is about.
-- **Dark UI on a dark site** needs a border or a subtle glow, or it dissolves
-  into the page. The components add one.
+  empty one does not. Do not ship a screen showing "No chat yet".
+- **Crop to the feature.** Trim dead space and any developer annotations.
 - **1600px wide is plenty.** Anything larger is bytes nobody sees.
-
-The files in the product repo (`Dashboard.png`, `Media Kit Generator.png`,
-`Streamer OS.png`) are the obvious starting point — crop and rename them.
+- **Keep alt text specific.** Describe what is on screen, not the product pitch.

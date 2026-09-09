@@ -15,6 +15,9 @@ import { Reveal } from '@/components/Reveal';
 import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
 import FeatureFaq from '@/components/FeatureFaq';
 import JsonLd from '@/components/JsonLd';
+import { ScreenshotStrip } from '@/components/ScreenshotStrip';
+import { SHOTS } from '@/lib/shots';
+import { Screenshot } from '@/components/Screenshot';
 import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
 
 export const metadata: Metadata = {
@@ -215,7 +218,13 @@ export default function ZeroCloudGuidePage() {
         </div>
       </section>
 
-      {/* Local-First Architecture visual */}
+<Screenshot
+        src="/screenshots/chat-archive.png"
+        alt="The streamerOS Chat Archive searching saved stream chat held locally on the machine"
+        caption="Your chat history, on your disk"
+      />
+
+            {/* Local-First Architecture visual */}
       <section className="mx-auto max-w-3xl px-6 py-20 sm:py-24">
         <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -259,6 +268,12 @@ export default function ZeroCloudGuidePage() {
 
       <FeatureFaq items={FAQ_ITEMS} />
 
+      <ScreenshotStrip
+        heading="Local-first, screen by screen."
+        blurb="Chat, clips and sponsor records — all of it held on your own disk."
+        shots={[SHOTS.chatArchive, SHOTS.obsConnection, SHOTS.clipLibrary, SHOTS.sponsorCrm, SHOTS.dashboard]}
+      />
+
       {/* CTA */}
       <section className="border-t border-white/5">
         <div className="mx-auto max-w-3xl px-6 py-24 text-center sm:py-28">
@@ -267,8 +282,8 @@ export default function ZeroCloudGuidePage() {
               Privacy you don&rsquo;t have to configure.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              streamerOS v1.0-GA is free and open source — local-first out of the
-              box, with nothing to opt out of.
+              streamerOS v1.0-GA is local-first out of the box, with nothing to opt
+              out of. Free for 7 days, then $29 once.
             </p>
             <LaunchBadge className="mt-8" />
             <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">

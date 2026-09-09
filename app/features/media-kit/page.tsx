@@ -15,6 +15,8 @@ import { Reveal } from '@/components/Reveal';
 import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
 import FeatureFaq from '@/components/FeatureFaq';
 import JsonLd from '@/components/JsonLd';
+import { ScreenshotStrip } from '@/components/ScreenshotStrip';
+import { SHOTS } from '@/lib/shots';
 import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
 import { Screenshot } from '@/components/Screenshot';
 
@@ -280,6 +282,12 @@ export default function MediaKitGuidePage() {
       />
 
       <FeatureFaq items={FAQ_ITEMS} />
+
+      <ScreenshotStrip
+        heading="The numbers a sponsor asks for."
+        blurb="Where each figure in the kit comes from, measured while you were live."
+        shots={[SHOTS.revenue, SHOTS.topChatters, SHOTS.velocityStats, SHOTS.sponsorCrm, SHOTS.dashboard]}
+      />
 
       {/* CTA */}
       <section className="border-t border-white/5">

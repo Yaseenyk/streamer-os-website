@@ -75,11 +75,11 @@ export default function Header() {
     };
   }, [isMobileMenuOpen]);
 
-  // Close the drawer if the viewport grows past the `sm` breakpoint while
-  // it's open (the toggle is `sm:hidden`, so it would otherwise be stuck).
+  // Close the drawer if the viewport grows past the `lg` breakpoint while
+  // it's open (the toggle is `lg:hidden`, so it would otherwise be stuck).
   useEffect(() => {
     if (!isMobileMenuOpen) return;
-    const mq = window.matchMedia('(min-width: 640px)');
+    const mq = window.matchMedia('(min-width: 1024px)');
     const handleChange = () => {
       if (mq.matches) setIsMobileMenuOpen(false);
     };
@@ -97,7 +97,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden items-center gap-8 sm:flex">
+          <div className="hidden items-center gap-8 lg:flex">
             {/* Features dropdown — hover-revealed glass panel. The `pt-3` wrapper
                 keeps the hover area continuous between trigger and panel. */}
             <div
@@ -173,7 +173,7 @@ export default function Header() {
             <button
               type="button"
               onClick={openPreRegister}
-              className="hidden cursor-pointer items-center rounded-lg bg-cyan-400 px-4 py-2 text-sm font-semibold text-[#05070A] transition-all duration-200 hover:bg-cyan-300 hover:shadow-[0_0_15px_rgba(6,182,212,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 sm:inline-flex"
+              className="hidden cursor-pointer items-center rounded-lg bg-cyan-400 px-4 py-2 text-sm font-semibold text-[#05070A] transition-all duration-200 hover:bg-cyan-300 hover:shadow-[0_0_15px_rgba(6,182,212,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 lg:inline-flex"
             >
               Pre-Register
             </button>
@@ -185,7 +185,7 @@ export default function Header() {
               aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
-              className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg text-zinc-300 transition-colors hover:bg-white/5 hover:text-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 sm:hidden"
+              className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg text-zinc-300 transition-colors hover:bg-white/5 hover:text-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 lg:hidden"
             >
               {isMobileMenuOpen ? (
                 <X className="h-5 w-5" aria-hidden />
@@ -208,7 +208,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="fixed inset-x-0 bottom-0 top-16 z-40 bg-[#05070A] sm:hidden"
+            className="fixed inset-x-0 bottom-0 top-16 z-40 bg-[#05070A] lg:hidden"
           >
             <nav aria-label="Mobile" className="flex flex-col gap-1 px-6 py-8">
               {/* Features accordion */}

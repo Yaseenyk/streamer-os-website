@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Reveal } from '@/components/Reveal';
 import { InteractiveBlogGrid } from '@/components/InteractiveBlogGrid';
+import InlineSignup from '@/components/InlineSignup';
 import { getAllPostMeta } from '@/lib/posts';
 import { SITE_URL } from '@/config/site';
 
@@ -32,6 +33,15 @@ export default async function BlogIndexPage() {
 
       <Reveal delay={0.16} className="mt-14 block sm:mt-16">
         <InteractiveBlogGrid posts={posts} />
+      </Reveal>
+
+      <Reveal>
+        <InlineSignup
+          className="mt-16"
+          source="blog-index"
+          heading="Get the tool these guides keep pointing at."
+          blurb="streamerOS automates your OBS scenes from live chat signals — locally, in 1.8% CPU, with no account and no cloud. Pre-register before the November 2026 launch and your trial is 3 months instead of 7 days."
+        />
       </Reveal>
     </main>
   );
