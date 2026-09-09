@@ -23,6 +23,20 @@ function messageText(message: UIMessage): string {
     .join('');
 }
 
+/**
+ * Three bouncing dots say "something is happening" and nothing else, which is a
+ * long two seconds when the answer has to be searched for first. These name the
+ * work the worker is actually doing: embed the question, query the knowledge
+ * base, then generate. The timings describe the stage, not measured progress.
+ */
+const STAGES = [
+  { after: 0, label: 'Reading your question' },
+  { after: 700, label: 'Searching the knowledge base' },
+  { after: 1800, label: 'Finding the relevant sections' },
+  { after: 3200, label: 'Writing the answer' },
+  { after: 6000, label: 'Still working — this one is taking a moment' },
+];
+
 export default function SupportChatbot() {
   const [isOpen, setIsOpen] = useState(false);
   // useChat (v3) no longer manages the input field, so we keep a local one.
@@ -33,6 +47,23 @@ export default function SupportChatbot() {
   });
 
   const isLoading = status === 'submitted' || status === 'streaming';
+  const [stage, setStage] = useState(0);
+  // Set when the user sends, so a new question restarts the labels without an
+  // effect writing state synchronously.
+  const startedAt = useRef(0);
+
+  useEffect(() => {
+    if (!isLoading) return;
+    const id = window.setInterval(() => {
+      const elapsed = Date.now() - startedAt.current;
+      let next = 0;
+      for (let i = 0; i < STAGES.length; i += 1) {
+        if (elapsed >= STAGES[i].after) next = i;
+      }
+      setStage(next);
+    }, 250);
+    return () => window.clearInterval(id);
+  }, [isLoading]);
   // Show the typing dots after a send until the assistant's stream begins.
   const showTyping = isLoading && messages[messages.length - 1]?.role !== 'assistant';
 
@@ -57,6 +88,8 @@ export default function SupportChatbot() {
     e.preventDefault();
     const text = input.trim();
     if (!text || isLoading) return;
+    startedAt.current = Date.now();
+    setStage(0);
     sendMessage({ text });
     setInput('');
   };
@@ -131,10 +164,27 @@ export default function SupportChatbot() {
               {/* Typing indicator (driven by isLoading / status) */}
               {showTyping && (
                 <div className="flex justify-start">
-                  <div className="flex items-center gap-1 rounded-2xl rounded-bl-sm border border-cyan-400/10 bg-slate-900/80 px-3.5 py-3">
-                    <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-cyan-400 [animation-delay:-0.3s]" />
-                    <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-cyan-400 [animation-delay:-0.15s]" />
-                    <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-cyan-400" />
+                  <div
+                    className="flex items-center gap-2.5 rounded-2xl rounded-bl-sm border border-cyan-400/10 bg-slate-900/80 px-3.5 py-2.5"
+                    aria-live="polite"
+                  >
+                    <span className="relative flex h-2 w-2 shrink-0">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400/70" />
+                      <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-400" />
+                    </span>
+                    <AnimatePresence mode="wait">
+                      <motion.span
+                        key={stage}
+                        initial={{ opacity: 0, y: 4 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -4 }}
+                        transition={{ duration: 0.18 }}
+                        className="text-xs text-slate-300"
+                      >
+                        {STAGES[stage].label}
+                        <span className="ml-0.5 inline-block animate-pulse">…</span>
+                      </motion.span>
+                    </AnimatePresence>
                   </div>
                 </div>
               )}

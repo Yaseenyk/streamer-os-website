@@ -18,12 +18,20 @@ export interface Env {
 
 const app = new Hono<{ Bindings: Env }>();
 
-// The site is served from GitHub Pages under a subpath, but the CORS origin is
-// the bare scheme+host. localhost:3000 is allowed for local Next.js dev.
+// The site moved to its own domain and this list did not follow it, so every
+// request from streamerosai.com was blocked by the browser: the widget showed
+// its typing dots for two seconds and then nothing, because the preflight came
+// back without an allow-origin header. The github.io address is kept — it still
+// serves the site — and localhost:3000 is local Next.js dev.
 app.use(
   '*',
   cors({
-    origin: ['https://yaseenyk.github.io', 'http://localhost:3000'],
+    origin: [
+      'https://streamerosai.com',
+      'https://www.streamerosai.com',
+      'https://yaseenyk.github.io',
+      'http://localhost:3000',
+    ],
     allowMethods: ['GET', 'POST', 'OPTIONS'],
     allowHeaders: ['Content-Type'],
   }),
