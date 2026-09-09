@@ -135,3 +135,17 @@ Your OBS overlays now respond automatically to the same energy your viewers feel
 - (Optionally) layered in scene automation for big spikes.
 
 The result: a show that celebrates chat in real time—hands-free, low-CPU, and fully local. Go spark that snowball.
+
+---
+
+## Keep your stream data on your own machine
+
+streamerOS is a Windows-native cockpit that runs entirely on your PC — chat
+velocity, sentiment, OBS scene automation and your sponsor media kit, with no
+cloud account, no telemetry upload, and a 1.8% CPU footprint so your game keeps
+its frames.
+
+It launches **November 2026**, and it is free.
+
+**[Pre-register for launch →](/download)** — one email, no spam, and you get the
+build the day it ships.

@@ -102,3 +102,17 @@ Because streaming adds encoding and tool overhead on top of your game, all on on
 
 ### Do overlays and chat bots really affect my framerate?
 On a single-PC setup, yes. Every tool shares your CPU and RAM with the game. Lightweight, local-first tools have a negligible footprint; heavy browser-based or Electron tools can each hold hundreds of megabytes of RAM and spike your CPU, which shows up as dropped frames in-game.
+
+---
+
+## Keep your stream data on your own machine
+
+streamerOS is a Windows-native cockpit that runs entirely on your PC — chat
+velocity, sentiment, OBS scene automation and your sponsor media kit, with no
+cloud account, no telemetry upload, and a 1.8% CPU footprint so your game keeps
+its frames.
+
+It launches **November 2026**, and it is free.
+
+**[Pre-register for launch →](/download)** — one email, no spam, and you get the
+build the day it ships.

@@ -82,3 +82,17 @@ Post-stream numbers tell you where you've already been. Reading your chat live l
 
 ### Do I have to track all of this manually?
 No — that's what [streamerOS](/features) is for. It reads velocity, sentiment, and engagement locally and surfaces what matters, so you stay focused on playing and talking instead of staring at your chat window.
+
+---
+
+## Keep your stream data on your own machine
+
+streamerOS is a Windows-native cockpit that runs entirely on your PC — chat
+velocity, sentiment, OBS scene automation and your sponsor media kit, with no
+cloud account, no telemetry upload, and a 1.8% CPU footprint so your game keeps
+its frames.
+
+It launches **November 2026**, and it is free.
+
+**[Pre-register for launch →](/download)** — one email, no spam, and you get the
+build the day it ships.

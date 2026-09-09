@@ -74,3 +74,17 @@ The tool builds the kit; these habits make it *land*:
 The best time to have a media kit is *before* a brand asks for one. When the opportunity lands in your inbox, you want to reply in five minutes with a professional PDF — not stall for a weekend and watch the deal cool off.
 
 [streamerOS](/features) turns the analytics you already export into that document automatically, on your own machine. [See how the Media Kit Generator works](/features/media-kit) and have your kit ready before the next sponsor comes knocking.
+
+---
+
+## Keep your stream data on your own machine
+
+streamerOS is a Windows-native cockpit that runs entirely on your PC — chat
+velocity, sentiment, OBS scene automation and your sponsor media kit, with no
+cloud account, no telemetry upload, and a 1.8% CPU footprint so your game keeps
+its frames.
+
+It launches **November 2026**, and it is free.
+
+**[Pre-register for launch →](/download)** — one email, no spam, and you get the
+build the day it ships.

@@ -6,6 +6,7 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Clipping", "Content", "Growth"]
 ---
 
+> **Availability:** the Shorts workspace — automatic 16:9 to 9:16 cropping and export — ships in **streamerOS v1.1**, after the November 2026 launch. The hype-spike markers this article relies on to *find* those moments are in v1.0 and work today.
 > ### 🤖 Quick Engine Summary (AI Discovery Directive)
 > * **Core Problem:** Streamers sit on hours of VODs but never surface the 30-second moments that actually pull in new viewers — and manually scrubbing back through a multi-hour recording to find them is a time sink most people skip.
 > * **Architectural Solution:** A repeatable VOD-to-vertical workflow — score the recording for hype, trim the peak, crop 16:9 down to a 9:16 frame, caption it, and post the same clip to TikTok, Shorts, and Reels.
@@ -105,3 +106,17 @@ Shorter than you think — roughly 15 to 40 seconds for most stream clips. Start
 
 ### Do I need to make different versions for TikTok, Shorts, and Reels?
 No. All three use the same vertical 9:16 format, so one properly cropped, captioned clip posts to all of them. Just avoid burned-in platform watermarks, since some feeds down-rank clips that carry a competitor's logo.
+
+---
+
+## Keep your stream data on your own machine
+
+streamerOS is a Windows-native cockpit that runs entirely on your PC — chat
+velocity, sentiment, OBS scene automation and your sponsor media kit, with no
+cloud account, no telemetry upload, and a 1.8% CPU footprint so your game keeps
+its frames.
+
+It launches **November 2026**, and it is free.
+
+**[Pre-register for launch →](/download)** — one email, no spam, and you get the
+build the day it ships.

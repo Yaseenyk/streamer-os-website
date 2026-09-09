@@ -105,3 +105,17 @@ You can't select it as a clean target, and you wouldn't want to. The Control Roo
 ## Next Up
 
 Your chat is connected and your velocity gauge is alive. The final piece is the **emotional** layer — understanding not just *how fast* your chat is moving, but *how it feels*. That's powered by a local AI brain, and in **[Part 3: Waking Up the Brain — Handling the "Ollama Offline" Banner](/blog/fixing-the-ollama-offline-banner)**, we'll set it up, explain how streamerOS keeps running gracefully when it's switched off, and get your Sentiment Horizon plotting your stream's emotional weight in real time.
+
+---
+
+## Keep your stream data on your own machine
+
+streamerOS is a Windows-native cockpit that runs entirely on your PC — chat
+velocity, sentiment, OBS scene automation and your sponsor media kit, with no
+cloud account, no telemetry upload, and a 1.8% CPU footprint so your game keeps
+its frames.
+
+It launches **November 2026**, and it is free.
+
+**[Pre-register for launch →](/download)** — one email, no spam, and you get the
+build the day it ships.

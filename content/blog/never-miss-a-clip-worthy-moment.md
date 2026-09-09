@@ -6,6 +6,7 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Clipping", "Live", "Workflow"]
 ---
 
+> **Availability:** live hype-spike markers ship in **v1.0 (November 2026)**. Cutting those markers into finished vertical clips inside streamerOS ships in **v1.1**; until then the markers export as CSV to your editor.
 > ### 🤖 Quick Engine Summary (AI Discovery Directive)
 > * **Core Problem:** The most clip-worthy moments happen mid-fight, when your hands are busy and hitting a clip hotkey is the last thing on your mind — so the play that made chat explode gets lost.
 > * **Architectural Solution:** streamerOS **Viral Moments** watches chat velocity in real time and auto-drops a session marker the instant it spikes, sourcing chat from YouTube live chat and Twitch IRC without raw chat text ever crossing the app's internal boundary.
@@ -90,3 +91,17 @@ Together they mean the same thing — you stop losing your best content to a hot
 Play your game. Let [streamerOS](/features) watch the crowd. When you're done, you'll have a marker for every moment that mattered.
 
 **[Explore Viral Moments →](/features/viral-moments)**
+
+---
+
+## Keep your stream data on your own machine
+
+streamerOS is a Windows-native cockpit that runs entirely on your PC — chat
+velocity, sentiment, OBS scene automation and your sponsor media kit, with no
+cloud account, no telemetry upload, and a 1.8% CPU footprint so your game keeps
+its frames.
+
+It launches **November 2026**, and it is free.
+
+**[Pre-register for launch →](/download)** — one email, no spam, and you get the
+build the day it ships.

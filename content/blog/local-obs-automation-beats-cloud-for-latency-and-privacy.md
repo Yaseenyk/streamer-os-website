@@ -111,3 +111,17 @@ You don’t need to sacrifice frames for automation.
 - Headroom for the game: Tiny CPU footprint means more budget for your encoder and your title.
 
 Cloud tools have their place, but when the goal is instant, trustworthy scene automation, local wins. With [OBS Bridge](/features/obs-bridge) and [Auto-Director](/features/auto-hype), streamerOS gives you the snap and privacy your stream deserves—no logins, no cloud, just results.
+
+---
+
+## Keep your stream data on your own machine
+
+streamerOS is a Windows-native cockpit that runs entirely on your PC — chat
+velocity, sentiment, OBS scene automation and your sponsor media kit, with no
+cloud account, no telemetry upload, and a 1.8% CPU footprint so your game keeps
+its frames.
+
+It launches **November 2026**, and it is free.
+
+**[Pre-register for launch →](/download)** — one email, no spam, and you get the
+build the day it ships.

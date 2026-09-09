@@ -103,3 +103,17 @@ No. Talking to chat is the human core of your stream, and canned auto-responses 
 ---
 
 Automation done right is invisible. Your audience never sees the scene switch fire or the clip get marked — they just see a streamer who's fully present, playing well and talking to them. Automate the busywork, keep the human parts human, and get back to the part you actually love.
+
+---
+
+## Keep your stream data on your own machine
+
+streamerOS is a Windows-native cockpit that runs entirely on your PC — chat
+velocity, sentiment, OBS scene automation and your sponsor media kit, with no
+cloud account, no telemetry upload, and a 1.8% CPU footprint so your game keeps
+its frames.
+
+It launches **November 2026**, and it is free.
+
+**[Pre-register for launch →](/download)** — one email, no spam, and you get the
+build the day it ships.

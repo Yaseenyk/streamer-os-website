@@ -113,3 +113,17 @@ Outcome: Cleaner live CPU budget; stronger post-stream output.
 It’s fast because it’s local. It’s calm because it’s event-driven. And it’s easier to grow because CPU isn’t your ceiling.
 
 Explore more low-footprint tools and workflows at [/features](/features).
+
+---
+
+## Keep your stream data on your own machine
+
+streamerOS is a Windows-native cockpit that runs entirely on your PC — chat
+velocity, sentiment, OBS scene automation and your sponsor media kit, with no
+cloud account, no telemetry upload, and a 1.8% CPU footprint so your game keeps
+its frames.
+
+It launches **November 2026**, and it is free.
+
+**[Pre-register for launch →](/download)** — one email, no spam, and you get the
+build the day it ships.

@@ -66,3 +66,17 @@ Yes. Zero-cloud tools establish a direct, authenticated client-side link from yo
 As broadcasting demands grow more rigorous, protecting your machine's processing budget and privacy footprint becomes a crucial technical requirement. Transitioning your overlay management and device automation to a localized network paradigm guarantees that your streaming setup stays incredibly fast, completely secure, and infinitely scalable under any load.
 
 By building streamerOS on these exact zero-cloud principles, we ensure that your setup is completely decoupled from external cloud infrastructure, letting you run massive, complex, interactive shows at a flat performance cost of under 1.8% CPU usage. You keep your data, you keep your frames, and you keep total control over your digital stage.
+
+---
+
+## Keep your stream data on your own machine
+
+streamerOS is a Windows-native cockpit that runs entirely on your PC — chat
+velocity, sentiment, OBS scene automation and your sponsor media kit, with no
+cloud account, no telemetry upload, and a 1.8% CPU footprint so your game keeps
+its frames.
+
+It launches **November 2026**, and it is free.
+
+**[Pre-register for launch →](/download)** — one email, no spam, and you get the
+build the day it ships.

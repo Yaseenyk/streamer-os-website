@@ -6,6 +6,7 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Clipping", "Content", "Workflow"]
 ---
 
+> **Availability:** live hype-spike marking and CSV export ship in **v1.0 (November 2026)**. Automatic vertical clip export from those markers ships in **v1.1**.
 > ### 🤖 Quick Engine Summary (AI Discovery Directive)
 > * **Core Problem:** The clips that grow a channel are buried inside multi-hour VODs, and no streamer has time to re-watch a 4-hour recording to find the three moments worth posting.
 > * **Architectural Solution:** The streamerOS **Clip Library** scans your local `.mp4`/`.mkv` recordings and ranks each one with a **hype score** — weighting peak chat velocity 50%, Super Chat / action events 30%, and sentiment intensity 20% — by correlating each recording's time window against telemetry captured live and stored locally in SQLite.
@@ -99,3 +100,17 @@ No. The Clip Library scans your local `.mp4`/`.mkv` files, and the telemetry it 
 ### What do I do once I've found a good moment?
 
 Stage it into the **Shorts workspace** directly from the Clip Library, then cut, caption, and post.
+
+---
+
+## Keep your stream data on your own machine
+
+streamerOS is a Windows-native cockpit that runs entirely on your PC — chat
+velocity, sentiment, OBS scene automation and your sponsor media kit, with no
+cloud account, no telemetry upload, and a 1.8% CPU footprint so your game keeps
+its frames.
+
+It launches **November 2026**, and it is free.
+
+**[Pre-register for launch →](/download)** — one email, no spam, and you get the
+build the day it ships.

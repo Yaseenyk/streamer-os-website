@@ -128,3 +128,17 @@ cores. With a hardware encoder, the preset is not in play at all.
 **Should I use x264 or NVENC?**
 NVENC if you have it. It moves encoding off the CPU entirely, which is the
 outcome most people are chasing when they open this dropdown.
+
+---
+
+## Keep your stream data on your own machine
+
+streamerOS is a Windows-native cockpit that runs entirely on your PC — chat
+velocity, sentiment, OBS scene automation and your sponsor media kit, with no
+cloud account, no telemetry upload, and a 1.8% CPU footprint so your game keeps
+its frames.
+
+It launches **November 2026**, and it is free.
+
+**[Pre-register for launch →](/download)** — one email, no spam, and you get the
+build the day it ships.

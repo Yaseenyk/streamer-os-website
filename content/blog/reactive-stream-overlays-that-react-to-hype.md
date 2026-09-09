@@ -86,3 +86,17 @@ Dial it in to match your channel's rhythm, and because the calibration persists,
 A frozen overlay is dead air. A reactive one makes every hype moment hit harder, because the screen celebrates right alongside the room.
 
 Ready to see it move? Explore **[Aura Studio](/features/aura-studio)** and let your overlay start reacting with your stream.
+
+---
+
+## Keep your stream data on your own machine
+
+streamerOS is a Windows-native cockpit that runs entirely on your PC — chat
+velocity, sentiment, OBS scene automation and your sponsor media kit, with no
+cloud account, no telemetry upload, and a 1.8% CPU footprint so your game keeps
+its frames.
+
+It launches **November 2026**, and it is free.
+
+**[Pre-register for launch →](/download)** — one email, no spam, and you get the
+build the day it ships.

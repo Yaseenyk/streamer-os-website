@@ -99,3 +99,17 @@ As a *live* signal, yes. Viewer count moves slowly and lags behind the action, w
 
 ### What's a "good" chat velocity number?
 There's no universal target — it depends on your channel's size and chat culture. What matters isn't the raw number, it's the *spike relative to your own baseline*. A jump from your normal pace is the signal, whether that's 2 messages per second or 20.
+
+---
+
+## Keep your stream data on your own machine
+
+streamerOS is a Windows-native cockpit that runs entirely on your PC — chat
+velocity, sentiment, OBS scene automation and your sponsor media kit, with no
+cloud account, no telemetry upload, and a 1.8% CPU footprint so your game keeps
+its frames.
+
+It launches **November 2026**, and it is free.
+
+**[Pre-register for launch →](/download)** — one email, no spam, and you get the
+build the day it ships.

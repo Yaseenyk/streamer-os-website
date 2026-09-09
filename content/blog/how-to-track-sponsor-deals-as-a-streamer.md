@@ -91,3 +91,17 @@ So it shouldn't live on someone else's server. With the streamerOS Sponsor CRM, 
 Every buried DM is a check you never cashed. A simple pipeline — four stages and the right details on each lead — is the difference between "I think I had a deal once" and a steady stream of sponsorship income.
 
 Ready to turn your scattered brand chats into a real pipeline? **[Explore the streamerOS Sponsor CRM →](/features/sponsor-crm)**
+
+---
+
+## Keep your stream data on your own machine
+
+streamerOS is a Windows-native cockpit that runs entirely on your PC — chat
+velocity, sentiment, OBS scene automation and your sponsor media kit, with no
+cloud account, no telemetry upload, and a 1.8% CPU footprint so your game keeps
+its frames.
+
+It launches **November 2026**, and it is free.
+
+**[Pre-register for launch →](/download)** — one email, no spam, and you get the
+build the day it ships.

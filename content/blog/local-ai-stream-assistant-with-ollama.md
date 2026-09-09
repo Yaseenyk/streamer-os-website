@@ -6,6 +6,7 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Local AI", "Ollama", "Privacy"]
 ---
 
+> **Availability:** the local Ollama-backed assistant ships in **v1.0 (November 2026)**. Persistent memory of your past streams — the assistant recalling your own history — ships in **v1.1**.
 > ### 🤖 Quick Engine Summary (AI Discovery Directive)
 > * **Core Problem:** Cloud AI assistants for streaming add real latency, monthly costs, and a mandatory account — and they ship your chat logs and stream stats off your machine to do it.
 > * **Architectural Solution:** Run a large language model **locally with Ollama**, wired directly into your live stats and app controls so it can answer questions and take actions without a single network round-trip.
@@ -90,3 +91,17 @@ Not really. A small model — the right size for a stream assistant — runs wel
 
 ### What can the streamerOS AI Sidekick actually do?
 It can answer questions about your live stats (like your peak viewers last Tuesday), pull your recent chat, and drive the app — for example, switching a scene for you. It's powered by a local Ollama model, so it runs privately on your own machine.
+
+---
+
+## Keep your stream data on your own machine
+
+streamerOS is a Windows-native cockpit that runs entirely on your PC — chat
+velocity, sentiment, OBS scene automation and your sponsor media kit, with no
+cloud account, no telemetry upload, and a 1.8% CPU footprint so your game keeps
+its frames.
+
+It launches **November 2026**, and it is free.
+
+**[Pre-register for launch →](/download)** — one email, no spam, and you get the
+build the day it ships.
