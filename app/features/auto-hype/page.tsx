@@ -46,6 +46,12 @@ const FAQ_ITEMS: FaqEntry[] = [
     q: 'Will automation add lag to my stream?',
     a: 'No. Everything runs locally next to OBS — there is no server in the loop. The whole streamerOS app holds a 1.8% CPU footprint under a live 1080p60 game, so your frames stay with the game and the scene cut lands the instant the trigger condition is met.',
   },
+  // People search the name as one word. Answering it here means the page can
+  // be found by the spelling they actually type.
+  {
+    q: 'Is HypeDirector the same as the Auto-Hype Director?',
+    a: 'Yes. The Auto-Hype Director is sometimes written as HypeDirector or Hype Director — they all refer to the same streamerOS feature: the visual node editor that watches chat velocity and sentiment and drives OBS scene changes automatically.',
+  },
 ];
 
 // ---------------------------------------------------------------------------
