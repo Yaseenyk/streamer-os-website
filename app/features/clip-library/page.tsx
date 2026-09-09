@@ -46,6 +46,12 @@ const FAQ_ITEMS: FaqEntry[] = [
     q: 'How do I turn a scored moment into a clip for my editor?',
     a: 'Pair the Clip Library with Viral Moments, which marks hype spikes live and exports the timestamps to CSV. Your editor jumps straight to the scored moments instead of hunting for them.',
   },
+  // Say plainly what the launch build does and does not include. A buyer who
+  // finds this out after paying is a refund and a review.
+  {
+    q: 'Is the Shorts workspace in the November launch?',
+    a: 'Not in v1.0. Live hype-spike scoring, the ranked Clip Library and CSV timestamp export all ship at launch in November 2026. The Shorts workspace — cropping a 16:9 VOD to a finished 9:16 clip inside streamerOS — ships in v1.1. Until then you stage the moment and cut it in your own editor.',
+  },
 ];
 
 // ---------------------------------------------------------------------------
