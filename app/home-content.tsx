@@ -685,7 +685,14 @@ function TimelineStep({
     <motion.div
       variants={stepVariants}
       initial={reduce ? 'lit' : 'dim'}
-      whileInView={reduce ? undefined : 'lit'}
+      // `whileInView` stays set whatever the motion preference is. Dropping it
+      // to undefined for reduced motion left the step with no target: the
+      // preference resolves after mount, by which point `initial` has already
+      // been applied, so the copy stayed at the dim variant's 0.4 opacity for
+      // good. Reduced motion is handled by making the transition instant here
+      // instead, so the content always ends up lit.
+      whileInView="lit"
+      transition={reduce ? { duration: 0 } : undefined}
       viewport={{ once: true, amount: 0.55 }}
       className="flex gap-6"
     >
