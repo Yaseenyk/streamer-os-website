@@ -16,6 +16,8 @@ import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
 import FeatureFaq from '@/components/FeatureFaq';
 import JsonLd from '@/components/JsonLd';
 import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
+import { EngineeringNotes } from '@/components/EngineeringNotes';
+import { notesFor } from '@/config/engineering';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
@@ -354,6 +356,9 @@ export default function ObsBridgeGuidePage() {
           </div>
         </Reveal>
       </section>
+
+      <EngineeringNotes notes={notesFor('ws-scale', 'telemetry')}
+        intro={'How the live connection to OBS and the telemetry pipe were built, written up by '} />
 
       <FeatureFaq items={FAQ_ITEMS} />
 

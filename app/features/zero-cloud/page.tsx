@@ -16,6 +16,8 @@ import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
 import FeatureFaq from '@/components/FeatureFaq';
 import JsonLd from '@/components/JsonLd';
 import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
+import { EngineeringNotes } from '@/components/EngineeringNotes';
+import { notesFor } from '@/config/engineering';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
@@ -247,6 +249,9 @@ export default function ZeroCloudGuidePage() {
           })}
         </div>
       </section>
+
+      <EngineeringNotes notes={notesFor('rust-over-electron')}
+        intro={'Why the core is Rust and everything stays on your machine, written up by '} />
 
       <FeatureFaq items={FAQ_ITEMS} />
 

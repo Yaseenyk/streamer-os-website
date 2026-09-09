@@ -11,7 +11,16 @@ export const BUILDER = {
   url: 'https://yaseenkhatib.streamerosai.com/',
 } as const;
 
+export type NoteId =
+  | 'rust-over-electron'
+  | 'arena'
+  | 'simd-json'
+  | 'binary-size'
+  | 'ws-scale'
+  | 'telemetry';
+
 export interface EngineeringNote {
+  id: NoteId;
   title: string;
   href: string;
   blurb: string;
@@ -19,33 +28,46 @@ export interface EngineeringNote {
 
 export const ENGINEERING_NOTES: EngineeringNote[] = [
   {
+    id: 'rust-over-electron',
     title: "Everyone said 'just use Electron.' I wrote streamerOS in Rust",
     href: 'https://yaseenkhatib.streamerosai.com/blog/streameros-rust-over-electron/',
     blurb: 'Why the core is Rust and Tauri rather than a bundled browser, and what that decision actually bought.',
   },
   {
+    id: 'arena',
     title: 'Rust arena allocation to keep streamerOS under 152 MB for 12h',
     href: 'https://yaseenkhatib.streamerosai.com/blog/rust-arena-allocation-to-keep-streameros-under-152-mb-for-12h/',
     blurb: 'The allocation strategy behind the memory figure quoted on this site, measured across a twelve-hour session.',
   },
   {
+    id: 'simd-json',
     title: 'serde_json to simd-json in streamerOS IPC',
     href: 'https://yaseenkhatib.streamerosai.com/blog/serdejson-to-simd-json-in-streameros-ipc-hot-path-deserialization/',
     blurb: 'Hot-path deserialisation between the Rust core and the UI, and why the parser choice showed up in CPU.',
   },
   {
+    id: 'binary-size',
     title: 'Shrink streamerOS Rust binaries: opt=z, fat LTO, panic=abort',
     href: 'https://yaseenkhatib.streamerosai.com/blog/shrink-streameros-rust-binaries-optz-fat-lto-panicabort/',
     blurb: 'The build flags behind the download size, and what each one costs you in return.',
   },
   {
+    id: 'ws-scale',
     title: 'WebSocket telemetry at scale',
     href: 'https://yaseenkhatib.streamerosai.com/blog/websocket-telemetry-at-scale/',
     blurb: 'What happens to the live telemetry pipe when one process stops being enough.',
   },
   {
+    id: 'telemetry',
     title: 'Real-time telemetry: why polling lies',
     href: 'https://yaseenkhatib.streamerosai.com/blog/real-time-telemetry-websockets-react/',
     blurb: 'Why the cockpit reads live rather than on an interval, and what polling hides.',
   },
 ];
+
+/** The notes relevant to one page, in the order given. */
+export function notesFor(...ids: NoteId[]): EngineeringNote[] {
+  return ids
+    .map((id) => ENGINEERING_NOTES.find((n) => n.id === id))
+    .filter((n): n is EngineeringNote => Boolean(n));
+}
