@@ -4,6 +4,13 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Signal Lost',
   description: 'The transmission you are looking for does not exist.',
+  // The root layout sets `index, follow` and canonicalises to the homepage.
+  // Inherited here, that told Google every dead URL on the site was a
+  // duplicate of the homepage — which is how a 404 ends up in the coverage
+  // report as "duplicate without user-selected canonical". A missing page
+  // must claim to be nothing but itself.
+  robots: { index: false, follow: false },
+  alternates: { canonical: null },
 };
 
 export default function NotFound() {
