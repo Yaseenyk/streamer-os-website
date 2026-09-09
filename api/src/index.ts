@@ -71,22 +71,33 @@ app.post('/chat', async (c) => {
   // gemini-embedding-001 at 768 dimensions, and a vector from any other model
   // is not comparable to those. Swapping this to OpenAI silently returns
   // nonsense chunks until the whole knowledge base is re-ingested.
-  const { embedding } = await embed({
-    model: google.textEmbeddingModel('gemini-embedding-001'),
-    value: lastUserText(messages),
-    providerOptions: { google: { outputDimensionality: 768 } },
-  });
+  // Retrieval is allowed to fail without taking the request with it. The
+  // Upstash free-tier index has disappeared twice — a deleted database answers
+  // with an empty 404 body, the client tries to JSON.parse nothing, and the
+  // whole route threw a 500 that reached the widget as a silent dead end.
+  let context = '';
+  let retrievalFailed = false;
+  try {
+    const { embedding } = await embed({
+      model: google.textEmbeddingModel('gemini-embedding-001'),
+      value: lastUserText(messages),
+      providerOptions: { google: { outputDimensionality: 768 } },
+    });
 
-  const hits = await index.query({
-    vector: embedding,
-    topK: 3,
-    includeMetadata: true,
-  });
+    const hits = await index.query({
+      vector: embedding,
+      topK: 3,
+      includeMetadata: true,
+    });
 
-  const context = hits
-    .map((h) => h.metadata?.text)
-    .filter(Boolean)
-    .join('\n\n---\n\n');
+    context = hits
+      .map((h) => h.metadata?.text)
+      .filter(Boolean)
+      .join('\n\n---\n\n');
+  } catch (err) {
+    retrievalFailed = true;
+    console.error('retrieval failed', err instanceof Error ? err.message : err);
+  }
 
   const system = `You are the streamerOS Tier-1 Support Agent, a friendly and concise customer support assistant for streamerOS.
 
@@ -100,6 +111,16 @@ Rules:
 
 Context:
 ${context}`;
+
+  // Say so rather than answering from the model's own memory. An ungrounded
+  // answer that looks grounded is worse than no answer for a support bot.
+  if (retrievalFailed) {
+    return new Response(
+      'The support knowledge base is temporarily unavailable, so I cannot look ' +
+        'this up right now. Please try again shortly, or contact streamerOS support.',
+      { status: 503, headers: { 'Content-Type': 'text/plain; charset=utf-8' } },
+    );
+  }
 
   const result = streamText({
     model: openai('gpt-5.5'),
