@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Gauge, ShieldCheck, Workflow, type LucideIcon } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
-import { ENGINEERING_NOTES, BUILDER } from '@/config/engineering';
+import { BUILDER } from '@/config/engineering';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -102,26 +102,9 @@ export default function AboutPage() {
             >
               {BUILDER.name}
             </a>
-            , who writes up the engineering as it happens. The 1.8% CPU and 152 MB
-            figures on this site are not marketing numbers — here is the working-out
-            behind them.
+            , who writes up the engineering as it happens.
           </p>
         </Reveal>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          {ENGINEERING_NOTES.map((note, i) => (
-            <Reveal key={note.href} delay={i * 0.06} className="h-full">
-              <a
-                href={note.href}
-                className="block h-full rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-xl transition-colors duration-300 hover:border-cyan-400/40 hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
-              >
-                <h3 className="text-base font-semibold tracking-tight text-slate-100">
-                  {note.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-400">{note.blurb}</p>
-              </a>
-            </Reveal>
-          ))}
-        </div>
       </section>
 
       {/* Core values */}
