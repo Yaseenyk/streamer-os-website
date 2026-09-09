@@ -6,7 +6,7 @@ import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
 export const metadata: Metadata = {
   title: 'Download',
   description:
-    'Pre-register for streamerOS — the Rust-powered, local-first streaming cockpit for Windows, launching September 2026.',
+    'Pre-register for streamerOS — the Rust-powered, local-first streaming cockpit for Windows, launching November 2026.',
   alternates: { canonical: 'https://streamerosai.com/download' },
 };
 
@@ -22,7 +22,7 @@ const REQUIREMENTS = [
 const STEPS = [
   {
     title: 'Get the installer at launch',
-    body: 'When streamerOS ships this September, you’ll grab a standard signed MSI / NSIS package for Windows.',
+    body: 'When streamerOS ships this November, you’ll grab a standard signed MSI / NSIS package for Windows.',
   },
   {
     title: 'Run the installer',
@@ -52,7 +52,7 @@ export default function DownloadPage() {
           </Reveal>
           <Reveal delay={0.16}>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              Free, open source, and landing on your desktop this September. Pre-register and
+              Free, open source, and landing on your desktop this November. Pre-register and
               we’ll send the build the day it ships.
             </p>
           </Reveal>

@@ -23,9 +23,9 @@ interface Release {
 const RELEASES: Release[] = [
   {
     version: 'v1.0-GA',
-    date: 'September 2026',
+    date: 'November 2026',
     tag: 'Upcoming',
-    summary: 'General availability — the full streamerOS cockpit ships this September.',
+    summary: 'General availability — the full streamerOS cockpit ships this November.',
     changes: [
       'Official stable release for Windows 10 and 11',
       'Launch of the Auto-Hype Director — the visual, node-based scene-automation engine',

@@ -12,7 +12,7 @@ import {
 import { AnimatePresence, motion } from 'framer-motion';
 import { Rocket, X } from 'lucide-react';
 
-// Pre-registration captures emails ahead of the September 2026 launch. Delivered
+// Pre-registration captures emails ahead of the November 2026 launch. Delivered
 // via EmailJS's REST API (client-side, works on the static export) to the site
 // contact inbox. The public key is safe to expose — that's EmailJS's design.
 const EMAILJS_ENDPOINT = 'https://api.emailjs.com/api/v1.0/email/send';
@@ -86,7 +86,7 @@ export function LaunchBadge({ className = '' }: { className?: string }) {
       className={`inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-300 ${className}`}
     >
       <Rocket className="h-3.5 w-3.5 text-cyan-400" aria-hidden />
-      Launching September 2026
+      Launching November 2026
     </span>
   );
 }
@@ -150,7 +150,7 @@ export function PreRegisterModal({ isOpen, onClose }: { isOpen: boolean; onClose
               Secure Pre-Registration Access
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-slate-400">
-              streamerOS is launching natively in September 2026. Enter your email below to
+              streamerOS is launching natively in November 2026. Enter your email below to
               reserve your spot on the zero-cloud optimization list and receive the stable build
               the second it drops.
             </p>
