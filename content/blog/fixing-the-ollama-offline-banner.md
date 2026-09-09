@@ -1,6 +1,6 @@
 ---
-title: "Waking Up the Brain: Handling the \"Ollama Offline\" Banner"
-description: "What the streamerOS 'Ollama Offline' warning banner means, why your stream keeps tracking chat speed perfectly even when the local AI is switched off, and a simple 3-step checklist to launch Ollama and bring your live Sentiment Horizon to life."
+title: "Fixing the Ollama Offline Banner in streamerOS"
+description: "The local AI banner says offline. The four usual causes, in the order worth checking, with the fix for each."
 date: "2026-06-04"
 author: "Yaseen Khatib"
 tags: ["Guides", "Local AI", "Ollama", "Sentiment Analysis", "Troubleshooting"]

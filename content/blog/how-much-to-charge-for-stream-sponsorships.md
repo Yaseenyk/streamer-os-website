@@ -1,6 +1,6 @@
 ---
-title: "How Much Should You Charge for a Stream Sponsorship?"
-description: "A clear framework for pricing brand deals as a streamer — CPM math, what affects your rate, and how to back up your number with real audience data."
+title: "How Much to Charge for a Stream Sponsorship"
+description: "A clear framework for pricing brand deals: the CPM maths, what moves your rate, and how to back your number with real audience data."
 date: "2026-07-06"
 author: "Yaseen Khatib"
 tags: ["Guides", "Sponsorships", "Monetization", "Business"]

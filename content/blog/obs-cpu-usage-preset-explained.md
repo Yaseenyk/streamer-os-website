@@ -1,6 +1,6 @@
 ---
-title: "OBS CPU Usage Preset: What Each Setting Actually Costs You"
-description: "The x264 CPU Usage Preset is the single biggest lever on OBS CPU load. What ultrafast through slower really trade, why veryfast is the default, and when to stop using x264 altogether."
+title: "OBS CPU Usage Preset: Which One Should You Use?"
+description: "veryfast, ultrafast or faster? What each preset costs your CPU, which way to move it when you drop frames, and when to stop using x264."
 date: "2026-09-09"
 author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Optimization", "Performance"]

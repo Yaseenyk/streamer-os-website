@@ -1,6 +1,6 @@
 ---
-title: "How to Make a Streamer Media Kit (Free, From Your Own Stats)"
-description: "A step-by-step guide to building a sponsor-ready media kit as a Twitch or YouTube streamer — what to include, and how streamerOS generates a branded PDF from your analytics exports in minutes."
+title: "How to Make a Streamer Media Kit (Free)"
+description: "What sponsors actually want to see, built from your own stats - audience, reach, formats and rates, on one page you can send today."
 date: "2026-07-06"
 author: "Yaseen Khatib"
 tags: ["Guides", "Sponsorships", "Media Kit", "Monetization"]

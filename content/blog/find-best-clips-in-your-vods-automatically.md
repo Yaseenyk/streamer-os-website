@@ -1,6 +1,6 @@
 ---
-title: "How to Find the Best Clips in Your Stream VODs — Automatically"
-description: "Stop scrubbing through hours of VOD. Learn how to surface your most clip-worthy moments using chat velocity, Super Chats, and sentiment — and how streamerOS scores every recording for you."
+title: "Find the Best Clips in Your VODs Automatically"
+description: "Stop scrubbing hours of VOD. Surface your most clip-worthy moments using chat velocity and sentiment, scored while you were live."
 date: "2026-07-06"
 author: "Yaseen Khatib"
 tags: ["Guides", "Clipping", "Content", "Workflow"]

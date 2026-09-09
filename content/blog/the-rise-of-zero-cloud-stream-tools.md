@@ -1,6 +1,6 @@
 ---
-title: "The Rise of Zero-Cloud Stream Tools: Defending Broadcaster Privacy and Performance"
-description: "An architectural exploration of why modern live streamers are abandoning centralized cloud dashboards in favor of local-first, low-overhead automation platforms."
+title: "Zero-Cloud Stream Tools: Why Local Wins"
+description: "Cloud dashboards add latency, cost and a privacy question. Why streamers are moving to local-first tools that keep everything on the PC."
 date: "2026-06-02"
 author: "Yaseen Khatib"
 tags: ["Privacy", "Software Architecture", "Trends", "Cybersecurity"]

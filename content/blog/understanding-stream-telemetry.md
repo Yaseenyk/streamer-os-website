@@ -1,6 +1,6 @@
 ---
-title: "What Your Live Chat Data Is Really Telling You"
-description: "Your chat is a live feed of exactly how your stream is landing — if you know how to read it. A streamer's guide to turning chat velocity, sentiment, and engagement signals into better streams."
+title: "What Your Live Chat Data Is Telling You"
+description: "Your chat is a live readout of how the stream is landing. How to read velocity, sentiment and engagement while you can still act on it."
 date: "2026-07-06"
 author: "Yaseen Khatib"
 tags: ["Guides", "Analytics", "Engagement", "Growth"]

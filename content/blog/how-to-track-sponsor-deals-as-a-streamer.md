@@ -1,6 +1,6 @@
 ---
-title: "How to Track Sponsor Deals as a Streamer (Without a Messy Spreadsheet)"
-description: "Sponsor leads die in cluttered DMs and forgotten spreadsheets. Learn a simple pipeline for tracking every brand deal from first message to signed contract — and how streamerOS builds it in."
+title: "How to Track Sponsor Deals as a Streamer"
+description: "Brand leads die in cluttered DMs. A simple pipeline for every deal, from first message to signed contract, without a messy spreadsheet."
 date: "2026-07-06"
 author: "Yaseen Khatib"
 tags: ["Guides", "Sponsorships", "Monetization", "Business"]

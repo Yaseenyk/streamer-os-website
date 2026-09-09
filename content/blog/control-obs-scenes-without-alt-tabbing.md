@@ -1,6 +1,6 @@
 ---
-title: "How to Control OBS Scenes Without Alt-Tabbing"
-description: "Alt-tabbing to OBS mid-game kills your focus and sometimes your framerate. Learn how OBS WebSocket lets you switch scenes from elsewhere — and how streamerOS does it with zero plugins."
+title: "Control OBS Scenes Without Alt-Tabbing"
+description: "Alt-tabbing mid-game to switch a scene costs you the moment. How to drive OBS without ever leaving the game."
 date: "2026-07-06"
 author: "Yaseen Khatib"
 tags: ["Guides", "OBS", "Production", "Workflow"]

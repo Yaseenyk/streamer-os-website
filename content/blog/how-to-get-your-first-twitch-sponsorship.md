@@ -1,6 +1,6 @@
 ---
-title: "How to Get Your First Twitch Sponsorship (Even as a Small Streamer)"
-description: "You don't need 10k followers to land a brand deal. A step-by-step guide to finding sponsors, pitching with a media kit, and tracking deals from first DM to signed contract."
+title: "How to Get Your First Twitch Sponsorship"
+description: "You do not need 10k followers. How to find sponsors, pitch with a media kit, and take a brand deal from first DM to signed contract."
 date: "2026-07-06"
 author: "Yaseen Khatib"
 tags: ["Guides", "Sponsorships", "Monetization", "Business"]

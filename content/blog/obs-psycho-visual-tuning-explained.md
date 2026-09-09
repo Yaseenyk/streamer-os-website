@@ -1,6 +1,6 @@
 ---
-title: "OBS Psycho Visual Tuning: What It Actually Does (and When to Turn It Off)"
-description: "Psycho Visual Tuning is on by default in OBS NVENC and quietly costs you GPU headroom. What the setting really does, when it improves your stream, and when it steals frames from your game."
+title: "OBS Psycho Visual Tuning: On or Off?"
+description: "It is on by default and quietly costs you GPU headroom. What it does, when it improves your stream, and the 5-minute test that settles it."
 date: "2026-09-09"
 author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Optimization", "Performance"]

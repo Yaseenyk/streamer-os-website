@@ -1,6 +1,6 @@
 ---
-title: "Reactive Stream Overlays That Change With Your Hype"
-description: "Static overlays are dead air. Learn how a reactive overlay that reads your game and chat in real time keeps your stream feeling alive — and how streamerOS drives it automatically."
+title: "Stream Overlays That React to Your Hype"
+description: "Static overlays are dead air. How a reactive overlay reading your game and chat in real time keeps the stream feeling alive."
 date: "2026-07-06"
 author: "Yaseen Khatib"
 tags: ["Guides", "Overlays", "OBS", "Production"]

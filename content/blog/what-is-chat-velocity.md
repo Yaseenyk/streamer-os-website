@@ -1,6 +1,6 @@
 ---
-title: "What Is Chat Velocity? The Metric That Predicts Your Best Clips"
-description: "Chat velocity — how fast your chat is moving — is the clearest real-time signal of a hype moment. Here's what it is, why it matters, and how to use it to catch clips and automate your stream."
+title: "What Is Chat Velocity? The Clip-Worthy Metric"
+description: "How fast your chat moves is the clearest live signal of a hype moment. What it measures, and how to use it to catch clips as they happen."
 date: "2026-07-06"
 author: "Yaseen Khatib"
 tags: ["Guides", "Analytics", "Engagement", "Clipping"]

@@ -1,6 +1,6 @@
 ---
-title: "Stream Automation 101: What to Automate to Play More and Manage Less"
-description: "The best streamers look effortless because the boring parts are automated. A beginner's guide to what's worth automating on your stream — scene switching, clip marking, overlays — and what to leave manual."
+title: "Stream Automation 101: Play More, Manage Less"
+description: "The best streamers look effortless because the boring parts are automated. What is worth automating first, and what to leave alone."
 date: "2026-07-06"
 author: "Yaseen Khatib"
 tags: ["Guides", "Automation", "OBS Studio", "Workflow"]

@@ -1,6 +1,6 @@
 ---
-title: "The Ultimate Guide to Optimizing OBS Studio for Maximum Gaming Performance"
-description: "A deep technical guide to reducing OBS Studio CPU usage, eliminating dropped frames, fixing rendering lag, and using native OBS WebSocket v5 for ultra-low overhead live stream automation."
+title: "How to Optimize OBS: Stop Dropping Frames"
+description: "Cut OBS CPU usage, kill dropped frames and fix rendering lag - the settings that matter, in the order worth changing them."
 date: "2026-06-01"
 author: "Yaseen Khatib"
 tags: ["Optimization", "OBS Studio", "Guides", "Streaming Hardware"]

@@ -1,6 +1,6 @@
 ---
-title: "Why Your Stream Tools Are Eating Your Frames (and How Light Software Fixes It)"
-description: "Every overlay, bot, and dashboard you run competes with your game for CPU and RAM. Here's why so many stream tools are bloated — and what a truly lightweight, local-first app does differently."
+title: "Why streamerOS Stays Light While OBS Runs"
+description: "The data streamerOS moves between its parts is a fraction of the obvious approach - which is why the app stays out of your game's way."
 date: "2026-07-06"
 author: "Yaseen Khatib"
 tags: ["Guides", "Performance", "Optimization", "Streaming Hardware"]

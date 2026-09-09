@@ -1,6 +1,6 @@
 ---
-title: "Breaking the Window Freeze: The Popout Chat Masterclass"
-description: "Step-by-step instructions for connecting your YouTube live chat to streamerOS through the Live Sync modal using the Popout Chat window — why it beats reading chat from the full Studio dashboard, and how the local engine tracks YouTube's virtualized list to keep your msgs/sec velocity updating in real time."
+title: "Popout Chat Masterclass for Streamers"
+description: "Popout chat is the most-used window on a streaming PC and the least configured. How to set it up so you can actually read the room."
 date: "2026-06-04"
 author: "Yaseen Khatib"
 tags: ["Guides", "YouTube", "Live Chat", "Velocity"]

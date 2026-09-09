@@ -1,6 +1,6 @@
 ---
-title: "Best OBS Settings for Low-CPU Streaming (2026 Guide)"
-description: "The OBS encoder, resolution, and rendering settings that cut CPU usage without wrecking stream quality — plus how to keep your other stream tools from stealing frames."
+title: "Best OBS Settings for Low-CPU Streaming (2026)"
+description: "The encoder, resolution and rendering settings that cut CPU without wrecking quality - plus what else on your PC is stealing frames."
 date: "2026-07-06"
 author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Optimization", "Performance"]

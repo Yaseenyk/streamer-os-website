@@ -1,6 +1,6 @@
 ---
-title: "How to Stream on a Low-End PC Without Dropping Frames"
-description: "A practical playbook for streaming on a budget or single-PC setup — encoder choices, what to close, and how to pick stream tools that don't steal the frames your game needs."
+title: "How to Stream on a Low-End PC (No Dropped Frames)"
+description: "A practical playbook for budget and single-PC setups: encoder choice, what to close, and picking tools that leave frames for the game."
 date: "2026-07-06"
 author: "Yaseen Khatib"
 tags: ["Guides", "Performance", "Streaming Hardware", "OBS Studio"]

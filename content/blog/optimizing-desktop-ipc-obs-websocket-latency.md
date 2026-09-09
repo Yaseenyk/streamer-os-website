@@ -1,6 +1,6 @@
 ---
-title: "Why Automatic Scene Switching Feels Instant (or Laggy) — and How to Fix It"
-description: "When chat pops off, your scene should switch NOW, not two seconds later. Here's what causes lag between your stream and your automation — and how a fast local pipeline keeps it snappy."
+title: "Why Scene Switches Feel Instant, Not Laggy"
+description: "The gap between a hype spike and the scene actually cutting is where automation feels cheap or magic. What makes the difference."
 date: "2026-07-06"
 author: "Yaseen Khatib"
 tags: ["Guides", "Automation", "OBS Studio", "Performance"]

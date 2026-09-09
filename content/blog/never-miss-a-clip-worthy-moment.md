@@ -1,6 +1,6 @@
 ---
-title: "Never Miss a Clip-Worthy Moment on Stream Again"
-description: "The best moments happen when you're too deep in the game to hit a hotkey. Learn how automatic hype-spike markers catch every one — and export straight to your editor as a CSV."
+title: "Never Miss a Clip-Worthy Moment Again"
+description: "The best moments happen when you are too deep in the game to hit a hotkey. How automatic hype markers catch every one for you."
 date: "2026-07-06"
 author: "Yaseen Khatib"
 tags: ["Guides", "Clipping", "Live", "Workflow"]

@@ -1,6 +1,6 @@
 ---
-title: "How to Turn Your Twitch VODs into YouTube Shorts and TikToks"
-description: "Short-form clips are the #1 way new viewers find you. A workflow for pulling vertical clips out of your stream VODs — from finding the moment to cropping it 9:16."
+title: "Turn Twitch VODs Into Shorts and TikToks"
+description: "Your best clips are already in your VODs. How to find them fast and cut vertical shorts without scrubbing hours of footage."
 date: "2026-07-06"
 author: "Yaseen Khatib"
 tags: ["Guides", "Clipping", "Content", "Growth"]

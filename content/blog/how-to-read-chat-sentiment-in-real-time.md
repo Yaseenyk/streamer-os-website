@@ -1,6 +1,6 @@
 ---
-title: "How to Read Your Stream's Chat Sentiment in Real Time"
-description: "Your chat's mood shifts before your numbers do. Learn what real-time sentiment analysis is, why it matters for streamers, and how to see the room turn while you can still act on it."
+title: "How to Read Chat Sentiment in Real Time"
+description: "Your chat's mood shifts before the numbers do. What real-time sentiment analysis shows you, and how to see the room turn while it matters."
 date: "2026-07-06"
 author: "Yaseen Khatib"
 tags: ["Guides", "Analytics", "Engagement", "Local AI"]

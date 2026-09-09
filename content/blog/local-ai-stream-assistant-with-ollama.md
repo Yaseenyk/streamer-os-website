@@ -1,6 +1,6 @@
 ---
-title: "Local AI for Streamers: Running a Stream Assistant Offline with Ollama"
-description: "Cloud AI assistants are slow, pricey, and send your data away. Here's how a local AI running on your own PC via Ollama can answer questions about your stream and even drive your app — privately."
+title: "Local AI Stream Assistant With Ollama"
+description: "Run an AI assistant on your own PC instead of the cloud: no per-message cost, no data leaving the machine, and no round trip to wait on."
 date: "2026-07-06"
 author: "Yaseen Khatib"
 tags: ["Guides", "Local AI", "Ollama", "Privacy"]

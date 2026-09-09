@@ -1,6 +1,6 @@
 ---
-title: "The Streamer's Cockpit: Your One-Click Setup"
-description: "A tour of the redesigned streamerOS dashboard — the Pre-Flight Control Ribbon with its OBS Studio and YouTube Chat connection badges and Live Vitals, plus the 'Honest UI' Channel Health dial and Hype Heatmap that stay quiet until you go live."
+title: "Setting Up Your Live Streaming Cockpit"
+description: "One screen with everything that matters: chat, telemetry, scene control and alerts. How to lay it out so nothing needs a second monitor."
 date: "2026-06-04"
 author: "Yaseen Khatib"
 tags: ["Guides", "Getting Started", "Dashboard"]

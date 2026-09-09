@@ -1,6 +1,6 @@
 ---
-title: "Do Stream Overlays Hurt Your FPS? How to Get Smooth Ones That Don't"
-description: "Animated overlays and widgets can look amazing — or tank your framerate. Here's why some overlays are performance killers, and how to run smooth, reactive visuals without sacrificing your game."
+title: "How the Automation Canvas Stays Smooth"
+description: "The node editor animates at 60fps while you are live, without taking frames from your game. A look at how that is kept true."
 date: "2026-07-06"
 author: "Yaseen Khatib"
 tags: ["Guides", "Overlays", "Performance", "OBS Studio"]
