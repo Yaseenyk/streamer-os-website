@@ -1,12 +1,16 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
+import { createOpenAI } from '@ai-sdk/openai';
 import { embed, streamText, convertToModelMessages, type UIMessage } from 'ai';
 import { Index } from '@upstash/vector';
 
 // Secrets/bindings are injected by Wrangler at runtime (set via `wrangler secret`
 // in production, or a local `.dev.vars` file for `wrangler dev`).
 export interface Env {
+  // Answers the question. Set with `wrangler secret put OPENAI_API_KEY`.
+  OPENAI_API_KEY: string;
+  // Still required: the retrieval half runs on Gemini — see the embed call.
   GOOGLE_GENERATIVE_AI_API_KEY: string;
   UPSTASH_VECTOR_REST_URL: string;
   UPSTASH_VECTOR_REST_TOKEN: string;
@@ -49,13 +53,16 @@ app.post('/chat', async (c) => {
   // On Workers, secrets live on c.env (process.env is not populated), so the
   // Google provider must be constructed with the key explicitly.
   const google = createGoogleGenerativeAI({ apiKey: c.env.GOOGLE_GENERATIVE_AI_API_KEY });
+  const openai = createOpenAI({ apiKey: c.env.OPENAI_API_KEY });
   const index = new Index({
     url: c.env.UPSTASH_VECTOR_REST_URL,
     token: c.env.UPSTASH_VECTOR_REST_TOKEN,
   });
 
-  // Embed the latest user turn with the SAME model + dimension used at ingest
-  // time (gemini-embedding-001 @ 768) so the vectors are comparable.
+  // Embedding stays on Gemini and must: the Upstash index was built with
+  // gemini-embedding-001 at 768 dimensions, and a vector from any other model
+  // is not comparable to those. Swapping this to OpenAI silently returns
+  // nonsense chunks until the whole knowledge base is re-ingested.
   const { embedding } = await embed({
     model: google.textEmbeddingModel('gemini-embedding-001'),
     value: lastUserText(messages),
@@ -87,7 +94,7 @@ Context:
 ${context}`;
 
   const result = streamText({
-    model: google('gemini-flash-lite-latest'),
+    model: openai('gpt-5.5'),
     system,
     messages: await convertToModelMessages(messages),
   });
