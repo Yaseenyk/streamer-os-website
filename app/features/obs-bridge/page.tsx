@@ -16,6 +16,7 @@ import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
 import FeatureFaq from '@/components/FeatureFaq';
 import JsonLd from '@/components/JsonLd';
 import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
+import { Screenshot } from '@/components/Screenshot';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
@@ -355,6 +356,12 @@ export default function ObsBridgeGuidePage() {
         </Reveal>
       </section>
 
+
+      <Screenshot
+        src="/screenshots/auto-director.png"
+        alt="The OBS control deck connected over WebSocket v5"
+        caption="Connected locally, no cloud"
+      />
 
       <FeatureFaq items={FAQ_ITEMS} />
 

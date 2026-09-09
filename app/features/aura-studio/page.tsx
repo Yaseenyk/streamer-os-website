@@ -17,6 +17,7 @@ import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
 import FeatureFaq from '@/components/FeatureFaq';
 import JsonLd from '@/components/JsonLd';
 import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
+import { Screenshot } from '@/components/Screenshot';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
@@ -372,6 +373,12 @@ export default function AuraStudioGuidePage() {
           />
         </div>
       </section>
+
+      <Screenshot
+        src="/screenshots/aura.png"
+        alt="The Aura engine shifting the overlay with the state of the game"
+        caption="The room reacts to the game"
+      />
 
       <FeatureFaq items={FAQ_ITEMS} />
 

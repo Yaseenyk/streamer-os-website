@@ -17,6 +17,7 @@ import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
 import FeatureFaq from '@/components/FeatureFaq';
 import JsonLd from '@/components/JsonLd';
 import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
+import { Screenshot } from '@/components/Screenshot';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
@@ -44,6 +45,14 @@ const FAQ_ITEMS: FaqEntry[] = [
   {
     q: 'Does moment detection need an internet service?',
     a: 'No. The detector runs locally on your machine, reading the public chat of your own channel. streamerOS is zero-cloud — nothing about your stream is sent to a backend.',
+  },
+  {
+    q: 'How fast does it detect a moment?',
+    a: 'Chat reacts within about a second of anything worth clipping, and the marker is written as the spike is detected — while you are still playing. Nothing is analysed after the fact, and no video is processed, which is why it costs almost nothing to run.',
+  },
+  {
+    q: 'What do I get at the end of a stream?',
+    a: 'A list of timestamped markers, exportable as CSV, that your editor can jump straight to. Turning a marker into a finished vertical clip inside streamerOS is a v1.1 feature; in v1.0 the markers go to the editor you already use.',
   },
 ];
 
@@ -303,6 +312,12 @@ export default function ViralMomentsGuidePage() {
           />
         </div>
       </section>
+
+      <Screenshot
+        src="/screenshots/viral-moments.png"
+        alt="The velocity monitor marking a hype spike as it happens"
+        caption="A spike, marked live"
+      />
 
       <FeatureFaq items={FAQ_ITEMS} />
 

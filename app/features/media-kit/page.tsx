@@ -16,6 +16,7 @@ import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
 import FeatureFaq from '@/components/FeatureFaq';
 import JsonLd from '@/components/JsonLd';
 import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
+import { Screenshot } from '@/components/Screenshot';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
@@ -271,6 +272,12 @@ export default function MediaKitGuidePage() {
           />
         </div>
       </section>
+
+      <Screenshot
+        src="/screenshots/media-kit.png"
+        alt="The media kit generator building a branded PDF from local CSV exports"
+        caption="Your numbers, sponsor-ready"
+      />
 
       <FeatureFaq items={FAQ_ITEMS} />
 

@@ -6,6 +6,7 @@ import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
 import FeatureFaq from '@/components/FeatureFaq';
 import JsonLd from '@/components/JsonLd';
 import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
+import { Screenshot } from '@/components/Screenshot';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
@@ -33,6 +34,14 @@ const FAQ_ITEMS: FaqEntry[] = [
   {
     q: 'Why is streamerOS Windows-only right now?',
     a: 'It integrates deeply with the Windows audio subsystem and DirectX to keep the footprint tiny and the telemetry accurate under a live game. macOS and Linux are on the roadmap, but out of scope for v1.0.',
+  },
+  {
+    q: 'What makes it lighter than other stream tools?',
+    a: 'There is no bundled browser engine. The core is Rust on a Tauri shell, so the app is a native process rather than a Chromium instance with a UI drawn inside it. Chat parsing, velocity and sentiment scoring all run in Rust off the UI thread, and events cross to the interface as batched MessagePack rather than a JSON message per event.',
+  },
+  {
+    q: 'Is 1.8% CPU measured or estimated?',
+    a: 'Measured under a live 1080p60 game with OBS encoding, which is the only condition that matters. An idle desktop number would be meaningless — every tool looks light with nothing else running.',
   },
 ];
 
@@ -230,6 +239,12 @@ export default function PerformanceGuidePage() {
         </div>
       </section>
 
+
+      <Screenshot
+        src="/screenshots/dashboard.png"
+        alt="The streamerOS cockpit running alongside a live 1080p60 game"
+        caption="Live telemetry, 1.8% CPU"
+      />
 
       <FeatureFaq items={FAQ_ITEMS} />
 

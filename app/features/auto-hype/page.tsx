@@ -18,6 +18,7 @@ import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
 import FeatureFaq from '@/components/FeatureFaq';
 import JsonLd from '@/components/JsonLd';
 import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
+import { Screenshot } from '@/components/Screenshot';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
@@ -51,6 +52,10 @@ const FAQ_ITEMS: FaqEntry[] = [
   {
     q: 'Is HypeDirector the same as the Auto-Hype Director?',
     a: 'Yes. The Auto-Hype Director is sometimes written as HypeDirector or Hype Director — they all refer to the same streamerOS feature: the visual node editor that watches chat velocity and sentiment and drives OBS scene changes automatically.',
+  },
+  {
+    q: 'How does it know what counts as a spike?',
+    a: "Against your own baseline, not a fixed number. Five messages a second is a riot on one channel and idle on another, so the trigger is a jump relative to your channel's normal pace — which is why it works the same for a channel with twenty viewers as one with two thousand.",
   },
 ];
 
@@ -352,6 +357,12 @@ export default function AutoHypeGuidePage() {
           />
         </div>
       </section>
+
+      <Screenshot
+        src="/screenshots/auto-director.png"
+        alt="The Auto-Hype Director node canvas wiring a chat trigger to an OBS scene"
+        caption="Trigger, logic, action — no scripting"
+      />
 
       <FeatureFaq items={FAQ_ITEMS} />
 

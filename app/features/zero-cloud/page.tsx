@@ -41,6 +41,14 @@ const FAQ_ITEMS: FaqEntry[] = [
     q: 'Why does local-first matter for a streamer?',
     a: 'Two reasons: latency and privacy. Automation with no cloud round-trip fires scene switches the instant chat reacts, and credentials that never touch a third-party server cannot leak from one. Cloud streaming tools cannot offer either guarantee.',
   },
+  {
+    q: 'What exactly leaves my machine?',
+    a: 'Chat is read directly from Twitch IRC and YouTube on your PC. Velocity, sentiment and scene decisions are computed locally and never transmitted. The app reaches the network for three things only: fetching your own channel statistics if you configure a YouTube API key, downloading a local AI model, and checking for updates. Unplug the network and the automation keeps running.',
+  },
+  {
+    q: 'Where is my data stored?',
+    a: 'In a workspace folder on your own drive that you choose. There is no account, no server-side profile and no sync — which also means backups are yours to keep.',
+  },
 ];
 
 // ---------------------------------------------------------------------------
