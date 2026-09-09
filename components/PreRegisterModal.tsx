@@ -150,9 +150,10 @@ export function PreRegisterModal({ isOpen, onClose }: { isOpen: boolean; onClose
               Secure Pre-Registration Access
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-slate-400">
-              streamerOS is launching natively in November 2026. Enter your email below to
-              reserve your spot on the zero-cloud optimization list and receive the stable build
-              the second it drops.
+              streamerOS launches November 2026. Pre-register now and your trial is{' '}
+              <strong className="text-cyan-300">3 months instead of 7 days</strong> — the
+              whole cockpit, unlocked, on your own machine. One email, no card, and you
+              get the build the day it ships.
             </p>
 
             <PreRegisterForm />

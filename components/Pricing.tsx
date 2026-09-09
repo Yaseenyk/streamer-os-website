@@ -25,15 +25,15 @@ interface Tier {
 
 const TIERS: Tier[] = [
   {
-    name: 'Free Core',
+    name: 'Free Trial',
     price: '$0',
-    cadence: 'free forever',
-    tagline: 'The full streamerOS cockpit. Open source, no strings.',
+    cadence: '7 days, no card',
+    tagline: 'The whole cockpit, unlocked, for a week. Nothing is held back.',
     features: [
-      'Local telemetry & chat monitoring',
-      'Auto-Hype Director scene automation',
-      '1.8% CPU footprint',
-      'Zero-cloud privacy',
+      'Every v1.0 feature, no restrictions',
+      'No credit card to start',
+      'Runs entirely on your PC',
+      'Pre-register now and get 3 months instead of 7 days',
     ],
     cta: 'Pre-Register for Launch',
     href: siteConfig.downloadUrl,
@@ -41,21 +41,22 @@ const TIERS: Tier[] = [
     preRegister: true,
   },
   {
-    name: 'Supporter Edition',
+    name: 'Full Licence',
     price: '$29',
-    cadence: 'one-time purchase',
-    tagline: 'Everything in Free Core — plus a way to fuel the project.',
+    cadence: 'one-time — not a subscription',
+    tagline: 'Pay once, keep it. No renewal, no account, no cloud.',
     features: [
-      'Everything in Free Core',
-      'Supporter badge in the app',
-      'Early access to new AI models',
-      'A warm feeling of supporting indie open-source development',
+      'Every feature, unlocked permanently',
+      'All v1.1 features included — Shorts, assistant memory, mic monitoring',
+      'Works offline forever; the licence validates once',
+      'No subscription, no seat count, no upsell',
     ],
-    cta: 'Become a Supporter',
+    cta: 'Buy a Licence',
     href: siteConfig.supporterCheckoutUrl,
     featured: true,
   },
 ];
+
 
 export default function Pricing() {
   return (
@@ -68,11 +69,12 @@ export default function Pricing() {
         className="mx-auto max-w-2xl text-center"
       >
         <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-          Free and open source. Forever.
+          Pay once. Own it.
         </h2>
         <p className="mt-4 text-zinc-400">
-          streamerOS costs nothing and always will. The Supporter Edition is a
-          one-time thank-you that keeps indie development alive.
+          Try the whole cockpit free for 7 days, then $29 once — no subscription,
+          no account, no cloud. Pre-register before launch and your trial is three
+          months instead of seven days.
         </p>
         <LaunchBadge className="mt-6" />
       </motion.div>

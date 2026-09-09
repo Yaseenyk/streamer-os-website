@@ -66,7 +66,7 @@ export default function DownloadPage() {
             <LaunchBadge />
             <h2 className="mt-3 text-2xl font-semibold tracking-tight">For Windows 10 &amp; 11</h2>
             <p className="mt-2 text-sm text-zinc-400">
-              64-bit · free forever · no account required
+              64-bit · 7-day free trial · no account required
             </p>
             <PreRegisterButton className="mt-6 inline-flex items-center justify-center rounded-lg bg-cyan-400 px-8 py-3.5 text-sm font-semibold text-[#05070A] transition hover:bg-cyan-300">
               Pre-Register for Launch

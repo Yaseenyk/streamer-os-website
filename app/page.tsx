@@ -492,10 +492,13 @@ function BentoFeatures() {
           <BentoCard className="h-full min-h-[210px]">
             <div className="flex h-full flex-col justify-between gap-6 p-7 sm:flex-row sm:items-center">
               <div>
-                <h3 className="text-lg font-semibold text-zinc-100">Free, and open source.</h3>
+                <h3 className="text-lg font-semibold text-zinc-100">
+                  One payment. Not a subscription.
+                </h3>
                 <p className="mt-2 max-w-sm text-sm text-zinc-400">
-                  streamerOS costs $0 and always will. An optional $29 Supporter
-                  Edition keeps indie development alive.
+                  Try everything free for 7 days, then $29 once and it is yours —
+                  no renewal, no account, no cloud. Pre-register before launch and
+                  your trial is 3 months instead of 7 days.
                 </p>
               </div>
               <Link
