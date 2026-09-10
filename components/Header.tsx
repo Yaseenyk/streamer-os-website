@@ -44,7 +44,7 @@ const FEATURE_LINKS: FeatureLink[] = [
 const NAV_LINKS = [
   { label: 'Playbook', href: '/playbook' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Pricing', href: '/#pricing' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Changelog', href: '/changelog' },
 ];
