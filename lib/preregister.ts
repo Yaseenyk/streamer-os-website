@@ -2,9 +2,17 @@
 // and the inline forms embedded in blog posts and the hero, so there is exactly
 // one place that knows how a signup is delivered.
 //
-// Delivered via EmailJS's REST API (client-side, works on the static export) to
-// the site contact inbox. The public key is safe to expose — that's EmailJS's
-// design.
+// Preferred delivery: NEXT_PUBLIC_PREREGISTER_ENDPOINT. Point it at a real list
+// provider (ConvertKit, Buttondown, Loops, MailerLite…) so subscribers land in a
+// list that can be segmented and mailed on launch day, and so they get a
+// confirmation of their own. It receives {email, source} as JSON. Inlined at
+// build time, like every NEXT_PUBLIC_ value on a static export.
+//
+// Fallback: EmailJS to the contact inbox. It captures the address, but an inbox
+// is not a list — there is nothing to send from at launch except copy-paste, and
+// the subscriber gets no receipt, so a typo'd address is lost silently. The
+// public key is safe to expose; that's EmailJS's design.
+const PREREGISTER_ENDPOINT = process.env.NEXT_PUBLIC_PREREGISTER_ENDPOINT ?? '';
 const EMAILJS_ENDPOINT = 'https://api.emailjs.com/api/v1.0/email/send';
 const EMAILJS_SERVICE = 'service_560nh3i';
 const EMAILJS_TEMPLATE = 'template_dyb1k4x';
@@ -21,24 +29,30 @@ export const SIGNUP_ERROR =
  * identical and there is no way to tell what is working.
  */
 export async function submitPreRegistration(email: string, source: string): Promise<void> {
-  const response = await fetch(EMAILJS_ENDPOINT, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      service_id: EMAILJS_SERVICE,
-      template_id: EMAILJS_TEMPLATE,
-      user_id: EMAILJS_PUBLIC_KEY,
-      template_params: {
-        name: 'streamerOS Pre-Registration',
-        email,
-        message: `New streamerOS pre-registration from ${email} (source: ${source})`,
-        to_email: PREREGISTER_INBOX,
-        reply_to: email,
-      },
-    }),
-  });
+  const response = PREREGISTER_ENDPOINT
+    ? await fetch(PREREGISTER_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ email, source }),
+      })
+    : await fetch(EMAILJS_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          service_id: EMAILJS_SERVICE,
+          template_id: EMAILJS_TEMPLATE,
+          user_id: EMAILJS_PUBLIC_KEY,
+          template_params: {
+            name: 'streamerOS Pre-Registration',
+            email,
+            message: `New streamerOS pre-registration from ${email} (source: ${source})`,
+            to_email: PREREGISTER_INBOX,
+            reply_to: email,
+          },
+        }),
+      });
   if (!response.ok) {
-    throw new Error(`EmailJS returned ${response.status}`);
+    throw new Error(`Pre-registration endpoint returned ${response.status}`);
   }
 
   trackSignup(source);
