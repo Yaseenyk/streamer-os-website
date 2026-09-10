@@ -3,7 +3,6 @@ import type { ReactNode } from 'react';
 import { Inter } from 'next/font/google';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import FloatingContact from '@/components/FloatingContact';
 import SupportChatbot from '@/components/SupportChatbot';
 import { PreRegisterProvider } from '@/components/PreRegisterModal';
 import JsonLd from '@/components/JsonLd';
@@ -82,9 +81,9 @@ const jsonLd = {
         height: 630,
       },
       email: siteConfig.contactEmail,
-      // githubUrl is omitted until the repository is public — a 404 in sameAs
-      // is a broken entity link for search engines.
-      sameAs: [siteConfig.twitterUrl, siteConfig.discordUrl],
+      // Unset URLs drop out rather than emitting an empty string — a 404 or a
+      // blank in sameAs is a broken entity link for search engines.
+      sameAs: [siteConfig.githubUrl, siteConfig.twitterUrl, siteConfig.discordUrl].filter(Boolean),
       founder: { '@id': `${SITE_URL}/#person` },
     },
     {
@@ -108,12 +107,15 @@ const jsonLd = {
       author: { '@id': `${SITE_URL}/#person` },
       publisher: { '@id': `${SITE_URL}/#organization` },
       // A free 7-day trial, then a one-time $29 licence. Priced as the licence
-      // so search results do not advertise the product as free.
+      // so search results do not advertise the product as free, and it must
+      // match /pricing — a mismatch makes the rich result ineligible.
       offers: {
         '@type': 'Offer',
         price: '29.00',
         priceCurrency: 'USD',
         category: 'One-time licence, free 7-day trial',
+        availability: 'https://schema.org/PreOrder',
+        url: `${SITE_URL}/pricing`,
       },
       featureList: [
         'Auto-Hype Director — node-based OBS scene automation',
@@ -160,7 +162,6 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           <Header />
           {children}
           <Footer />
-          <FloatingContact />
           <SupportChatbot />
         </PreRegisterProvider>
       </body>

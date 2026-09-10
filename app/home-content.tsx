@@ -196,14 +196,14 @@ function MeshBackground() {
 // Marquee — infinite tech-stack / performance ticker
 // ---------------------------------------------------------------------------
 const MARQUEE_ITEMS = [
-  'Powered by Rust',
   '1.8% CPU footprint',
-  'Zero-Cloud',
-  'OBS WebSocket v5',
+  'Your frames stay with the game',
+  'Nothing leaves your PC',
+  'No account, no cloud',
+  'Scenes switch themselves',
+  'Works with OBS out of the box',
   'Twitch + YouTube',
-  'One-time $29 licence',
-  'Local-first',
-  'Tauri + Next.js',
+  '$29 once — not a subscription',
 ];
 
 function Marquee() {
@@ -599,7 +599,7 @@ function BentoFeatures() {
           </BentoCard>
         </motion.div>
 
-        {/* Open source — wide tile */}
+        {/* Pricing — wide tile */}
         <motion.div variants={fadeUp} className="lg:col-span-2">
           <BentoCard className="h-full min-h-[210px]">
             <div className="flex h-full flex-col justify-between gap-6 p-7 sm:flex-row sm:items-center">
@@ -614,7 +614,7 @@ function BentoFeatures() {
                 </p>
               </div>
               <Link
-                href="/#pricing"
+                href="/pricing"
                 className="inline-flex shrink-0 items-center gap-1.5 font-mono text-sm text-cyan-400 transition-colors hover:text-cyan-300"
               >
                 See pricing

@@ -60,6 +60,11 @@ const TIERS: Tier[] = [
   },
 ];
 
+/** Before launch there is no checkout to send anyone to, so the paid tier asks
+ *  for the pre-registration instead of linking at a product that does not exist
+ *  yet. Setting `supporterCheckoutUrl` flips it back to a real buy button. */
+const CHECKOUT_LIVE = siteConfig.supporterCheckoutUrl !== '';
+
 
 export default function Pricing() {
   return (
@@ -125,7 +130,7 @@ export default function Pricing() {
               ))}
             </ul>
 
-            {tier.preRegister ? (
+            {tier.preRegister || !CHECKOUT_LIVE ? (
               <PreRegisterButton
                 className={`mt-8 inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold transition-all duration-200 ${
                   tier.featured
@@ -134,7 +139,7 @@ export default function Pricing() {
                 }`}
               >
                 {tier.featured && <Heart className="h-4 w-4" aria-hidden />}
-                {tier.cta}
+                {tier.preRegister ? tier.cta : 'Pre-Register — Buy at Launch'}
               </PreRegisterButton>
             ) : (
               <a

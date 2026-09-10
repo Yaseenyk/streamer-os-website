@@ -77,10 +77,10 @@ export default function AboutPage() {
               leave your machine.
             </p>
             <p>
-              streamerOS is open-source and free, because the people who go live every
-              night deserve tools built with the same care they put into their
-              broadcast — and because the surest way to earn a streamer’s trust is to
-              let them read every line.
+              streamerOS costs $29 once, because the people who go live every night
+              deserve tools built with the same care they put into their broadcast —
+              and because a tool you buy outright owes its answers to you, not to an
+              advertiser, an investor, or a renewal date.
             </p>
           </div>
         </Reveal>

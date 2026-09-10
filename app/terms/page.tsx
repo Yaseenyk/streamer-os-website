@@ -4,8 +4,8 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Terms of Service',
   description:
-    'The terms governing your use of streamerOS — open-source software ' +
-    'provided free of charge, on an "as is" basis.',
+    'The terms governing your use of streamerOS — a one-time-purchase ' +
+    'Windows application, licensed per user and provided on an "as is" basis.',
   alternates: { canonical: 'https://streamerosai.com/terms' },
 };
 
@@ -19,17 +19,34 @@ export default function TermsPage() {
       <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
         Terms of Service
       </h1>
-      {/* TODO: set to the real publication date */}
-      <p className="mt-3 text-sm text-zinc-500">Last updated: May 22, 2026</p>
+      <p className="mt-3 text-sm text-zinc-500">Last updated: September 10, 2026</p>
 
       <div className="mt-10 space-y-10">
         <section>
-          <h2 className={H2}>Open-source software</h2>
+          <h2 className={H2}>Your licence</h2>
           <p className={P}>
-            streamerOS is free, open-source software. The application&apos;s full
-            source code is publicly available, and your use, modification, and
-            redistribution of it are governed by its open-source license. Where
-            that license and these terms differ, the license controls.
+            streamerOS is proprietary software. Buying a licence grants you a
+            personal, non-exclusive, non-transferable right to install and run
+            streamerOS on machines you own or control. You do not receive the
+            source code, and you may not copy, resell, sublicense, rent, or
+            redistribute the application, nor reverse-engineer, decompile, or
+            disassemble it except where that restriction is void under the law
+            that applies to you.
+          </p>
+          <p className={P}>
+            The licence is a one-time purchase, not a subscription. It is
+            validated once, on first launch, and does not expire or renew.
+          </p>
+        </section>
+
+        <section>
+          <h2 className={H2}>The free trial</h2>
+          <p className={P}>
+            streamerOS runs unrestricted for the length of the trial — seven days
+            as standard, or three months if you pre-registered before launch. No
+            card is required to start, and the trial ends by locking the
+            application rather than by charging you. These terms apply during the
+            trial exactly as they do after purchase.
           </p>
         </section>
 
@@ -43,21 +60,19 @@ export default function TermsPage() {
           </p>
           <p className={P}>
             You run streamerOS at your own risk. To the maximum extent permitted
-            by law, the project and its contributors are not liable for any
-            damages — including lost streams, dropped frames, missed moments, or
-            data loss — arising from your use of the software.
+            by law, we are not liable for any damages — including lost streams,
+            dropped frames, missed moments, or data loss — arising from your use
+            of the software.
           </p>
         </section>
 
         <section>
-          <h2 className={H2}>The licence</h2>
+          <h2 className={H2}>Payment and refunds</h2>
           <p className={P}>
-            streamerOS is free to trial for 7 days with no payment details. After
-            that, continued use requires a one-time $29 licence, which unlocks every
-            feature permanently for the version you bought. It is not a
-            subscription and does not renew. The licence validates once and the
-            software then runs offline indefinitely. Nothing above changes the
-            warranty disclaimer.
+            A licence costs $29 once. Because the trial lets you run every
+            feature before paying, purchases are final except where a refund is
+            required by the law that applies to you — write to us and we will
+            sort it out.
           </p>
         </section>
 
