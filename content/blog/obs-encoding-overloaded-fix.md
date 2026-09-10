@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Optimization", "Performance"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** "Encoding overloaded! Consider turning down video settings" means the encoder cannot finish a frame before the next one arrives. It is a compute problem, not a network problem, and the usual advice — lower your bitrate — does nothing for it.
-> * **The Diagnostic:** OBS counts three different failures separately. Skipped frames mean the encoder is late, missed frames mean the GPU compositor is late, dropped frames mean the network is late. Each has a different fix, and reading the wrong counter sends you down the wrong path.
-> * **The Fix Order:** Move encoding off the CPU to NVENC/AMF/QuickSync first, then cut output resolution, then frame rate, then encoder preset. Bitrate is last, and usually irrelevant.
-
 `Encoding overloaded! Consider turning down video settings.`
 
 It arrives mid-stream, in red, usually in the fight you actually cared about.
@@ -130,8 +125,9 @@ CPU. Several of them together can account for the entire deficit.
 
 That last one is worth auditing honestly. A stack of companion apps that each
 look harmless in Task Manager can add up to more CPU than OBS itself — and
-unlike the encoder, none of it is doing work your viewers can see. There is more
-on measuring that in
+unlike the encoder, none of it is doing work your viewers can see. A companion
+app that [holds a 1.8% CPU footprint](/features/performance) leaves that
+headroom where the encoder needs it. There is more on measuring that in
 [Best OBS Settings for Low-CPU Streaming](/blog/best-obs-settings-for-low-cpu-streaming).
 
 ## What will not fix it
