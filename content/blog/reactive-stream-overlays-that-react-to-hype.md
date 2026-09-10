@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Overlays", "OBS", "Production"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** A static overlay never changes, so during a huge hype moment your screen looks exactly the same as it does during a loading screen — flat, dead, and disconnected from the energy in chat.
-> * **Architectural Solution:** A **reactive overlay** driven by [streamerOS](/features) Aura Studio, an ambient "Canvas of Light" that computes a vibe state (Calm → Building → Hype) once per second from game telemetry plus chat velocity and drives OBS overlays over a local HTTP bridge.
-> * **Key Benefit:** The screen reacts *with* the room automatically — no manual scene switching mid-game — with a hype threshold you calibrate once and that persists between sessions.
-
 Picture the biggest moment of your stream. The clutch play lands, chat explodes, and everyone watching is on the edge of their seat. Now look at your overlay.
 
 It's the exact same overlay it was thirty seconds ago during the lobby. Same colors. Same glow. Frozen.

@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "OBS", "Production", "Workflow"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** Alt-tabbing out to OBS mid-stream breaks your focus on the game and, on fullscreen setups, can cost you frames every time the window loses focus.
-> * **Architectural Solution:** OBS 28+ ships a built-in **WebSocket v5** server, so external apps like the **streamerOS OBS Bridge** can switch scenes remotely — no plugins installed into OBS.
-> * **Workflow Payoff:** Switch the program scene, read the current live scene, and watch a connection-status badge, all without ever leaving your game.
-
 Every time you alt-tab to OBS to hit a scene, you stop playing. Your eyes leave the fight, your hands leave the keys, and for a second or two you're a producer instead of a streamer.
 
 On fullscreen exclusive setups it's worse than a distraction — losing window focus can drop your framerate right at the moment your audience is watching most.

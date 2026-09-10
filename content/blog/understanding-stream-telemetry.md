@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Analytics", "Engagement", "Growth"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** Streamers only look at their numbers *after* the stream ends — by then the moment they could have acted on is long gone.
-> * **Architectural Solution:** Read your live chat as three signals in real time — **velocity** (how fast chat moves), **sentiment** (the mood), and **engagement patterns** (who's talking and about what) — and act on them while you're still live.
-> * **Performance Benchmark:** [streamerOS](/features) reads and scores every one of these signals locally at a 1.8% CPU footprint under a live 1080p60 game.
-
 Most streamers treat their chat like background noise until something big scrolls past. Then, after the stream, they open the creator dashboard and look at peak viewers, average watch time, and total messages. That's useful for the long game — but reviewing your numbers after you've signed off is like checking the map once you've already arrived. It tells you where you went. It can't help you steer right now.
 
 Here's the thing worth internalizing: **your chat is already telling you exactly how your stream is landing, second by second.** You just have to know what to read. Let's break the live feed into the three signals that actually matter.

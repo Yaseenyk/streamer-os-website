@@ -11,11 +11,6 @@ tags:
 - Privacy
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** Cloud bots and webhooks add delay and expose stream data.
-> * **The Fix:** Run OBS automation locally with streamerOS via OBS Bridge + Auto-Director.
-> * **Why It Matters:** Faster scene cuts, smoother hype moments, and zero-cloud privacy.
-
 ## The case for local-first automation (in streamer terms)
 Cloud tools look convenient—until they stall a hype moment. Every hop to a server and back to your PC adds drag, and shipping your chat + scenes through third parties raises privacy flags with sponsors and mods.
 

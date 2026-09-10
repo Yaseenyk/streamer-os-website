@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Sponsorships", "Monetization", "Business"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** Sponsor leads arrive in DMs and email, then get lost — streamers have no single place to see which brand deals are live, stalled, or dead, so real money slips away.
-> * **Architectural Solution:** A creator-focused **Sponsor CRM** that tracks every lead on a **pipeline board** (New → Contacted → Negotiating → Won) with a **lead inspector** for each deal's details, stored locally in a database on your own machine.
-> * **Data Ownership:** No cloud and no third-party SaaS — every sponsor lead stays on your machine.
-
 A brand slides into your DMs. "Love your content — we'd like to work with you." Your heart rate spikes. This is the one. You fire back a reply, maybe swap a couple of messages, and then... your stream schedule eats the week.
 
 Three weeks later that conversation is buried under fan messages, mod pings, and a hundred "first!" comments. You never followed up. The brand moved on. The deal is dead — and you never even knew what it was worth.

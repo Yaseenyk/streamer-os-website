@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Analytics", "Engagement", "Clipping"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** Streamers can't tell in the moment when something clip-worthy just happened — raw viewer count barely moves, so the best hype spikes go unmarked and unclipped.
-> * **Architectural Solution:** **Chat velocity** — messages per second (or per minute) — turns the speed of your chat into a live, second-by-second signal that spikes the instant your audience reacts.
-> * **Practical Payoff:** [streamerOS](/features) watches velocity live to [auto-mark hype spikes](/features/viral-moments) and can [trigger OBS scene switches](/features/auto-hype) the moment your chat pops off.
-
 If you've ever finished a stream, opened the VOD, and thought *"I know something great happened around the two-hour mark, but I can't find it"* — this post is for you. There's a single number that would have flagged that moment as it happened, and it's probably already scrolling right in front of you.
 
 That number is **chat velocity**.

@@ -11,11 +11,6 @@ tags:
 - Local AI
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** OBS drops frames and overheats when overlays and bots spike CPU.
-> * **The Fix:** Use streamerOS’s local, tiny-footprint automation to drive OBS and overlays without cloud scripts.
-> * **Why It Matters:** Smoother streams, cooler temps, and more attention on content—not settings.
-
 ## What you’ll set up
 You’ll wire streamerOS to OBS, build a low-CPU scene auto-switcher for hype moments, and add a reactive overlay that updates at a gentle 1 Hz. The whole flow is local-first and zero-cloud, so no hidden background churn from webhooks or browser scripts. The result: steady FPS and fewer CPU spikes during big moments.
 

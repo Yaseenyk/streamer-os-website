@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Automation", "OBS Studio", "Performance"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** When an automation tool switches OBS scenes in response to a live moment, a delay of even a second or two feels broken on stream — and cloud-based tools that route your data through remote servers are structurally too slow to feel instant.
-> * **Architectural Solution:** A **local-first pipeline** that runs on your own PC and talks directly to OBS Studio over the local WebSocket connection, cutting out the internet round-trip entirely so scene switches fire in a fraction of a second.
-> * **Performance Benchmark:** Holds a 1.8% CPU footprint under a live 1080p60 game while driving real-time scene automation.
-
 You've felt it. Chat explodes over a clutch play, and your "hype" scene — the one with the animated overlay and the crowd-goes-wild energy — finally kicks in two seconds later, right as the moment dies. The switch happened. It just happened *late*. And late, on stream, reads as broken.
 
 Automatic scene switching is supposed to make you look like you've got a whole production crew in the back. When it lags, it does the opposite. So let's talk about *why* that delay happens, and what actually makes the difference between a switch that feels instant and one that feels like buffering.

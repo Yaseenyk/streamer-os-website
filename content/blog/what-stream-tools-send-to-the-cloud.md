@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Privacy", "Security", "OBS Studio"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** Streamers install five or six companion tools and have no idea which of them upload chat logs, analytics or audio, or where that data is stored.
-> * **How To Check:** Read the privacy policy for the word "process", then watch the app's own network traffic. The traffic is the ground truth; the policy is the intent.
-> * **The Standard Worth Holding:** Data that can stay on your machine should stay on your machine — not because vendors are malicious, but because data that never leaves cannot leak.
-
 Nobody reads the privacy policy of a stream overlay. It is a reasonable thing to
 skip, right up until a company you had forgotten about has a breach and your
 channel analytics are in it.
@@ -96,8 +91,9 @@ What is not fine is a chat sentiment feature uploading every message when
 sentiment scoring runs comfortably on a modern CPU, or an analytics dashboard
 storing your history remotely when it could keep a local database.
 
-That is the standard streamerOS is built to: chat velocity, sentiment, OBS scene
-automation and media kit generation all run on your PC. No account, no upload,
+That is the standard [streamerOS is built to](/features/zero-cloud): chat
+velocity, sentiment, [OBS scene automation](/features/auto-hype) and media kit
+generation all run on your PC. No account, no upload,
 nothing to breach. Pull the cable and the automation keeps running.
 
 ## Frequently Asked Questions

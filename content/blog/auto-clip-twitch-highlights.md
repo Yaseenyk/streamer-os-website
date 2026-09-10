@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Twitch", "Clips", "Automation"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** The best clips happen when your hands are busiest, so the hotkey never gets pressed — and finding them afterwards means scrubbing hours of VOD.
-> * **The Signal:** Chat reacts within seconds of anything worth clipping. Message rate spiking above your own baseline is the most reliable highlight detector available.
-> * **The Practical Output:** Timestamps, not finished videos. A marker list your editor can jump to turns a three-hour VOD into a ten-minute job.
-
 Every streamer has the same experience: something great happens, chat explodes,
 and you are too deep in the game to hit the clip key. Later you scrub a
 three-hour VOD trying to find it, give up, and the moment is gone.
@@ -46,7 +41,7 @@ moments worth catching, because those are the ones where your hands are busy.
 when it spikes past your baseline it records a timestamp. You do nothing. At the
 end of the stream you have a list of moments with times attached.
 
-That third one is what streamerOS's Viral Hook Marker does — live, locally,
+That third one is what streamerOS's [Viral Hook Marker](/features/viral-moments) does — live, locally,
 reading Twitch IRC and YouTube chat directly, marking spikes while you play and
 exporting the markers as CSV.
 
@@ -63,7 +58,7 @@ is a harder problem and produces mediocre results, because framing a clip
 requires knowing where it starts, which is a judgement about context. A marker
 plus your editor beats an automatic cut nearly every time.
 
-For clarity on where streamerOS sits: live spike marking and CSV export ship in
+For clarity on where streamerOS sits: live spike marking and [CSV export](/features/clip-library) ship in
 **v1.0 in November 2026**. The Shorts workspace that turns a marker into a
 finished 9:16 clip inside the app ships in **v1.1**. Until then the markers go
 to your editor, which is the workflow most editors prefer anyway.

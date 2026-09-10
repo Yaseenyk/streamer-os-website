@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Performance", "Automation"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** Streamers on modest hardware avoid automation tools assuming they cost frames, while the browser sources and Electron apps already open cost far more.
-> * **The Real Cost:** Watching chat and switching scenes is almost free. Rendering a UI in a bundled browser engine is not.
-> * **How To Check:** Task Manager, sorted by CPU, while streaming — not while idle. The answer is usually not the tool you suspected.
-
 There is a belief on low-end streaming setups that automation is a luxury for
 people with better machines. It is worth testing, because the arithmetic usually
 goes the other way: automation is cheap, and the things already running are
@@ -28,7 +23,8 @@ Break down what a scene-automation tool does:
   Free.
 
 None of that is expensive. A native app doing all three sits in the low single
-digits of one core — streamerOS holds 1.8% under a live 1080p60 game, which is
+digits of one core — streamerOS [holds 1.8% under a live 1080p60
+game](/features/performance), which is
 the kind of number this work should produce.
 
 ## What is actually eating your frames

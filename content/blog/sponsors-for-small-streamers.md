@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Growth", "Monetization", "Sponsorship"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** Small streamers assume sponsorship starts at some viewer threshold, so they never ask — while brands are actively looking for engaged niche audiences at exactly their size.
-> * **What Actually Sells:** Not concurrent viewers. A defined audience, a repeatable format, and evidence people act on what you say.
-> * **Where To Start:** Affiliate and product-seeding deals, which have no viewer minimum, then convert proof from those into paid flat-rate deals.
-
 The belief that sponsorship begins at some magic viewer count costs small
 streamers more money than any other assumption in this space. It is wrong in a
 specific, useful way: **brands buy audiences, not viewer counts**, and a
@@ -84,7 +79,8 @@ Short. Brands read the first three lines and decide.
 >
 > [Name] · [channel link]
 
-Then attach a media kit. One page: what you stream, who watches, honest numbers,
+Then attach a [media kit](/features/media-kit). One page: what you stream, who
+watches, honest numbers,
 what you offer, and prices. Real numbers, always — inflating them is the fastest
 way to lose a deal at the point where they check, and they do check.
 
@@ -124,6 +120,10 @@ anchor for every renewal.
 4. Approach five niche brands with the short email above.
 5. Take a seeding deal if it is offered; deliver it properly.
 6. Convert that relationship, and its evidence, into the first paid deal.
+
+Six steps across five brands is already more than an inbox can hold straight —
+[track each one as a pipeline](/features/sponsor-crm) rather than as a folder of
+replies.
 
 Every step produces the proof the next one needs. Skipping to step six with
 nothing behind it is why most first approaches go unanswered — not the viewer

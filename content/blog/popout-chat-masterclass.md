@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "YouTube", "Live Chat", "Velocity"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** YouTube's "virtualized list" constantly destroys and rebuilds its live-chat elements, which freezes naive trackers and burns CPU you'd rather spend on your game.
-> * **Architectural Solution:** A local window **scraper** reads an isolated **Popout Chat** window — selected through the **Live Sync modal** and started with **Start Monitor** — taking a fresh snapshot of the list instead of clinging to recycled elements.
-> * **Performance Benchmark:** A ~1-second snapshot refresh cadence at near-zero CPU overhead keeps the `msgs/sec` velocity score updating the instant viewers type.
-
 > **streamerOS Live Cockpit Series · Part 2 of 3**
 > 1. [The Streamer's Cockpit: Your One-Click Setup](/blog/setting-up-your-live-cockpit)
 > 2. **Breaking the Window Freeze: The Popout Chat Masterclass** — you are here
@@ -24,7 +19,7 @@ This is where a lot of streamers hit a wall — the dreaded "window freeze," whe
 
 ## Connect Your Chat in a Few Clicks
 
-streamerOS reads your YouTube chat using a **local window scraper** — a small, on-device engine that watches a chat window already open on your PC. It never logs into your account or touches the cloud; it simply reads what's on your own screen. To give it the cleanest possible window to read, you'll pop your chat out into its own dedicated window, then point streamerOS at it through the Live Sync modal.
+streamerOS [reads your YouTube chat](/features/viral-moments) using a **local window scraper** — a small, on-device engine that watches a chat window already open on your PC. It never logs into your account or touches the cloud; it simply reads what's on your own screen. To give it the cleanest possible window to read, you'll pop your chat out into its own dedicated window, then point streamerOS at it through the Live Sync modal.
 
 Here's how:
 

@@ -7,10 +7,6 @@ tags: ["Guides", "Clipping", "Live", "Workflow"]
 ---
 
 > **Availability:** live hype-spike markers ship in **v1.0 (November 2026)**. Cutting those markers into finished vertical clips inside streamerOS ships in **v1.1**; until then the markers export as CSV to your editor.
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** The most clip-worthy moments happen mid-fight, when your hands are busy and hitting a clip hotkey is the last thing on your mind — so the play that made chat explode gets lost.
-> * **Architectural Solution:** streamerOS **Viral Moments** watches chat velocity in real time and auto-drops a session marker the instant it spikes, sourcing chat from YouTube live chat and Twitch IRC without raw chat text ever crossing the app's internal boundary.
-> * **Workflow Payoff:** Every marker exports to a single CSV of timestamps your editor can jump straight to — no scrubbing the VOD from scratch.
 
 It's the clutch 1v3. You're low HP, you thread the needle, and you clean up the whole squad. Chat detonates. Emotes, all-caps, "CLIP IT," the works.
 

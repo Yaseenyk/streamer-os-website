@@ -13,6 +13,10 @@ export interface PostMeta {
   date: string;
   author: string;
   tags: string[];
+  /** Optional per-post social card, e.g. "/blog-og/chat-velocity.png". Falls
+   *  back to the site-wide image, since a post that sets `openGraph` without
+   *  images inherits none from the layout and would otherwise share unillustrated. */
+  image?: string;
 }
 
 export interface Post {
@@ -36,6 +40,7 @@ export async function getPostBySlug(slug: string): Promise<Post> {
       date: data.date,
       author: data.author,
       tags: data.tags ?? [],
+      image: data.image,
     },
     content,
   };

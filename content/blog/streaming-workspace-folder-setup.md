@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Workflow", "OBS Studio"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** Recordings default to the system drive with timestamp filenames, so within months you have a full C: and hundreds of files nobody can identify.
-> * **The Structure:** One root, dated folders, and a split between raw recordings and anything you produced from them.
-> * **The Rule That Matters:** Never record to the drive Windows is on — the one time it fills mid-stream, the recording stops and OBS may too.
-
 Nobody plans a folder structure. You stream, OBS writes
 `2026-03-14 21-07-33.mkv` to wherever it defaulted, and eleven months later
 there are four hundred of those on a drive that is 94% full, and the clip you
@@ -90,7 +85,8 @@ keep them in `analytics\`. Two reasons:
   exports is more credible than a screenshot of last week, and you cannot
   reconstruct it after the fact.
 
-This is exactly what streamerOS's media kit generator reads — local CSV exports
+This is exactly what streamerOS's [media kit generator](/features/media-kit)
+reads — local CSV exports
 from a watched folder, turned into a branded PDF, with nothing uploaded
 anywhere. But the folder is worth keeping whether or not you use a tool, because
 the data disappears if you do not.

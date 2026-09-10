@@ -7,10 +7,6 @@ tags: ["Guides", "Local AI", "Ollama", "Privacy"]
 ---
 
 > **Availability:** the local Ollama-backed assistant ships in **v1.0 (November 2026)**. Persistent memory of your past streams — the assistant recalling your own history — ships in **v1.1**.
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** Cloud AI assistants for streaming add real latency, monthly costs, and a mandatory account — and they ship your chat logs and stream stats off your machine to do it.
-> * **Architectural Solution:** Run a large language model **locally with Ollama**, wired directly into your live stats and app controls so it can answer questions and take actions without a single network round-trip.
-> * **Privacy Benchmark:** Zero data leaves your PC — no API keys, no cloud account, no logs on someone else's server.
 
 If you've ever pasted your stream numbers into a chatbot to ask "was that a good night?", you already know the friction. You wait for a reply, you pay per token, and your data takes a trip to a server you'll never see. For something that's supposed to sit next to you while you go live, that's a lot of overhead.
 
@@ -70,7 +66,7 @@ You don't need bleeding-edge hardware. You need a machine that already survives 
 
 ## 🤝 How streamerOS Uses This
 
-This is exactly the philosophy behind [streamerOS](/features). Its **AI Sidekick** is a local streaming assistant powered by Ollama — it knows your live stats and can drive the app for you. Ask it what your peak was, have it pull your recent chat, or tell it to switch a scene, and it just does it. All of it runs on your own machine, so your data never leaves and there's no account to manage.
+This is exactly the philosophy behind [streamerOS](/features). Its **AI Sidekick** is a local streaming assistant powered by Ollama — it knows your live stats and can drive the app for you. Ask it what your peak was, have it pull your recent chat, or tell it to switch a scene, and it just does it. All of it runs [on your own machine](/features/zero-cloud), so your data never leaves and there's no account to manage.
 
 It's the same "runs completely locally" principle that governs the rest of streamerOS: your stats, your controls, your assistant — all on your PC, all yours.
 

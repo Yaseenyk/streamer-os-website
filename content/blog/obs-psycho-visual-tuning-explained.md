@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Optimization", "Performance"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** Psycho Visual Tuning is enabled by default in OBS's NVENC encoder, and most streamers have no idea it is trading GPU time for perceived quality.
-> * **What It Does:** It enables NVENC's perceptual optimisations — spending more bits where the human eye notices and fewer where it does not, at a measurable GPU cost.
-> * **When To Turn It Off:** When your GPU is the bottleneck — a demanding game at high frame rates, or an older card. Otherwise leave it on; at typical streaming bitrates it genuinely helps motion.
-
 If you have opened OBS's output settings and wondered what **Psycho Visual
 Tuning** is, you are in good company. It is checked by default on NVENC, it has
 an intimidating name, and OBS offers no explanation next to it.
@@ -122,7 +117,8 @@ problem: **something else on the machine eating CPU.**
 A streaming setup is a negotiation between the game, the encoder, and every
 companion tool you have running. If your chat overlay, alert system and
 automation tools are collectively taking meaningful CPU, you will feel that far
-more than an encoder tuning checkbox — which is exactly why streamerOS is built
-to hold a 1.8% CPU footprint and stay out of the negotiation entirely.
+more than an encoder tuning checkbox — which is exactly why streamerOS is [built
+to hold a 1.8% CPU footprint](/features/performance) and stay out of the
+negotiation entirely.
 
 Tune the encoder second. Get everything else off the critical path first.

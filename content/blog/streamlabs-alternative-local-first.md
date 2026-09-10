@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Comparison", "Privacy", "OBS Studio"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** Most streaming suites require a cloud account, sync your data off-machine, and ship as Electron apps that compete with your game for CPU.
-> * **What Local-First Means:** Your chat, audio, telemetry and analytics never leave the PC. No account, no dashboard, no upload — and nothing to breach.
-> * **The Practical Test:** Pull your network cable mid-stream. A genuinely local tool keeps working.
-
 If you have gone looking for a Streamlabs alternative, you probably have one of
 three specific complaints rather than a general dislike: it wants an account, it
 sends your data somewhere, or it is heavy on a machine that is already running a
@@ -49,10 +44,11 @@ you.
 button, do thing", and not designed to *watch* your stream and react on their
 own — the trigger is always you.
 
-**streamerOS.** A Windows-native cockpit built local-first from the start: chat
-velocity and sentiment, OBS scene automation driven by game telemetry, and a
-sponsor media kit generated from your own exports. No account, no cloud, and a
-1.8% CPU footprint under a live 1080p60 game. Launching November 2026 — 7-day
+**streamerOS.** A Windows-native cockpit [built local-first from the
+start](/features/zero-cloud): chat velocity and sentiment, [OBS scene automation
+driven by game telemetry](/features/auto-hype), and a [sponsor media
+kit](/features/media-kit) generated from your own exports. No account, no cloud,
+and a [1.8% CPU footprint](/features/performance) under a live 1080p60 game. Launching November 2026 — 7-day
 trial, then $29 once, no subscription.
 
 ## The test that separates them

@@ -7,10 +7,6 @@ tags: ["Guides", "Clipping", "Content", "Growth"]
 ---
 
 > **Availability:** the Shorts workspace — automatic 16:9 to 9:16 cropping and export — ships in **streamerOS v1.1**, after the November 2026 launch. The hype-spike markers this article relies on to *find* those moments are in v1.0 and work today.
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** Streamers sit on hours of VODs but never surface the 30-second moments that actually pull in new viewers — and manually scrubbing back through a multi-hour recording to find them is a time sink most people skip.
-> * **Architectural Solution:** A repeatable VOD-to-vertical workflow — score the recording for hype, trim the peak, crop 16:9 down to a 9:16 frame, caption it, and post the same clip to TikTok, Shorts, and Reels.
-> * **Growth Benchmark:** Short-form is the single highest-reach discovery surface for new creators; one clip a day beats one polished clip a month.
 
 Nobody discovers your channel by stumbling into hour four of a live stream. They find you because a 22-second clip of you clutching a 1v3 landed on their For You page at 11pm. Short-form video is, hands down, the number one way new viewers find streamers right now — and the best part is you're already producing the raw material. Every stream you finish is a VOD stuffed with clippable moments. The only thing standing between that VOD and a viral Short is a workflow.
 

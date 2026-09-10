@@ -11,11 +11,6 @@ tags:
 - Local AI
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** You miss hype moments while juggling OBS scenes and overlays.
-> * **The Fix:** streamerOS auto-directs OBS from chat velocity and Super Chats.
-> * **Why It Matters:** You stay on content; your scenes and overlays switch themselves.
-
 ## What you’ll build
 A hands-free, YouTube-ready OBS flow that automatically cuts to the right scene when chat heats up, spotlights Super Chats, and returns to gameplay when things calm down. It’s all local-first (no accounts, no cloud), tiny on CPU, and built to respect your privacy.
 

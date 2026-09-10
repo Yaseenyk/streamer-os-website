@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Analytics", "Engagement", "Local AI"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** A stream's mood turns minutes before the viewer count does, but streamers are too busy performing to feel the room shift from hype to confusion to boredom — so they react late, after people have already left.
-> * **Architectural Solution:** streamerOS classifies live chat sentiment in real time and tracks the session's peak and lowest emotional points, giving you a leading indicator you can act on mid-stream.
-> * **Privacy Benchmark:** All classification runs locally on your machine — your chat is never shipped to a cloud service.
-
 Every streamer learns to watch the viewer count. It's the wrong number to watch.
 
 By the time your count dips, the moment that lost you those viewers already happened — usually a few minutes earlier, and usually in chat. The room turned, nobody typed "I'm leaving," and the graph only told you about it after it was too late to fix.
@@ -67,7 +62,8 @@ Running the analysis **locally** solves both. Your chat stays on your computer, 
 
 ## 🚀 How streamerOS Reads Sentiment for You
 
-This is built into [streamerOS](/features) today.
+This is built into [streamerOS](/features) today, and it is what drives the
+[Auto-Hype Director](/features/auto-hype).
 
 streamerOS classifies your live chat sentiment in real time as messages roll in, giving you an at-a-glance read on where the room's head is at without pulling your focus off the stream. Across a session it also tracks the **peak** and **lowest** sentiment points — so when you review, you can see exactly when the room lit up and when it sagged, and tie those moments back to what you were doing on screen.
 

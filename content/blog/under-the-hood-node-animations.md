@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Overlays", "Performance", "OBS Studio"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** Animated stream overlays and browser-source widgets can quietly steal GPU and CPU from your game, causing frame drops and stutter mid-stream.
-> * **Architectural Solution:** Lightweight overlays lean on hardware-accelerated vector rendering that only redraws when data actually changes, instead of looping heavy GIFs, video files, or constantly re-rendering canvas layers.
-> * **Performance Benchmark:** A well-built reactive overlay can stay under a 2% CPU footprint while remaining fully live and animated.
-
 You found the perfect animated overlay. Glowing alerts, a bouncing sub goal, a chat box that pulses when someone types. You drop it into OBS, hit go, and… your game starts to stutter. Your FPS counter dips. The animation that looked so smooth in the preview is now fighting your game for the same graphics card.
 
 This is one of the most common — and most frustrating — problems in streaming. The good news is that overlays don't *have* to cost you frames. The difference between a smooth overlay and a laggy one comes down to how it's built. Let's break down why some overlays are performance killers, and how to run reactive, animated visuals without sacrificing your game.

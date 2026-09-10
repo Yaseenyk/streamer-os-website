@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Sponsorships", "Media Kit", "Monetization"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** Sponsors skip streamers who can't hand over a clean, professional media kit — but most streamers never build one because pulling their own numbers into a designer looks like a lost weekend.
-> * **Solution:** The streamerOS **Media Kit Generator** ingests your YouTube Studio and Twitch CSV analytics exports, computes duration-weighted average and peak concurrent viewers plus total watch time across every file, and exports a branded, sponsor-ready PDF.
-> * **Benefit:** A polished pitch document built from your real stats in minutes — locally, no cloud, no account.
-
 If a brand deal has ever gone quiet on you, there's a good chance the reason is boring: they asked for your media kit and you didn't have one.
 
 Sponsors get pitched constantly. A streamer who shows up with a clean one-page kit — real numbers, clear audience, easy contact — instantly looks like a business. A streamer who replies "uh, what do you want to know?" looks like a risk. The gap between those two is not talent or audience size. It's a document.

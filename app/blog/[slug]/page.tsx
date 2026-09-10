@@ -14,6 +14,10 @@ import { getBlogCta, getRelatedPosts } from '@/lib/blog-cta';
 import { SITE_URL } from '@/config/site';
 import { breadcrumbJsonLd } from '@/lib/seo';
 import JsonLd from '@/components/JsonLd';
+
+/** Fallback social card. A post that sets `openGraph` inherits no images from
+ *  the root layout, so every post has to name one explicitly or share blank. */
+const DEFAULT_OG = '/og-image-1200x630.png';
 import Image from 'next/image';
 
 // Approved layout tokens → their components. Posts stay pure markdown data;
@@ -47,6 +51,7 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
   const { slug } = await params;
   const { meta } = await getPostBySlug(slug);
   const url = `${SITE_URL}/blog/${slug}`;
+  const image = `${SITE_URL}${meta.image ?? DEFAULT_OG}`;
   return {
     title: meta.title,
     description: meta.description,
@@ -56,6 +61,17 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
       title: meta.title,
       description: meta.description,
       url,
+      siteName: 'streamerOS',
+      publishedTime: meta.date,
+      authors: [meta.author],
+      tags: meta.tags,
+      images: [{ url: image, width: 1200, height: 630, alt: meta.title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: meta.title,
+      description: meta.description,
+      images: [image],
     },
   };
 }
@@ -178,6 +194,7 @@ export default async function BlogPostPage({ params }: { params: PageParams }) {
     dateModified: meta.date,
     author: { '@type': 'Person', name: meta.author },
     keywords: meta.tags.join(', '),
+    image: `${SITE_URL}${meta.image ?? DEFAULT_OG}`,
     url,
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
     // Resolves against the Organization node emitted by the root layout graph.

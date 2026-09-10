@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Automation", "OBS Studio", "Workflow"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** Solo streamers burn attention on manual busywork — flipping OBS scenes, hunting for clip moments, nudging overlays — which pulls them out of the game and away from their chat.
-> * **Architectural Solution:** Automate the mechanical, signal-driven tasks (scene switching, hype-spike clip marking, reactive overlays) while keeping human judgment tasks manual, using lightweight local tools instead of CPU-hungry cloud services.
-> * **Guiding Principle:** Automate the reflexes, not the personality. Favor low-footprint local automation so your machine spends its cycles on the game, not the tooling.
-
 The best streamers make it look easy. They banter with chat, focus on the game, and somehow the right scene is always up and the highlight always gets clipped. It isn't superhuman multitasking — it's automation. The boring, repetitive parts of running a stream are quietly handled in the background so the streamer can spend their attention where it actually matters: playing well and talking to people.
 
 If you're a solo streamer, you already know the tax. Every time you alt-tab to flip a scene, mash a hotkey to mark a clip, or fiddle with an overlay, you drop a beat with your audience. This guide breaks down what's genuinely worth automating, what you should keep in human hands, and one important caution about performance.

@@ -11,11 +11,6 @@ tags:
 - Local AI
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** Your overlays stay flat while chat explodes, killing momentum.
-> * **The Fix:** streamerOS maps chat velocity into reactive Aura overlays that light up on hype.
-> * **Why It Matters:** Viewers feel seen, energy snowballs, and you stream hands‑free.
-
 ## What you’ll build
 You’ll wire OBS to streamerOS, create a reactive Aura overlay, calibrate a hype threshold, and map visual intensity to live chat velocity. When chat pops off (raids, donos, big plays), your overlay will automatically glow, pulse, or animate—no scene buttons, no manual macros.
 

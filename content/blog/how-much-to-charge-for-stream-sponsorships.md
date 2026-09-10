@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Sponsorships", "Monetization", "Business"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** Streamers get asked "what's your rate?" and freeze — they either lowball themselves or pull a number from thin air that a brand can dismiss because there's no data behind it.
-> * **Architectural Solution:** Price on a **CPM model** (a set dollar amount per 1,000 average concurrent viewers), then adjust for engagement, niche, exclusivity, and deliverables — and defend the number with your real average/peak viewership and watch time.
-> * **Reality Check:** The rate ranges below are illustrative starting points, not guarantees. Your actual number lives and dies on the audience data you can prove.
-
 So a brand slid into your inbox. Great. Then comes the question that makes every streamer's stomach drop: **"What are your rates?"**
 
 Charge too little and you leave money on the table and signal that you're an amateur. Charge too much with nothing to back it up and the conversation ends. The good news is that sponsorship pricing isn't a dark art — it's mostly arithmetic plus a few honest multipliers. Let's build your number from the ground up.
@@ -111,6 +106,9 @@ Show your work. If you can point to duration-weighted average viewers, peak view
 
 ### Flat fee or affiliate — which should I take?
 If you can, take a flat base fee for your guaranteed reach and layer a performance bonus on top. You get paid for showing up, and you share the upside if the campaign converts well.
+
+### How do I keep several quotes straight at once?
+Pricing is per-deal, so the numbers only stay defensible if you can see what you quoted whom. [A pipeline with the value on every card](/features/sponsor-crm) does that; an inbox does not.
 
 ---
 

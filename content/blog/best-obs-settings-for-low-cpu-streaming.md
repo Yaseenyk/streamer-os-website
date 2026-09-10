@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Optimization", "Performance"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** OBS pegs the CPU on weak or mid-range PCs, causing dropped frames and encoding lag — and streamers rarely realize their *other* stream tools are stealing the headroom OBS needs.
-> * **Architectural Solution:** Offload encoding to the GPU (NVENC/AV1), downscale with the right filter, cap FPS and bitrate to your uplink, then run only local-first companion tools that stay under a tiny CPU budget.
-> * **Performance Benchmark:** A well-tuned hardware-encoder setup frees the CPU almost entirely for the game, while streamerOS holds a 1.8% CPU footprint alongside it.
-
 If OBS is turning your stream into a slideshow of dropped frames, the fix is almost never "buy a better PC." It's settings. Most streamers leave OBS on defaults that hammer the CPU when the GPU is sitting half-idle right next to it.
 
 This is the no-fluff guide to the **best OBS settings for low CPU** usage — the ones that actually move the needle on a weak PC — and one angle nobody talks about: the rest of your stream stack is eating frames too.

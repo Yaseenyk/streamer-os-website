@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Optimization", "Performance"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** The x264 CPU Usage Preset controls how hard OBS works your processor, and most streamers either never touch it or move it the wrong way while trying to fix stutter.
-> * **What It Trades:** Slower presets spend more CPU to fit more quality into the same bitrate. Faster presets give the CPU back and cost visible detail in motion.
-> * **The Better Question:** If you are hunting for CPU, the real answer is usually to stop encoding on the CPU at all — a GPU encoder frees far more than any preset change.
-
 Open **Settings → Output → Advanced → Streaming** in OBS with the x264 encoder
 selected and you will find **CPU Usage Preset**, a dropdown running from
 `ultrafast` to `placebo`. It is the single biggest lever on how much CPU OBS
@@ -103,7 +98,8 @@ companion tool you have open — chat clients, alert systems, overlay browsers,
 automation tools. Each browser source is effectively another tab. Collectively
 they routinely take more CPU than the difference between two adjacent presets.
 
-That is the reasoning behind streamerOS holding a 1.8% CPU footprint: the
+That is the reasoning behind streamerOS [holding a 1.8% CPU
+footprint](/features/performance): the
 automation layer should not be part of the negotiation at all. Getting your
 companion tools off the critical path frees more headroom than any preset
 change, and it does not cost you picture quality to get it.

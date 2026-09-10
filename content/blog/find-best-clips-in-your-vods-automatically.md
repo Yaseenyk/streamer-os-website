@@ -7,10 +7,6 @@ tags: ["Guides", "Clipping", "Content", "Workflow"]
 ---
 
 > **Availability:** live hype-spike marking and CSV export ship in **v1.0 (November 2026)**. Automatic vertical clip export from those markers ships in **v1.1**.
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** The clips that grow a channel are buried inside multi-hour VODs, and no streamer has time to re-watch a 4-hour recording to find the three moments worth posting.
-> * **Architectural Solution:** The streamerOS **Clip Library** scans your local `.mp4`/`.mkv` recordings and ranks each one with a **hype score** — weighting peak chat velocity 50%, Super Chat / action events 30%, and sentiment intensity 20% — by correlating each recording's time window against telemetry captured live and stored locally in SQLite.
-> * **Performance Benchmark:** The best moments float to the top automatically, so you stage a clip into the Shorts workspace instead of scrubbing a timeline.
 
 Your best clips are your growth engine. One 30-second moment that lands can pull in more new followers than a week of solid streaming.
 

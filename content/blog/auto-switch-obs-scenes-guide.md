@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Automation"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** Hitting a scene hotkey mid-fight means either missing the moment or missing the switch, and the moments worth cutting to are exactly the ones where your hands are busiest.
-> * **What Can Trigger One:** A game launching or closing, a window gaining focus, chat velocity spiking, sentiment turning — anything observable on your PC.
-> * **The Part People Get Wrong:** Without a cooldown and a threshold relative to *your* baseline, automation flaps between scenes and looks broken.
-
 Switching scenes by hand is fine until the moment it matters. The raid lands,
 chat erupts, and your hands are on WASD — so either you miss the switch or you
 miss the play.
@@ -47,7 +42,8 @@ you; steep if you just want a couple of rules.
 
 **A tool that watches the stream.** Rather than you defining every rule, it
 monitors chat and telemetry and fires on conditions. This is what streamerOS's
-Auto-Director does: it discovers OBS, connects over WebSocket v5, and drives
+[Auto-Director](/features/auto-hype) does: it discovers OBS, [connects over
+WebSocket v5](/features/obs-bridge), and drives
 scene changes from game telemetry and chat velocity — locally, in the same
 frame, without a cloud round trip.
 

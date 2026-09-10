@@ -10,11 +10,6 @@ tags:
 - Automation
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** You miss hype moments or fumble hotkeys while managing scenes mid-stream.
-> * **The Fix:** streamerOS Auto-Director maps chat velocity to automatic OBS scene switches—no scripting required.
-> * **Why It Matters:** Hands-free, hype-aware scenes keep pacing tight and viewers engaged without spiking your CPU.
-
 ## What you’ll build
 You’ll connect OBS to streamerOS, read your chat-velocity baseline, then create a no-code rule in Auto-Director that switches scenes when chat heats up. Typical setup:
 

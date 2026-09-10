@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Local AI", "Windows", "Performance"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** Local AI on a streaming PC competes with the game and the encoder, and most guides recommend models far too large for a machine already under load.
-> * **The Setup:** Install Ollama, pull a small model, confirm it answers on `127.0.0.1:11434`. That endpoint is what other apps look for.
-> * **Why Apps Say Offline:** Ollama is not running, it is bound to a different address, or the model was never pulled — three causes, each with a one-line check.
-
 Running a language model on your own machine means nothing leaves it: no API
 bill, no per-message latency, no chat logs on someone's server. On a streaming
 PC there is one extra constraint nobody mentions — you are sharing the machine
@@ -105,8 +100,8 @@ your viewers' data, and running the model locally means no message ever leaves
 the machine — no vendor holding it, no retention policy, nothing to breach.
 
 That is why streamerOS uses Ollama on `127.0.0.1` rather than a hosted API. The
-assistant runs on your PC, against your own stream, and works with the network
-unplugged.
+assistant runs on your PC, against your own stream, and works with [the network
+unplugged](/features/zero-cloud).
 
 ## Frequently Asked Questions
 

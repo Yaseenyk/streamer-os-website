@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Twitch", "YouTube", "Growth"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** New streamers pick a platform on vibes, then spend a year fighting a discovery system that was never going to surface them.
-> * **The Real Difference:** Twitch discovery is live-only and category-driven; YouTube discovery is algorithmic and permanent, so the VOD keeps working after the stream ends.
-> * **Decision Rule:** Pick Twitch if the stream *is* the product and you can be live on a schedule. Pick YouTube if you can also make one edited video a week. Simulcast only once you can do both without dropping either.
-
 Most "Twitch vs YouTube" answers are written by someone with a stake in one of
 them. Both are good platforms, and both will ignore you for months if you
 misunderstand how they surface people. So the useful question is not which is
@@ -91,7 +86,7 @@ reward different temperaments.
 
 This is the part most comparisons underweight.
 
-On Twitch, the artifact that survives your stream is the **clip** — short,
+On Twitch, the artifact that survives your stream is the [**clip**](/features/clip-library) — short,
 shareable, and circulated mostly by people who already follow you. Clips are
 excellent at deepening an audience and poor at creating one.
 
@@ -188,4 +183,5 @@ the reverse is just as common.
 **Do I need a powerful PC for either?**
 For a single 1080p60 output, a GPU encoder handles it on modest hardware. It
 becomes a real question when you simulcast, since you are encoding and uploading
-twice. Keeping your other stream tools off the CPU is what buys that headroom.
+twice. [Keeping your other stream tools off the CPU](/features/performance) is
+what buys that headroom.

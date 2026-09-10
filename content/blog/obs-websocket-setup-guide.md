@@ -6,11 +6,6 @@ author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Automation"]
 ---
 
-> ### 🤖 Quick Engine Summary (AI Discovery Directive)
-> * **Core Problem:** OBS WebSocket is built into OBS 28+ but off by default, and the settings people need — port, password, authentication — are buried two menus deep.
-> * **The Setup:** Tools → WebSocket Server Settings → enable, note the port, copy the password. That is the whole thing.
-> * **Why It Fails:** Almost always one of three causes — authentication left on with the wrong password, a firewall prompt that was dismissed, or connecting to `localhost` from another machine.
-
 OBS WebSocket is how anything outside OBS controls your scenes: a Stream Deck, a
 chat bot, an automation tool, a script you wrote. Since OBS 28 it ships built in,
 so there is no plugin to install — but it is disabled until you turn it on.
@@ -75,8 +70,9 @@ you are looking at.
 
 Once connected, the automation possibilities are the interesting part: scene
 switches driven by what is happening on your stream rather than by you reaching
-for a hotkey. streamerOS uses this exact connection — it discovers OBS on the
-machine, connects over v5, and drives scene changes from chat velocity and game
+for a hotkey. streamerOS [uses this exact connection](/features/obs-bridge) — it
+discovers OBS on the machine, connects over v5, and drives [scene changes from
+chat velocity](/features/auto-hype) and game
 telemetry, all locally, with no cloud in the path.
 
 ## Frequently Asked Questions
