@@ -71,7 +71,7 @@ export default function AboutPage() {
             <p>
               So we built the tool we wanted. A Rust core, measured obsessively, that
               holds a 1.8% CPU footprint under a live game. An automation engine — the
-              Auto-Hype Director — that watches chat velocity and sentiment and
+              Auto-Hype Director — that watches chat velocity and Super Chats and
               switches scenes the instant the room peaks. And an architecture that is
               local-first by construction: your chat, your audio, your audience never
               leave your machine.
@@ -102,7 +102,21 @@ export default function AboutPage() {
             >
               {BUILDER.name}
             </a>
-            , who writes up the engineering as it happens.
+            , who writes up the engineering as it happens. He is{' '}
+            <a
+              href={BUILDER.hireUrl}
+              className="rounded text-cyan-400 underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+            >
+              available for senior full-stack and AI engineering work
+            </a>
+            , and teaches the same stack in a free,{' '}
+            <a
+              href={BUILDER.journeyUrl}
+              className="rounded text-cyan-400 underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+            >
+              sixteen-chapter AI engineering journey
+            </a>
+            .
           </p>
         </Reveal>
       </section>
