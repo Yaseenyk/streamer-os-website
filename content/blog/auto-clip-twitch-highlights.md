@@ -58,10 +58,11 @@ is a harder problem and produces mediocre results, because framing a clip
 requires knowing where it starts, which is a judgement about context. A marker
 plus your editor beats an automatic cut nearly every time.
 
-For clarity on where streamerOS sits: live spike marking and [CSV export](/features/clip-library) ship in
-**v1.0 in November 2026**. The Shorts workspace that turns a marker into a
-finished 9:16 clip inside the app ships in **v1.1**. Until then the markers go
-to your editor, which is the workflow most editors prefer anyway.
+For clarity on where streamerOS sits: live spike marking, [CSV export](/features/clip-library)
+and [Shorts Factory](/features/shorts-factory) — which crops a marked moment into a
+9:16 clip inside the app — all ship in the **November 2026 launch build**. Shorts
+Factory does a centred crop, so the markers still export to your editor for
+anything that needs a human framing it, which is the workflow most editors prefer anyway.
 
 ## Making the markers actually useful
 

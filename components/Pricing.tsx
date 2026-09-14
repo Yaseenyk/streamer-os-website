@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion, type Variants } from 'framer-motion';
 import { Check, Heart, Sparkles } from 'lucide-react';
 import { siteConfig } from '@/config/site';
@@ -30,7 +31,7 @@ const TIERS: Tier[] = [
     cadence: '7 days, no card',
     tagline: 'The whole cockpit, unlocked, for a week. Nothing is held back.',
     features: [
-      'Every v1.0 feature, no restrictions',
+      'Every feature, no restrictions',
       'No credit card to start',
       'Runs entirely on your PC',
       'Pre-register now and get 3 months instead of 7 days',
@@ -46,10 +47,10 @@ const TIERS: Tier[] = [
     cadence: 'one-time — not a subscription',
     tagline: 'Pay once, keep it. No renewal, no account, no cloud.',
     features: [
-      'Every feature, unlocked permanently',
-      'All v1.1 features included — Shorts, assistant memory, mic monitoring',
-      'Works offline forever; the licence validates once',
-      'No subscription, no seat count, no upsell',
+      'Every feature unlocked for good — Shorts Factory, Brand Guard and Creator Memory included',
+      'Verified offline on your PC — no account and no activation server',
+      'Keeps working with the network unplugged',
+      'No subscription, no renewal, no upsell',
     ],
     // Checkout does not open until launch, so this reserves the price instead
     // of sending people to a page that cannot sell them anything yet.
@@ -159,6 +160,24 @@ export default function Pricing() {
           </motion.div>
         ))}
       </div>
+
+      {/* What survives the trial. Telling people up front that their own data is
+          never held hostage removes the main reason not to start one. */}
+      <motion.p
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-80px' }}
+        className="mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-zinc-400"
+      >
+        Trial over and not ready to buy? Your data is never locked away. The
+        dashboard, Clip Library, Chat Archive and your last stream&apos;s report
+        stay open, and the AI Sidekick keeps answering up to 10 messages a day.{' '}
+        <Link href="/pricing" className="text-cyan-400 underline-offset-2 hover:underline">
+          How the free tier works
+        </Link>
+        .
+      </motion.p>
     </section>
   );
 }

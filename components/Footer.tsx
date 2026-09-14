@@ -2,20 +2,35 @@ import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import { BUILDER } from '@/config/engineering';
 import { SignalLogo } from '@/components/SignalLogo';
+import { FEATURE_COUNT } from '@/lib/features';
 
 interface FooterLink {
   label: string;
   href: string;
 }
 
-const PRODUCT: FooterLink[] = [
+// The headline features, plus a way to all of them. The full list lives in
+// lib/features.ts; the footer carries the ones people search for by name.
+const FEATURE_LINKS: FooterLink[] = [
+  { label: 'Live Cockpit', href: '/features/live-cockpit' },
   { label: 'Auto-Hype Director', href: '/features/auto-hype' },
+  { label: 'AI Sidekick', href: '/features/ai-sidekick' },
+  { label: 'Clip Library', href: '/features/clip-library' },
+  { label: 'Shorts Factory', href: '/features/shorts-factory' },
+  { label: 'Chat Archive', href: '/features/chat-archive' },
+  { label: 'Aura Studio', href: '/features/aura-studio' },
+  { label: 'Sponsor CRM', href: '/features/sponsor-crm' },
+  { label: `All ${FEATURE_COUNT} features`, href: '/features' },
+];
+
+const PRODUCT: FooterLink[] = [
   { label: 'Ultra-Light Performance', href: '/features/performance' },
   { label: 'Zero-Cloud Privacy', href: '/features/zero-cloud' },
+  { label: 'For Indian Streamers', href: '/for/indian-streamers' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'Pre-Register', href: '/download' },
   { label: 'Playbook', href: '/playbook' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Pre-Register', href: '/download' },
-  { label: 'Pricing', href: '/pricing' },
   { label: 'Changelog', href: '/changelog' },
 ];
 
@@ -69,7 +84,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-white/10">
       <div className="mx-auto max-w-6xl px-6 py-14">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center">
@@ -86,6 +101,7 @@ export default function Footer() {
             </a>
           </div>
 
+          <FooterColumn title="Features" links={FEATURE_LINKS} />
           <FooterColumn title="Product" links={PRODUCT} />
           <FooterColumn title="Company" links={COMPANY} />
           <FooterColumn title="Legal" links={LEGAL} />

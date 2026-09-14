@@ -6,7 +6,7 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Clipping", "Live", "Workflow"]
 ---
 
-> **Availability:** live hype-spike markers ship in **v1.0 (November 2026)**. Cutting those markers into finished vertical clips inside streamerOS ships in **v1.1**; until then the markers export as CSV to your editor.
+> **Availability:** live hype-spike markers, CSV export to your editor, and cutting a marked moment into a vertical clip with [Shorts Factory](/features/shorts-factory) all ship in the **November 2026 launch build**.
 
 It's the clutch 1v3. You're low HP, you thread the needle, and you clean up the whole squad. Chat detonates. Emotes, all-caps, "CLIP IT," the works.
 

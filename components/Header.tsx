@@ -3,43 +3,15 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, X, ChevronDown, Workflow, Gauge, ShieldCheck, LayoutGrid, type LucideIcon } from 'lucide-react';
+import { ArrowRight, ChevronDown, IndianRupee, Menu, X } from 'lucide-react';
 import { SignalLogo } from '@/components/SignalLogo';
 import { usePreRegister } from '@/components/PreRegisterModal';
+import { FEATURE_COUNT, FOUNDATIONS, featuresByCategory } from '@/lib/features';
 
-interface FeatureLink {
-  label: string;
-  href: string;
-  description: string;
-  icon: LucideIcon;
-}
-
-const FEATURE_LINKS: FeatureLink[] = [
-  {
-    label: 'All Features',
-    href: '/features',
-    description: 'The full cockpit — 13 tools.',
-    icon: LayoutGrid,
-  },
-  {
-    label: 'Auto-Hype Director',
-    href: '/features/auto-hype',
-    description: 'Visual automation engine.',
-    icon: Workflow,
-  },
-  {
-    label: 'Ultra-Light Performance',
-    href: '/features/performance',
-    description: '1.8% CPU footprint.',
-    icon: Gauge,
-  },
-  {
-    label: 'Zero-Cloud Privacy',
-    href: '/features/zero-cloud',
-    description: 'Local-first architecture.',
-    icon: ShieldCheck,
-  },
-];
+// The menu lists every feature, grouped. It used to carry four links — one of
+// them a real feature — for an app with seventeen, so a visitor scanning the
+// nav concluded the product was an OBS scene switcher and nothing else.
+const GROUPS = featuresByCategory();
 
 const NAV_LINKS = [
   { label: 'Playbook', href: '/playbook' },
@@ -48,6 +20,8 @@ const NAV_LINKS = [
   { label: 'FAQ', href: '/faq' },
   { label: 'Changelog', href: '/changelog' },
 ];
+
+const INDIA_LINK = { label: 'For Indian streamers', href: '/for/indian-streamers' };
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -98,7 +72,7 @@ export default function Header() {
 
           {/* Desktop nav */}
           <div className="hidden items-center gap-8 lg:flex">
-            {/* Features dropdown — hover-revealed glass panel. The `pt-3` wrapper
+            {/* Features menu — hover-revealed glass panel. The `pt-3` wrapper
                 keeps the hover area continuous between trigger and panel. */}
             <div
               className="relative"
@@ -128,29 +102,73 @@ export default function Header() {
                     transition={{ duration: 0.18, ease: 'easeOut' }}
                     className="absolute left-0 top-full pt-3"
                   >
-                    <div className="w-72 rounded-xl border border-white/10 bg-[#05070A]/95 p-2 shadow-xl backdrop-blur-xl">
-                      {FEATURE_LINKS.map((feature) => {
-                        const Icon = feature.icon;
-                        return (
+                    <div className="w-[46rem] rounded-xl border border-white/10 bg-[#05070A]/95 p-5 shadow-xl backdrop-blur-xl">
+                      <div className="columns-3 gap-6">
+                        {GROUPS.map((group) => (
+                          <div key={group.id} className="mb-5 break-inside-avoid">
+                            <p className="px-2 font-mono text-[10px] uppercase tracking-widest text-cyan-400/80">
+                              {group.label}
+                            </p>
+                            <ul className="mt-2 space-y-0.5">
+                              {group.features.map((feature) => {
+                                const Icon = feature.icon;
+                                return (
+                                  <li key={feature.href}>
+                                    <Link
+                                      href={feature.href}
+                                      onClick={() => setIsFeaturesOpen(false)}
+                                      className="flex items-start gap-2.5 rounded-lg px-2 py-1.5 transition-colors hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+                                    >
+                                      <Icon
+                                        className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400"
+                                        strokeWidth={1.75}
+                                        aria-hidden
+                                      />
+                                      <span className="min-w-0">
+                                        <span className="block text-sm font-medium text-zinc-100">
+                                          {feature.name}
+                                        </span>
+                                        <span className="block text-xs leading-snug text-zinc-500">
+                                          {feature.menu}
+                                        </span>
+                                      </span>
+                                    </Link>
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-white/10 px-2 pt-4">
+                        <Link
+                          href="/features"
+                          onClick={() => setIsFeaturesOpen(false)}
+                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-cyan-400 transition-colors hover:text-cyan-300"
+                        >
+                          All {FEATURE_COUNT} features
+                          <ArrowRight className="h-4 w-4" aria-hidden />
+                        </Link>
+                        {FOUNDATIONS.map((item) => (
                           <Link
-                            key={feature.href}
-                            href={feature.href}
-                            className="flex items-start gap-3 rounded-lg px-3 py-2.5 transition-colors hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+                            key={item.href}
+                            href={item.href}
+                            onClick={() => setIsFeaturesOpen(false)}
+                            className="text-sm text-zinc-400 transition-colors hover:text-cyan-400"
                           >
-                            <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-cyan-400">
-                              <Icon className="h-4 w-4" strokeWidth={1.75} aria-hidden />
-                            </span>
-                            <span>
-                              <span className="block text-sm font-medium text-zinc-100">
-                                {feature.label}
-                              </span>
-                              <span className="block text-xs text-zinc-500">
-                                {feature.description}
-                              </span>
-                            </span>
+                            {item.name}
                           </Link>
-                        );
-                      })}
+                        ))}
+                        <Link
+                          href={INDIA_LINK.href}
+                          onClick={() => setIsFeaturesOpen(false)}
+                          className="inline-flex items-center gap-1 text-sm text-zinc-400 transition-colors hover:text-cyan-400"
+                        >
+                          <IndianRupee className="h-3.5 w-3.5" aria-hidden />
+                          {INDIA_LINK.label}
+                        </Link>
+                      </div>
                     </div>
                   </motion.div>
                 )}
@@ -208,7 +226,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="fixed inset-x-0 bottom-0 top-16 z-40 bg-[#05070A] lg:hidden"
+            className="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto bg-[#05070A] lg:hidden"
           >
             <nav aria-label="Mobile" className="flex flex-col gap-1 px-6 py-8">
               {/* Features accordion */}
@@ -239,30 +257,54 @@ export default function Header() {
                       transition={{ duration: 0.2, ease: 'easeOut' }}
                       className="overflow-hidden"
                     >
-                      <div className="flex flex-col gap-1 py-1 pl-3">
-                        {FEATURE_LINKS.map((feature) => {
-                          const Icon = feature.icon;
-                          return (
+                      <div className="flex flex-col gap-4 py-2 pl-3">
+                        {GROUPS.map((group) => (
+                          <div key={group.id}>
+                            <p className="px-4 font-mono text-[10px] uppercase tracking-widest text-cyan-400/80">
+                              {group.label}
+                            </p>
+                            <div className="mt-1 flex flex-col">
+                              {group.features.map((feature) => {
+                                const Icon = feature.icon;
+                                return (
+                                  <Link
+                                    key={feature.href}
+                                    href={feature.href}
+                                    onClick={closeMenu}
+                                    className="flex items-center gap-3 rounded-lg px-4 py-2.5 text-zinc-300 transition-colors hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+                                  >
+                                    <Icon
+                                      className="h-5 w-5 shrink-0 text-cyan-400"
+                                      strokeWidth={1.75}
+                                      aria-hidden
+                                    />
+                                    <span className="text-base font-medium">{feature.name}</span>
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        ))}
+
+                        <div className="flex flex-col border-t border-white/10 pt-3">
+                          <Link
+                            href="/features"
+                            onClick={closeMenu}
+                            className="rounded-lg px-4 py-2.5 text-base font-semibold text-cyan-400 transition-colors hover:bg-white/5"
+                          >
+                            All {FEATURE_COUNT} features
+                          </Link>
+                          {[...FOUNDATIONS, { name: INDIA_LINK.label, href: INDIA_LINK.href }].map((item) => (
                             <Link
-                              key={feature.href}
-                              href={feature.href}
+                              key={item.href}
+                              href={item.href}
                               onClick={closeMenu}
-                              className="flex items-center gap-3 rounded-lg px-4 py-3 text-zinc-300 transition-colors hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+                              className="rounded-lg px-4 py-2.5 text-base text-zinc-300 transition-colors hover:bg-white/5 hover:text-white"
                             >
-                              <Icon
-                                className="h-5 w-5 shrink-0 text-cyan-400"
-                                strokeWidth={1.75}
-                                aria-hidden
-                              />
-                              <span>
-                                <span className="block text-base font-medium">{feature.label}</span>
-                                <span className="block text-xs text-zinc-500">
-                                  {feature.description}
-                                </span>
-                              </span>
+                              {item.name}
                             </Link>
-                          );
-                        })}
+                          ))}
+                        </div>
                       </div>
                     </motion.div>
                   )}

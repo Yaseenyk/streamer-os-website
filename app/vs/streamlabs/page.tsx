@@ -28,7 +28,7 @@ const FAQ_ITEMS: FaqEntry[] = [
   },
   {
     q: 'Does streamerOS need an account like Streamlabs does?',
-    a: 'No. There is no account, no login and no backend. The licence key is validated once on first launch and never again, so the app keeps running whether or not our servers exist.',
+    a: 'No. There is no account, no login and no backend. Your licence key is verified offline against your own PC, so the app keeps running whether or not our servers exist.',
   },
   {
     q: 'Is streamerOS cheaper than Streamlabs Ultra?',
@@ -97,7 +97,7 @@ const ROWS: Row[] = [
   },
   {
     label: 'Reacts to chat on its own',
-    streameros: { verdict: 'yes', note: 'Velocity and sentiment trigger scenes' },
+    streameros: { verdict: 'yes', note: 'Chat velocity and Super Chats trigger scenes' },
     streamlabs: { verdict: 'partial', note: 'Alerts react; scene logic is manual' },
   },
   {

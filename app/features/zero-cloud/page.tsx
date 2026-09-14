@@ -24,33 +24,34 @@ export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
   title: 'Zero-Cloud Privacy — Feature Guide',
   description:
-    'streamerOS is local-first by architecture: no accounts, no backend ' +
-    'servers, and chat logs, audio feeds, and API keys that never leave your ' +
-    'machine. Total privacy by design.',
+    'streamerOS is local-first by architecture: no account, no backend ' +
+    'servers, and your chat, audio and stream data stay on your own PC. ' +
+    'Every connection it makes, listed.',
   alternates: { canonical: 'https://streamerosai.com/features/zero-cloud' },
 };
 
 // Answers stay within claims made elsewhere on the site (FAQ, feature pages).
+// The connection list must match app/privacy/page.tsx word for word in substance.
 const FAQ_ITEMS: FaqEntry[] = [
   {
     q: 'Does streamerOS require an account?',
-    a: 'No. There is no account, no login, and no backend server. You install it, connect OBS Studio over a local WebSocket, and stream — nothing about your setup is registered anywhere.',
+    a: 'No. There is no account, no login, and no backend server. You install it, connect OBS Studio over a local WebSocket, and stream — nothing about your setup is registered anywhere. Even the licence key is verified offline on your PC.',
   },
   {
     q: 'What data leaves my machine?',
-    a: 'Your chat logs, audio feeds, and API keys are processed in memory and written only to your own disk — they never leave the machine. The only network traffic is a small, fixed set of opt-in connections: an update check and reading the public chat of a channel you choose. Neither carries personal data.',
+    a: 'None of your chat, audio or stream history is uploaded to us — there is no streamerOS server to upload it to. The app only reaches the network for things you switch on: reading Twitch chat anonymously, your own channel statistics if you add a YouTube API key, downloading local AI and speech models, Google Fonts for an overlay that uses one, a Discord webhook you set up, and opt-in update checks. The privacy policy lists each one.',
   },
   {
     q: 'Why does local-first matter for a streamer?',
-    a: 'Two reasons: latency and privacy. Automation with no cloud round-trip fires scene switches the instant chat reacts, and credentials that never touch a third-party server cannot leak from one. Cloud streaming tools cannot offer either guarantee.',
+    a: 'Two reasons: latency and privacy. Automation with no cloud round-trip fires scene switches the instant chat reacts, and chat logs that never sit on a third-party server cannot leak from one.',
   },
   {
-    q: 'What exactly leaves my machine?',
-    a: 'Chat is read directly from Twitch IRC and YouTube on your PC. Velocity, sentiment and scene decisions are computed locally and never transmitted. The app reaches the network for three things only: fetching your own channel statistics if you configure a YouTube API key, downloading a local AI model, and checking for updates. Unplug the network and the automation keeps running.',
+    q: 'What keeps working with the network unplugged?',
+    a: 'Everything that runs on your machine: OBS control and the Auto-Hype Director, the Clip Library and Chat Archive, the local AI sidekick once its model is downloaded, and your licence, which is verified offline. Reading live chat needs your stream to be online, of course.',
   },
   {
     q: 'Where is my data stored?',
-    a: 'In a workspace folder on your own drive that you choose. There is no account, no server-side profile and no sync — which also means backups are yours to keep.',
+    a: 'On your own drive — in the streamerOS data folder and a workspace folder you choose. There is no account, no server-side profile and no sync, which also means backups are yours to keep.',
   },
 ];
 
@@ -74,9 +75,11 @@ interface Tag {
   className: string;
 }
 
+// Nothing here is "end-to-end encrypted" — there is no remote end. The tags say
+// what the architecture actually does.
 const TAGS: Tag[] = [
   { text: '[LOCAL INGEST ONLY]', className: 'border-cyan-400/30 text-cyan-300' },
-  { text: '[E2E ENCRYPTED]', className: 'border-emerald-400/30 text-emerald-300' },
+  { text: '[NO ACCOUNT]', className: 'border-emerald-400/30 text-emerald-300' },
   { text: '[NO TELEMETRY]', className: 'border-red-400/30 text-red-300' },
 ];
 
@@ -96,10 +99,11 @@ const GUARANTEES: Guarantee[] = [
   },
   {
     icon: Lock,
-    title: 'Keys never leave',
+    title: 'Credentials stay put',
     body:
-      'Your OBS and platform tokens are stored locally and encrypted at rest — ' +
-      'never transmitted off the machine.',
+      'Twitch chat needs no login at all. A YouTube API key, if you add one, sits ' +
+      'in Windows Credential Manager and is only ever sent to Google for your own ' +
+      'channel stats. Your OBS password stays in memory and never leaves the PC.',
   },
   {
     icon: HardDrive,
@@ -211,8 +215,8 @@ export default function ZeroCloudGuidePage() {
           </Reveal>
           <Reveal delay={0.16}>
             <p className="mx-auto mt-4 max-w-2xl text-zinc-400">
-              No accounts. No backend servers. Your chat logs, audio feeds, and API
-              keys never leave your machine. Total privacy by design.
+              No accounts. No backend servers. Your chat, audio and stream history
+              are processed and kept on your own PC — nothing is uploaded to us.
             </p>
           </Reveal>
         </div>

@@ -24,23 +24,23 @@ const FAQ_ITEMS: FaqEntry[] = [
   },
   {
     q: 'What do I get in the free trial?',
-    a: 'Everything. The trial is the full v1.0 cockpit with nothing held back and no card required — Auto-Hype Director, OBS scene control, chat velocity and sentiment, the clip library and the sponsor media kit. It runs 7 days as standard, or 3 months if you pre-register before launch.',
+    a: 'Everything, with no card required — the Live Cockpit, Auto-Hype Director and OBS control, the Clip Library and Shorts Factory, the AI Sidekick with Creator Memory, the Viral Engine, Aura overlays, Brand Guard, and the sponsor CRM and media kit. It runs 7 days as standard, or 3 months if you pre-register before launch.',
   },
   {
     q: 'What happens when the trial ends?',
-    a: 'streamerOS locks until you enter a licence key. Nothing is deleted and nothing is charged automatically — there is no card on file to charge. Your workspace folder, your automation rules and your clip markers stay on your disk exactly as you left them.',
+    a: 'The features that act during a live stream — OBS control and automation, the live chat monitors, overlays, Shorts Factory, Brand Guard and the AI’s actions — lock until you enter a licence key. Your own data does not: the dashboard with your imported analytics, the Clip Library, the Chat Archive and your last stream’s report stay open, and the AI Sidekick keeps answering up to 10 messages a day. Nothing is deleted, and nothing is charged — there is no card on file.',
   },
   {
     q: 'Do I need an account to buy or run it?',
-    a: 'No. The licence key is validated once, on first launch, and after that streamerOS never needs the network to keep running. There is no account portal, no login and no dashboard — which is the same reason it keeps working with your machine offline.',
+    a: 'No. When you buy, you send the Installation ID the app shows you, and your key is made for that PC. The key is verified offline, so there is no account, no login and no activation server — and streamerOS never needs the network to stay licensed.',
   },
   {
-    q: 'Does the $29 licence cover future versions?',
-    a: 'It covers v1.0 and the v1.1 feature set — Shorts export, assistant memory and mic monitoring — at no extra cost. A future major version may be a separate purchase; it will never become a subscription.',
+    q: 'Does the $29 licence cover every feature?',
+    a: 'Yes. Every feature in the launch build is included — Shorts Factory, Brand Guard and Creator Memory too — with no add-ons. A future major version may be a separate purchase; it will never become a subscription.',
   },
   {
     q: 'Can I use one licence on more than one PC?',
-    a: 'Yes, on machines you own or control — a gaming PC and a dedicated streaming PC is the normal case. It is a personal licence, so it is not for sharing across a team or reselling.',
+    a: 'Each key is made for one PC’s Installation ID, so it will not activate on a second machine. If you run a separate gaming PC and streaming PC, get in touch before you buy. Reinstalled Windows or replaced your motherboard? Send us your new Installation ID with your order details and we will reissue the key.',
   },
 ];
 

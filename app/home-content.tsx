@@ -389,13 +389,23 @@ interface TourStop {
   linkLabel: string;
 }
 
+// Every shot in this tour must already exist in public/screenshots/ — ProductShot
+// renders the <img> unconditionally. Slots still waiting for a capture belong on
+// the feature pages, whose ScreenshotStrip skips missing files.
 const TOUR: TourStop[] = [
   {
     shot: SHOTS.chatTriage,
     eyebrow: 'Chat Triage',
     title: 'Chat, sorted the moment it lands.',
-    body: 'Every message is tagged as it arrives — viewers, members, Super Chats — with toxic and spam lines filtered out before you read them. The counts along the top are live, so you can watch the room fill without scrolling.',
-    href: '/features/viral-moments', linkLabel: 'How chat signals work',
+    body: 'Every message is tagged as it arrives — viewers, members, Super Chats — with toxic and spam lines filtered out of the viewer feed before you read them. The counts along the top are live, so you can watch the room fill without scrolling.',
+    href: '/features/live-cockpit', linkLabel: 'See the Live Cockpit',
+  },
+  {
+    shot: SHOTS.revenue,
+    eyebrow: 'Super Chat Revenue',
+    title: 'What the stream earned, before you hit End.',
+    body: 'Every Super Chat lands in a ledger on your PC and is totalled for the stream — exact per currency, plus an approximate total in ₹, $ or whatever you choose, at exchange rates you set yourself.',
+    href: '/features/live-cockpit#revenue', linkLabel: 'How revenue is tallied',
   },
   {
     shot: SHOTS.autoDirector,
@@ -415,8 +425,8 @@ const TOUR: TourStop[] = [
     shot: SHOTS.sentiment,
     eyebrow: 'Sentiment Horizon',
     title: 'Whether the room is hyped or turning.',
-    body: 'A local model scores the last few seconds of chat and holds the reading between beats, so the bar glides instead of flickering. One number for the mood of the room, without reading a single line.',
-    href: '/features/viral-moments', linkLabel: 'How sentiment is scored',
+    body: 'A local model scores the last few seconds of chat and holds the reading between beats, so the bar glides instead of flickering. One number for the mood of the room, without reading a single line — and it reads Hinglish chat as well as English.',
+    href: '/features/live-cockpit#sentiment', linkLabel: 'How sentiment is scored',
   },
   {
     shot: SHOTS.obsBridge,
@@ -439,6 +449,20 @@ const TOUR: TourStop[] = [
     body: 'Leads move from prospect to contacted to negotiating to won, with the deal value on each card and a running open-pipeline total. It is a SQLite file on your disk — not a subscription, and not a spreadsheet you forget.',
     href: '/features/sponsor-crm', linkLabel: 'See the Sponsor CRM',
   },
+  {
+    shot: SHOTS.chatArchive,
+    eyebrow: 'Chat Archive',
+    title: 'Last week’s chat, one search away.',
+    body: 'Every line of chat is saved to your own disk, stream by stream. Search it by word or username, label the big nights, redact a line or export a whole stream — and it stays readable even if you never buy a licence.',
+    href: '/features/chat-archive', linkLabel: 'See the Chat Archive',
+  },
+  {
+    shot: SHOTS.aura,
+    eyebrow: 'Aura Studio',
+    title: 'Overlays that react to the room.',
+    body: 'Pick a design from the gallery and it shifts from Calm to Hype on its own as your game and chat heat up, served to OBS straight from your PC. Want your own look? Build it in the Aura Scene Builder.',
+    href: '/features/aura-studio', linkLabel: 'See Aura Studio',
+  },
 ];
 
 function ProductTour() {
@@ -458,8 +482,8 @@ function ProductTour() {
           Nothing below is a mockup.
         </h2>
         <p className="mt-4 text-zinc-400">
-          Seven screens from the build that ships in November, and what each one
-          is for.
+          {TOUR.length} screens from the build that ships in November, and what
+          each one is for.
         </p>
       </motion.div>
 
@@ -535,9 +559,9 @@ function BentoFeatures() {
               </div>
               <h3 className="mt-5 text-xl font-semibold text-zinc-100">Auto-Hype Director</h3>
               <p className="mt-2 max-w-md text-sm leading-relaxed text-zinc-400">
-                Wire chat-velocity and sentiment triggers through logic gates into
-                OBS scene actions — a visual node graph that switches your scene
-                the instant the room peaks.
+                Wire chat-velocity and Super Chat triggers through logic gates into
+                OBS actions — a visual node graph that switches your scene, plays a
+                sound or saves a replay clip the instant the room peaks.
               </p>
               <div className="mt-6 flex-1">
                 <ProductShot

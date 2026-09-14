@@ -4,7 +4,8 @@ import { PreRegisterButton } from '@/components/PreRegisterModal';
 
 export const metadata: Metadata = {
   title: 'Changelog',
-  description: 'Release history for streamerOS, starting with the v1.0-GA launch.',
+  description:
+    'What is in the streamerOS launch build, and a development log of when each part of the cockpit first landed.',
   alternates: { canonical: 'https://streamerosai.com/changelog' },
 };
 
@@ -17,43 +18,63 @@ interface Release {
   current?: boolean;
 }
 
-// NOTE: the v1.0-GA entry is the real launch release. The pre-GA entries
-// below are illustrative — replace the version numbers and dates with the
-// actual release log before publishing.
+// The pre-launch entries are a development log taken from the product repo's
+// history (the month each piece first landed), not invented release numbers.
+// The page previously showed a "v0.9 closed beta" and a "v1.0-RC" that never
+// existed — a changelog is exactly the page a sceptical buyer checks.
 const RELEASES: Release[] = [
   {
-    version: 'v1.0-GA',
+    version: 'v1.0',
     date: 'November 2026',
-    tag: 'Upcoming',
-    summary: 'General availability — the full streamerOS cockpit ships this November.',
+    tag: 'Launch',
+    summary: 'General availability for Windows 10 and 11 — the whole cockpit, free for 7 days, then $29 once.',
     changes: [
-      'Official stable release for Windows 10 and 11',
-      'Launch of the Auto-Hype Director — the visual, node-based scene-automation engine',
-      'Live chat-velocity and sentiment monitoring across Twitch & YouTube',
-      'Native OBS WebSocket scene control',
+      'Live Cockpit: Chat Triage, Super Chat revenue, Top Chatters, Sentiment Horizon and the OBS scene switcher on one screen',
+      'Auto-Hype Director, OBS Bridge, Aura Studio overlays and the Aura Scene Builder',
+      'Viral Moments, Clip Library and Shorts Factory for turning streams into clips',
+      'AI Sidekick with Creator Memory, Hinglish-aware chat sentiment, the Viral Engine and Brand Guard — all on local AI',
+      'Chat Archive, Sponsor CRM and the Media Kit Generator',
+      'Offline licence keys tied to your PC, and a free tier that keeps your own data readable after the trial',
     ],
     current: true,
   },
   {
-    version: 'v1.0-RC',
-    date: 'April 2026',
-    tag: 'Release candidate',
-    summary: 'Bug fixes and the final push to a 1.8% CPU footprint.',
+    version: 'September 2026',
+    date: 'Development log',
+    tag: 'Pre-release',
+    summary: 'Licensing, and the Viral Engine rebuilt around local AI.',
     changes: [
-      'Wide-ranging bug fixes across the broadcast pipeline',
-      'CPU optimization down to the 1.8% target under live game load',
-      'Stability and memory-footprint hardening ahead of GA',
+      'A 7-day trial with offline, machine-bound licence keys and a free tier for your own data',
+      'Viral Engine rebuilt on local AI, with Live Sync and Describe Video modes',
+      'Clip Library explains when Windows blocks a relocated Videos folder instead of showing an empty list',
     ],
   },
   {
-    version: 'v0.9 Beta',
-    date: 'February 2026',
-    tag: 'Closed beta',
-    summary: 'The first invite-only build of the cockpit.',
+    version: 'June 2026',
+    date: 'Development log',
+    tag: 'Pre-release',
+    summary: 'The AI sidekick learned to act, and chat started being kept.',
     changes: [
-      'Initial closed-beta rollout to an invite-only group',
-      'Local-first, zero-cloud architecture proof-of-concept',
-      'Early OBS bridge and scene-control groundwork',
+      'Chat Archive — every stream’s chat saved and searchable on your PC',
+      'Super Chat revenue ledger with ₹ totals and exchange rates you can edit',
+      'AI Sidekick actions: switch OBS scenes, read chat and design overlays on request',
+      'Streamer Bible and Creator Memory for the assistant',
+      'Clip Library ranks local recordings by hype score',
+      'Aura Scene Builder and the Sponsor CRM pipeline',
+      'OBS Bridge connection view and stream deck',
+    ],
+  },
+  {
+    version: 'May 2026',
+    date: 'Development log',
+    tag: 'Pre-release',
+    summary: 'The foundations: chat, OBS, overlays and the node editor.',
+    changes: [
+      'Auto-Hype Director node editor',
+      'Aura Studio vibe-reactive OBS overlays and the Shorts Factory workspace',
+      'Twitch chat support, Brand Guard speech recognition and the Media Kit Generator',
+      'YouTube Live chat velocity, read from your own browser',
+      'Local AI chat assistant on Ollama',
     ],
   },
 ];
@@ -76,7 +97,8 @@ export default function ChangelogPage() {
           </Reveal>
           <Reveal delay={0.16}>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              Every version of streamerOS, newest first.
+              What ships at launch, and a log of when each part of the cockpit first
+              landed during development.
             </p>
           </Reveal>
         </div>

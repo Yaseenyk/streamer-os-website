@@ -39,7 +39,7 @@ const FAQ_ITEMS: FaqEntry[] = [
   },
   {
     q: 'How does the overlay get into OBS Studio?',
-    a: 'You build it with the Aura Scene builder, a drag-and-drop overlay editor, and streamerOS renders it into OBS. There is no cloud overlay service in the loop — the whole pipeline runs locally next to OBS.',
+    a: 'streamerOS serves the overlays from your own PC. Add a Browser Source in OBS pointing at the local address the app gives you, and picking a different design in the gallery changes what that source shows — no OBS reconfiguration. Want a design of your own? Build it in the Aura Scene Builder. There is no cloud overlay service in the loop.',
   },
   {
     q: 'Can I control when the overlay flips from Calm to Hype?',
@@ -217,9 +217,9 @@ export default function AuraStudioGuidePage() {
           <Reveal delay={0.16}>
             <p className="mx-auto mt-4 max-w-2xl text-zinc-400">
               Aura reads your game and your chat every second and shifts the vibe
-              for you. It computes a live state — Calm, Building, Hype — from game
-              telemetry and chat velocity, then drives your OBS overlays over a
-              local bridge. No manual switching, no cloud.
+              for you. It computes a live state — Calm, Hype, Combat or Tense — from
+              the game in the foreground and your chat velocity, then drives your OBS
+              overlay from your own PC. No manual switching, no cloud.
             </p>
           </Reveal>
         </div>

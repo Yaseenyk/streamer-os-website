@@ -25,7 +25,7 @@ const REQUIREMENTS = [
 const STEPS = [
   {
     title: 'Get the installer at launch',
-    body: 'When streamerOS ships this November, you’ll grab a standard signed MSI / NSIS package for Windows.',
+    body: 'When streamerOS ships this November, you’ll download a Windows installer that sets it up for your user account — no administrator prompt.',
   },
   {
     title: 'Run the installer',

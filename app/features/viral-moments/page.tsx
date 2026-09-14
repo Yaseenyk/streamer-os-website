@@ -54,7 +54,7 @@ const FAQ_ITEMS: FaqEntry[] = [
   },
   {
     q: 'What do I get at the end of a stream?',
-    a: 'A list of timestamped markers, exportable as CSV, that your editor can jump straight to. Turning a marker into a finished vertical clip inside streamerOS is a v1.1 feature; in v1.0 the markers go to the editor you already use.',
+    a: 'A list of timestamped markers, exportable as CSV, that your editor can jump straight to — or that Shorts Factory can use to crop the moment into a vertical 9:16 clip inside streamerOS.',
   },
 ];
 

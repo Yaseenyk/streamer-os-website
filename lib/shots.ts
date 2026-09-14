@@ -6,6 +6,11 @@ import type { Shot } from '@/components/ProductShot';
 //
 // Captured from the product repo in simulation mode; see
 // public/screenshots/README.md for how to retake them.
+//
+// Slots whose file does not exist yet are safe in <Screenshot> and
+// <ScreenshotStrip> (both check the file at build time and skip it). They are
+// NOT safe in a bare <ProductShot>, which renders the <img> regardless — only
+// hand a ProductShot a shot whose PNG is already in public/screenshots/.
 export const SHOTS = {
   dashboard: {
     src: '/screenshots/dashboard.png',
@@ -67,7 +72,7 @@ export const SHOTS = {
     src: '/screenshots/aura.png',
     width: 1600,
     height: 993,
-    alt: 'The Aura Studio overlay gallery showing nine vibe-reactive OBS overlays with the active one highlighted',
+    alt: 'The Aura Studio overlay gallery showing vibe-reactive OBS overlays with the active one highlighted',
     caption: 'Overlays that react to the room',
     mobile: { src: '/screenshots/aura-m.png', width: 880, height: 515 },
   },
@@ -130,5 +135,97 @@ export const SHOTS = {
     alt: 'The velocity monitor showing messages per second, the stream baseline and the resulting heat ratio above a live chart of chat traffic',
     caption: 'Messages per second against your baseline',
     mobile: { src: '/screenshots/viral-moments-m.png', width: 880, height: 730 },
+  },
+
+  // ---------------------------------------------------------------------------
+  // Slots waiting for a capture (2026-09-11). The PNG does not exist yet, so the
+  // width/height below are placeholders — set them to the real pixel size of
+  // the file when it lands, or the frame reserves the wrong aspect ratio. The
+  // shot list and how to stage each screen is in
+  // docs/session-logs/2026-09-11.md.
+  // ---------------------------------------------------------------------------
+  revenueInr: {
+    src: '/screenshots/panel-revenue-inr.png',
+    width: 900,
+    height: 363,
+    alt: 'The Stream Revenue panel totalling a stream of Super Chats in rupees, with the per-currency breakdown underneath',
+    caption: 'Every Super Chat, totalled in ₹',
+  },
+  chatArchiveSession: {
+    src: '/screenshots/chat-archive-session.png',
+    width: 1600,
+    height: 900,
+    alt: 'The Chat Archive with a labelled past stream open, a search filtering its messages and the export button in view',
+    caption: 'Search, label, export',
+  },
+  aiSidekick: {
+    src: '/screenshots/ai-sidekick.png',
+    width: 1600,
+    height: 900,
+    alt: 'The streamerOS AI Sidekick chat panel answering a question about the current stream using live stats',
+    caption: 'An assistant that knows your stream',
+  },
+  aiAction: {
+    src: '/screenshots/panel-ai-action.png',
+    width: 900,
+    height: 600,
+    alt: 'The AI Sidekick confirming it switched the OBS scene after being asked in plain language, with the action result shown',
+    caption: 'Ask, and it acts',
+  },
+  hinglishChat: {
+    src: '/screenshots/panel-hinglish-chat.png',
+    width: 900,
+    height: 600,
+    alt: 'Chat Triage full of Hinglish messages, with Sentiment Horizon reading the mood of the room as positive',
+    caption: 'Hinglish chat, read correctly',
+  },
+  creatorMemory: {
+    src: '/screenshots/panel-creator-memory.png',
+    width: 900,
+    height: 600,
+    alt: 'The AI Sidekick recalling a fact the streamer asked it to remember in an earlier session',
+    caption: 'It remembers your channel',
+  },
+  viralEngine: {
+    src: '/screenshots/viral-engine.png',
+    width: 1600,
+    height: 900,
+    alt: 'The Viral Engine showing three AI-written YouTube title suggestions and a hashtag cloud generated from the live game and chat',
+    caption: 'Titles and hashtags from your own chat',
+  },
+  thumbnailLab: {
+    src: '/screenshots/panel-thumbnail-lab.png',
+    width: 900,
+    height: 600,
+    alt: 'The Thumbnail Lab panel with a three-point thumbnail strategy: subject placement, colour palette and a bold text hook',
+    caption: 'A thumbnail plan, not a guess',
+  },
+  auraScene: {
+    src: '/screenshots/aura-scene.png',
+    width: 1600,
+    height: 900,
+    alt: 'The Aura Scene editor with text, image and video layers arranged on a 1920 by 1080 transparent canvas',
+    caption: 'Build the overlay in the app',
+  },
+  shortsFactory: {
+    src: '/screenshots/shorts-factory.png',
+    width: 1600,
+    height: 900,
+    alt: 'The Shorts Factory workspace with a VOD loaded, a hype marker on the timeline and a 9:16 crop preview',
+    caption: 'From a 16:9 VOD to a 9:16 short',
+  },
+  brandGuard: {
+    src: '/screenshots/brand-guard.png',
+    width: 1600,
+    height: 900,
+    alt: 'Brand Guard listening to the microphone with a list of banned sponsor terms and an alert showing the matched word in context',
+    caption: 'A warning before the sponsor hears it',
+  },
+  mediaKit: {
+    src: '/screenshots/media-kit.png',
+    width: 1600,
+    height: 900,
+    alt: 'The Media Kit Generator preview of a sponsor PDF with reach, watch-time and top-stream figures',
+    caption: 'A sponsor deck from your own numbers',
   },
 } as const satisfies Record<string, Shot>;

@@ -43,7 +43,11 @@ const FAQ_ITEMS: FaqEntry[] = [
   },
   {
     q: 'What can trigger an automatic OBS scene switch?',
-    a: 'Trigger nodes watch live signals like chat velocity, chat sentiment, Super Chats, and game state. You combine them through AND / OR logic gates, so a rule can be as simple as "chat velocity above 40 messages per second" or require several conditions at once.',
+    a: 'Trigger nodes watch chat velocity (messages per second) and Super Chats, each compared against a threshold you set. You combine triggers through AND / OR logic gates, so a rule can be as simple as "chat velocity above 5 messages per second" or require several conditions at once.',
+  },
+  {
+    q: 'What can a rule do besides switching scenes?',
+    a: 'Action nodes can switch an OBS scene, play a sound clip, change your Aura overlay’s mood, mute or unmute an OBS audio input, save your OBS replay buffer as a clip, or post a message to your own Discord webhook. Scene switches fire once when the condition is met rather than on every tick, so OBS is never spammed while chat stays hot.',
   },
   {
     q: 'Will automation add lag to my stream?',

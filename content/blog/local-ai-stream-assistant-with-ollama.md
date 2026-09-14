@@ -6,7 +6,7 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Local AI", "Ollama", "Privacy"]
 ---
 
-> **Availability:** the local Ollama-backed assistant ships in **v1.0 (November 2026)**. Persistent memory of your past streams — the assistant recalling your own history — ships in **v1.1**.
+> **Availability:** the local Ollama-backed [AI Sidekick](/features/ai-sidekick), including Creator Memory — facts you ask it to remember, kept on your own disk — ships in the **November 2026 launch build**.
 
 If you've ever pasted your stream numbers into a chatbot to ask "was that a good night?", you already know the friction. You wait for a reply, you pay per token, and your data takes a trip to a server you'll never see. For something that's supposed to sit next to you while you go live, that's a lot of overhead.
 

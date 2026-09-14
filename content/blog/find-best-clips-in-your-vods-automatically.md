@@ -6,7 +6,7 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Clipping", "Content", "Workflow"]
 ---
 
-> **Availability:** live hype-spike marking and CSV export ship in **v1.0 (November 2026)**. Automatic vertical clip export from those markers ships in **v1.1**.
+> **Availability:** live hype-spike marking, CSV export and vertical clip export with [Shorts Factory](/features/shorts-factory) all ship in the **November 2026 launch build**.
 
 Your best clips are your growth engine. One 30-second moment that lands can pull in more new followers than a week of solid streaming.
 

@@ -23,27 +23,43 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: 'Is my data actually private?',
-    a: 'Yes. streamerOS is zero-cloud by architecture: there is no account and no backend. Your chat logs, audio feeds, and API keys are processed in memory and written only to your own disk — they never leave the machine. The only network traffic is a small, fixed set of opt-in connections (an update check and reading the public chat of a channel you choose), none of which carry personal data.',
+    a: 'Yes. streamerOS is zero-cloud by architecture: there is no account and no backend. Your chat, audio and stream history are processed and stored on your own PC and never uploaded to us. The app only connects out for things you switch on — reading Twitch chat, your own YouTube channel stats if you add an API key, AI model downloads, Google Fonts in an overlay, a Discord webhook you set up, and opt-in update checks. The privacy policy lists every one.',
+  },
+  {
+    q: 'Does it work with YouTube Live and Twitch?',
+    a: 'Both. YouTube Live chat is read from the stream page open in your own browser, so there is no YouTube API key or Google sign-in to set up. Twitch chat is read through an anonymous, read-only connection. Very fast chats — 20 or more messages a second — can outrun the YouTube browser reader, so a few messages may be missed, though chat velocity and hype detection keep working.',
   },
   {
     q: 'Why is it Windows-only right now?',
-    a: 'streamerOS integrates deeply with the Windows audio subsystem and DirectX to keep its footprint tiny and its telemetry accurate under a live game — that level of integration is platform-specific. macOS and Linux are on the roadmap, but they are out of scope for the v1.0 release rather than an afterthought.',
+    a: 'streamerOS is built on Windows-specific pieces: it reads YouTube chat through Windows UI Automation, detects your foreground game with Win32 APIs, keeps API keys in Windows Credential Manager and captures audio through the Windows audio stack. Porting those is real work, so macOS and Linux are out of scope for the v1.0 release.',
   },
   {
     q: 'What are the minimum system requirements?',
-    a: 'Windows 10 or 11, 16 GB of RAM, and an 8-core CPU. The core monitoring and automation are featherweight; that headroom mainly gives the optional on-device AI features room to run comfortably alongside your game and OBS.',
+    a: 'Windows 10 or 11 (64-bit), with 16 GB of RAM and an 8-core CPU recommended, plus OBS Studio 28 or later. The local AI features — AI Sidekick, Sentiment Horizon and the Viral Engine — want an RTX 3060-class GPU and a free Ollama install; everything else runs without one.',
   },
   {
     q: 'What does streamerOS cost?',
-    a: 'The trial is free for 7 days with no card, and nothing is held back during it — you get the whole cockpit. After that a full licence is $29 once. Not a subscription, no seat count, no account: you pay a single time and keep the version you bought, forever, offline. Pre-register before the November 2026 launch and your trial is 3 months instead of 7 days.',
+    a: 'Free for 7 days with every feature and no card. After that a licence is $29 once — not a subscription, no account, verified offline on your PC. Pre-register before the November 2026 launch and your trial is 3 months instead of 7 days. If you do not buy, your own data stays readable and a free tier keeps working: the dashboard, Clip Library, Chat Archive, your last stream’s report and 10 AI chat messages a day.',
   },
   {
     q: 'Will it slow down my game?',
-    a: 'No. streamerOS runs on a Rust core profiled against a live 1080p60 game, where it holds a 1.8% CPU footprint. It is built to yield spare cycles to your game — your frames stay with the game, not the tooling.',
+    a: 'No. streamerOS runs on a Rust core profiled against a live 1080p60 game, where it holds a 1.8% CPU footprint. It is built to yield spare cycles to your game — your frames stay with the game, not the tooling. Heavier jobs you start yourself, like encoding a Short, are meant for after the stream.',
   },
   {
     q: 'What exactly is the Auto-Hype Director?',
-    a: 'It is a visual, node-based automation engine. You wire trigger nodes (chat velocity, sentiment, game state) through logic gates (AND / OR) into action nodes (switch OBS scene). When the live conditions you defined are met, streamerOS fires the action — switching scenes the instant the room peaks.',
+    a: 'It is a visual, node-based automation engine. You wire trigger nodes (chat velocity, Super Chats) through logic gates (AND / OR) into action nodes — switch an OBS scene, play a sound, change your overlay mood, mute an input, save a replay clip or post to Discord. When the live conditions you set are met, streamerOS fires the action.',
+  },
+  {
+    q: 'Does the AI need the internet or a subscription?',
+    a: 'No. The AI Sidekick, Sentiment Horizon and the Viral Engine run on Ollama on your own PC — no cloud model and no per-message cost. You download a model once; after that it works offline.',
+  },
+  {
+    q: 'Does it understand Hinglish chat?',
+    a: 'Yes. Sentiment Horizon’s local model is built to read Hinglish — Roman-script Hindi mixed with English — so “Bhai sahi hai” reads as positive and “Cringe yaar” as mildly negative. The AI Sidekick currently answers in English.',
+  },
+  {
+    q: 'How does licensing work without an account?',
+    a: 'When you buy, you send the Installation ID shown in the app, and your key is made for that PC. It is verified offline, so there is no activation server, no login and nothing to renew.',
   },
   {
     q: 'How do I get help or report a bug?',

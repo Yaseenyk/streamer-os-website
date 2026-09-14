@@ -19,7 +19,7 @@ export default function TermsPage() {
       <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
         Terms of Service
       </h1>
-      <p className="mt-3 text-sm text-zinc-500">Last updated: September 10, 2026</p>
+      <p className="mt-3 text-sm text-zinc-500">Last updated: September 11, 2026</p>
 
       <div className="mt-10 space-y-10">
         <section>
@@ -27,15 +27,20 @@ export default function TermsPage() {
           <p className={P}>
             streamerOS is proprietary software. Buying a licence grants you a
             personal, non-exclusive, non-transferable right to install and run
-            streamerOS on machines you own or control. You do not receive the
-            source code, and you may not copy, resell, sublicense, rent, or
-            redistribute the application, nor reverse-engineer, decompile, or
-            disassemble it except where that restriction is void under the law
-            that applies to you.
+            streamerOS on the computer your licence key is issued for. You do not
+            receive the source code, and you may not copy, resell, sublicense,
+            rent, or redistribute the application, nor reverse-engineer,
+            decompile, or disassemble it except where that restriction is void
+            under the law that applies to you.
           </p>
           <p className={P}>
-            The licence is a one-time purchase, not a subscription. It is
-            validated once, on first launch, and does not expire or renew.
+            The licence is a one-time purchase, not a subscription, and it does
+            not expire or renew. Each key is issued for one computer&apos;s
+            Installation ID, which the app shows you before you buy, and is
+            verified offline on that computer — there is no activation server. If
+            you reinstall Windows or replace hardware and your Installation ID
+            changes, contact us with your order details and we will reissue the
+            key.
           </p>
         </section>
 
@@ -44,9 +49,11 @@ export default function TermsPage() {
           <p className={P}>
             streamerOS runs unrestricted for the length of the trial — seven days
             as standard, or three months if you pre-registered before launch. No
-            card is required to start, and the trial ends by locking the
-            application rather than by charging you. These terms apply during the
-            trial exactly as they do after purchase.
+            card is required to start, and the trial never turns into a charge.
+            When it ends, the features that act during a live stream lock until you
+            enter a licence key; your own data stays readable, and the free
+            features described on the pricing page keep working. These terms apply
+            during the trial exactly as they do after purchase.
           </p>
         </section>
 

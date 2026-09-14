@@ -6,7 +6,7 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Clipping", "Content", "Growth"]
 ---
 
-> **Availability:** the Shorts workspace — automatic 16:9 to 9:16 cropping and export — ships in **streamerOS v1.1**, after the November 2026 launch. The hype-spike markers this article relies on to *find* those moments are in v1.0 and work today.
+> **Availability:** everything this article describes in streamerOS — hype-spike markers, the ranked Clip Library, and [Shorts Factory](/features/shorts-factory) for 16:9 to 9:16 cropping and export — ships in the **November 2026 launch build**.
 
 Nobody discovers your channel by stumbling into hour four of a live stream. They find you because a 22-second clip of you clutching a 1v3 landed on their For You page at 11pm. Short-form video is, hands down, the number one way new viewers find streamers right now — and the best part is you're already producing the raw material. Every stream you finish is a VOD stuffed with clippable moments. The only thing standing between that VOD and a viral Short is a workflow.
 
@@ -61,7 +61,7 @@ Here's the technical hurdle. Your stream records in wide **16:9** — great for 
 
 Done by hand, this means dropping the clip into an editor, adding a vertical canvas, and manually positioning the footage — fiddly, and slow enough that people give up on it.
 
-**A heads-up on doing this inside streamerOS:** turning a chosen VOD moment into a finished vertical 9:16 short is the job of our **Shorts Factory** feature, and it's **coming soon in v1.1** — it isn't shipping today. When it lands, the plan is to take a moment you've picked from the Clip Library and handle the vertical reframe for you, closing the gap between "found the moment" and "have a postable short." For now, the Clip Library gets you to the *right moment* fast; the vertical crop itself is a manual step in your editor of choice until Shorts Factory arrives.
+**Doing this inside streamerOS:** turning a chosen VOD moment into a vertical 9:16 short is the job of [Shorts Factory](/features/shorts-factory). Pick a moment from the Clip Library or a hype marker, set the window, and it crops the footage to 9:16 and encodes a finished .mp4 on your PC. The crop is centred, so if the important action sits off to one side of the frame — a facecam in a corner, say — reframe that clip by hand in your editor instead.
 
 ---
 
@@ -95,7 +95,7 @@ The streamers growing fastest aren't better editors. They just show up in the fe
 Let hype scores do the scrubbing. The [Clip Library](/features/clip-library) in [streamerOS](/features) scores your recording as you stream — tracking chat velocity and sentiment — and hands you a ranked list of peak moments when you're done, so you jump straight to the parts worth clipping instead of scrolling blind through hours of footage.
 
 ### Can streamerOS crop my clip to vertical 9:16 for me?
-Not yet. That vertical reframe is handled by the **Shorts Factory** feature, which is **coming soon in v1.1** — it doesn't ship in the current version. Today, the Clip Library gets you to the right moment fast, and the 16:9-to-9:16 crop is a manual step in your editor until Shorts Factory launches.
+Yes. [Shorts Factory](/features/shorts-factory) crops a chosen moment from 16:9 to vertical 9:16 and encodes a finished .mp4 on your PC, with a live progress bar. The crop is centred, so reframe a clip by hand when the action sits off to one side of the frame.
 
 ### How long should a Short or TikTok be?
 Shorter than you think — roughly 15 to 40 seconds for most stream clips. Start on the hook, cut the wind-up, and end the moment it's over. If the payoff isn't visible in the first few seconds, tighten it.
