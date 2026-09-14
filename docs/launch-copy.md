@@ -5,8 +5,14 @@ cannot: the domain is DR 0 and sits at position 23, and that is a 2027 asset.
 These are the ones that work in eight weeks.
 
 Everything here is written for the audience chosen on 2026-09-09: **technical,
-privacy-conscious streamers**. Nothing claims a feature outside v1.0 —
-`obs-bridge` + `chat-sentiment` + `pillar-c-twitch`, plus the media kit and Aura.
+privacy-conscious streamers**. Nothing claims a feature outside the launch build.
+
+> **Updated 2026-09-11:** Shorts Factory, Brand Guard and Creator Memory were
+> moved from "v1.1" to launch features (they are in the app's default build).
+> The "What it does not do yet" lines below still name them as v1.1 — rewrite
+> those before posting. Two of them have launch blockers first: Shorts Factory
+> needs FFmpeg bundled in the installer, and Aura Scene overlays need the OBS
+> renderer served by the installed app. See docs/session-logs/2026-09-11.md.
 
 ---
 

@@ -1,9 +1,12 @@
 # streamerOS Master Knowledge Base
 
-> Authoritative support reference for streamerOS tier-1 customer support.
-> streamerOS is a Rust-powered, ultra-lightweight desktop "cockpit" for Twitch
-> and YouTube streamers. This document is the canonical source for product
-> behavior, system requirements, feature operation, and troubleshooting.
+> Authoritative support reference for streamerOS tier-1 customer support. The
+> website support chat answers only from this document, so every statement here
+> must be true of the launch build. Rewritten 2026-09-11 against the product
+> repository (API specification, feature code and licence gates).
+>
+> After editing, re-ingest it into the support index (`api/scripts/ingest.ts`) —
+> the chat widget reads the index, not this file.
 
 ---
 
@@ -11,274 +14,370 @@
 
 ### What streamerOS Is and Who streamerOS Is For
 
-streamerOS is a desktop control application for live streamers on Twitch and
-YouTube. streamerOS runs natively on Windows and acts as an automation and
-telemetry layer between a streamer's chat, the streamer's audio, and OBS Studio.
-streamerOS is built in Rust for low resource consumption and is designed to run
-alongside a game and OBS on a single machine without degrading stream
-performance.
+streamerOS is a desktop cockpit for live streamers on YouTube Live and Twitch.
+It runs natively on Windows 10 and 11 and sits alongside OBS Studio: it reads
+your chat, measures what your audience is doing, drives OBS for you, and helps
+with the work around the stream — clips, Shorts, upload titles, sponsors. It is
+built in Rust (on Tauri) so it can run next to a game and OBS on one machine.
+streamerOS does not replace OBS Studio; you still stream with OBS.
 
 ### How the Zero-Cloud and Local-First Architecture Works
 
-streamerOS uses a "Zero-Cloud" and "Local-First" architecture. This means that
-all data streamerOS processes stays on the user's local machine and is written
-only to the user's local SSD. streamerOS does not upload chat logs, audio,
-sentiment data, or workflow configurations to any remote server. streamerOS does
-not require a user account, a login, or an internet-connected backend to
-function.
+streamerOS is local-first. Chat, microphone audio, stream history, automation
+rules, overlays, sponsor records and AI memories are processed and stored on the
+user's own computer. streamerOS has no account, no login and no backend server
+for user data, and the application contains no analytics SDK, telemetry or crash
+reporter.
 
-Key properties of the Zero-Cloud architecture:
+The app only makes network connections for features the user switches on:
 
-- streamerOS processes chat ingestion, sentiment analysis, and automation logic
-  entirely on the local device.
-- streamerOS stores all configuration, workflows, and cached models on the
-  user's local SSD.
-- streamerOS never transmits chat content or audio to streamerOS servers,
-  because streamerOS operates no such servers for user data.
-- The only outbound network connections streamerOS makes are: connecting to the
-  public Twitch/YouTube chat services the user already streams to, an optional
-  opt-in update check, and a one-time download of local AI models when the user
-  enables Local AI features.
+- **Twitch chat** — an anonymous, read-only connection to Twitch chat when the
+  user monitors a Twitch channel. No credentials are sent or stored.
+- **YouTube chat** — read locally from the YouTube page open in the user's own
+  browser, using Windows UI Automation. The app itself does not connect to
+  YouTube for chat and needs no YouTube API key or Google sign-in.
+- **YouTube Data API** — only if the user adds their own API key and channel ID;
+  used to fetch the channel's public statistics such as subscriber count. The key
+  is stored in Windows Credential Manager.
+- **AI model downloads** — Ollama downloads local AI models when the user
+  installs one; Brand Guard downloads its speech model (about 140 MB) from Hugging
+  Face once, when the user clicks download.
+- **Google Fonts** — only when an Aura Scene overlay uses a Google font.
+- **Discord webhooks** — only when an automation rule includes a Discord action;
+  it posts the user's own message to the user's own webhook.
+- **Update checks** — only if the user opts in.
 
-### Why the Local-First Design Matters for Privacy
+Licensing makes no network connection (see licensing below).
 
-Because streamerOS keeps all data on the local SSD, a streamer's chat history,
-sentiment scores, and automation rules are private by default. There is no web
-dashboard that exposes this data, and there is no server-side copy of a
-streamer's activity. If a user wants to delete their data, the user deletes the
-local streamerOS data directory.
+### Where streamerOS Stores Data
 
-### streamerOS Performance Footprint and Resource Claims
+Data lives in the streamerOS data folder under the user's Windows AppData
+folder, plus a workspace folder the user chooses (for example
+`Documents\streamerOS`). The workspace holds exports, Shorts, chat archive
+exports and opt-in Brand Guard audit recordings. To delete everything, delete
+those folders.
 
-streamerOS is engineered to be lightweight enough to run during a live 1080p60
-gameplay stream. streamerOS holds a measured footprint of approximately **1.8%
-CPU** under a live 1080p60 game capture scenario. This low CPU footprint is a
-core design goal because streamerOS must not compete with the game or the
-encoder for CPU time.
+### streamerOS Performance Footprint
 
-### How the Serialization Adapter Achieves 94% Payload Reduction
+streamerOS is engineered to hold approximately **1.8% CPU** under a live 1080p60
+game. That figure is for the core app — chat monitoring, automation and the
+cockpit. Two features the user starts deliberately use much more CPU: Brand Guard
+speech recognition (while the user is speaking) and Shorts Factory video
+encoding, which is meant to run after the stream. Local AI features (AI Sidekick,
+Sentiment Horizon, Viral Engine) run on the GPU through Ollama.
 
-streamerOS uses a component called the **Serialization Adapter** to move
-telemetry between streamerOS subsystems and OBS Studio efficiently. The
-Serialization Adapter compacts the data payloads streamerOS sends so that
-streamerOS transmits approximately **94% less payload** than an unoptimized
-JSON-over-WebSocket approach would transmit. This 94% payload reduction lowers
-the per-message overhead of streamerOS automation, which contributes directly to
-the low CPU footprint of streamerOS during high-velocity chat events.
+---
 
-### How the streamerOS Licensing Model Works
+## Pricing and Licensing
 
-streamerOS uses a **one-time purchase** licensing model. A user pays once for a
-streamerOS license and owns that version of streamerOS without a recurring
-subscription. streamerOS validates the license key on **first launch**. After
-the license key is validated, streamerOS does not require a web dashboard,
-ongoing login, or continuous internet connection to keep running. The one-time
-purchase model is consistent with the Zero-Cloud philosophy of streamerOS:
-because license validation happens once on first launch, streamerOS does not
-depend on an account portal or cloud session to operate day to day.
+### How the Trial and Licence Work
+
+- **Free trial:** 7 days with every feature and no credit card. People who
+  pre-registered before the November 2026 launch get 3 months.
+- **Licence:** $29, paid once. Not a subscription; it does not expire or renew.
+  It includes every feature, including Shorts Factory, Brand Guard and Creator
+  Memory.
+
+### What Happens When the Trial Ends
+
+Features that act during a live stream lock until a licence key is entered: OBS
+control and the Auto-Hype Director, the live chat monitors (chat velocity,
+sentiment, keywords), Aura overlays, Shorts Factory, Brand Guard, the Viral
+Engine, AI actions and insights, Sponsor CRM changes and media kit export.
+
+The user's own data is never locked or deleted. These stay available for free:
+settings, imported analytics and the dashboard metrics, the Clip Library list,
+the Chat Archive, the most recent stream's report, and AI Sidekick chat up to
+**10 messages per day**. Nothing is charged automatically — no card is on file.
+
+### How Licence Keys Are Issued and Verified
+
+streamerOS licence keys are verified **offline** against a signature built into
+the app — there is no activation server, account or login, and the app never
+needs the internet to stay licensed.
+
+Each key is made for one computer:
+
+1. Open streamerOS and go to the activation screen. It shows this PC's
+   **Installation ID** (for example `A1B2-C3D4-E5F6-7890`). The ID is an
+   anonymous code derived on the machine and is safe to share.
+2. Send the Installation ID with the order.
+3. Enter the key you receive. It activates on that PC only, and the app shows
+   "Licensed to" with the name on the order.
 
 ---
 
 ## System Requirements and Setup
 
-### Minimum and Recommended System Requirements for streamerOS
-
-streamerOS requires the following hardware and operating system:
+### System Requirements
 
 | Requirement | Specification |
 | --- | --- |
-| Operating System | Windows 10 or Windows 11 (64-bit only) |
-| Memory (RAM) | 16 GB |
-| CPU | 8-core processor |
-| GPU (for Local AI features) | RTX 3060-class GPU or better |
+| Operating system | Windows 10 or Windows 11, 64-bit |
+| Memory | 16 GB RAM recommended |
+| CPU | 8-core processor recommended |
+| GPU | RTX 3060-class GPU recommended for the local AI features |
+| Other software | OBS Studio 28 or later; Ollama for the local AI features |
 
-streamerOS supports only 64-bit Windows 10 and Windows 11. streamerOS does not
-currently support macOS or Linux.
+streamerOS does not support macOS or Linux. Without a suitable GPU or Ollama,
+everything except the local AI features (AI Sidekick, Sentiment Horizon, Viral
+Engine) still works.
 
-### Why streamerOS Requires an RTX 3060-Class GPU for Local AI
+### Installing streamerOS
 
-streamerOS requires an **RTX 3060-class GPU specifically** to run the Local AI
-features of streamerOS, which include Sentiment Horizon (real-time sentiment
-analysis) powered by Ollama. The RTX 3060-class GPU requirement applies only to
-the Local AI features of streamerOS. A streamer who does not use the Local AI
-features of streamerOS can run the rest of streamerOS without an RTX 3060-class
-GPU, but the Sentiment Horizon feature and other Ollama-backed features will be
-unavailable without an RTX 3060-class GPU.
+The Windows installer sets streamerOS up for the current user account, so it
+does not need an administrator prompt.
 
-### How to Connect streamerOS to OBS Studio via OBS WebSocket v5
+### How to Connect streamerOS to OBS Studio
 
-streamerOS controls OBS Studio through the **OBS WebSocket v5** protocol, which
-is built into modern versions of OBS Studio. To connect streamerOS to OBS
-Studio, follow these steps:
+streamerOS controls OBS through **OBS WebSocket v5**, which is built into OBS
+Studio 28 and later.
 
-1. Open OBS Studio and confirm OBS Studio is version 28 or later, because OBS
-   WebSocket v5 is bundled with OBS Studio 28 and later.
-2. In OBS Studio, open the **Tools** menu and select **WebSocket Server
-   Settings**.
-3. In the WebSocket Server Settings dialog, enable the checkbox labeled **Enable
-   WebSocket server**.
-4. Note the **Server Port** value. The OBS WebSocket v5 default port is **4455**.
-5. If **Enable Authentication** is checked in OBS Studio, click **Show Connect
-   Info** and copy the **Server Password**.
-6. Open streamerOS and go to the OBS connection settings inside streamerOS.
-7. In streamerOS, enter the OBS host (use `localhost` or `127.0.0.1` when OBS
-   Studio runs on the same machine), enter the port (`4455` by default), and
-   enter the server password if OBS authentication is enabled.
-8. Click **Connect** in streamerOS. When the connection succeeds, streamerOS
-   displays a connected status for OBS and streamerOS can then control OBS scenes
-   and sources.
+1. In OBS Studio, open **Tools → WebSocket Server Settings** and tick **Enable
+   WebSocket server**. The default port is **4455**.
+2. If authentication is off, open streamerOS — it finds OBS on the same PC
+   automatically and connects.
+3. If authentication is on, click **Show Connect Info** in OBS, copy the
+   password, and enter it in streamerOS's **OBS Bridge** connection form with
+   host `127.0.0.1` and the port from OBS.
+4. When connected, your OBS scenes appear in the OBS Bridge stream deck and the
+   cockpit's scene switcher.
+
+streamerOS only connects to OBS on the same computer (`127.0.0.1`). The OBS
+password is kept in memory while the app runs and is not written to disk.
+
+### Setting Up the Local AI
+
+1. Install Ollama from ollama.com.
+2. In streamerOS, use the **AI Engine** toggle to start the local engine, and
+   choose or download models in Settings. The defaults are `llama3.2` for chat
+   and `nomic-embed-text` for memory.
 
 ---
 
-## Core Features
+## Features
 
-### How the Auto-Hype Director Builds Node-Based Automation Workflows
+### Live Cockpit (Dashboard)
 
-The **Auto-Hype Director** is the visual automation engine of streamerOS. The
-Auto-Hype Director lets a user build **node-based workflows** that trigger OBS
-macros automatically based on live stream telemetry, most commonly **chat
-velocity**. Chat velocity is the rate at which chat messages arrive, measured by
-streamerOS in real time.
+The dashboard is the home screen during a stream. It shows:
 
-A user builds an Auto-Hype Director workflow by connecting nodes on a visual
-canvas:
+- **Command Center** — one-click OBS connection and YouTube chat status.
+- **Chat Triage** — one chat feed with All, Viewers, Members and Super Chats
+  tabs and live counts. Regular viewer messages pass a local moderation filter
+  that hides toxic and spam lines; member and Super Chat messages are always
+  shown. It follows the newest message and pauses when you scroll up.
+- **Stream Revenue** — every Super Chat is recorded to a local ledger. It shows
+  the exact total per currency and an approximate combined total in your chosen
+  display currency, converted with exchange rates you can edit in Settings
+  (defaults such as 1 USD ≈ ₹83; there is no live exchange-rate lookup).
+- **Top Chatters** — the most active chatters this stream and the number of
+  distinct chatters.
+- **Sentiment Horizon** — see below.
+- **OBS Scene Switcher** — your scenes with the live one highlighted; one click
+  switches.
 
-- **Trigger nodes** watch a telemetry signal, such as chat velocity crossing a
-  threshold (for example, messages-per-second exceeding a defined value).
-- **Condition nodes** filter when a workflow should fire, such as only during a
-  specific scene or time window.
-- **Action nodes** execute an OBS macro through OBS WebSocket v5, such as
-  switching to a "Hype" scene, toggling a source, or playing a stinger.
+### Sentiment Horizon
 
-When the Auto-Hype Director detects that incoming telemetry matches a trigger
-node, the Auto-Hype Director runs the connected action nodes, which fire the OBS
-macros. This lets streamerOS automatically switch OBS scenes or activate effects
-the moment chat activity peaks, without manual intervention from the streamer.
+Sentiment Horizon uses local AI through Ollama to score chat mood from −1
+(toxic) to +1 (hype), with a short label such as "🔥 HYPE". It classifies chat in
+batches every couple of seconds and updates the display once a second, holding
+the last reading between classifications. It understands Hinglish. In very fast
+chat it scores an evenly spread sample of up to 40 messages per window.
 
-### How Sentiment Horizon Analyzes Chat Sentiment in Real Time
+**Honest fallback:** if Ollama is offline, Sentiment Horizon shows an "Ollama
+offline" banner and a neutral reading instead of a made-up score, and everything
+else keeps running. It resumes automatically when Ollama is back.
 
-**Sentiment Horizon** is the real-time chat sentiment analysis feature of
-streamerOS. Sentiment Horizon uses **local AI through Ollama** to analyze the
-emotional tone of incoming chat messages as the messages arrive. Because
-Sentiment Horizon runs on local AI through Ollama, Sentiment Horizon processes
-chat sentiment entirely on the user's machine and never sends chat content to a
-cloud service, which is consistent with the Zero-Cloud architecture of
-streamerOS.
+### Viral Moments
 
-Sentiment Horizon produces a continuous sentiment reading that streamerOS can
-display to the streamer and can feed into Auto-Hype Director workflows as a
-trigger signal. A streamer can therefore build automation that reacts not only
-to how fast chat is moving (chat velocity) but also to how positive or negative
-chat sentiment is (Sentiment Horizon).
+Viral Moments measures chat velocity (messages per second) against the current
+stream's own baseline and marks every hype spike with a timestamp while you are
+live. Markers export to CSV and feed Shorts Factory.
 
-Sentiment Horizon requires the Local AI features of streamerOS to be enabled,
-which requires Ollama and an RTX 3060-class GPU.
+### Chat Archive
 
-### How the Honest UI Fallback Handles Ollama Going Offline
+Every chat line from YouTube or Twitch is saved locally, grouped by stream.
+Users can search message text and usernames, filter by message type, label a
+stream, redact a single message, delete a stream, and export a stream as a
+compressed JSON file into the workspace (and import it back). The AI Sidekick
+can search the archive. The archive stays available after the trial.
 
-streamerOS includes a behavior called the **Honest UI Fallback** that governs
-what happens when Ollama goes offline. Local AI in streamerOS depends on Ollama,
-and Ollama can become unavailable (for example, if the Ollama service is stopped,
-crashes, or has not finished loading a model). When Ollama goes offline,
-streamerOS does **not** crash the stream and does **not** freeze the interface.
+### OBS Bridge
 
-Instead, the Honest UI Fallback causes streamerOS to gracefully fall back to a
-**0.0 NEUTRAL** sentiment state. The Honest UI Fallback has these properties:
+Connects to OBS over WebSocket v5 on the same PC, syncs your scenes into a stream
+deck, and switches the program scene. It keeps the live-scene highlight in sync
+even when you change scenes directly in OBS.
 
-- streamerOS reports a sentiment value of **0.0** with a **NEUTRAL** label while
-  Ollama is offline, rather than displaying a stale or fabricated reading.
-- streamerOS keeps the rest of the application running normally, including OBS
-  control and any Auto-Hype Director workflows that do not depend on sentiment.
-- streamerOS surfaces an honest, visible indicator (an "Ollama offline" banner)
-  so the streamer knows sentiment analysis is currently unavailable rather than
-  silently wrong.
-- When Ollama comes back online, streamerOS resumes live sentiment readings
-  automatically.
+### Aura Studio
 
-The Honest UI Fallback is named "honest" because streamerOS explicitly tells the
-user that sentiment is unavailable and reports a neutral 0.0 value, instead of
-hiding the failure or guessing a sentiment score.
+A gallery of ready-made OBS overlays that react to the stream's vibe — Calm,
+Hype, Combat or Tense — derived from the foreground game and chat velocity, with
+an adjustable hype threshold. streamerOS serves the active overlay from the
+user's PC; add it to OBS as a Browser Source at the local address the app shows.
+Switching designs in the gallery changes what that source shows.
+
+### Aura Scene Builder
+
+A drag-and-drop overlay editor on a 1920×1080 transparent canvas with text
+(including Google Fonts), images (PNG, JPG, GIF, WEBP, BMP, SVG) and video (WEBM,
+MP4). Imported assets are copied into the app's local folder. The AI Sidekick can
+generate a scene on request.
+
+### Auto-Hype Director
+
+A visual node editor for stream automation:
+
+- **Trigger nodes** compare **chat velocity** or **Super Chat** amount against a
+  threshold you set (above or below).
+- **Logic nodes** combine triggers with **AND** or **OR**.
+- **Action nodes** can switch an OBS scene, play a sound clip from the clips
+  folder, set the Aura overlay's mood, mute or unmute an OBS audio input, save the
+  OBS replay buffer, or post a message to a Discord webhook.
+
+Scene switches fire once when a condition becomes true rather than repeatedly,
+and sounds have a cooldown so they do not stack. Rules are saved on the PC.
+
+### Clip Library
+
+Scans the Videos folder (or a folder set in settings) for .mp4 and .mkv
+recordings and ranks each by a hype score built from what chat did during the
+recording: peak chat velocity (50%), Super Chats and automation events (30%) and
+sentiment intensity (20%). Recordings with no matching stream data score 0. A
+recording can be staged — copied, never moved — into the Shorts workspace.
+
+### Shorts Factory
+
+Crops a 16:9 stream recording to a vertical 9:16 clip and encodes an .mp4 into
+the workspace's `shorts` folder, using FFmpeg on the PC. Pick a VOD, use hype
+markers on the timeline, choose the window (60 seconds by default), and watch the
+progress bar; encoding can be cancelled and the partial file is removed. The crop
+is centred and needs a landscape source. streamerOS does not upload or post
+Shorts anywhere.
+
+### AI Sidekick
+
+A local AI assistant powered by Ollama on the user's PC — no cloud model, no
+per-message cost. It answers from live stream stats and the user's **Streamer
+Bible** (a JSON file in the workspace describing persona, current game,
+moderation rules and OBS scene names, reloaded automatically when edited). It
+keeps answers short — one or two sentences — because the streamer is live. It
+currently answers in English.
+
+When asked, it can switch the OBS scene, read recent chat, search the Chat
+Archive, look up the current stream's Super Chat revenue, recall creator memory,
+and design an Aura Scene overlay. If OBS is not connected, it says so.
+
+It can also turn imported YouTube or Twitch analytics into 2–4 insight cards
+(growth, brand, content) when at least 7 days of data are available.
+
+### Creator Memory
+
+Saying "remember that…", "note that…" or "keep in mind…" to the AI Sidekick
+stores the fact in a private vector database on the PC. Later questions
+automatically pull in relevant memories.
+
+### Viral Engine
+
+Writes an upload package with local AI: three YouTube titles (70 characters or
+fewer) and 6–10 hashtags. **Live Sync** mode uses the detected game and up to 40
+recent chat lines; **Describe Video** mode uses a description the user types. The
+Thumbnail Lab turns a chosen title into a three-point thumbnail plan (subject
+placement, contrasting colours, a short text hook). "Trending" means what the
+user's own audience is reacting to — the Viral Engine has no platform-wide trends
+data.
+
+### Brand Guard
+
+Listens to the microphone the user selects, transcribes speech locally with
+Whisper, and alerts on screen when a banned term (for example a competitor
+brand) is spoken, showing the term with up to 5 words of context. Audio is
+processed in memory; it is saved only if the user turns on audit recording for
+that session, in which case the clip and transcript snippet go to the workspace's
+`audit` folder. The speech model is English-focused.
+
+### Sponsor CRM
+
+A local pipeline board for sponsor leads with prospect, contacted, negotiating,
+won and lost stages, deal value and notes, stored in a database on the PC.
+
+### Media Kit Generator
+
+Imports YouTube Studio and Twitch analytics CSV exports (including audience
+demographics) and builds a sponsor-ready PDF media kit, saved on the PC.
 
 ---
 
 ## Troubleshooting and FAQs
 
-### Q: The "Ollama offline" banner keeps showing and Sentiment Horizon reads 0.0 NEUTRAL. How do I fix this?
+### Q: The "Ollama offline" banner keeps showing and Sentiment Horizon reads neutral. How do I fix this?
 
-A: The "Ollama offline" banner and a 0.0 NEUTRAL reading mean streamerOS cannot
-reach Ollama, so the Honest UI Fallback has engaged. To restore Sentiment
-Horizon:
+A: streamerOS cannot reach Ollama, so the honest fallback has engaged.
 
-1. Confirm Ollama is installed and the Ollama service is running on the machine.
-2. Confirm the required local AI model has finished downloading and loading.
-   Sentiment Horizon stays in the 0.0 NEUTRAL fallback until a model is ready.
-3. Confirm the machine has an RTX 3060-class GPU, because streamerOS requires an
-   RTX 3060-class GPU for Local AI features.
-4. Restart Ollama, then confirm streamerOS reconnects. When Ollama comes back
-   online, streamerOS resumes live sentiment readings automatically and the
-   banner clears.
+1. Confirm Ollama is installed. Use the **AI Engine** toggle in streamerOS to
+   start it.
+2. Confirm a chat model has finished downloading (Settings).
+3. Local AI runs best on an RTX 3060-class GPU; on weaker hardware responses can
+   be slow enough to time out.
+4. When Ollama is reachable again, readings resume automatically.
 
-This is expected, non-destructive behavior: streamerOS keeps the stream running
-and only reports neutral sentiment while Ollama is unavailable.
-
-### Q: OBS WebSocket is refusing the connection from streamerOS. How do I fix this?
-
-A: An OBS WebSocket connection refusal usually means OBS Studio is not listening,
-the port or password is wrong, or a firewall is blocking the connection. To fix:
+### Q: OBS WebSocket is refusing the connection. How do I fix this?
 
 1. In OBS Studio, open **Tools → WebSocket Server Settings** and confirm
-   **Enable WebSocket server** is checked.
-2. Confirm the port in streamerOS matches the OBS **Server Port** (the OBS
-   WebSocket v5 default is **4455**).
-3. If OBS authentication is enabled, copy the password from **Show Connect Info**
-   in OBS Studio and paste the exact password into streamerOS.
-4. Confirm OBS Studio is version 28 or later, because streamerOS requires OBS
-   WebSocket v5, which ships with OBS Studio 28 and later.
-5. When OBS Studio and streamerOS run on the same machine, use `localhost` or
-   `127.0.0.1` as the host. If a firewall prompt appears, allow OBS Studio and
-   streamerOS to communicate locally.
+   **Enable WebSocket server** is ticked.
+2. Confirm OBS Studio is version 28 or later.
+3. If authentication is enabled, enter the exact password from **Show Connect
+   Info** in the OBS Bridge connection form.
+4. Use host `127.0.0.1` and the port shown in OBS (default 4455). streamerOS only
+   connects to OBS on the same PC.
+5. If a Windows firewall prompt appears, allow local communication.
 
-### Q: My CPU is spiking while streamerOS is running. How do I reduce CPU usage?
+### Q: My CPU usage is higher than expected. What should I check?
 
-A: streamerOS is designed to hold an approximately 1.8% CPU footprint under a
-live 1080p60 game, so a CPU spike usually indicates an external factor or a
-heavy feature. To reduce CPU usage:
+1. Brand Guard speech recognition uses significant CPU while you are speaking —
+   switch it on only for sponsored segments.
+2. Shorts Factory encoding uses a lot of CPU — run it after the stream.
+3. Check OBS's own encoder settings (for example x264 on a slow preset), which
+   are separate from streamerOS.
+4. Local AI inference loads the GPU; on underpowered hardware it can slow the
+   system.
 
-1. Confirm the machine meets the requirement of an 8-core CPU and 16 GB RAM.
-2. Check whether the Local AI features (Sentiment Horizon via Ollama) are
-   running, because local AI inference uses the GPU and can raise overall system
-   load. Ollama-backed inference requires an RTX 3060-class GPU; running it on
-   underpowered hardware can cause spikes.
-3. Confirm OBS Studio's own encoder settings (for example, x264 at high CPU
-   presets) are not the actual source of the CPU spike, because OBS encoding is
-   separate from streamerOS.
-4. Review active Auto-Hype Director workflows. A very large number of rapidly
-   firing trigger nodes during extreme chat velocity can add load; simplify or
-   throttle high-frequency triggers if needed.
+### Q: streamerOS rejected my licence key. What do I do?
 
-### Q: streamerOS rejected my license key on first launch. What do I do?
+1. Paste the key exactly, with no extra spaces.
+2. If the message says the key was issued for a different computer, the key was
+   made for another Installation ID. This happens after reinstalling Windows or
+   replacing the motherboard. Send your new Installation ID (shown on the
+   activation screen) with your order details to support for a replacement key.
+3. Keys are verified offline, so no internet connection is needed to activate.
 
-A: streamerOS validates the license key on first launch. If streamerOS rejects
-the license key:
+### Q: YouTube chat is not showing up. What should I check?
 
-1. Confirm the license key is entered exactly, with no extra spaces or missing
-   characters.
-2. Confirm the license key matches the one-time purchase the user made for
-   streamerOS.
-3. Confirm the machine has the network access streamerOS needs for the initial
-   one-time validation on first launch. After streamerOS validates the key once,
-   streamerOS does not require a web dashboard or ongoing login to keep running.
-4. If the license key still fails, contact streamerOS support with the purchase
-   details so support can reissue or verify the key.
+1. Make sure your live stream's chat is open in your browser.
+2. Use the Go Live / Attach YouTube Chat flow in streamerOS to pick that browser
+   window.
+3. Very fast chats (20 or more messages a second) can outrun the browser reader,
+   so some messages may be missed; chat velocity and hype detection still work.
 
-### Q: Does streamerOS upload my chat, audio, or data to the cloud?
+### Q: The Clip Library shows no recordings. What should I check?
 
-A: No. streamerOS uses a Zero-Cloud, Local-First architecture. streamerOS keeps
-all chat data, audio, sentiment data, and workflow configurations on the user's
-local SSD. streamerOS does not upload this data to streamerOS servers because
-streamerOS operates no servers for user data. The only network connections
-streamerOS makes are to the public Twitch/YouTube chat the user already streams
-to, an optional opt-in update check, and a one-time download of local AI models
-when the user enables Local AI features. Sentiment Horizon analyzes chat
-sentiment locally through Ollama, so chat content is never sent to a cloud
-service for analysis.
+1. Confirm your recordings are .mp4 or .mkv files in your Windows Videos folder
+   (or the folder set in streamerOS).
+2. If the Clip Library shows a message that Windows blocked access through a
+   folder junction, your Videos folder was relocated with a junction created
+   without administrator rights. Recreate the junction from an administrator
+   command prompt, or move the folder with Properties → Location.
+
+### Q: Does streamerOS upload my chat, audio or data to the cloud?
+
+A: No. streamerOS has no account and no server for user data; chat, audio and
+stream history are processed and stored on your PC. The only connections the app
+makes are for features you switch on — reading Twitch chat, your own YouTube
+channel statistics if you add an API key, AI and speech model downloads, Google
+Fonts in an overlay that uses one, a Discord webhook you configure, and opt-in
+update checks.
+
+### Q: Does streamerOS understand Hindi or Hinglish?
+
+A: Sentiment Horizon reads Hinglish chat — Hindi written in Roman script, mixed
+with English — so "Bhai sahi hai" scores positive. The AI Sidekick currently
+replies in English, and Brand Guard's speech model is English-focused.

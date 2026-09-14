@@ -5,27 +5,42 @@ Real captures of streamerOS, not mockups. Taken from the product repo running in
 surface for an in-memory mock so the whole UI runs in a plain browser with no
 Rust, no Tauri, no OBS and no Ollama.
 
-`components/Screenshot.tsx` renders a file only if it exists, so an empty slot
-costs nothing — drop a PNG in, rebuild, and the section appears.
+`components/Screenshot.tsx` and `components/ScreenshotStrip.tsx` render a file
+only if it exists, so an empty slot costs nothing — drop a PNG in, rebuild, and
+it appears. Every slot is defined once, with its alt text, in `lib/shots.ts`.
 
 ## What is here
 
-| filename            | shows                                                    | used on |
-| ------------------- | -------------------------------------------------------- | ------- |
-| `dashboard.png`     | The cockpit mid-stream — chat triage, super chats, sentiment, scene switcher | homepage, /features, /features/performance |
-| `auto-director.png` | The node canvas: chat-velocity trigger → logic → scene switch | /features, /features/auto-hype |
-| `viral-moments.png` | Velocity monitor with messages/sec, baseline and heat ratio | /features, /features/viral-moments |
-| `sponsor-crm.png`   | Sponsor pipeline board with stages and open-pipeline total | /features, /features/sponsor-crm |
-| `obs-bridge.png`    | OBS connection + the stream deck, live scene highlighted   | /features/obs-bridge |
-| `clip-library.png`  | Local recordings ranked by hype score                      | /features/clip-library |
-| `chat-archive.png`  | Saved stream chat, searchable, held locally                | /features/zero-cloud |
-| `aura.png`          | The overlay gallery                                        | /features/aura-studio |
+| filename | shows | used on |
+| --- | --- | --- |
+| `dashboard.png` | The cockpit mid-stream — chat triage, super chats, sentiment, scene switcher | home, /features, /features/live-cockpit, /for/indian-streamers |
+| `auto-director.png` | The node canvas: chat-velocity trigger → logic → scene switch | home, /features, /features/auto-hype |
+| `viral-moments.png` | Velocity monitor with messages/sec, baseline and heat ratio | /features, /features/viral-moments, /features/shorts-factory |
+| `sponsor-crm.png` | Sponsor pipeline board with stages and open-pipeline total | /features, /features/sponsor-crm |
+| `obs-bridge.png` | OBS connection + the stream deck, live scene highlighted | /features/obs-bridge |
+| `clip-library.png` | Local recordings ranked by hype score | /features/clip-library, /features/shorts-factory |
+| `chat-archive.png` | Saved stream chat, searchable, held locally | /features/chat-archive, /features/zero-cloud |
+| `aura.png` | The Aura Studio overlay gallery | /features/aura-studio, /features/aura-scene |
+| `panel-*.png` | Cropped cockpit widgets (triage, revenue, sentiment, top chatters, scene switcher, OBS connection, stream deck, velocity stats) | home tour and feature pages |
 
-## Still missing
+## Waiting for a capture (added 2026-09-11)
 
-| slot              | why it is empty |
-| ----------------- | ---------------- |
-| `media-kit.png`   | The PDF preview renders blank in simulation mode — `@react-pdf/renderer` gets no data from the mock. Capture this from a real run, or fix `mockMediaKit` to return a populated report. |
+The slots exist in `lib/shots.ts` with **placeholder dimensions** — after
+capturing, set `width`/`height` there to the file's real pixel size. The full
+shot list, with what to stage on screen for each, is in
+`docs/session-logs/2026-09-11.md`.
+
+| filename | page |
+| --- | --- |
+| `panel-revenue-inr.png` | /features/live-cockpit, /for/indian-streamers |
+| `chat-archive-session.png` | /features/chat-archive |
+| `ai-sidekick.png`, `panel-ai-action.png`, `panel-creator-memory.png` | /features/ai-sidekick |
+| `panel-hinglish-chat.png` | /features/ai-sidekick, /for/indian-streamers |
+| `viral-engine.png`, `panel-thumbnail-lab.png` | /features/viral-engine |
+| `aura-scene.png` | /features/aura-scene |
+| `shorts-factory.png` | /features/shorts-factory |
+| `brand-guard.png` | /features/brand-guard |
+| `media-kit.png` | /features/media-kit, /features/brand-guard — the PDF preview renders blank in simulation mode (`@react-pdf/renderer` gets no data from the mock); capture from a real run or populate `mockMediaKit` |
 
 ## Re-capturing
 

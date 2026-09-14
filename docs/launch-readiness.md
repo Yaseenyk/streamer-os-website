@@ -2,6 +2,13 @@
 
 Written 2026-09-09. Roughly eight weeks to launch.
 
+> **Update 2026-09-11:** see `docs/session-logs/2026-09-11.md`. The site now
+> covers all 17 features; Shorts Factory, Brand Guard and Creator Memory are
+> launch features rather than v1.1 (so the "labelled v1.0 versus v1.1" item in §3
+> is superseded). Two product-side launch blockers were found: FFmpeg is not
+> bundled for Shorts Factory, and the installed app does not serve the Aura Scene
+> renderer to OBS.
+
 Everything outstanding, who owns it, and what has a lead time long enough to
 matter. Ordered by what actually blocks revenue, not by effort.
 
