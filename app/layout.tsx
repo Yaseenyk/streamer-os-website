@@ -12,8 +12,11 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
 const TITLE = 'streamerOS | The OBS Studio Companion for Stream Automation';
+// Leads with the brand and says plainly what it is: this is the snippet Google
+// and AI answer engines quote when someone searches the name, and the name is
+// shared by unrelated projects, so the description has to disambiguate.
 const DESCRIPTION =
-  'Ultra-low latency, zero-cloud stream automation and workflow orchestration built natively for OBS Studio.';
+  'streamerOS is a Windows app for Twitch and YouTube streamers that automates OBS scenes from live chat, tracks Super Chats and runs on your own PC.';
 // Punchier social-share copy, kept distinct from the page-level description.
 const OG_DESCRIPTION =
   'Slash automation latency and reclaim your frames with zero-cloud OBS orchestration.';
@@ -62,23 +65,36 @@ export const viewport: Viewport = {
   colorScheme: 'dark',
 };
 
-// Site-wide entity graph. Organization, Person, and SoftwareApplication live
-// here (the layout wraps every page) so page-level nodes — BlogPosting
-// publisher, homepage ProfilePage — can reference them by @id and resolve on
-// any page.
+// Site-wide entity graph. WebSite, Organization, Person and SoftwareApplication
+// live here (the layout wraps every page) so page-level nodes — a BlogPosting's
+// publisher, for instance — can reference them by @id and resolve on any page.
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
+      // Google reads the site name shown in results from this node on the
+      // homepage. alternateName covers the domain spelling people also search.
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}/#website`,
+      name: 'streamerOS',
+      alternateName: ['streamerOS AI', 'streamerosai'],
+      url: SITE_URL,
+      inLanguage: 'en',
+      publisher: { '@id': `${SITE_URL}/#organization` },
+    },
+    {
       '@type': 'Organization',
       '@id': `${SITE_URL}/#organization`,
       name: 'streamerOS',
+      alternateName: 'streamerOS AI',
       url: SITE_URL,
+      // A square mark, not the 1200x630 share card — Google shows the logo in a
+      // square slot and ignores wide images there.
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_URL}/og-image-1200x630.png`,
-        width: 1200,
-        height: 630,
+        url: `${SITE_URL}/logo-512.png`,
+        width: 512,
+        height: 512,
       },
       email: siteConfig.contactEmail,
       // Unset URLs drop out rather than emitting an empty string — a 404 or a
@@ -90,6 +106,8 @@ const jsonLd = {
       '@type': 'Person',
       '@id': `${SITE_URL}/#person`,
       name: 'Yaseen Khatib',
+      url: `${SITE_URL}/about`,
+      sameAs: ['https://github.com/Yaseenyk', 'https://yaseenkhatib.streamerosai.com/'],
       jobTitle: 'Senior Full-Stack Developer',
       email: siteConfig.contactEmail,
       knowsAbout: ['TypeScript', 'Node.js', 'Systems Architecture', 'OBS WebSocket Protocol'],
@@ -98,6 +116,9 @@ const jsonLd = {
       '@type': 'SoftwareApplication',
       '@id': `${SITE_URL}/#application`,
       name: 'streamerOS',
+      alternateName: 'streamerOS AI',
+      image: `${SITE_URL}/logo-512.png`,
+      screenshot: `${SITE_URL}/screenshots/dashboard.png`,
       applicationCategory: 'BusinessApplication',
       operatingSystem: 'Windows',
       softwareVersion: '1.0',

@@ -62,6 +62,10 @@ const FAQ_ITEMS: FaqItem[] = [
     a: 'When you buy, you send the Installation ID shown in the app, and your key is made for that PC. It is verified offline, so there is no activation server, no login and nothing to renew.',
   },
   {
+    q: 'Is streamerOS related to other products called StreamerOS?',
+    a: 'No. streamerOS at streamerosai.com is a Windows desktop app for Twitch and YouTube streamers, built by Yaseen Khatib, that automates OBS from live chat on your own PC. It is not affiliated with other projects or websites that use a similar name, such as the StreamerOS hackathon project on Devpost, streameros.com or getstreameros.com.',
+  },
+  {
     q: 'How do I get help or report a bug?',
     a: 'Reach out through the contact page and a human will answer. Bug reports are welcome — streamerOS runs entirely on your machine, so a description of what you were doing and your OBS version is usually enough to reproduce it.',
   },

@@ -1,21 +1,9 @@
-import JsonLd from '@/components/JsonLd';
 import HomeContent from './home-content';
 
-// Creator profile page. The Organization, Person, and SoftwareApplication
-// nodes live globally in the root layout graph; this just marks the homepage
-// as the creator's profile page and points at the shared Person by @id.
-const creatorJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'ProfilePage',
-  '@id': 'https://streamerosai.com/#creator',
-  mainEntity: { '@id': 'https://streamerosai.com/#person' },
-};
-
+// No page-level structured data here. The homepage used to declare itself a
+// ProfilePage about the founder, which told search engines the site's front
+// page is a person's profile rather than the product. The WebSite, Organization
+// and SoftwareApplication nodes in the root layout describe it correctly.
 export default function Home() {
-  return (
-    <>
-      <JsonLd data={creatorJsonLd} />
-      <HomeContent />
-    </>
-  );
+  return <HomeContent />;
 }
