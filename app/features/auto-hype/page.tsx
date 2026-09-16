@@ -57,11 +57,11 @@ const FAQ_ITEMS: FaqEntry[] = [
   // be found by the spelling they actually type.
   {
     q: 'Is HypeDirector the same as the Auto-Hype Director?',
-    a: 'Yes. The Auto-Hype Director is sometimes written as HypeDirector or Hype Director — they all refer to the same streamerOS feature: the visual node editor that watches chat velocity and sentiment and drives OBS scene changes automatically.',
+    a: 'Yes. The Auto-Hype Director is sometimes written as HypeDirector or Hype Director — they all refer to the same streamerOS feature: the visual node editor that watches chat velocity and Super Chats and drives OBS scene changes automatically.',
   },
   {
     q: 'How does it know what counts as a spike?',
-    a: "Against your own baseline, not a fixed number. Five messages a second is a riot on one channel and idle on another, so the trigger is a jump relative to your channel's normal pace — which is why it works the same for a channel with twenty viewers as one with two thousand.",
+    a: "You decide. A trigger node compares chat velocity (messages per second) or Super Chats against a threshold you set, such as more than 5 messages a second. Five a second is a riot on one channel and idle on another, so set the number from your own channel's normal pace — Viral Moments shows that baseline and how far above it each spike goes.",
   },
 ];
 
