@@ -639,7 +639,7 @@ export default function ChatArchiveGuidePage() {
               Keep every stream&rsquo;s chat.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              Chat Archive ships at launch in November 2026. Free for 7 days, then $29
+              Chat Archive ships at launch in February 2027. Free for 7 days, then $29
               once — and your archive stays readable either way.
             </p>
             <LaunchBadge className="mt-8" />

@@ -60,7 +60,7 @@ plus your editor beats an automatic cut nearly every time.
 
 For clarity on where streamerOS sits: live spike marking, [CSV export](/features/clip-library)
 and [Shorts Factory](/features/shorts-factory) — which crops a marked moment into a
-9:16 clip inside the app — all ship in the **November 2026 launch build**. Shorts
+9:16 clip inside the app — all ship in the **February 2027 launch build**. Shorts
 Factory does a centred crop, so the markers still export to your editor for
 anything that needs a human framing it, which is the workflow most editors prefer anyway.
 

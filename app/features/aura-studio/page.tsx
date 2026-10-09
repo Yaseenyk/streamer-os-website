@@ -398,8 +398,8 @@ export default function AuraStudioGuidePage() {
               Light that runs on your machine.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              Aura Studio ships in the streamerOS GA build — available now,
-              running entirely locally with no cloud in the loop.
+              Aura Studio ships with streamerOS v1.0 in February 2027, running
+              entirely on your machine with no cloud in the loop.
             </p>
             <LaunchBadge className="mt-8" />
             <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">

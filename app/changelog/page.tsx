@@ -25,8 +25,8 @@ interface Release {
 const RELEASES: Release[] = [
   {
     version: 'v1.0',
-    date: 'November 2026',
-    tag: 'Launch',
+    date: 'February 2027',
+    tag: 'Planned launch',
     summary: 'General availability for Windows 10 and 11 — the whole cockpit, free for 7 days, then $29 once.',
     changes: [
       'Live Cockpit: Chat Triage, Super Chat revenue, Top Chatters, Sentiment Horizon and the OBS scene switcher on one screen',
@@ -40,7 +40,7 @@ const RELEASES: Release[] = [
   },
   {
     version: 'September 2026',
-    date: 'Development log',
+    date: 'Not a release',
     tag: 'Pre-release',
     summary: 'Licensing, and the Viral Engine rebuilt around local AI.',
     changes: [
@@ -51,7 +51,7 @@ const RELEASES: Release[] = [
   },
   {
     version: 'June 2026',
-    date: 'Development log',
+    date: 'Not a release',
     tag: 'Pre-release',
     summary: 'The AI sidekick learned to act, and chat started being kept.',
     changes: [
@@ -66,7 +66,7 @@ const RELEASES: Release[] = [
   },
   {
     version: 'May 2026',
-    date: 'Development log',
+    date: 'Not a release',
     tag: 'Pre-release',
     summary: 'The foundations: chat, OBS, overlays and the node editor.',
     changes: [
@@ -99,6 +99,12 @@ export default function ChangelogPage() {
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
               What ships at launch, and a log of when each part of the cockpit first
               landed during development.
+            </p>
+            <p className="mx-auto mt-4 max-w-xl text-sm text-zinc-500">
+              streamerOS has not been released yet. v1.0 is the planned launch in
+              February 2027; every entry below it is a development log — the month
+              that work landed in the codebase, not a public release. There has
+              never been a public streamerOS build.
             </p>
           </Reveal>
         </div>

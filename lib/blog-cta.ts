@@ -28,7 +28,7 @@ const CLUSTERS: Cluster[] = [
     match: ['Sponsorship', 'Monetization'],
     heading: 'Sponsors ask for numbers. Have them ready.',
     blurb:
-      'streamerOS tracks peak concurrents, chat velocity and which clips actually travelled — then builds the media kit a sponsor asks for, on your machine. Pre-register before the November 2026 launch and your trial is 3 months instead of 7 days.',
+      'streamerOS tracks peak concurrents, chat velocity and which clips actually travelled — then builds the media kit a sponsor asks for, on your machine. Pre-register before the February 2027 launch and your trial is 3 months instead of 7 days.',
     callout: {
       text: 'streamerOS keeps every deal, rate and deliverable in one local tracker — no spreadsheet, no CRM subscription.',
       linkLabel: 'See the Sponsor CRM',
@@ -40,7 +40,7 @@ const CLUSTERS: Cluster[] = [
     match: ['Optimization', 'Performance', 'Streaming Hardware'],
     heading: 'You just freed up CPU. Don’t hand it straight back.',
     blurb:
-      'Most stream tools take back everything these settings won. streamerOS runs your scene automation in 1.8% CPU — local, no cloud round-trip, no OBS plugins to break. Pre-register before the November 2026 launch and your trial is 3 months instead of 7 days.',
+      'Most stream tools take back everything these settings won. streamerOS runs your scene automation in 1.8% CPU — local, no cloud round-trip, no OBS plugins to break. Pre-register before the February 2027 launch and your trial is 3 months instead of 7 days.',
     callout: {
       text: 'Tuning OBS only helps if the rest of your stack stays out of the way. streamerOS holds 1.8% CPU under a live 1080p60 game.',
       linkLabel: 'See the performance numbers',
@@ -52,7 +52,7 @@ const CLUSTERS: Cluster[] = [
     match: ['Privacy', 'Local-First', 'Zero-Cloud'],
     heading: 'Local-first, and you can verify it.',
     blurb:
-      'No account, no backend, no telemetry — your chat and audio never leave the machine. Pre-register before the November 2026 launch and your trial is 3 months instead of 7 days.',
+      'No account, no backend, no telemetry — your chat and audio never leave the machine. Pre-register before the February 2027 launch and your trial is 3 months instead of 7 days.',
     callout: {
       text: 'streamerOS has no server to send your chat to. Everything runs on your PC, and you can watch the connections.',
       linkLabel: 'See how Zero-Cloud works',
@@ -64,7 +64,7 @@ const CLUSTERS: Cluster[] = [
     match: ['Clips', 'VOD', 'Editing'],
     heading: 'Stop scrubbing VODs for the good bit.',
     blurb:
-      'streamerOS marks the moments your chat reacted to while you were live, so the clip is already waiting when you stop. Pre-register before the November 2026 launch and your trial is 3 months instead of 7 days.',
+      'streamerOS marks the moments your chat reacted to while you were live, so the clip is already waiting when you stop. Pre-register before the February 2027 launch and your trial is 3 months instead of 7 days.',
     callout: {
       text: 'streamerOS timestamps every chat spike as it happens, so your clips are found before the stream ends.',
       linkLabel: 'See the Clip Library',
@@ -76,7 +76,7 @@ const CLUSTERS: Cluster[] = [
     match: ['Twitch', 'YouTube', 'Platforms', 'Growth'],
     heading: 'Whichever platform you picked, the stream still has to run itself.',
     blurb:
-      'streamerOS switches your OBS scenes off live chat signals so you can play instead of reaching for hotkeys. Works the same on Twitch and YouTube. Pre-register before the November 2026 launch and your trial is 3 months instead of 7 days.',
+      'streamerOS switches your OBS scenes off live chat signals so you can play instead of reaching for hotkeys. Works the same on Twitch and YouTube. Pre-register before the February 2027 launch and your trial is 3 months instead of 7 days.',
     callout: {
       text: 'streamerOS reads chat on Twitch and YouTube the same way, so switching platforms later does not mean rebuilding your setup.',
       linkLabel: 'See what it automates',
@@ -88,7 +88,7 @@ const CLUSTERS: Cluster[] = [
     match: ['Automation', 'OBS Studio', 'Guides'],
     heading: 'Wire it up once, then stop thinking about it.',
     blurb:
-      'streamerOS drives OBS over WebSocket v5 — no fragile plugins — and switches scenes the instant your chat peaks. Pre-register before the November 2026 launch and your trial is 3 months instead of 7 days.',
+      'streamerOS drives OBS over WebSocket v5 — no fragile plugins — and switches scenes the instant your chat peaks. Pre-register before the February 2027 launch and your trial is 3 months instead of 7 days.',
     callout: {
       text: 'streamerOS talks straight to OBS over WebSocket v5, so there is no plugin to break on the next OBS update.',
       linkLabel: 'See the OBS Bridge',
@@ -101,7 +101,7 @@ const CLUSTERS: Cluster[] = [
 const FALLBACK: BlogCta = {
   heading: 'Run your stream like mission control.',
   blurb:
-    'streamerOS is a local-first desktop cockpit for Twitch and YouTube — automate your OBS scenes, read your chat’s pulse, and keep every frame for your game. Pre-register before the November 2026 launch and your trial is 3 months instead of 7 days.',
+    'streamerOS is a local-first desktop cockpit for Twitch and YouTube — automate your OBS scenes, read your chat’s pulse, and keep every frame for your game. Pre-register before the February 2027 launch and your trial is 3 months instead of 7 days.',
   callout: {
     text: 'streamerOS automates the fiddly parts of running a stream, entirely on your own machine.',
     linkLabel: 'See all the features',

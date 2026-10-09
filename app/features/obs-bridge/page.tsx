@@ -378,10 +378,10 @@ export default function ObsBridgeGuidePage() {
         <div className="mx-auto max-w-3xl px-6 py-24 text-center sm:py-28">
           <Reveal>
             <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-              Available now in the GA build.
+              Ships with v1.0 in February 2027.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              The OBS Bridge ships in streamerOS v1.0-GA — native WebSocket control,
+              The OBS Bridge ships in streamerOS v1.0 — native WebSocket control,
               no plugins to install into OBS, and a live status badge that never
               lies about what&rsquo;s on air.
             </p>

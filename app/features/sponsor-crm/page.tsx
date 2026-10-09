@@ -367,7 +367,7 @@ export default function SponsorCrmGuidePage() {
               Keep every sponsor on your own machine.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              Sponsor CRM ships in the streamerOS GA build — a full lead pipeline
+              Sponsor CRM ships in streamerOS v1.0 — a full lead pipeline
               stored locally in SQLite, with no cloud and no lock-in.
             </p>
             <LaunchBadge className="mt-8" />

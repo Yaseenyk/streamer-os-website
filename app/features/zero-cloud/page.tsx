@@ -286,7 +286,7 @@ export default function ZeroCloudGuidePage() {
               Privacy you don&rsquo;t have to configure.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              streamerOS v1.0-GA is local-first out of the box, with nothing to opt
+              streamerOS v1.0 is local-first out of the box, with nothing to opt
               out of. Free for 7 days, then $29 once.
             </p>
             <LaunchBadge className="mt-8" />

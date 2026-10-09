@@ -337,7 +337,7 @@ export default function ViralMomentsGuidePage() {
               Catch every clip on your own machine.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              Viral Moments ships in the streamerOS GA build — reading chat locally,
+              Viral Moments ships in streamerOS v1.0 — reading chat locally,
               privacy-preserving by design, and available right now.
             </p>
             <LaunchBadge className="mt-8" />

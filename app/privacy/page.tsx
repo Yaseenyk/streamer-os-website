@@ -24,7 +24,15 @@ export default function PrivacyPage() {
       <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
         Privacy Policy
       </h1>
-      <p className="mt-3 text-sm text-zinc-500">Last updated: September 11, 2026</p>
+      <p className="mt-3 text-sm text-zinc-500">Last updated: October 10, 2026</p>
+
+      <p className="mt-5 leading-relaxed text-zinc-300">
+        Every claim on this page can be checked from outside the app — the{' '}
+        <Link href="/trust" className="text-cyan-400 hover:underline">
+          trust page
+        </Link>{' '}
+        explains how to verify each one on your own PC.
+      </p>
 
       <div className="mt-10 space-y-10">
         <section>

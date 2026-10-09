@@ -63,7 +63,7 @@ const FAQ_ITEMS: FaqEntry[] = [
   },
   {
     q: 'Is Aura Scene Builder included in the price?',
-    a: 'Yes. streamerOS is free for 7 days, then $29 once, and the licence includes Aura Scene Builder. It is not an add-on or a separate tier. It ships at launch in November 2026.',
+    a: 'Yes. streamerOS is free for 7 days, then $29 once, and the licence includes Aura Scene Builder. It is not an add-on or a separate tier. It ships at launch in February 2027.',
   },
 ];
 
@@ -416,7 +416,7 @@ export default function AuraSceneGuidePage() {
               Your overlays, built where you stream.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              Aura Scene Builder ships at launch in November 2026. Free for 7
+              Aura Scene Builder ships at launch in February 2027. Free for 7
               days, then $29 once — the builder is included, and your assets stay
               on your PC.
             </p>

@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   title: 'For Indian Streamers — Hinglish Chat and ₹ Super Chats',
   description:
     'Chat sentiment that reads Hinglish, Super Chats totalled in ₹ and YouTube ' +
-    'Live chat with no API key — on your own PC. Ships November 2026.',
+    'Live chat with no API key — on your own PC. Ships February 2027.',
   alternates: { canonical: `${SITE_URL}/for/indian-streamers` },
 };
 
@@ -55,7 +55,7 @@ const FAQ_ITEMS: FaqEntry[] = [
   },
   {
     q: 'Can I pay in rupees? What does it cost?',
-    a: 'The licence is priced in US dollars: free for 7 days, then $29 once — not a subscription. There is no separate rupee price. Pre-register before the November 2026 launch and your trial runs 3 months instead of 7 days. The ₹ you see in the revenue panel is a display currency for your Super Chat totals, not the price of the app.',
+    a: 'The licence is priced in US dollars: free for 7 days, then $29 once — not a subscription. There is no separate rupee price. Pre-register before the February 2027 launch and your trial runs 3 months instead of 7 days. The ₹ you see in the revenue panel is a display currency for your Super Chat totals, not the price of the app.',
   },
   {
     q: 'What PC do I need?',
@@ -454,7 +454,7 @@ export default function IndianStreamersPage() {
               Three months free if you register before launch.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              streamerOS ships in November 2026. Pre-register now and your trial runs
+              streamerOS ships in February 2027. Pre-register now and your trial runs
               three months instead of seven days — enough streams to know if it fits.
               After that it is $29 once, not a subscription.
             </p>

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Pricing — $29 Once, Not a Subscription',
   description:
     'streamerOS costs $29 one time. Free unrestricted trial first — 7 days, ' +
-    'or 3 months if you pre-register before the November 2026 launch.',
+    'or 3 months if you pre-register before the February 2027 launch.',
   alternates: { canonical: `${SITE_URL}/pricing` },
 };
 

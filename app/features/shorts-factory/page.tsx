@@ -64,7 +64,7 @@ const FAQ_ITEMS: FaqEntry[] = [
   },
   {
     q: 'Is Shorts Factory included in the $29 licence?',
-    a: 'Yes. streamerOS is free for 7 days, then $29 once, and the licence includes Shorts Factory. It is not an add-on or a separate tier. It ships at launch in November 2026.',
+    a: 'Yes. streamerOS is free for 7 days, then $29 once, and the licence includes Shorts Factory. It is not an add-on or a separate tier. It ships at launch in February 2027.',
   },
 ];
 
@@ -418,7 +418,7 @@ export default function ShortsFactoryGuidePage() {
               Turn the stream you just finished into shorts.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              Shorts Factory ships at launch in November 2026. Free for 7 days,
+              Shorts Factory ships at launch in February 2027. Free for 7 days,
               then $29 once — Shorts Factory is included, and every encode stays
               on your PC.
             </p>

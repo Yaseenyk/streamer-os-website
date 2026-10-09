@@ -39,7 +39,7 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: 'What does streamerOS cost?',
-    a: 'Free for 7 days with every feature and no card. After that a licence is $29 once — not a subscription, no account, verified offline on your PC. Pre-register before the November 2026 launch and your trial is 3 months instead of 7 days. If you do not buy, your own data stays readable and a free tier keeps working: the dashboard, Clip Library, Chat Archive, your last stream’s report and 10 AI chat messages a day.',
+    a: 'Free for 7 days with every feature and no card. After that a licence is $29 once — not a subscription, no account, verified offline on your PC. Pre-register before the February 2027 launch and your trial is 3 months instead of 7 days. If you do not buy, your own data stays readable and a free tier keeps working: the dashboard, Clip Library, Chat Archive, your last stream’s report and 10 AI chat messages a day.',
   },
   {
     q: 'Will it slow down my game?',
@@ -60,6 +60,22 @@ const FAQ_ITEMS: FaqItem[] = [
   {
     q: 'How does licensing work without an account?',
     a: 'When you buy, you send the Installation ID shown in the app, and your key is made for that PC. It is verified offline, so there is no activation server, no login and nothing to renew.',
+  },
+  {
+    q: 'Is streamerOS an operating system?',
+    a: 'No. Despite the name, streamerOS is an ordinary Windows desktop application that runs alongside OBS Studio on Windows 10 and 11. You do not install it instead of Windows and it does not replace or modify your operating system — the name describes the job it does for a stream, acting as the control layer over OBS, chat and clips.',
+  },
+  {
+    q: 'Is streamerOS open source?',
+    a: 'No. streamerOS is proprietary software and the source code is not distributed, which the terms state plainly. It is built on open-source foundations — Rust, Tauri, OBS WebSocket v5, Ollama for local AI and an open speech-recognition model — but the app itself is closed. Since you cannot read the code, the trust page lists every claim we make with a way to verify it from outside the app.',
+  },
+  {
+    q: 'How do I verify that streamerOS is not sending my data anywhere?',
+    a: 'Block it in Windows Defender Firewall and keep using it. Everything except the optional connections listed in the privacy policy keeps working, because there is no streamerOS server for it to reach. You can also watch its live connections in Resource Monitor under the Network tab. The full list of checks is on the trust page.',
+  },
+  {
+    q: 'Who builds streamerOS, and is the download safe?',
+    a: 'Yaseen Khatib, an independent developer, has been building it since May 2026. There is no public build yet — v1.0 launches in February 2027 — so any site offering a streamerOS installer today is not us. At launch the SHA-256 checksum of every installer will be published on the trust page so you can verify what you downloaded.',
   },
   {
     q: 'Is streamerOS related to other products called StreamerOS?',

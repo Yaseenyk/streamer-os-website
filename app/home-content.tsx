@@ -318,7 +318,7 @@ function Hero() {
               className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-zinc-300"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
-              Launching November 2026 · Windows
+              Launching February 2027 · Windows
             </motion.span>
 
             <motion.h1
@@ -333,9 +333,11 @@ function Hero() {
             </motion.h1>
 
             <motion.p variants={fadeUp} className="mt-6 max-w-xl text-lg text-zinc-400">
-              streamerOS is a Rust-powered desktop cockpit for Twitch &amp; YouTube
-              streamers. Automate your OBS scenes, read your chat&apos;s pulse, and
-              keep every frame for your game.
+              streamerOS is a Windows desktop app for Twitch &amp; YouTube streamers
+              — not an operating system — that runs alongside OBS Studio. Built in
+              Rust, it reads your chat on your own PC, scores its mood with local AI,
+              and switches your OBS scenes automatically while your game keeps the
+              rest of the machine.
             </motion.p>
 
             <motion.div variants={fadeUp} className="mt-8">

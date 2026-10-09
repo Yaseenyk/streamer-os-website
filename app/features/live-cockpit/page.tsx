@@ -892,7 +892,7 @@ export default function LiveCockpitGuidePage() {
               Run the whole stream from one screen.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              The Live Cockpit ships at launch in November 2026, running on your own
+              The Live Cockpit ships at launch in February 2027, running on your own
               PC. Free for 7 days, then $29 once.
             </p>
             <LaunchBadge className="mt-8" />

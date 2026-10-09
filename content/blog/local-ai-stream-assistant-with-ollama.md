@@ -6,7 +6,7 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Local AI", "Ollama", "Privacy"]
 ---
 
-> **Availability:** the local Ollama-backed [AI Sidekick](/features/ai-sidekick), including Creator Memory — facts you ask it to remember, kept on your own disk — ships in the **November 2026 launch build**.
+> **Availability:** the local Ollama-backed [AI Sidekick](/features/ai-sidekick), including Creator Memory — facts you ask it to remember, kept on your own disk — ships in the **February 2027 launch build**.
 
 If you've ever pasted your stream numbers into a chatbot to ask "was that a good night?", you already know the friction. You wait for a reply, you pay per token, and your data takes a trip to a server you'll never see. For something that's supposed to sit next to you while you go live, that's a lot of overhead.
 
@@ -16,7 +16,7 @@ There's a better way, and it runs entirely on the PC you already stream from. Le
 
 ## 🧠 What Is Ollama?
 
-**Ollama** is a free, open-source tool that runs large language models — the same kind of AI that powers cloud chatbots — directly on your own computer. You download a model once, and from then on it answers you locally. No internet connection required, no account, no per-message bill.
+**Ollama** is a separate free, open-source tool — not part of streamerOS, which is proprietary — that runs large language models — the same kind of AI that powers cloud chatbots — directly on your own computer. You download a model once, and from then on it answers you locally. No internet connection required, no account, no per-message bill.
 
 Think of it as installing the "brain" on your desk instead of renting time on a brain in a distant data center. You pick a model that fits your hardware, Ollama handles the messy parts, and you get a private AI that's yours.
 

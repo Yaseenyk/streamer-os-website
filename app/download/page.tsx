@@ -9,7 +9,7 @@ import InlineSignup from '@/components/InlineSignup';
 export const metadata: Metadata = {
   title: 'Download',
   description:
-    'Pre-register for streamerOS — the Rust-powered, local-first streaming cockpit for Windows, launching November 2026.',
+    'Pre-register for streamerOS — the Rust-powered, local-first streaming cockpit for Windows, launching February 2027.',
   alternates: { canonical: 'https://streamerosai.com/download' },
 };
 
@@ -25,7 +25,7 @@ const REQUIREMENTS = [
 const STEPS = [
   {
     title: 'Get the installer at launch',
-    body: 'When streamerOS ships this November, you’ll download a Windows installer that sets it up for your user account — no administrator prompt.',
+    body: 'When streamerOS ships in February 2027, you’ll download a Windows installer that sets it up for your user account — no administrator prompt.',
   },
   {
     title: 'Run the installer',
@@ -139,7 +139,7 @@ export default function DownloadPage() {
           <p className="text-center text-sm text-zinc-500">
             Curious what’s new? Read the{' '}
             <Link href="/changelog" className="text-cyan-400 hover:underline">
-              v1.0-GA release notes
+              v1.0 release notes
             </Link>
             .
           </p>

@@ -51,7 +51,7 @@ const FAQ_ITEMS: FaqEntry[] = [
   },
   {
     q: 'Can I turn a top-scoring recording into a Short inside streamerOS?',
-    a: 'Yes. Stage it from the Clip Library and it is copied into your workspace — the original recording stays untouched — ready for Shorts Factory, which crops a 16:9 moment to a vertical 9:16 .mp4 on your PC. Both ship in the November 2026 launch build.',
+    a: 'Yes. Stage it from the Clip Library and it is copied into your workspace — the original recording stays untouched — ready for Shorts Factory, which crops a 16:9 moment to a vertical 9:16 .mp4 on your PC. Both ship in the February 2027 launch build.',
   },
 ];
 

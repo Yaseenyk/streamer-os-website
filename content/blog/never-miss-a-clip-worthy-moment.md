@@ -6,7 +6,7 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Clipping", "Live", "Workflow"]
 ---
 
-> **Availability:** live hype-spike markers, CSV export to your editor, and cutting a marked moment into a vertical clip with [Shorts Factory](/features/shorts-factory) all ship in the **November 2026 launch build**.
+> **Availability:** live hype-spike markers, CSV export to your editor, and cutting a marked moment into a vertical clip with [Shorts Factory](/features/shorts-factory) all ship in the **February 2027 launch build**.
 
 It's the clutch 1v3. You're low HP, you thread the needle, and you clean up the whole squad. Chat detonates. Emotes, all-caps, "CLIP IT," the works.
 

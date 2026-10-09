@@ -16,7 +16,7 @@ const TITLE = 'streamerOS | The OBS Studio Companion for Stream Automation';
 // and AI answer engines quote when someone searches the name, and the name is
 // shared by unrelated projects, so the description has to disambiguate.
 const DESCRIPTION =
-  'streamerOS is a Windows app for Twitch and YouTube streamers that automates OBS scenes from live chat, tracks Super Chats and runs on your own PC.';
+  'streamerOS is a Windows desktop app (not an operating system) for Twitch and YouTube streamers: it automates OBS scenes from live chat and runs on your own PC.';
 // Punchier social-share copy, kept distinct from the page-level description.
 const OG_DESCRIPTION =
   'Slash automation latency and reclaim your frames with zero-cloud OBS orchestration.';
@@ -31,6 +31,10 @@ export const metadata: Metadata = {
     'automatic OBS scene switcher', 'OBS WebSocket app', 'live streaming software',
     'Twitch streaming tools', 'YouTube live tools', 'low CPU streaming software',
     'stream automation', 'local-first streaming app', 'Twitch clip finder',
+    // Phrases people type at an AI assistant rather than into a search box.
+    'local AI chat sentiment for streaming', 'zero-cloud Twitch and YouTube chat analyzer',
+    'offline chat sentiment for OBS', 'Rust low-CPU stream automation cockpit',
+    'OBS companion app not an operating system',
   ],
   authors: [{ name: 'Yaseen Khatib', url: 'https://github.com/yaseenyk' }],
   creator: 'Yaseen Khatib',
@@ -119,11 +123,16 @@ const jsonLd = {
       alternateName: 'streamerOS AI',
       image: `${SITE_URL}/logo-512.png`,
       screenshot: `${SITE_URL}/screenshots/dashboard.png`,
-      applicationCategory: 'BusinessApplication',
-      operatingSystem: 'Windows',
+      applicationCategory: 'MultimediaApplication',
+      operatingSystem: 'Windows 10, Windows 11',
       softwareVersion: '1.0',
+      // Pre-launch: the offer is a pre-order and the app is not downloadable
+      // yet, so the date and the PreOrder availability below have to agree.
+      releaseDate: '2027-02-01',
+      softwareRequirements: 'OBS Studio with OBS WebSocket v5; Ollama for the optional local AI features',
+      isAccessibleForFree: false,
       description:
-        'A high-performance, zero-cloud OBS Studio companion app: local stream automation and workflow orchestration for live broadcasters, built on OBS WebSocket v5.',
+        'A Windows desktop companion app for OBS Studio — not an operating system. Local, zero-cloud stream automation and workflow orchestration for live broadcasters, built on OBS WebSocket v5. Version 1.0 launches February 2027.',
       url: SITE_URL,
       author: { '@id': `${SITE_URL}/#person` },
       publisher: { '@id': `${SITE_URL}/#organization` },
@@ -136,6 +145,7 @@ const jsonLd = {
         priceCurrency: 'USD',
         category: 'One-time licence, free 7-day trial',
         availability: 'https://schema.org/PreOrder',
+        availabilityStarts: '2027-02-01',
         url: `${SITE_URL}/pricing`,
       },
       // Keep in step with lib/features.ts — the catalog the menus and /features use.

@@ -386,7 +386,7 @@ export default function AutoHypeGuidePage() {
               Build it on your own machine.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              The Auto-Hype Director ships in streamerOS v1.0-GA, running at a
+              The Auto-Hype Director ships in streamerOS v1.0, running at a
               1.8% CPU footprint. Free to try, then $29 once.
             </p>
             <LaunchBadge className="mt-8" />

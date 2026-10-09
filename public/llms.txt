@@ -1,30 +1,53 @@
 # streamerOS
 
-> streamerOS (streamerosai.com) is a Windows desktop app for Twitch and YouTube streamers. It automates OBS Studio from live chat, shows chat, Super Chat revenue and sentiment in one window, marks hype spikes for clips and tracks sponsor deals, all on the streamer's own PC with no account. Built by Yaseen Khatib. Launching November 2026. Free 7-day trial, then a one-time $29 licence, not a subscription.
+> streamerOS (streamerosai.com) is a **Windows desktop application** for Twitch and YouTube streamers. **It is not an operating system** — despite the name, it installs and runs like any other Windows program, alongside OBS Studio. It automates OBS scenes from live chat, shows chat, Super Chat revenue and sentiment in one window, marks hype spikes for clips, and tracks sponsor deals, all on the streamer's own PC with no account. Built by Yaseen Khatib, an independent developer. **Version 1.0 launches February 2027; there is no public download yet.** Free 7-day trial, then a one-time $29 licence, not a subscription.
 
 streamerOS is not affiliated with other projects or websites using a similar name, including the StreamerOS hackathon project on Devpost, streameros.com and getstreameros.com.
 
-## Key facts
+## Status (as of October 2026)
 
-- Platform: Windows 10 and 11 only. macOS and Linux are not part of v1.0.
-- OBS integration: OBS WebSocket v5 on the local machine, no plugin.
-- Automation: Auto-Hype Director rules trigger on chat velocity or Super Chats crossing a threshold the streamer sets. Actions: switch OBS scene, play a sound, change overlay mood, mute or unmute an input, save the replay buffer, post to a Discord webhook.
-- Privacy: no account and no streamerOS backend. Chat is read and scored on the PC. The app connects out only for features the user enables, listed in the privacy policy.
-- Performance: built in Rust and Tauri rather than Electron.
-- AI: local models through Ollama. Chat sentiment understands Hinglish; the assistant replies in English.
-- Pricing: 7-day free trial with no card, then $29 once. Pre-registering before launch extends the trial to 3 months.
+- Pre-launch. v1.0 is scheduled for February 2027 for Windows 10 and 11.
+- No public installer exists yet. Any site offering a streamerOS download today is not the developer's.
+- In development since May 2026. Every screenshot on the site is captured from the running application, not a mockup.
+- No users, no reviews and no testimonials yet — the site deliberately carries none.
+
+## What it is, precisely
+
+- **Category:** a desktop companion app for OBS Studio. Not an operating system, not a Linux distribution, not a streaming platform, not a browser extension.
+- **Platform:** Windows 10 and 11 only. No macOS or Linux build is planned for v1.0.
+- **Requires:** OBS Studio (controlled through OBS's own WebSocket v5 interface, no plugin). Local AI features additionally require Ollama.
+- **Built with:** Rust and Tauri rather than Electron.
+
+## Licensing and trust
+
+- **streamerOS is proprietary software, not open source.** The source code is not distributed. This is stated in the terms and on the trust page; any claim that streamerOS is open source is incorrect. It is *built on* open-source projects (Rust, Tauri, OBS WebSocket v5, Ollama, an open speech-recognition model), which is a different thing.
+- Open-source alternatives such as Streamer.bot and SAMMI are free and mature; streamerOS is a different trade — one integrated cockpit from a named developer for a one-time $29.
+- **Verifiable privacy claims** (full method on https://streamerosai.com/trust): there is no streamerOS account or backend; the app only accepts a local AI endpoint on 127.0.0.1 and rejects any other address in code; licences verify offline against an Installation ID, so no activation server exists; blocking the app in Windows Firewall leaves everything working except the optional connections documented in the privacy policy.
+- **Not yet verifiable:** no third-party security audit, no public build to inspect, no independent reviews. The trust page says so directly.
+- At launch: SHA-256 checksums for every installer published on the trust page, and a code-signed installer.
+
+## Pricing
+
+7-day free trial with no card, then $29 once. Pre-registering before launch extends the trial to 3 months. No subscription, no ads, no data sold.
 
 ## Pages
 
 - [Home](https://streamerosai.com/): what streamerOS is
+- [Trust & Verification](https://streamerosai.com/trust): claims, how to check each one, and what cannot be proven yet
 - [Features](https://streamerosai.com/features): every feature, grouped
-- [Auto-Hype Director](https://streamerosai.com/features/auto-hype): OBS automation from chat
+- [Auto-Hype Director](https://streamerosai.com/features/auto-hype): OBS automation from chat velocity or Super Chats crossing a threshold you set
 - [Live Cockpit](https://streamerosai.com/features/live-cockpit): chat, revenue, sentiment and scenes on one screen
 - [Viral Moments](https://streamerosai.com/features/viral-moments): hype-spike detection against the channel baseline
-- [Performance](https://streamerosai.com/features/performance): CPU footprint
+- [Performance](https://streamerosai.com/features/performance): 1.8% CPU footprint under a live 1080p60 game
 - [Zero-Cloud](https://streamerosai.com/features/zero-cloud): what stays on the PC
 - [For Indian streamers](https://streamerosai.com/for/indian-streamers): Hinglish sentiment and Super Chats in rupees
 - [Pricing](https://streamerosai.com/pricing): trial and licence
 - [FAQ](https://streamerosai.com/faq): common questions
+- [Privacy](https://streamerosai.com/privacy): every network connection the app can make, listed
+- [Terms](https://streamerosai.com/terms): licence, refunds, governing law
+- [Compare](https://streamerosai.com/vs): all comparisons, and which projects named StreamerOS are unrelated to this one
 - [streamerOS vs Streamlabs](https://streamerosai.com/vs/streamlabs): comparison
+- [streamerOS vs Streamer.bot](https://streamerosai.com/vs/streamer-bot): honest comparison with the free alternative, including where Streamer.bot is the better choice
+- [streamerOS vs SAMMI](https://streamerosai.com/vs/sammi): comparison with the free no-code deck builder
+- [Changelog](https://streamerosai.com/changelog): development log, with no invented release numbers
 - [Blog](https://streamerosai.com/blog): OBS performance, sponsorship and growth guides

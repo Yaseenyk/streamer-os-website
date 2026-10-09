@@ -40,7 +40,7 @@ export default async function BlogIndexPage() {
           className="mt-16"
           source="blog-index"
           heading="Get the tool these guides keep pointing at."
-          blurb="streamerOS automates your OBS scenes from live chat signals — locally, in 1.8% CPU, with no account and no cloud. Pre-register before the November 2026 launch and your trial is 3 months instead of 7 days."
+          blurb="streamerOS automates your OBS scenes from live chat signals — locally, in 1.8% CPU, with no account and no cloud. Pre-register before the February 2027 launch and your trial is 3 months instead of 7 days."
         />
       </Reveal>
     </main>

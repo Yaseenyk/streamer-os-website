@@ -6,7 +6,7 @@ author: "Yaseen Khatib"
 tags: ["Guides", "Clipping", "Content", "Growth"]
 ---
 
-> **Availability:** everything this article describes in streamerOS — hype-spike markers, the ranked Clip Library, and [Shorts Factory](/features/shorts-factory) for 16:9 to 9:16 cropping and export — ships in the **November 2026 launch build**.
+> **Availability:** everything this article describes in streamerOS — hype-spike markers, the ranked Clip Library, and [Shorts Factory](/features/shorts-factory) for 16:9 to 9:16 cropping and export — ships in the **February 2027 launch build**.
 
 Nobody discovers your channel by stumbling into hour four of a live stream. They find you because a 22-second clip of you clutching a 1v3 landed on their For You page at 11pm. Short-form video is, hands down, the number one way new viewers find streamers right now — and the best part is you're already producing the raw material. Every stream you finish is a VOD stuffed with clippable moments. The only thing standing between that VOD and a viral Short is a workflow.
 

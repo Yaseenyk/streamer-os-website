@@ -48,7 +48,7 @@ own — the trigger is always you.
 start](/features/zero-cloud): chat velocity and sentiment, [OBS scene automation
 driven by game telemetry](/features/auto-hype), and a [sponsor media
 kit](/features/media-kit) generated from your own exports. No account, no cloud,
-and a [1.8% CPU footprint](/features/performance) under a live 1080p60 game. Launching November 2026 — 7-day
+and a [1.8% CPU footprint](/features/performance) under a live 1080p60 game. Launching February 2027 — 7-day
 trial, then $29 once, no subscription.
 
 ## The test that separates them

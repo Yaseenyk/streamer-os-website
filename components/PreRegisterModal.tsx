@@ -78,7 +78,7 @@ export function LaunchBadge({ className = '' }: { className?: string }) {
       className={`inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-300 ${className}`}
     >
       <Rocket className="h-3.5 w-3.5 text-cyan-400" aria-hidden />
-      Launching November 2026
+      Launching February 2027
     </span>
   );
 }
@@ -142,7 +142,7 @@ export function PreRegisterModal({ isOpen, onClose }: { isOpen: boolean; onClose
               Secure Pre-Registration Access
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-slate-400">
-              streamerOS launches November 2026. Pre-register now and your trial is{' '}
+              streamerOS launches February 2027. Pre-register now and your trial is{' '}
               <strong className="text-cyan-300">3 months instead of 7 days</strong> — the
               whole cockpit, unlocked, on your own machine. One email, no card, and you
               get the build the day it ships.

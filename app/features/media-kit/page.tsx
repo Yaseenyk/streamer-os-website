@@ -297,9 +297,9 @@ export default function MediaKitGuidePage() {
               Pitch sponsors from your own machine.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              The Media Kit Generator is available now in streamerOS v1.0-GA —
-              import your exports, and a branded PDF is minutes away. Everything
-              runs locally.
+              The Media Kit Generator ships with streamerOS v1.0 in February
+              2027 — import your exports, and a branded PDF is minutes away.
+              Everything runs locally.
             </p>
             <LaunchBadge className="mt-8" />
             <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">

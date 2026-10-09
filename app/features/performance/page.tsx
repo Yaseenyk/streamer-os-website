@@ -264,7 +264,7 @@ export default function PerformanceGuidePage() {
               Light enough to forget it&rsquo;s running.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              streamerOS v1.0-GA is a full broadcast cockpit at a 1.8% CPU
+              streamerOS v1.0 is a full broadcast cockpit at a 1.8% CPU
               footprint. Free for 7 days, then $29 once.
             </p>
             <LaunchBadge className="mt-8" />

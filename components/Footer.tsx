@@ -36,6 +36,8 @@ const PRODUCT: FooterLink[] = [
 
 const COMPANY: FooterLink[] = [
   { label: 'About', href: '/about' },
+  { label: 'Trust & Verification', href: '/trust' },
+  { label: 'Compare', href: '/vs' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },
 ];

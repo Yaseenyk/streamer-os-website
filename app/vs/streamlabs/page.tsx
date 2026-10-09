@@ -228,7 +228,14 @@ export default function VsStreamlabsPage() {
 
           <Reveal delay={0.15}>
             <p className="mt-6 text-xs text-zinc-500">
-              streamerOS launches November 2026; rows describing it reflect v1.0 as
+              Also worth reading:{' '}
+              <Link href="/vs/streamer-bot" className="text-cyan-400 hover:underline">
+                streamerOS vs Streamer.bot
+              </Link>
+              , the free, more established automation toolkit.
+            </p>
+            <p className="mt-3 text-xs text-zinc-500">
+              streamerOS launches February 2027; rows describing it reflect v1.0 as
               built. Streamlabs rows describe its published product model and may
               change — check their site before deciding on price.
             </p>

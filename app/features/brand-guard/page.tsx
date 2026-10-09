@@ -67,7 +67,7 @@ const FAQ_ITEMS: FaqEntry[] = [
   },
   {
     q: 'Is Brand Guard included in the $29 licence?',
-    a: 'Yes. streamerOS is free for 7 days, then $29 once, and the licence includes Brand Guard. It is not an add-on or a separate tier. It ships at launch in November 2026.',
+    a: 'Yes. streamerOS is free for 7 days, then $29 once, and the licence includes Brand Guard. It is not an add-on or a separate tier. It ships at launch in February 2027.',
   },
 ];
 
@@ -401,7 +401,7 @@ export default function BrandGuardGuidePage() {
               Take the sponsor read with a second pair of ears.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              Brand Guard ships at launch in November 2026. Free for 7 days, then
+              Brand Guard ships at launch in February 2027. Free for 7 days, then
               $29 once — Brand Guard is included, and your voice is transcribed on
               your PC, not in the cloud.
             </p>
