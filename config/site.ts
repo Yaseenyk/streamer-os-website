@@ -10,6 +10,10 @@
 export const SITE_URL = 'https://streamerosai.com';
 
 export const siteConfig = {
+  /** Hosted interactive demo — the real streamerOS UI running on sample data in
+   *  the browser (static export of the app repo's `npm run build:demo`, no
+   *  backend, nothing connected). Opens in a new tab. Empty → demo CTAs hide. */
+  demoUrl: 'https://demo.streamerosai.com',
   /** Windows installer, once a signed release exists. Empty → CTAs fall back to
    *  pre-registration, which is the correct ask before the November launch. */
   downloadUrl: '',

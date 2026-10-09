@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowRight, ChevronDown, IndianRupee, Menu, X } from 'lucide-react';
+import { ArrowRight, ChevronDown, IndianRupee, Menu, Play, X } from 'lucide-react';
+import { siteConfig } from '@/config/site';
 import { SignalLogo } from '@/components/SignalLogo';
 import { usePreRegister } from '@/components/PreRegisterModal';
 import { FEATURE_COUNT, FOUNDATIONS, featuresByCategory } from '@/lib/features';
@@ -187,6 +188,19 @@ export default function Header() {
           </div>
 
           <div className="flex items-center gap-2">
+            {/* Live demo — opens the hosted sample-data build in a new tab. */}
+            {siteConfig.demoUrl && (
+              <a
+                href={siteConfig.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden items-center gap-1.5 rounded-lg border border-cyan-400/40 px-4 py-2 text-sm font-semibold text-cyan-300 transition-colors hover:bg-cyan-400/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 lg:inline-flex"
+              >
+                <Play className="h-3.5 w-3.5" aria-hidden />
+                Live demo
+              </a>
+            )}
+
             {/* Desktop CTA */}
             <button
               type="button"
@@ -321,6 +335,19 @@ export default function Header() {
                   {link.label}
                 </Link>
               ))}
+
+              {siteConfig.demoUrl && (
+                <a
+                  href={siteConfig.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={closeMenu}
+                  className="mt-4 inline-flex items-center justify-center gap-2 rounded-lg border border-cyan-400/40 px-4 py-3 text-sm font-semibold text-cyan-300 transition-colors hover:bg-cyan-400/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+                >
+                  <Play className="h-4 w-4" aria-hidden />
+                  Try the live demo
+                </a>
+              )}
 
               <button
                 type="button"

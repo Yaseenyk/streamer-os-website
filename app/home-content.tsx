@@ -16,7 +16,8 @@ import {
   useTransform,
   type Variants,
 } from 'framer-motion';
-import { ArrowRight, Gauge, ShieldCheck, Workflow } from 'lucide-react';
+import { ArrowRight, Gauge, Play, ShieldCheck, Workflow } from 'lucide-react';
+import { siteConfig } from '@/config/site';
 import Pricing from '@/components/Pricing';
 import InlineSignup from '@/components/InlineSignup';
 import { ProductShot } from '@/components/ProductShot';
@@ -339,6 +340,18 @@ function Hero() {
 
             <motion.div variants={fadeUp} className="mt-8">
               <InlineSignup variant="bare" source="hero" cta="Get 3 months free" className="text-left" />
+              {siteConfig.demoUrl && (
+                <a
+                  href={siteConfig.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-2 rounded-lg border border-cyan-400/40 bg-cyan-400/10 px-4 py-2.5 text-sm font-semibold text-cyan-300 transition-colors hover:bg-cyan-400/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+                >
+                  <Play className="h-4 w-4" aria-hidden />
+                  Try the live demo
+                  <span className="font-normal text-cyan-300/60">· sample data, runs in your browser</span>
+                </a>
+              )}
               <p className="mt-4 text-sm text-zinc-500">
                 Not ready yet?{' '}
                 <Link
