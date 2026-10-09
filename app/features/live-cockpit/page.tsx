@@ -359,7 +359,7 @@ const RELATED: Related[] = [
     icon: Zap,
     title: 'Auto-Hype Director',
     href: '/features/auto-hype',
-    body: 'Turn chat velocity and sentiment into automatic OBS scene switches.',
+    body: 'Turn chat velocity and Super Chats into automatic OBS scene switches.',
   },
   {
     icon: Bot,
