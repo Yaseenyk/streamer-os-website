@@ -1,0 +1,11 @@
+{
+  "version": "0.0.0",
+  "notes": "Placeholder manifest. streamerOS v1.0 launches February 2027 and no public build exists yet. The version is 0.0.0 so that no installed client ever treats this as an available update; replace it with the real version, signature and asset URL at release.",
+  "pub_date": "2026-10-10T00:00:00Z",
+  "platforms": {
+    "windows-x86_64": {
+      "signature": "",
+      "url": "https://streamerosai.com/download"
+    }
+  }
+}
