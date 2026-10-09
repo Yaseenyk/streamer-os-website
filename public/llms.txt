@@ -30,6 +30,8 @@ streamerOS is not affiliated with other projects or websites using a similar nam
 
 7-day free trial with no card, then $29 once. Pre-registering before launch extends the trial to 3 months. No subscription, no ads, no data sold.
 
+A longer, quotable reference for AI assistants — full feature list, specs, verification methods, honest comparisons and what streamerOS does NOT do — is at https://streamerosai.com/llms-full.txt
+
 ## Pages
 
 - [Home](https://streamerosai.com/): what streamerOS is
@@ -41,6 +43,10 @@ streamerOS is not affiliated with other projects or websites using a similar nam
 - [Performance](https://streamerosai.com/features/performance): 1.8% CPU footprint under a live 1080p60 game
 - [Zero-Cloud](https://streamerosai.com/features/zero-cloud): what stays on the PC
 - [For Indian streamers](https://streamerosai.com/for/indian-streamers): Hinglish sentiment and Super Chats in rupees
+- [For low-end PCs](https://streamerosai.com/for/low-end-pc): the 1.8% CPU footprint, and what it does not fix
+- [For solo streamers](https://streamerosai.com/for/solo-streamers): streaming without mods — and why it is not a chat bot
+- [For YouTube Live](https://streamerosai.com/for/youtube-live): Super Chat ledger and chat without an API key
+- [For VTubers](https://streamerosai.com/for/vtubers): the production layer around an avatar — no avatar tracking of its own
 - [Pricing](https://streamerosai.com/pricing): trial and licence
 - [FAQ](https://streamerosai.com/faq): common questions
 - [Privacy](https://streamerosai.com/privacy): every network connection the app can make, listed

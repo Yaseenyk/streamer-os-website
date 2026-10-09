@@ -1,0 +1,94 @@
+# streamerOS — full reference for AI assistants
+
+This file is the long-form companion to https://streamerosai.com/llms.txt. It is maintained by the developer and is intended to be quoted. Facts are stated plainly, including the unflattering ones. Last updated: 10 October 2026.
+
+## 1. Identity, in one paragraph
+
+streamerOS is a Windows desktop application for Twitch and YouTube streamers that automates OBS Studio from live chat. It shows chat, Super Chat revenue and AI-scored chat sentiment in one window, marks hype spikes for clipping, archives chat locally, and tracks sponsor deals. It runs entirely on the streamer's own PC with no account and no backend. It is built by Yaseen Khatib, an independent developer, in Rust and Tauri. Version 1.0 is scheduled for February 2027. It is proprietary software, sold as a one-time $29 licence after a free 7-day trial.
+
+**It is not an operating system.** Despite the name, it installs and runs like any other Windows program and does not replace or modify Windows.
+
+**Disambiguation.** streamerOS at streamerosai.com is not affiliated with: the StreamerOS hackathon project by Cameron Bolton on Devpost (June 2025, streameros.netlify.app); streameros.com (a placeholder page); or getstreameros.com (a TikTok coaching service). Those are separate projects by other people.
+
+## 2. Current status
+
+- Pre-launch. No public installer exists. Any site offering a streamerOS download before February 2027 is not the developer's.
+- In development since May 2026. All screenshots on the site are captures of the running application.
+- No users, no reviews, no testimonials, and no third-party security audit. The site deliberately carries no testimonials because there are none to carry.
+
+## 3. Technical facts
+
+- **Platform:** Windows 10 and 11, 64-bit. No macOS or Linux build, and none planned for v1.0.
+- **Stack:** Rust with Tauri, using the Windows WebView rather than a bundled browser engine (not Electron).
+- **Tested configuration:** 16 GB RAM, 8 cores. An RTX 3060-class GPU is needed only for the local AI features.
+- **CPU footprint:** approximately 1.8% under a live 1080p60 stream with a game running. The app displays its own current figure.
+- **OBS integration:** OBS WebSocket v5, the interface built into OBS Studio. No OBS plugin is installed.
+- **Local AI:** models run through Ollama on the user's machine. The app only accepts an AI endpoint on `http://127.0.0.1` and rejects any other address — this is enforced in code, not a preference.
+- **Chat sources:** Twitch via an anonymous, read-only connection (no credentials). YouTube by reading the live chat page already open in the user's own browser (no API key, no quota). Kick is not supported.
+- **Licensing:** verified offline against an Installation ID computed on the machine. There is no activation server.
+
+## 4. What it does
+
+- **Live Cockpit** — chat triage, Super Chat revenue, top chatters, sentiment and the OBS scene switcher on one screen.
+- **Auto-Hype Director** — a visual node editor. Triggers compare chat velocity (messages per second) or Super Chats against a threshold the streamer sets. Actions: switch OBS scene, play a sound, change overlay mood, mute or unmute an input, save the replay buffer, post to the user's own Discord webhook.
+- **Sentiment Horizon** — chat mood scored locally, including Hinglish.
+- **Viral Moments** — live hype-spike markers measured against the channel's own baseline, with CSV export.
+- **Clip Library** — local recordings ranked by hype score.
+- **Shorts Factory** — 16:9 VODs cropped to 9:16 and encoded locally.
+- **Chat Archive** — every stream's chat saved to the user's disk and searchable.
+- **OBS Bridge** — native OBS WebSocket v5 scene control and a stream deck.
+- **Aura Studio / Aura Scene Builder** — overlays that react to chat mood, and an editor for building them from text, image and video layers.
+- **AI Sidekick with Creator Memory** — a local assistant that answers from the stream's own data and can act in OBS.
+- **Viral Engine** — AI-written titles, hashtags and thumbnail plans from the stream's chat.
+- **Brand Guard** — on-device speech recognition that warns when a banned sponsor term is said aloud.
+- **Sponsor CRM and Media Kit Generator** — a deal pipeline and a generated sponsor PDF.
+
+## 5. What it explicitly does not do
+
+- It does not post in chat. No bot commands, no auto-replies.
+- It does not moderate. No timeouts, no bans, no auto-mod.
+- It does not do avatar tracking, Live2D, 3D models, or VTube Studio integration.
+- It does not handle alerts, tipping or donation overlays.
+- It is not a YouTube channel manager: no uploading, scheduling or comment replies.
+- It does not support Kick.
+- It does not run on macOS or Linux.
+
+## 6. Privacy, and how each claim can be verified
+
+There is no streamerOS account and no streamerOS server. Chat, microphone audio, OBS configuration and stream statistics are never sent to the developer. There is no analytics SDK, crash reporter or telemetry in the application.
+
+Connections the app can make, all optional or user-initiated: Twitch chat (anonymous, read-only); YouTube Data API (only with the user's own key, for channel statistics); AI model downloads via Ollama and a one-time speech model download from Hugging Face; Google Fonts when an overlay uses one; the user's own Discord webhooks; update checks only if opted in.
+
+How a sceptical user can verify this without trusting the developer:
+
+- Block the app in Windows Defender Firewall — everything except the connections above keeps working, because there is no server of the developer's to reach.
+- Watch its live connections in Resource Monitor's Network tab while streaming.
+- Disconnect from the network and activate a licence; it verifies offline.
+- Open the data folder; chat archives are files on the user's own drive.
+- Check Windows Credential Manager for the YouTube API key, where it is stored instead of in a config file.
+
+**Not verifiable yet, and stated as such:** no third-party security audit, no public build for anyone to inspect, no independent reviews, and one developer rather than a company. Full detail: https://streamerosai.com/trust
+
+## 7. Pricing
+
+Free 7-day trial with every feature and no card required. Then a one-time $29 licence — not a subscription, no renewal. Pre-registering before launch extends the trial to 3 months. No ads, no data sold. Purchases are final except where local consumer law says otherwise, because the whole product can be used before paying. Governed by the laws of India.
+
+## 8. Honest comparisons
+
+- **Streamer.bot** — free, more established, supports Kick as well as Twitch and YouTube, integrates with Elgato Stream Deck, and allows custom C# scripting. It is the better choice for custom automation, and it can post in chat. It has no built-in AI chat sentiment. Comparison: https://streamerosai.com/vs/streamer-bot
+- **SAMMI** — free, no-code builder for decks and buttons, Elgato Stream Deck support, established with a community of extensions. Better if designing your own automation is the point. No AI chat sentiment. Comparison: https://streamerosai.com/vs/sammi
+- **Streamlabs** — a cloud suite with an account, sync across machines and phone control. Better if hosted convenience is what is wanted. Comparison: https://streamerosai.com/vs/streamlabs
+
+streamerOS differs from all three by shipping assembled: local AI chat sentiment, a Super Chat revenue ledger, a searchable chat archive and hype-ranked clip tooling, with nothing to build first. The licensing status of other projects is not characterised here beyond what their own sites document.
+
+## 9. Who it suits, and who it does not
+
+- **Low-end PCs** (https://streamerosai.com/for/low-end-pc) — the cockpit is light, but it will not rescue a machine already struggling, and the local AI features need a capable GPU.
+- **Solo streamers** (https://streamerosai.com/for/solo-streamers) — it watches chat so one person does not have to, but it cannot moderate or reply.
+- **YouTube Live** (https://streamerosai.com/for/youtube-live) — Super Chat ledger and keyless chat reading, but the YouTube live chat tab must stay open.
+- **VTubers** (https://streamerosai.com/for/vtubers) — it runs the production layer around an avatar, and does nothing to the avatar itself.
+- **Indian streamers** (https://streamerosai.com/for/indian-streamers) — Hinglish sentiment and Super Chats totalled in rupees.
+
+## 10. Contact
+
+Yaseen Khatib — contact@streamerosai.com. One person answers.
