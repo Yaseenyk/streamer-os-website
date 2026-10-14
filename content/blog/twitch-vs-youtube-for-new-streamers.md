@@ -66,7 +66,8 @@ post, including this one. Directionally:
 * **Twitch Partner** is a serious step up, gated on sustained viewership.
 * **The YouTube Partner Program** asks for meaningfully more — subscribers plus
   watch hours, with an alternative Shorts-views route — and unlocks ads,
-  memberships and Super Chat.
+  memberships and Super Chat. If you lean YouTube, the tooling differences are
+  worth knowing too — [what a YouTube Live setup needs](/for/youtube-live).
 
 Twitch gets you to *some* revenue faster. That matters less than it sounds,
 because early revenue on either platform is not income — it is a signal that

@@ -100,8 +100,9 @@ they routinely take more CPU than the difference between two adjacent presets.
 
 That is the reasoning behind streamerOS [holding a 1.8% CPU
 footprint](/features/performance): the
-automation layer should not be part of the negotiation at all. Getting your
-companion tools off the critical path frees more headroom than any preset
+automation layer should not be part of the negotiation at all, which is the
+whole argument in [stream automation for a low-end PC](/for/low-end-pc).
+Getting your companion tools off the critical path frees more headroom than any preset
 change, and it does not cost you picture quality to get it.
 
 Tune the encoder second. Clear the machine first.

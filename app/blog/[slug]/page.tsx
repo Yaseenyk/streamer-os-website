@@ -271,6 +271,30 @@ export default async function BlogPostPage({ params }: { params: PageParams }) {
         />
       </Reveal>
 
+      {/* Search lands almost entirely on these posts, and they are the pages
+          Google has actually indexed — so this is where the marketing pages get
+          their internal links from. It also answers the three things a reader
+          who just met the product asks next: what it costs, whether the privacy
+          claims hold up, and what the free alternatives are. */}
+      <Reveal>
+        <p className="mt-6 text-center text-sm leading-relaxed text-zinc-500">
+          streamerOS is a Windows desktop app for Twitch and YouTube streamers,
+          launching February 2027 —{' '}
+          <Link href="/pricing" className="text-cyan-400 underline-offset-2 hover:underline">
+            what it costs
+          </Link>
+          ,{' '}
+          <Link href="/trust" className="text-cyan-400 underline-offset-2 hover:underline">
+            how to verify the privacy claims yourself
+          </Link>
+          , and{' '}
+          <Link href="/vs" className="text-cyan-400 underline-offset-2 hover:underline">
+            how it compares to the free alternatives
+          </Link>
+          .
+        </p>
+      </Reveal>
+
       {related.length > 0 && (
         <Reveal>
           <section className="mt-16 border-t border-white/10 pt-10">

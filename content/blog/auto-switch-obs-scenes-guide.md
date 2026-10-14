@@ -29,7 +29,8 @@ Anything your PC can observe:
 
 The first two are what most tools mean by scene automation. The chat-driven ones
 are the interesting ones, because they react to your *audience* rather than to
-your machine.
+your machine — which means something has to be reading chat in the first place,
+and [showing you what it sees](/features/live-cockpit).
 
 ## The approaches, briefly
 

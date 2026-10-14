@@ -92,7 +92,10 @@ feature and you should keep it.
 ## Frequently Asked Questions
 
 **Is there a Streamlabs alternative that does not require an account?**
-Yes — OBS Studio itself, Streamer.bot, and streamerOS all run without one.
+Yes — OBS Studio itself, Streamer.bot, and streamerOS all run without one. There
+is a feature-by-feature breakdown in
+[streamerOS vs Streamlabs](/vs/streamlabs), including where Streamlabs is the
+better choice.
 
 **Do local tools work offline?**
 The automation does, because the logic runs on your machine. Your actual stream

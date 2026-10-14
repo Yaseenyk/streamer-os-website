@@ -119,6 +119,7 @@ companion tool you have running. If your chat overlay, alert system and
 automation tools are collectively taking meaningful CPU, you will feel that far
 more than an encoder tuning checkbox — which is exactly why streamerOS is [built
 to hold a 1.8% CPU footprint](/features/performance) and stay out of the
-negotiation entirely.
+negotiation entirely. What that does and does not fix on a modest machine is
+spelled out in [stream automation for a low-end PC](/for/low-end-pc).
 
 Tune the encoder second. Get everything else off the critical path first.

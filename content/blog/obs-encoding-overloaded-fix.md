@@ -128,7 +128,9 @@ look harmless in Task Manager can add up to more CPU than OBS itself — and
 unlike the encoder, none of it is doing work your viewers can see. A companion
 app that [holds a 1.8% CPU footprint](/features/performance) leaves that
 headroom where the encoder needs it. There is more on measuring that in
-[Best OBS Settings for Low-CPU Streaming](/blog/best-obs-settings-for-low-cpu-streaming).
+[Best OBS Settings for Low-CPU Streaming](/blog/best-obs-settings-for-low-cpu-streaming),
+and on the honest limits of a light companion app in
+[stream automation for a low-end PC](/for/low-end-pc).
 
 ## What will not fix it
 

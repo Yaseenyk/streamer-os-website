@@ -70,7 +70,9 @@ you are looking at.
 
 Once connected, the automation possibilities are the interesting part: scene
 switches driven by what is happening on your stream rather than by you reaching
-for a hotkey. streamerOS [uses this exact connection](/features/obs-bridge) — it
+for a hotkey. streamerOS [uses this exact connection](/features/obs-bridge) — the
+[installation guide](/docs/installation) covers the OBS side in the same order as
+above — it
 discovers OBS on the machine, connects over v5, and drives [scene changes from
 chat velocity](/features/auto-hype) and game
 telemetry, all locally, with no cloud in the path.
