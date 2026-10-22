@@ -1,5 +1,5 @@
 export interface ShotSource {
-  /** Path under /public, e.g. "/screenshots/dashboard.png" */
+  /** Path under /public, e.g. "/screenshots/dashboard.webp" */
   src: string;
   width: number;
   height: number;

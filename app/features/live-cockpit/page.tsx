@@ -451,7 +451,7 @@ export default function LiveCockpitGuidePage() {
       </section>
 
       <Screenshot
-        src="/screenshots/dashboard.png"
+        src="/screenshots/dashboard.webp"
         alt="The streamerOS Dashboard mid-stream, with the command center, Chat Triage, Stream Revenue, Top Chatters, Sentiment Horizon and the OBS Scene Switcher side by side"
         caption="The cockpit, mid-stream"
         width={SHOTS.dashboard.width}

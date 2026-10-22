@@ -243,7 +243,7 @@ export default function PerformanceGuidePage() {
 
 
       <Screenshot
-        src="/screenshots/dashboard.png"
+        src="/screenshots/dashboard.webp"
         alt="The streamerOS cockpit under a live stream, with its CPU and RAM cost shown in the status bar"
         caption="The whole cockpit, live — cost in the status bar"
       />

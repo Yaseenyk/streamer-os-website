@@ -217,7 +217,7 @@ export default function ClipLibraryGuidePage() {
       </section>
 
 <Screenshot
-        src="/screenshots/clip-library.png"
+        src="/screenshots/clip-library.webp"
         alt="The streamerOS Clip Library listing local recordings ranked by hype score, with chat-velocity peaks and event counts per clip"
         caption="Ranked by what chat actually did"
       />

@@ -341,7 +341,7 @@ export default function ViralEngineGuidePage() {
       </section>
 
       <Screenshot
-        src="/screenshots/viral-engine.png"
+        src="/screenshots/viral-engine.webp"
         alt="The Viral Engine showing three AI-written YouTube title suggestions and a hashtag cloud generated from the live game and chat"
         caption="Titles and hashtags from your own chat"
       />

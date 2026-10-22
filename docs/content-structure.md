@@ -71,7 +71,7 @@ Cross-cutting promises (not features): `/features/performance`,
 | `/pricing` | Tiers, business-model comparison, caveats, FAQ |
 | `/vs/streamlabs` | Comparison page |
 | `/download` | Pre-registration, system requirements, install steps |
-| `/playbook`, `/blog`, `/blog/[slug]` | Content (39 posts in `content/blog/`) |
+| `/playbook`, `/blog`, `/blog/[slug]` | Content (30 posts in `content/blog/`; merged posts kept in `content/blog-archive/`, their URLs redirected in `scripts/emit-redirects.mjs`) |
 | `/docs`, `/docs/installation` | Docs hub (MDX) |
 | `/faq`, `/changelog`, `/about`, `/contact` | Support and company |
 | `/privacy`, `/terms` | Legal |
@@ -82,7 +82,7 @@ Cross-cutting promises (not features): `/features/performance`,
 | --- | --- |
 | `components/Header.tsx`, `Footer.tsx` | Navigation, both driven by `lib/features.ts` |
 | `components/Pricing.tsx` | The tier cards, rendered on `/` and `/pricing` |
-| `components/Screenshot.tsx`, `ScreenshotStrip.tsx` | Real app captures; **skip files that do not exist yet** (server components) |
+| `components/Screenshot.tsx`, `ScreenshotStrip.tsx` | Real app captures; **skip files that do not exist yet** (server components). Pages serve the `.webp` copies in `public/screenshots/`; regenerate them with sharp when a PNG changes |
 | `components/ProductShot.tsx` | Renders a capture unconditionally — only for PNGs that exist |
 | `lib/shots.ts` | Every capture slot with alt text; slots awaiting a capture are marked |
 | `components/FeatureFaq.tsx` | FAQ accordion + FAQPage JSON-LD per page |

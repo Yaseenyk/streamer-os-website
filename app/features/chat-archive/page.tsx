@@ -336,7 +336,7 @@ export default function ChatArchiveGuidePage() {
       </section>
 
       <Screenshot
-        src="/screenshots/chat-archive.png"
+        src="/screenshots/chat-archive.webp"
         alt="The streamerOS Chat Archive with a list of past streams and a search across saved chat, held locally on the PC"
         caption="Your chat history, on your disk"
         width={SHOTS.chatArchive.width}

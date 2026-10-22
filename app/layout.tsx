@@ -91,6 +91,7 @@ const jsonLd = {
       '@id': `${SITE_URL}/#organization`,
       name: 'streamerOS',
       alternateName: 'streamerOS AI',
+      description: 'Maker of streamerOS, a Windows desktop companion app for OBS Studio that automates scenes from live chat.',
       url: SITE_URL,
       // A square mark, not the 1200x630 share card — Google shows the logo in a
       // square slot and ignores wide images there.
@@ -133,6 +134,9 @@ const jsonLd = {
       isAccessibleForFree: false,
       description:
         'A Windows desktop companion app for OBS Studio — not an operating system. Local, zero-cloud stream automation and workflow orchestration for live broadcasters, built on OBS WebSocket v5. Version 1.0 launches February 2027.',
+      // Same audience, similar name: keep search engines from merging the entities.
+      disambiguatingDescription:
+        'streamerOS (streamerosai.com) is an OBS Studio companion app. It is not the StreamOS overlay pack or any other product named StreamOS.',
       url: SITE_URL,
       author: { '@id': `${SITE_URL}/#person` },
       publisher: { '@id': `${SITE_URL}/#organization` },

@@ -315,7 +315,7 @@ export default function ViralMomentsGuidePage() {
       </section>
 
       <Screenshot
-        src="/screenshots/viral-moments.png"
+        src="/screenshots/viral-moments.webp"
         alt="The velocity monitor marking a hype spike as it happens"
         caption="A spike, marked live"
       />

@@ -346,7 +346,7 @@ export default function AiSidekickGuidePage() {
       </section>
 
       <Screenshot
-        src="/screenshots/ai-sidekick.png"
+        src="/screenshots/ai-sidekick.webp"
         alt="The streamerOS AI Sidekick chat panel answering a question about the current stream using live stats"
         caption="An assistant that knows your stream"
       />

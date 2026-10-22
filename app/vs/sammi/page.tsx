@@ -11,7 +11,7 @@ import { breadcrumbJsonLd, faqPageJsonLd, type FaqEntry } from '@/lib/seo';
 // licence claim about someone else's project is exactly the kind of error that
 // costs a reader's trust in everything else on the page.
 export const metadata: Metadata = {
-  title: 'streamerOS vs SAMMI',
+  title: { absolute: 'SAMMI Alternative: streamerOS vs SAMMI Compared' },
   description:
     'SAMMI is a free, no-code stream automation toolkit you build decks and ' +
     'buttons with. streamerOS is a paid, ready-made cockpit with local AI chat ' +
@@ -133,7 +133,7 @@ export default function VsSammiPage() {
         <div aria-hidden className="pointer-events-none absolute left-1/2 top-0 h-[320px] w-[720px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[130px]" />
         <div className="relative mx-auto max-w-3xl px-6 py-24 text-center sm:py-28">
           <Reveal>
-            <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">Compare</p>
+            <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">SAMMI alternative</p>
           </Reveal>
           <Reveal delay={0.08}>
             <h1 className="mt-3 text-balance text-4xl font-semibold tracking-tight sm:text-5xl">

@@ -365,7 +365,7 @@ export default function AutoHypeGuidePage() {
       </section>
 
       <Screenshot
-        src="/screenshots/auto-director.png"
+        src="/screenshots/auto-director.webp"
         alt="The Auto-Hype Director node canvas wiring a chat trigger to an OBS scene"
         caption="Trigger, logic, action — no scripting"
       />

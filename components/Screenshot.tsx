@@ -22,7 +22,7 @@ export function Screenshot({
   width = 1600,
   height = 900,
 }: {
-  /** Path under /public, e.g. "/screenshots/dashboard.png" */
+  /** Path under /public, e.g. "/screenshots/dashboard.webp" */
   src: string;
   alt: string;
   caption?: string;

@@ -249,7 +249,7 @@ export default function SponsorCrmGuidePage() {
       </section>
 
       <Screenshot
-        src="/screenshots/sponsor-crm.png"
+        src="/screenshots/sponsor-crm.webp"
         alt="The Sponsor CRM pipeline board with leads across prospect, contacted, negotiating and won stages"
         caption="Every deal, every stage, on your machine"
       />

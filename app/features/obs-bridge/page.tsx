@@ -370,7 +370,7 @@ export default function ObsBridgeGuidePage() {
 
 
       <Screenshot
-        src="/screenshots/obs-bridge.png"
+        src="/screenshots/obs-bridge.webp"
         alt="The streamerOS OBS Bridge connected over WebSocket v5, with a five-scene stream deck and the live scene highlighted"
         caption="Connected locally, no cloud"
       />

@@ -223,7 +223,7 @@ export default function ZeroCloudGuidePage() {
       </section>
 
 <Screenshot
-        src="/screenshots/chat-archive.png"
+        src="/screenshots/chat-archive.webp"
         alt="The streamerOS Chat Archive searching saved stream chat held locally on the machine"
         caption="Your chat history, on your disk"
       />

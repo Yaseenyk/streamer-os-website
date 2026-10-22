@@ -377,7 +377,7 @@ export default function AuraStudioGuidePage() {
       </section>
 
       <Screenshot
-        src="/screenshots/aura.png"
+        src="/screenshots/aura.webp"
         alt="The Aura engine shifting the overlay with the state of the game"
         caption="The room reacts to the game"
       />

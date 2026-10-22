@@ -276,7 +276,7 @@ export default function MediaKitGuidePage() {
       </section>
 
       <Screenshot
-        src="/screenshots/media-kit.png"
+        src="/screenshots/media-kit.webp"
         alt="The media kit generator building a branded PDF from local CSV exports"
         caption="Your numbers, sponsor-ready"
       />

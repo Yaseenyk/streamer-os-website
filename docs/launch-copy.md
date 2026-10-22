@@ -1,4 +1,9 @@
-# Launch copy — November 2026
+# Launch copy — February 2027
+
+> **Updated 2026-10-22:** launch moved to February 2027, and a hosted live demo
+> is at https://demo.streamerosai.com. Copy below that still says November or
+> "next month" needs the date changed before it is sent. Section 6 is new: the
+> directory listings and off-site footprint the 2026-10-22 SEO audit found missing.
 
 Drafts for the channels that can actually reach people before launch. SEO
 cannot: the domain is DR 0 and sits at position 23, and that is a 2027 asset.
@@ -160,7 +165,7 @@ Ten people as of 2026-09-09. That list is the launch, so email it properly.
 > months** rather than the seven-day trial. No card, nothing to claim — the key
 > arrives with the download.
 >
-> What ships: OBS scene automation from chat and game telemetry, live sentiment,
+> What ships: OBS scene automation from chat velocity and Super Chats, live sentiment,
 > automatic hype-spike markers, and a sponsor media kit built from your own
 > exports. All on your machine, no account.
 >
@@ -181,3 +186,164 @@ the three-month key. Nothing else.
    visual feeds; a desktop cockpit with no picture does not convert.
 3. **A delivery mechanism for the three-month key**, which is now promised on
    36 pages.
+
+---
+
+## 6. Directory listings and off-site footprint
+
+The 2026-10-22 audit found **no third-party mention of streamerOS anywhere** —
+no directory, no Reddit thread, no video. For queries like "Streamer.bot
+alternative" the only pages that rank are directories, so a listing there is
+both a link and a ranking. Do these before any pitching; they take minutes.
+
+**Naming rule for every listing:** always "streamerOS — OBS companion app",
+lower-case s, capital OS. "StreamOS" is a different product (an overlay pack sold
+to the same audience by Nerd or Die); never let a listing drift to that spelling.
+
+### Shared facts (copy from here, keep them identical everywhere)
+
+| Field | Value |
+|---|---|
+| Name | streamerOS |
+| Website | https://streamerosai.com |
+| Live demo | https://demo.streamerosai.com (sample data, runs in the browser) |
+| Platform | Windows 10 / 11 (64-bit), with OBS Studio 28+ |
+| Price | Free 7-day trial, then $29 once. No subscription. |
+| Launch | February 2027 (pre-registration open now) |
+| Licence | Proprietary, closed source |
+| Maker | Yaseen Khatib — https://yaseenkhatib.streamerosai.com/ |
+| Categories / tags | OBS, live streaming, stream automation, Twitch, YouTube Live, scene switcher, local AI, privacy |
+
+**One line (≤ 80 chars):**
+> Local OBS companion that switches scenes when your chat erupts. No cloud.
+
+**Short (≤ 250 chars):**
+> streamerOS is a Windows companion app for OBS Studio. It reads your Twitch or
+> YouTube chat on your own PC, switches OBS scenes when chat velocity or a Super
+> Chat crosses your threshold, and marks clip-worthy moments. No account, no cloud.
+
+**Long:**
+> streamerOS runs next to OBS Studio and takes the jobs you cannot do while
+> playing: watching chat, switching scenes and remembering where the good moments
+> were.
+>
+> - **Auto-Hype Director** — a rule editor that switches OBS scenes, plays sounds
+>   or saves the replay buffer when chat velocity or a Super Chat amount crosses
+>   a threshold you set.
+> - **Viral Moments** — timestamps every chat spike while you are live and exports
+>   the markers to CSV for your editor.
+> - **Live Cockpit** — chat triage, Super Chat totals, top chatters and a local AI
+>   read on chat sentiment on one screen.
+> - **Local AI Sidekick** — answers from your own stream data using Ollama on your PC.
+>
+> Everything runs locally: no account, no backend, and chat never leaves your
+> machine. Rust core, about 1.8% CPU under a live 1080p60 game. Windows only;
+> it reads chat but never posts to it. Free 7-day trial, then $29 once.
+
+**Screenshots to upload:** the PNG originals in `public/screenshots/` —
+`dashboard.png`, `clip-library.png`, `viral-moments.png`, `obs-bridge.png`,
+`sponsor-crm.png` — not the WebP copies the site serves.
+
+### Where to list, in order
+
+| # | Where | What to do | Notes |
+|---|---|---|---|
+| 1 | AlternativeTo — alternativeto.net | Add the app, then use "Suggest alternative" on the Streamer.bot, Firebot, Mix It Up and Advanced Scene Switcher pages | Ranks for "Streamer.bot alternative". Mark it Paid, Windows. |
+| 2 | SaaSHub — saashub.com | Submit; it auto-builds "vs" pages | Add Streamer.bot, Streamlabs, Lumia Stream as alternatives |
+| 3 | SourceForge — sourceforge.net (software directory, not a project) | Add the product listing | The same backend feeds Slashdot's "Top Streamer.bot Alternatives" page |
+| 4 | BetaList — betalist.com | Submit as pre-launch | Fits now: a trial plus a public demo |
+| 5 | OBS forum — Resources → Tools | One resource page for streamerOS | Rules below — read them first |
+| 6 | Product Hunt | Launch day only (February 2027) | Section 1 has the copy |
+| 7 | itch.io | Optional: paid desktop tools are accepted; SAMMI distributes there | |
+
+### OBS forum resource — rules that get it rejected if missed
+
+From the forum's resource and IP policy:
+
+- streamerOS is **not a plugin**; it is a standalone app talking over
+  obs-websocket. Submit it under **Tools**, not Plugins.
+- The description must describe the tool, not advertise it. Use the long copy
+  above minus the selling adjectives, and state the price plainly.
+- **Disclose AI use** in code or art. Descriptions written mostly by an LLM are
+  discouraged — rewrite the copy in your own words before posting.
+- **Do not imply affiliation with OBS.** No OBS logo; say "for OBS Studio",
+  never "OBS streamerOS".
+- Never post builds or links inside other people's discussion threads; the
+  resource page is the one place for that.
+
+### GitHub (the streamerOS repo stays private)
+
+The private repo cannot help search, but a **public profile README** can, and it
+fixes the empty profile Google currently sees for the builder.
+
+1. Create a public repo named exactly `Yaseenyk` (same as the username).
+2. Add this `README.md`:
+
+```markdown
+### Yaseen Khatib
+
+I build **[streamerOS](https://streamerosai.com)** — a Windows companion app for
+OBS Studio that switches scenes from live chat, marks clip-worthy moments and runs
+a local AI sidekick, all on your own PC. [Try the live demo](https://demo.streamerosai.com).
+
+Senior full-stack and AI engineer. Writing: [streamerosai.com/blog](https://streamerosai.com/blog) ·
+Portfolio: [yaseenkhatib.streamerosai.com](https://yaseenkhatib.streamerosai.com/)
+```
+
+3. Set the profile bio to "Building streamerOS — OBS companion app" and the
+   website field to https://streamerosai.com.
+4. Optional, high value: a small **public** repo such as an OBS WebSocket v5
+   connection tester. It is a real link from GitHub, it fits the "obs websocket
+   not connecting" query, and it shows the work behind the guides.
+
+Once the profile exists, set `githubUrl` in `config/site.ts` to
+`https://github.com/Yaseenyk` so the Organization `sameAs` picks it up.
+
+### Pitch for inclusion in roundups
+
+Indie-run lists that already feature Streamer.bot, SAMMI or Mix It Up and were
+updated in 2026:
+
+| Page | Contact |
+|---|---|
+| betterstreams.tv/blog/streaming-tool-stack | site contact (indie builder) |
+| twoaveragegamers.com/the-complete-ai-tool-stack-for-twitch-streamers-2026/ | contact page |
+| streamscheme.com/best-twitch-bots/ | streamscheme.com/contact/ |
+| gyre.pro/blog/best-chatbot-to-use-for-streaming | support bot |
+| onestream.live/blog/best-obs-plugins-every-streamer-should-use/ | contact page |
+
+Template — short, specific, no attachments:
+
+> Subject: A local-AI entry for your [page title]
+>
+> Hi [name], I read your [page title] — the [specific section] is the clearest
+> comparison of Streamer.bot and Mix It Up I have found.
+>
+> I build streamerOS, a Windows companion app for OBS that switches scenes from
+> chat velocity and Super Chats and runs its AI on the streamer's own PC (Ollama),
+> so nothing goes to a cloud. It might fit your [automation / AI] section as the
+> local-first option. There is a live demo you can try in the browser:
+> https://demo.streamerosai.com
+>
+> Happy to answer anything, or send a licence if you want to test it. No pressure
+> either way.
+>
+> Yaseen
+
+Send one a day, personalised. A bulk send to all five on one morning is the
+pattern editors delete.
+
+### Answering on the OBS forum and Reddit
+
+The guides already answer what people ask there. Answer **in the reply**, link a
+guide only when the full answer is longer than a comment, and say you wrote it.
+Starting points:
+
+- OBS forum: "Psycho visual tuning and look-ahead options nowhere to be found"
+  (thread 131057) — the OBS 31 rename to "Adaptive Quantization" answers it.
+  Check the thread is still open before replying; do not revive a dead one.
+- New r/obs threads about adaptive quantization, encoding overloaded or
+  automatic scene switching. Search inside Reddit; they do not surface in web
+  search.
+- r/LocalLLaMA: a build write-up on running a local LLM next to a live game
+  (GPU budget, model size) is on-topic there and links naturally.

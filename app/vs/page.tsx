@@ -12,7 +12,7 @@ import { breadcrumbJsonLd, faqPageJsonLd, type FaqEntry } from '@/lib/seo';
 // about public pages — never a swipe at another project, which would read as
 // insecurity and would be the wrong thing to do anyway.
 export const metadata: Metadata = {
-  title: 'Compare streamerOS',
+  title: { absolute: 'Streamer.bot, SAMMI & Streamlabs Alternatives Compared' },
   description:
     'How streamerOS compares with Streamlabs, Streamer.bot and SAMMI — ' +
     'including where the free alternatives are the better choice — and which ' +
