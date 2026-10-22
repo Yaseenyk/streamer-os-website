@@ -23,10 +23,9 @@ import { breadcrumbJsonLd, type FaqEntry } from '@/lib/seo';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
-  title: 'Sponsor CRM — Feature Guide',
+  title: 'Sponsor Tracker for Streamers — Sponsorship CRM',
   description:
-    'A lead pipeline built for creators — track every sponsor conversation ' +
-    'from first DM to signed deal, stored locally on your own machine.',
+    'Track every brand deal from first DM to paid: a sponsorship pipeline for Twitch and YouTube streamers with deal values, stages and notes, stored on your own PC.',
   alternates: { canonical: 'https://streamerosai.com/features/sponsor-crm' },
 };
 
@@ -43,6 +42,18 @@ const FAQ_ITEMS: FaqEntry[] = [
   {
     q: 'Is the Sponsor CRM included, or an add-on?',
     a: 'Included. The $29 licence unlocks every feature permanently — the Sponsor CRM is not a separate purchase, an add-on, or a higher tier. The free 7-day trial includes it too, with nothing held back.',
+  },
+  {
+    q: 'Why not just track sponsors in a spreadsheet?',
+    a: "A spreadsheet works until you have more than a handful of conversations. A pipeline board shows every deal's stage at a glance, keeps the value and notes on the card, and makes the deal that has gone quiet obvious, which is where most small-creator sponsorship money is lost.",
+  },
+  {
+    q: 'What stages does the pipeline have?',
+    a: 'Prospect, contacted, negotiating, won and lost. Each lead carries the brand, your contact, an estimated deal value and free-form notes on the conversation.',
+  },
+  {
+    q: 'Does it work with the Media Kit Generator?',
+    a: 'Yes, they are built to be used together. The Media Kit Generator turns your YouTube Studio and Twitch analytics exports into a sponsor-ready PDF to send, and the Sponsor CRM tracks the conversation that follows.',
   },
 ];
 
@@ -349,6 +360,32 @@ export default function SponsorCrmGuidePage() {
             }
           />
         </div>
+      </section>
+
+      <section className="mx-auto max-w-3xl px-6 pb-4">
+        <h2 className="text-xl font-semibold tracking-tight">Related guides</h2>
+        <ul className="mt-4 space-y-2 text-zinc-400">
+            <li>
+              <Link href="/blog/sponsors-for-small-streamers" className="text-cyan-400 underline-offset-2 hover:underline">
+                Sponsors for small streamers: get them at 20 viewers
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog/how-much-to-charge-for-stream-sponsorships" className="text-cyan-400 underline-offset-2 hover:underline">
+                How much to charge for a stream sponsorship
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog/how-to-track-sponsor-deals-as-a-streamer" className="text-cyan-400 underline-offset-2 hover:underline">
+                How to track sponsor deals as a streamer
+              </Link>
+            </li>
+            <li>
+              <Link href="/features/media-kit" className="text-cyan-400 underline-offset-2 hover:underline">
+                Media Kit Generator
+              </Link>
+            </li>
+        </ul>
       </section>
 
       <FeatureFaq items={FAQ_ITEMS} />

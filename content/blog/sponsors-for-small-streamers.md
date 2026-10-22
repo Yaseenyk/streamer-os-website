@@ -68,6 +68,19 @@ Instead:
   are frequently unaware streaming sponsorship exists and have no fixed price
   expectations.
 
+Three channels bring those brands to you, and it pays to work all three:
+
+* **Creator networks and agencies** pitch brands on your behalf in exchange for a
+  cut. Deal flow without doing the outreach yourself.
+* **Sponsor marketplaces** let you list your channel and apply to campaigns that
+  are already funded — often the fastest route to a *first* paid deal.
+* **Direct outreach** has the highest ceiling: a short, specific email to whoever
+  runs influencer or partnership marketing at a brand you already use.
+
+**How many followers do you need?** There is no threshold. A few hundred engaged
+viewers who match a brand's niche are worth more to that brand than a larger,
+passive audience.
+
 ## What to send
 
 Short. Brands read the first three lines and decide.
@@ -97,6 +110,9 @@ does not work that way at the bottom. Two anchors:
   clips the brand can reuse, plus a Discord post, plus a month of a panel link.
   That bundle is worth real money to a brand that would otherwise commission the
   clips themselves.
+
+For the CPM maths and a worked package price, see [how much to charge for a
+stream sponsorship](/blog/how-much-to-charge-for-stream-sponsorships).
 
 Never quote a number you would resent delivering. The first deal sets the
 anchor for every renewal.

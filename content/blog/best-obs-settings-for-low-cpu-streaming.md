@@ -90,6 +90,12 @@ Hardware encoder (NVENC/AV1), output resolution of **720p**, **Bilinear** downsc
 ### Should I use 30 or 60 FPS to save CPU?
 If your content isn't fast-paced action, **30 FPS** roughly halves render and encode load for a barely noticeable visual difference. Reserve 60 FPS for competitive shooters and racing where motion clarity matters.
 
+### Is 720p60 or 1080p30 better for streaming on a low-end PC?
+It depends on the game. Fast-motion games (shooters, platformers) look better at 720p60 because smooth motion reads as quality. Slower games (strategy, Just Chatting) benefit from the detail of 1080p30. Both are lighter than 1080p60.
+
+### Why does my game stutter only when I'm streaming?
+Streaming adds encoding and tool overhead on top of the game, all on one PC. Switch to hardware encoding, close background apps, and audit your stream tools — a heavy cloud or Electron overlay can quietly take the CPU and RAM your game was relying on.
+
 ### My OBS settings are perfect but I still drop frames — why?
 Something else on your PC is stealing CPU. Chat bots, overlays, and dashboards built as heavyweight web apps can quietly consume the headroom OBS needs. Swap them for local-first, [low-footprint tools](/features/performance).
 

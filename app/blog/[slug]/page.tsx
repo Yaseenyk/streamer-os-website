@@ -63,6 +63,7 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
       url,
       siteName: 'streamerOS',
       publishedTime: meta.date,
+      modifiedTime: meta.updated ?? meta.date,
       authors: [meta.author],
       tags: meta.tags,
       images: [{ url: image, width: 1200, height: 630, alt: meta.title }],
@@ -178,7 +179,7 @@ export default async function BlogPostPage({ params }: { params: PageParams }) {
   const related = getRelatedPosts(meta, await getAllPostMeta());
   const [bodyStart, bodyRest] = splitAtMiddleHeading(content);
 
-  const formattedDate = new Date(meta.date).toLocaleDateString('en-US', {
+  const formattedDate = new Date(meta.updated ?? meta.date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -191,7 +192,7 @@ export default async function BlogPostPage({ params }: { params: PageParams }) {
     headline: meta.title,
     description: meta.description,
     datePublished: meta.date,
-    dateModified: meta.date,
+    dateModified: meta.updated ?? meta.date,
     author: { '@type': 'Person', name: meta.author },
     keywords: meta.tags.join(', '),
     image: `${SITE_URL}${meta.image ?? DEFAULT_OG}`,
@@ -226,7 +227,7 @@ export default async function BlogPostPage({ params }: { params: PageParams }) {
           </Reveal>
           <Reveal delay={0.16}>
             <p className="mt-4 text-sm text-zinc-400">
-              By {meta.author} · {formattedDate}
+              By {meta.author} · {meta.updated ? 'Updated ' : ''}{formattedDate}
             </p>
           </Reveal>
         </header>

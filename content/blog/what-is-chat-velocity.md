@@ -2,9 +2,12 @@
 title: "What Is Chat Velocity? The Clip-Worthy Metric"
 description: "How fast your chat moves is the clearest live signal of a hype moment. What it measures, and how to use it to catch clips as they happen."
 date: "2026-07-06"
+updated: "2026-10-22"
 author: "Yaseen Khatib"
 tags: ["Guides", "Analytics", "Engagement", "Clipping"]
 ---
+
+**Chat velocity is how many chat messages arrive per second or per minute.** A sudden spike well above your stream's normal pace is the most reliable live sign that something clip-worthy just happened, because it reacts before viewer counts or follows do.
 
 If you've ever finished a stream, opened the VOD, and thought *"I know something great happened around the two-hour mark, but I can't find it"* — this post is for you. There's a single number that would have flagged that moment as it happened, and it's probably already scrolling right in front of you.
 
@@ -19,7 +22,7 @@ Chat velocity is simply **how fast your chat is moving** — the number of messa
 - **Messages per second (MPS)** — best for catching sharp, sudden reactions.
 - **Messages per minute (MPM)** — a smoother read of overall room energy.
 
-That's the whole idea. It's not sentiment, it's not who's talking, it's not how many people are watching. It's pure *pace*. When your chat goes from a comfortable trickle of a few messages a minute to a wall of text you can't read, your velocity just spiked — and that spike is data.
+That's the whole idea. It's not [sentiment](/blog/how-to-read-chat-sentiment-in-real-time), it's not who's talking, it's not how many people are watching. It's pure *pace*. When your chat goes from a comfortable trickle of a few messages a minute to a wall of text you can't read, your velocity just spiked — and that spike is data.
 
 Think of it like a tachometer for your community. Viewer count tells you how many people are in the car; chat velocity tells you how hard they're pushing the pedal.
 

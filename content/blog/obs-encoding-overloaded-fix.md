@@ -133,6 +133,13 @@ headroom where the encoder needs it. There is more on measuring that in
 and on the honest limits of a light companion app in
 [stream automation for a low-end PC](/for/low-end-pc).
 
+### Turn off the preview while you play
+
+OBS draws a scaled copy of your canvas in its own window. That is a second
+composition pass the stream does not need. Right-click the preview and choose
+**Disable Preview** during heavy games; it frees GPU time for rendering, which
+helps when the counter that is climbing is *missed frames due to rendering lag*.
+
 ## What will not fix it
 
 To save you the forum threads:

@@ -21,9 +21,9 @@ Anything your PC can observe:
   process state is unambiguous.
 * **Window focus.** You alt-tab to a browser → cut away from the capture, so
   your viewers never see your inbox.
-* **Chat velocity.** Messages per second jumping past your normal pace → cut to
+* **[Chat velocity](/blog/what-is-chat-velocity).** Messages per second jumping past your normal pace → cut to
   a reaction or facecam scene, because something just happened.
-* **Chat sentiment.** The mood of the room turning, which often precedes the
+* **[Chat sentiment](/blog/how-to-read-chat-sentiment-in-real-time).** The mood of the room turning, which often precedes the
   velocity spike.
 * **Time.** Starting soon → live, after a countdown.
 
@@ -39,7 +39,8 @@ the Automatic Scene Switcher. Free, local, and limited to window-based rules.
 
 **A scripting tool like Streamer.bot.** Local and extremely capable — you build
 the logic in its action system. Worth learning if automation is the point for
-you; steep if you just want a couple of rules.
+you; steep if you just want a couple of rules. There is a side-by-side in
+[streamerOS vs Streamer.bot](/vs/streamer-bot), and one for [SAMMI](/vs/sammi).
 
 **A tool that watches the stream.** Rather than you defining every rule, it
 monitors chat and telemetry and fires on conditions. This is what streamerOS's

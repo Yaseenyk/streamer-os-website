@@ -11,6 +11,8 @@ export interface PostMeta {
   title: string;
   description: string;
   date: string;
+  /** Set when a post is substantively revised; drives dateModified and sitemap lastmod. */
+  updated?: string;
   author: string;
   tags: string[];
   /** Optional per-post social card, e.g. "/blog-og/chat-velocity.png". Falls
@@ -38,6 +40,7 @@ export async function getPostBySlug(slug: string): Promise<Post> {
       title: data.title,
       description: data.description,
       date: data.date,
+      updated: data.updated,
       author: data.author,
       tags: data.tags ?? [],
       image: data.image,

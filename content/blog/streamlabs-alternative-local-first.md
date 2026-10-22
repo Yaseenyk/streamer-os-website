@@ -38,7 +38,7 @@ automation yourself.
 **Streamer.bot.** Local, Windows-native, deeply capable. It is the tool to reach
 for if you want granular control and are willing to build your logic in its
 action system. Steep to learn, and worth it if automation is the whole point for
-you.
+you. ([How it compares to streamerOS](/vs/streamer-bot).)
 
 **Touch Portal / Stream Deck.** Local control surfaces. Excellent at "press
 button, do thing", and not designed to *watch* your stream and react on their

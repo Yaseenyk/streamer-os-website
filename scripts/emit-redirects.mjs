@@ -32,6 +32,19 @@ export const BLOG_REDIRECTS = {
   'configure-streameros-workspace-exports-and-vod-folders': 'streaming-workspace-folder-setup',
   'setting-up-your-live-cockpit': 'streaming-workspace-folder-setup',
   'install-streameros-on-windows-and-go-live-ready-in-minutes': 'streaming-workspace-folder-setup',
+  // 2026-10-22: Search Console had these as "crawled, not indexed" - each
+  // overlapped an indexed post, so the unique parts were folded into it.
+  // Sources are kept in content/blog-archive/.
+  'how-to-stream-on-a-low-end-pc': 'best-obs-settings-for-low-cpu-streaming',
+  'how-to-optimize-obs-performance': 'obs-encoding-overloaded-fix',
+  'reactive-stream-overlays-that-react-to-hype': 'make-obs-overlays-react-to-chat-hype-automatically',
+  'under-the-hood-node-animations': 'make-obs-overlays-react-to-chat-hype-automatically',
+  'control-obs-scenes-without-alt-tabbing': 'obs-websocket-setup-guide',
+  'local-ai-stream-assistant-with-ollama': 'run-ollama-on-windows-guide',
+  'never-miss-a-clip-worthy-moment': 'auto-clip-twitch-highlights',
+  'serialization-adapter-payload-reduction': 'obs-automation-on-a-low-end-pc',
+  'understanding-stream-telemetry': 'what-is-chat-velocity',
+  'how-to-get-your-first-twitch-sponsorship': 'sponsors-for-small-streamers',
 };
 
 let written = 0;

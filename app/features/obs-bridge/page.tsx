@@ -22,11 +22,9 @@ import { Screenshot } from '@/components/Screenshot';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
-  title: 'OBS Bridge — Feature Guide',
+  title: 'Control OBS Scenes From Another App — OBS WebSocket Bridge',
   description:
-    'streamerOS auto-discovers OBS over WebSocket, loads your scenes, and ' +
-    'switches the program feed from the cockpit — no fragile plugins, no ' +
-    'alt-tabbing.',
+    'Switch OBS scenes without alt-tabbing: streamerOS connects to OBS Studio 28+ over the built-in WebSocket v5 server on your PC, syncs your scenes and cuts the program feed. No plugin.',
   alternates: { canonical: 'https://streamerosai.com/features/obs-bridge' },
 };
 
@@ -47,6 +45,18 @@ const FAQ_ITEMS: FaqEntry[] = [
   {
     q: 'Does the OBS connection ever leave my machine?',
     a: 'No. streamerOS is zero-cloud by architecture: the OBS WebSocket link is a localhost connection between two apps on your PC. Your scene data and control commands never touch the internet.',
+  },
+  {
+    q: 'What do I need to enable in OBS?',
+    a: 'OBS Studio 28 or later. Open Tools, then WebSocket Server Settings, and tick Enable WebSocket server. The default port is 4455. If authentication is on, copy the password from Show Connect Info into the OBS Bridge connection form.',
+  },
+  {
+    q: 'OBS WebSocket is refusing the connection. What should I check?',
+    a: 'Confirm the WebSocket server is enabled, that OBS is version 28 or later, that the password matches Show Connect Info exactly, and that you are using host 127.0.0.1 with the port OBS shows. Allow local communication if Windows Firewall asks.',
+  },
+  {
+    q: 'Does it stay in sync if I change scenes in OBS directly?',
+    a: 'Yes. The live-scene highlight follows OBS, so switching in OBS, from a Stream Deck or from streamerOS all show the same program scene.',
   },
 ];
 
@@ -364,6 +374,32 @@ export default function ObsBridgeGuidePage() {
         alt="The streamerOS OBS Bridge connected over WebSocket v5, with a five-scene stream deck and the live scene highlighted"
         caption="Connected locally, no cloud"
       />
+
+      <section className="mx-auto max-w-3xl px-6 pb-4">
+        <h2 className="text-xl font-semibold tracking-tight">Related guides</h2>
+        <ul className="mt-4 space-y-2 text-zinc-400">
+            <li>
+              <Link href="/blog/obs-websocket-setup-guide" className="text-cyan-400 underline-offset-2 hover:underline">
+                OBS WebSocket setup guide
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog/auto-switch-obs-scenes-guide" className="text-cyan-400 underline-offset-2 hover:underline">
+                How to auto-switch OBS scenes without scripting
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog/optimizing-desktop-ipc-obs-websocket-latency" className="text-cyan-400 underline-offset-2 hover:underline">
+                Why scene switches feel instant, not laggy
+              </Link>
+            </li>
+            <li>
+              <Link href="/features/auto-hype" className="text-cyan-400 underline-offset-2 hover:underline">
+                Auto-Hype Director
+              </Link>
+            </li>
+        </ul>
+      </section>
 
       <FeatureFaq items={FAQ_ITEMS} />
 

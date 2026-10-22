@@ -23,7 +23,7 @@ A media kit is not a design contest. It's a fast, honest snapshot that answers a
 - **Watch time** — total hours watched, the clearest proof that people *stay*.
 - **Engagement** — chat activity, returning viewers, community energy — the stuff follower counts hide.
 - **Platform mix** — where you stream (Twitch, YouTube, or both) and how your audience splits.
-- **Contact** — a business email and your rates or "let's talk." Make it stupidly easy to say yes.
+- **Contact** — a business email and your rates ([how to set them](/blog/how-much-to-charge-for-stream-sponsorships)) or "let's talk." Make it stupidly easy to say yes.
 
 That's it. Everything else is decoration.
 

@@ -23,10 +23,9 @@ import { Screenshot } from '@/components/Screenshot';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
-  title: 'Viral Moments — Feature Guide',
+  title: 'Auto-Mark Stream Highlights From Chat — Viral Moments',
   description:
-    'streamerOS watches your chat velocity live, auto-marks every hype spike, ' +
-    'and exports the timestamps to CSV — so no clip-worthy moment is ever lost.',
+    'Catch clip-worthy moments while you are live: streamerOS measures chat velocity against your stream’s own baseline, timestamps every hype spike and exports the markers to CSV.',
   alternates: { canonical: 'https://streamerosai.com/features/viral-moments' },
 };
 
@@ -320,6 +319,32 @@ export default function ViralMomentsGuidePage() {
         alt="The velocity monitor marking a hype spike as it happens"
         caption="A spike, marked live"
       />
+
+      <section className="mx-auto max-w-3xl px-6 pb-4">
+        <h2 className="text-xl font-semibold tracking-tight">Related guides</h2>
+        <ul className="mt-4 space-y-2 text-zinc-400">
+            <li>
+              <Link href="/blog/what-is-chat-velocity" className="text-cyan-400 underline-offset-2 hover:underline">
+                What is chat velocity?
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog/auto-clip-twitch-highlights" className="text-cyan-400 underline-offset-2 hover:underline">
+                How to auto-clip Twitch highlights without watching the VOD
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog/find-best-clips-in-your-vods-automatically" className="text-cyan-400 underline-offset-2 hover:underline">
+                Find the best clips in your VODs automatically
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog/turn-twitch-vods-into-shorts-and-tiktoks" className="text-cyan-400 underline-offset-2 hover:underline">
+                Turn Twitch VODs into Shorts and TikToks
+              </Link>
+            </li>
+        </ul>
+      </section>
 
       <FeatureFaq items={FAQ_ITEMS} />
 

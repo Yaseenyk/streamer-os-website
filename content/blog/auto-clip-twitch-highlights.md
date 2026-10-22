@@ -37,7 +37,7 @@ audience thought to capture.
 **A hotkey and discipline.** Works for calm content, fails for exactly the
 moments worth catching, because those are the ones where your hands are busy.
 
-**Automatic marking from chat velocity.** A tool watches the message rate, and
+**Automatic marking from [chat velocity](/blog/what-is-chat-velocity).** A tool watches the message rate, and
 when it spikes past your baseline it records a timestamp. You do nothing. At the
 end of the stream you have a list of moments with times attached.
 

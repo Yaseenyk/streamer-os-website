@@ -2,9 +2,12 @@
 title: "How to Read Chat Sentiment in Real Time"
 description: "Your chat's mood shifts before the numbers do. What real-time sentiment analysis shows you, and how to see the room turn while it matters."
 date: "2026-07-06"
+updated: "2026-10-22"
 author: "Yaseen Khatib"
 tags: ["Guides", "Analytics", "Engagement", "Local AI"]
 ---
+
+**To read chat sentiment in real time, score each message as positive, negative or neutral as it arrives, then watch the rolling average over the last minute or two.** A falling line tells you the room is turning minutes before your viewer count drops, while you can still change segment.
 
 Every streamer learns to watch the viewer count. It's the wrong number to watch.
 

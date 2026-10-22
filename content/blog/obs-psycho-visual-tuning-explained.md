@@ -1,10 +1,22 @@
 ---
-title: "OBS Psycho Visual Tuning, Look-ahead and Adaptive Quantization: On or Off?"
-description: "Psycho Visual Tuning is on by default and quietly costs GPU headroom. What it, Look-ahead and Adaptive Quantization each do, when to turn them off, why the checkbox is sometimes missing, and the 5-minute test that settles it."
+title: "OBS Psycho Visual Tuning & Adaptive Quantization: On or Off? (+ Look-ahead)"
+description: "Leave them on unless your GPU is maxed out. What Psycho Visual Tuning (renamed Adaptive Quantization in OBS 31) and Look-ahead do, when to turn them off, and a 5-minute test."
 date: "2026-09-09"
+updated: "2026-10-22"
 author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Optimization", "Performance"]
 ---
+
+**Short answer: leave Psycho Visual Tuning on, and leave Look-ahead on, unless
+your GPU is the bottleneck.** If the game drops frames only while you stream,
+turn Look-ahead off first, then Psycho Visual Tuning. In OBS 31 and newer, Psycho
+Visual Tuning is the checkbox labelled **Adaptive Quantization**. It is the same
+setting under a new name.
+
+| Setting | Leave on when | Turn off when |
+|---|---|---|
+| Psycho Visual Tuning / Adaptive Quantization | GPU has headroom, fast-motion games | GPU is maxed out |
+| Look-ahead | GPU has headroom, frequent scene cuts | GPU is maxed out, or you need the lowest latency |
 
 If you have opened OBS's output settings and wondered what **Psycho Visual
 Tuning** is, you are in good company. It is checked by default on NVENC, it has
@@ -41,23 +53,23 @@ The result at a fixed bitrate is a stream that **looks** better in motion — th
 usual visible win is less mush during fast camera movement — without using any
 more bandwidth.
 
-## Look-ahead and Adaptive Quantization: the two settings underneath
+## Adaptive Quantization vs Look-ahead: the two checkboxes
 
-Psycho Visual Tuning is really a switch for two separate NVENC features, and
-OBS exposes one of them on its own. Knowing which is which makes the decision
-cleaner.
+OBS shows two checkboxes next to each other on NVENC, and they do different
+jobs. Knowing which is which makes the decision cleaner.
 
 **Adaptive Quantization (AQ).** This is the per-region bit allocation described
 above. The encoder compresses flat, static or dark areas harder and spends the
-saved bits on edges, text and faces. In OBS it does not have its own checkbox:
-**Psycho Visual Tuning on means AQ on.** It is the cheaper of the two and the
+saved bits on edges, text and faces. **This is the Psycho Visual Tuning
+checkbox.** OBS 31 renamed it to *Adaptive Quantization*, and its tooltip says
+"formerly known as Psycho-Visual Tuning". It is the cheaper of the two and the
 one that produces most of the visible gain, which is why the usual answer to
 "adaptive quantization on or off" is *on* unless the GPU is already struggling.
 
-**Look-ahead.** A separate checkbox next to Psycho Visual Tuning. The encoder
+**Look-ahead.** A separate checkbox next to it. The encoder
 buffers a handful of upcoming frames and inspects them before deciding how to
 spend bits on the current one, so it can hold back bits ahead of a cut or a
-burst of motion. It also lets the encoder insert B-frames adaptively. The gain
+burst of motion. The gain
 is real on content with sudden changes, but it is the more expensive of the two
 and it adds a few frames of encoding latency. On a GPU-bound machine Look-ahead
 is the first thing to switch off; Psycho Visual Tuning can usually stay.
@@ -111,14 +123,16 @@ Turn it off if any of these are true:
 ## Where to find it
 
 In OBS: **Settings → Output → Output Mode: Advanced → Streaming tab**, with an
-NVIDIA NVENC encoder selected. Depending on your OBS and driver version it
-appears as a **Psycho Visual Tuning** checkbox, or is folded into a preset and
-tuning dropdown on newer builds.
+NVIDIA NVENC encoder selected. On OBS 30 and older the checkbox reads **Psycho
+Visual Tuning**. On OBS 31 and newer it reads **Adaptive Quantization**, next to
+**Look-ahead**.
 
 ### Psycho Visual Tuning not showing? Check these
 
 If the checkbox is missing, it is nearly always one of these:
 
+* **You are on OBS 31 or newer.** It was renamed. Look for **Adaptive
+  Quantization** instead.
 * **Output Mode is Simple.** The simple panel hides every encoder option.
   Switch to **Advanced** at the top of the Output tab.
 * **The encoder is not NVENC.** x264, AMD AMF and Intel QuickSync do not have
@@ -126,9 +140,6 @@ If the checkbox is missing, it is nearly always one of these:
   dropdowns.
 * **You are looking at the Recording tab.** It is a per-encoder option, so it
   only appears once an NVENC encoder is selected on the tab you are editing.
-* **A newer OBS build folded it into the Tuning or Preset dropdown.** The
-  underlying trade is the same; pick a quality-leaning tuning for the same
-  effect, or a latency-leaning one to get the GPU time back.
 
 ## How to decide, in ten minutes
 
@@ -162,3 +173,27 @@ negotiation entirely. What that does and does not fix on a modest machine is
 spelled out in [stream automation for a low-end PC](/for/low-end-pc).
 
 Tune the encoder second. Get everything else off the critical path first.
+
+## Frequently Asked Questions
+
+**Should Psycho Visual Tuning be on or off in OBS?**
+On, unless your GPU is maxed out. It improves how motion looks at the same
+bitrate, and the GPU cost on a modern NVIDIA card is small.
+
+**Should adaptive quantization be on or off in OBS?**
+On, for the same reason. In OBS 31 and newer, Adaptive Quantization is the same
+checkbox that used to be called Psycho Visual Tuning.
+
+**Should Look-ahead be on or off?**
+On if the GPU has headroom. It is the more expensive of the two and adds a few
+frames of latency, so it is the first one to turn off when the game drops frames
+while streaming.
+
+**Why can't I find Psycho Visual Tuning in OBS?**
+Either you are on OBS 31 or newer, where it is called Adaptive Quantization, or
+the Output tab is in Simple mode, or the selected encoder is not NVENC.
+
+**Does Psycho Visual Tuning affect CPU usage?**
+No. It runs on the NVENC encoder on your graphics card. If CPU is the problem,
+look at [the OBS CPU usage preset](/blog/obs-cpu-usage-preset-explained) and
+the other tools running alongside OBS.

@@ -2,11 +2,14 @@
 title: "How Much to Charge for a Stream Sponsorship"
 description: "A clear framework for pricing brand deals: the CPM maths, what moves your rate, and how to back your number with real audience data."
 date: "2026-07-06"
+updated: "2026-10-22"
 author: "Yaseen Khatib"
 tags: ["Guides", "Sponsorships", "Monetization", "Business"]
 ---
 
-So a brand slid into your inbox. Great. Then comes the question that makes every streamer's stomach drop: **"What are your rates?"**
+**Short answer:** price on average concurrent viewers, not followers. A common anchor is **$25–$45 per 1,000 average viewers for a dedicated 60-second read**, and less for a chat or panel mention. Then bundle several streams and charge separately for clips, codes and exclusivity. The worked example below turns that into a real number.
+
+So a brand slid into your inbox. Then comes the question that makes every streamer's stomach drop: **"What are your rates?"**
 
 Charge too little and you leave money on the table and signal that you're an amateur. Charge too much with nothing to back it up and the conversation ends. The good news is that sponsorship pricing isn't a dark art — it's mostly arithmetic plus a few honest multipliers. Let's build your number from the ground up.
 
@@ -26,18 +29,23 @@ That's the skeleton. Everything else is deciding what your CPM should be and wha
 
 ### A simple worked example
 
-Say your streams pull an **average of 400 concurrent viewers**. A brand wants a **60-second sponsored segment** where you talk about their product mid-stream.
+Say your streams average **400 concurrent viewers**, and a brand wants a
+**60-second dedicated segment in each of four streams**, plus a panel link and a
+pinned chat message for the month.
 
-- Average viewers: 400 → that's **0.4** thousand-viewer units
-- You set a CPM of **$25** for a dedicated read
-- **Base fee = 0.4 × $25 = $10?**
+| Deliverable | Rate (per 1,000 avg viewers) | Per stream | × 4 streams |
+|---|---|---|---|
+| Dedicated 60-second segment | $25–$45 | $10–$18 | $40–$72 |
+| Panel link + pinned message | $5–$15 | $2–$6 | $8–$24 |
+| **Base package** | | | **$48–$96** |
 
-Wait — that math feels wrong, and it *is* the trap streamers fall into. A single mid-stream read isn't one impression per viewer; it's a live, repeated, personality-driven placement. In practice streamers price a **flat deliverable fee** anchored to CPM but scaled for the format. A more realistic read for that same channel:
+Then add anything that is not live airtime: a clip cut for the brand's socials,
+a discount code you track, or exclusivity. Each is its own line, which is how a
+$50 base becomes a $150–$250 campaign.
 
-- Dedicated 60-second segment CPM: **$25–$45 per 1,000 avg viewers**
-- 400 avg viewers × ($25 to $45) ÷ 1,000... then multiplied by the number of natural impressions across the stream (you'll mention it, put it on a panel, pin it in chat).
-
-The takeaway: use CPM as your **anchor**, then package deliverables around it rather than pricing a single sentence in isolation.
+The lesson: price **packages across several streams**, anchored to CPM. A single
+read priced on its own looks tiny at small sizes and undersells what the brand
+is actually getting.
 
 ---
 
