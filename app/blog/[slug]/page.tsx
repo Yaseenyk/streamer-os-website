@@ -235,7 +235,7 @@ export default async function BlogPostPage({ params }: { params: PageParams }) {
             <p className="mt-4 text-sm text-zinc-400">
               By{' '}
               {meta.author === BUILDER.name ? (
-                <Link href="/about" className="text-zinc-300 underline-offset-2 hover:underline">
+                <Link href="/about" className="text-zinc-300 underline underline-offset-2">
                   {meta.author}
                 </Link>
               ) : (
@@ -327,7 +327,7 @@ export default async function BlogPostPage({ params }: { params: PageParams }) {
           who just met the product asks next: what it costs, whether the privacy
           claims hold up, and what the free alternatives are. */}
       <Reveal>
-        <p className="mt-6 text-center text-sm leading-relaxed text-zinc-500">
+        <p className="mt-6 text-center text-sm leading-relaxed text-zinc-400">
           streamerOS is a Windows desktop app for Twitch and YouTube streamers,
           launching February 2027 —{' '}
           <Link href="/pricing" className="text-cyan-400 underline underline-offset-2">
