@@ -32,6 +32,7 @@ const PRODUCT: FooterLink[] = [
   { label: 'For YouTube Live', href: '/for/youtube-live' },
   { label: 'For VTubers', href: '/for/vtubers' },
   { label: 'Pricing', href: '/pricing' },
+  { label: 'vs Streamlabs', href: '/vs/streamlabs' },
   { label: 'Pre-Register', href: '/download' },
   { label: 'Playbook', href: '/playbook' },
   { label: 'Blog', href: '/blog' },

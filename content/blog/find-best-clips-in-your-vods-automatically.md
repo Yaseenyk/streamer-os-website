@@ -79,7 +79,7 @@ The hours you used to spend scrubbing go back into streaming and posting, which 
 
 Your next big clip is already sitting in last night's VOD. Let the app find it for you.
 
-Explore the [Clip Library](/features/clip-library) to see how streamerOS scores every recording — and browse the full [streamerOS feature set](/features) to see how it fits the rest of your stream.
+Explore the [Clip Library](/features/clip-library) to see how streamerOS scores every recording — and browse the full [streamerOS feature set](/features) to see how it fits the rest of your stream. When you have a moment picked out, here is how to [turn it into a Short or TikTok](/blog/turn-twitch-vods-into-shorts-and-tiktoks).
 
 ---
 

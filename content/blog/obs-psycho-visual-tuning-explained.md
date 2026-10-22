@@ -1,6 +1,6 @@
 ---
-title: "OBS Psycho Visual Tuning: On or Off?"
-description: "It is on by default and quietly costs you GPU headroom. What it does, when it improves your stream, and the 5-minute test that settles it."
+title: "OBS Psycho Visual Tuning, Look-ahead and Adaptive Quantization: On or Off?"
+description: "Psycho Visual Tuning is on by default and quietly costs GPU headroom. What it, Look-ahead and Adaptive Quantization each do, when to turn them off, why the checkbox is sometimes missing, and the 5-minute test that settles it."
 date: "2026-09-09"
 author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Optimization", "Performance"]
@@ -40,6 +40,34 @@ per region rather than treating the frame uniformly.
 The result at a fixed bitrate is a stream that **looks** better in motion — the
 usual visible win is less mush during fast camera movement — without using any
 more bandwidth.
+
+## Look-ahead and Adaptive Quantization: the two settings underneath
+
+Psycho Visual Tuning is really a switch for two separate NVENC features, and
+OBS exposes one of them on its own. Knowing which is which makes the decision
+cleaner.
+
+**Adaptive Quantization (AQ).** This is the per-region bit allocation described
+above. The encoder compresses flat, static or dark areas harder and spends the
+saved bits on edges, text and faces. In OBS it does not have its own checkbox:
+**Psycho Visual Tuning on means AQ on.** It is the cheaper of the two and the
+one that produces most of the visible gain, which is why the usual answer to
+"adaptive quantization on or off" is *on* unless the GPU is already struggling.
+
+**Look-ahead.** A separate checkbox next to Psycho Visual Tuning. The encoder
+buffers a handful of upcoming frames and inspects them before deciding how to
+spend bits on the current one, so it can hold back bits ahead of a cut or a
+burst of motion. It also lets the encoder insert B-frames adaptively. The gain
+is real on content with sudden changes, but it is the more expensive of the two
+and it adds a few frames of encoding latency. On a GPU-bound machine Look-ahead
+is the first thing to switch off; Psycho Visual Tuning can usually stay.
+
+So the short version:
+
+| Setting | What it does | Cost | Default call |
+| --- | --- | --- | --- |
+| Psycho Visual Tuning (AQ) | Spends bits where the eye notices | Low | On |
+| Look-ahead | Plans bits a few frames ahead | Medium, adds latency | On with headroom, off when GPU-bound |
 
 ## The cost
 
@@ -87,9 +115,20 @@ NVIDIA NVENC encoder selected. Depending on your OBS and driver version it
 appears as a **Psycho Visual Tuning** checkbox, or is folded into a preset and
 tuning dropdown on newer builds.
 
-If you cannot find the checkbox, you are probably on a newer OBS where the
-equivalent behaviour lives under the encoder **Tuning** option — the underlying
-trade is the same.
+### Psycho Visual Tuning not showing? Check these
+
+If the checkbox is missing, it is nearly always one of these:
+
+* **Output Mode is Simple.** The simple panel hides every encoder option.
+  Switch to **Advanced** at the top of the Output tab.
+* **The encoder is not NVENC.** x264, AMD AMF and Intel QuickSync do not have
+  this setting. The closest equivalents live in their own preset and quality
+  dropdowns.
+* **You are looking at the Recording tab.** It is a per-encoder option, so it
+  only appears once an NVENC encoder is selected on the tab you are editing.
+* **A newer OBS build folded it into the Tuning or Preset dropdown.** The
+  underlying trade is the same; pick a quality-leaning tuning for the same
+  effect, or a latency-leaning one to get the GPU time back.
 
 ## How to decide, in ten minutes
 
