@@ -103,7 +103,11 @@ export default function PricingPage() {
             </h2>
             <p className="mt-3 max-w-xl text-zinc-400">
               Most streaming tools are either a monthly bill or free because you are
-              the product. streamerOS is neither.
+              the product. streamerOS is neither. For a feature-by-feature view, see{' '}
+              <Link href="/vs/streamlabs" className="text-cyan-400 underline-offset-2 hover:underline">
+                streamerOS vs Streamlabs
+              </Link>
+              .
             </p>
           </Reveal>
 

@@ -105,7 +105,8 @@ changed backwards. There is a full breakdown in
 [OBS CPU Usage Preset: Which One Should You Use?](/blog/obs-cpu-usage-preset-explained).
 
 If you are on NVENC, the equivalent is the **Preset** dropdown (`P1`–`P7`);
-lower numbers are faster and cheaper.
+lower numbers are faster and cheaper. Turning off [Psycho Visual Tuning and
+Look-ahead](/blog/obs-psycho-visual-tuning-explained) buys back GPU time too.
 
 ## What is stealing the headroom
 

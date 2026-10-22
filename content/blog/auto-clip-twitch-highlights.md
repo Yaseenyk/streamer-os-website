@@ -63,6 +63,8 @@ and [Shorts Factory](/features/shorts-factory) — which crops a marked moment i
 9:16 clip inside the app — all ship in the **November 2026 launch build**. Shorts
 Factory does a centred crop, so the markers still export to your editor for
 anything that needs a human framing it, which is the workflow most editors prefer anyway.
+Once you have the markers, [turning the VOD into Shorts and
+TikToks](/blog/turn-twitch-vods-into-shorts-and-tiktoks) is the next step.
 
 ## Making the markers actually useful
 

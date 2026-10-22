@@ -20,7 +20,7 @@ Your encoder choice decides everything. Get this right and the rest is fine-tuni
 - **NVENC (NVIDIA GPU)** — Encodes on a dedicated chip on your GPU. Near-zero CPU cost and, on modern cards, quality that rivals x264 "medium." **This is the default answer for low-CPU streaming.**
 - **AV1 (NVENC on RTX 40-series+, or AMD/Intel)** — Same GPU offload, but ~30% more efficient. You get 1080p that looks like 1440p at the same bitrate. Use it if your card and platform support it.
 
-**The rule:** if you have a dedicated GPU, encode on it. Set OBS to **Output → Output Mode: Advanced → Encoder: NVENC HEVC/AV1** (or your AMD/Intel equivalent) and hand your CPU back to the game.
+**The rule:** if you have a dedicated GPU, encode on it. Set OBS to **Output → Output Mode: Advanced → Encoder: NVENC HEVC/AV1** (or your AMD/Intel equivalent) and hand your CPU back to the game. If the GPU then becomes the bottleneck, [Psycho Visual Tuning, Look-ahead and Adaptive Quantization](/blog/obs-psycho-visual-tuning-explained) are the NVENC options to revisit.
 
 Only fall back to x264 if you're on integrated graphics with no hardware encoder — and if so, use the `veryfast` preset, not `medium`.
 

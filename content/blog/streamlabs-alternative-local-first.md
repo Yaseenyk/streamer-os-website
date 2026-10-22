@@ -49,7 +49,8 @@ start](/features/zero-cloud): chat velocity and sentiment, [OBS scene automation
 driven by game telemetry](/features/auto-hype), and a [sponsor media
 kit](/features/media-kit) generated from your own exports. No account, no cloud,
 and a [1.8% CPU footprint](/features/performance) under a live 1080p60 game. Launching November 2026 — 7-day
-trial, then $29 once, no subscription.
+trial, then $29 once, no subscription. There is a side-by-side on the
+[streamerOS vs Streamlabs](/vs/streamlabs) page.
 
 ## The test that separates them
 

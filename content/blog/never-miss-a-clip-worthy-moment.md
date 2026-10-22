@@ -84,6 +84,6 @@ This is the live-capture half of the streamerOS clipping workflow — catching m
 
 Together they mean the same thing — you stop losing your best content to a hotkey you were never going to hit.
 
-Play your game. Let [streamerOS](/features) watch the crowd. When you're done, you'll have a marker for every moment that mattered.
+Play your game. Let [streamerOS](/features) watch the crowd. When you're done, you'll have a marker for every moment that mattered — and a head start on [cutting them into Shorts and TikToks](/blog/turn-twitch-vods-into-shorts-and-tiktoks).
 
 **[Explore Viral Moments →](/features/viral-moments)**

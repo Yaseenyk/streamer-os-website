@@ -7,9 +7,9 @@ import { SHOTS } from '@/lib/shots';
 import InlineSignup from '@/components/InlineSignup';
 
 export const metadata: Metadata = {
-  title: 'Download',
+  title: { absolute: 'Download streamerOS for Windows — OBS Automation App' },
   description:
-    'Pre-register for streamerOS — the Rust-powered, local-first streaming cockpit for Windows, launching November 2026.',
+    'Download streamerOS for Windows 10/11: OBS scene automation, clip markers and a local AI sidekick with no account and no cloud. Free 7-day trial, then $29 once. Launching November 2026.',
   alternates: { canonical: 'https://streamerosai.com/download' },
 };
 

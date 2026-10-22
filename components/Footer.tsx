@@ -28,6 +28,7 @@ const PRODUCT: FooterLink[] = [
   { label: 'Zero-Cloud Privacy', href: '/features/zero-cloud' },
   { label: 'For Indian Streamers', href: '/for/indian-streamers' },
   { label: 'Pricing', href: '/pricing' },
+  { label: 'vs Streamlabs', href: '/vs/streamlabs' },
   { label: 'Pre-Register', href: '/download' },
   { label: 'Playbook', href: '/playbook' },
   { label: 'Blog', href: '/blog' },
