@@ -27,7 +27,7 @@ import { SITE_URL } from '@/config/site';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
-  title: 'For Indian Streamers — Hinglish Chat and ₹ Super Chats',
+  title: { absolute: 'streamerOS for Indian Streamers — Hinglish & ₹ Super Chats' },
   description:
     'Chat sentiment that reads Hinglish, Super Chats totalled in ₹ and YouTube ' +
     'Live chat with no API key — on your own PC. Ships February 2027.',

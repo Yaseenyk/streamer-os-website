@@ -12,7 +12,7 @@ This is the no-fluff guide to the **best OBS settings for low CPU** usage — th
 
 ---
 
-## 🧠 Encoder: The Single Biggest CPU Lever
+## Encoder: The Single Biggest CPU Lever
 
 Your encoder choice decides everything. Get this right and the rest is fine-tuning.
 
@@ -26,7 +26,7 @@ Only fall back to x264 if you're on integrated graphics with no hardware encoder
 
 ---
 
-## 📐 Resolution and the Downscale Filter
+## Resolution and the Downscale Filter
 
 Output resolution is a CPU *and* GPU cost. You do not need to stream at your monitor's native res.
 
@@ -38,7 +38,7 @@ Downscaling from 1440p to 720p also means fewer pixels to encode, which quietly 
 
 ---
 
-## 🎚️ Bitrate and FPS: Match Your Reality
+## Bitrate and FPS: Match Your Reality
 
 More is not better here. Overshooting your upload speed causes dropped frames, not prettier video.
 
@@ -48,7 +48,7 @@ More is not better here. Overshooting your upload speed causes dropped frames, n
 
 ---
 
-## 🖥️ Rendering and Color Settings
+## Rendering and Color Settings
 
 A few smaller wins that add up:
 
@@ -59,13 +59,13 @@ A few smaller wins that add up:
 
 ---
 
-## ⚙️ Process Priority
+## Process Priority
 
 OBS lets you tell Windows how to prioritize it under load. Under **Settings → Advanced → Process Priority**, **Above Normal** helps OBS hold its ground when the game is greedy. Avoid **High** — it can starve the game and cause stutters that look worse than a dropped frame.
 
 ---
 
-## 🔌 The Hidden Frame Thief: Your Other Tools
+## The Hidden Frame Thief: Your Other Tools
 
 Here's the part most guides skip. You can dial in perfect OBS settings and *still* drop frames — because OBS isn't the only thing running.
 

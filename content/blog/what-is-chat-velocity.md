@@ -15,7 +15,7 @@ That number is **chat velocity**.
 
 ---
 
-## 🏎️ What Is Chat Velocity?
+## What Is Chat Velocity?
 
 Chat velocity is simply **how fast your chat is moving** — the number of messages arriving over a set window of time. Most commonly it's measured as:
 
@@ -28,7 +28,7 @@ Think of it like a tachometer for your community. Viewer count tells you how man
 
 ---
 
-## 💥 Why a Spike Means Something Happened
+## Why a Spike Means Something Happened
 
 Here's the key insight: **people type when they react.**
 
@@ -43,7 +43,7 @@ Either way, that timestamp is worth marking.
 
 ---
 
-## 📊 Why It Beats Raw Viewer Count as a Live Signal
+## Why It Beats Raw Viewer Count as a Live Signal
 
 Viewer count is a lagging, sticky number. People leave a tab open, join late, or lurk in silence. When your best moment of the night happens, your viewer count usually does *nothing* in that instant — it drifts up slowly over minutes, long after the moment has passed.
 
@@ -58,7 +58,7 @@ Viewer count answers "how big is my audience?" Chat velocity answers the far mor
 
 ---
 
-## 🛠️ Practical Ways to Use Chat Velocity
+## Practical Ways to Use Chat Velocity
 
 Knowing the metric is one thing. Here's how it actually changes your stream.
 
@@ -76,7 +76,7 @@ Even without any automation, watching velocity live makes you a sharper broadcas
 
 ---
 
-## 🎯 The Takeaway
+## The Takeaway
 
 Chat velocity — messages per second or per minute — is the closest thing streaming has to a live hype detector. A spike means your audience just reacted, and that reaction is almost always sitting on top of a clip. It's faster, sharper, and more honest than raw viewer count as a real-time signal, and it powers three of the highest-leverage things you can do: catching clips, automating your production, and reading the room in real time.
 

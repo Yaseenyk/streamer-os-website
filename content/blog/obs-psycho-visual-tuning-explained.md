@@ -1,5 +1,5 @@
 ---
-title: "OBS Psycho Visual Tuning & Adaptive Quantization: On or Off? (+ Look-ahead)"
+title: "OBS Psycho Visual Tuning & Adaptive Quantization: On or Off?"
 description: "Leave them on unless your GPU is maxed out. What Psycho Visual Tuning (renamed Adaptive Quantization in OBS 31) and Look-ahead do, when to turn them off, and a 5-minute test."
 date: "2026-09-09"
 updated: "2026-10-22"
@@ -62,7 +62,10 @@ jobs. Knowing which is which makes the decision cleaner.
 above. The encoder compresses flat, static or dark areas harder and spends the
 saved bits on edges, text and faces. **This is the Psycho Visual Tuning
 checkbox.** OBS 31 renamed it to *Adaptive Quantization*, and its tooltip says
-"formerly known as Psycho-Visual Tuning". It is the cheaper of the two and the
+"formerly known as Psycho-Visual Tuning". OBS's own
+[Advanced NVENC Options guide](https://obsproject.com/kb/advanced-nvenc-options)
+describes it as the same setting "with the proper nomenclature rather than a
+confusing marketing term." It is the cheaper of the two and the
 one that produces most of the visible gain, which is why the usual answer to
 "adaptive quantization on or off" is *on* unless the GPU is already struggling.
 

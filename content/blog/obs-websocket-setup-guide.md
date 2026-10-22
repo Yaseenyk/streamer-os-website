@@ -14,6 +14,10 @@ Here is the whole setup, and the three things that go wrong.
 
 ## Turning it on
 
+OBS's [remote control guide](https://obsproject.com/kb/remote-control-guide)
+covers the same setup, and the protocol is documented in the
+[obs-websocket repository](https://github.com/obsproject/obs-websocket).
+
 1. Open OBS, and go to **Tools → WebSocket Server Settings**.
 2. Tick **Enable WebSocket server**.
 3. Note the **Server Port**. The default is **4455**.

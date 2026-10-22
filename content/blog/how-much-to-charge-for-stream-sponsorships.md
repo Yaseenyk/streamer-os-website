@@ -15,7 +15,7 @@ Charge too little and you leave money on the table and signal that you're an ama
 
 ---
 
-## 🧮 Start With the CPM Model
+## Start With the CPM Model
 
 Nearly every media buy on earth is priced on **CPM** — *cost per mille*, or cost per 1,000 impressions. For streamers, the cleanest version is a dollar rate per **1,000 average concurrent viewers** for a given deliverable.
 
@@ -49,7 +49,7 @@ is actually getting.
 
 ---
 
-## 📊 Illustrative Rate Ranges (Read This Carefully)
+## Illustrative Rate Ranges (Read This Carefully)
 
 These are **rough, illustrative** starting points that circulate in the creator economy — not quotes, not guarantees, and not something a brand owes you. Your real number depends entirely on the factors in the next section and the data you can prove.
 
@@ -62,7 +62,7 @@ If those ranges feel wide, that's honest — they *are*. A cozy-games channel wi
 
 ---
 
-## 📈 What Actually Raises Your Rate
+## What Actually Raises Your Rate
 
 Two channels with identical viewer counts can command very different fees. Here's what moves the needle up:
 
@@ -74,7 +74,7 @@ Two channels with identical viewer counts can command very different fees. Here'
 
 ---
 
-## 💵 Flat Fee vs. Performance
+## Flat Fee vs. Performance
 
 Most streamer deals land in one of two structures, and you can blend them:
 
@@ -85,7 +85,7 @@ A healthy middle ground: a **flat base fee to cover your guaranteed reach, plus 
 
 ---
 
-## 🔒 Back Your Price With Real Numbers
+## Back Your Price With Real Numbers
 
 Here's the part that separates streamers who get paid from streamers who get haggled down to nothing: **you have to prove your audience.**
 

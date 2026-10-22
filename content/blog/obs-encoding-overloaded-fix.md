@@ -2,6 +2,7 @@
 title: "OBS 'Encoding Overloaded': What It Means and How to Fix It"
 description: "The red warning means your encoder can't keep up — not that your internet is bad. How to tell which of the three OBS frame counters is actually moving, and fix the right one."
 date: "2026-09-09"
+updated: "2026-10-22"
 author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Optimization", "Performance"]
 ---
@@ -111,6 +112,9 @@ Look-ahead](/blog/obs-psycho-visual-tuning-explained) buys back GPU time too.
 ## What is stealing the headroom
 
 Sometimes the settings are reasonable and something else is eating the machine.
+OBS's own [Encoding Performance Troubleshooting guide](https://obsproject.com/kb/encoding-performance-troubleshooting)
+makes the same point: it recommends capping the game's frame rate and closing
+other GPU-heavy programs before lowering any output setting.
 
 **Your game has no frame cap.** An uncapped menu screen will happily render 900
 fps and saturate the GPU, starving the compositor. Cap in-game frame rate to

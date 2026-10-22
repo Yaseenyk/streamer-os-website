@@ -14,7 +14,7 @@ This guide walks through that workflow end to end: how to find the moment worth 
 
 ---
 
-## 🔍 Why Short-Form Drives Discovery
+## Why Short-Form Drives Discovery
 
 Long-form content — your VODs, your YouTube uploads — is where people go *after* they already like you. Short-form is where they *meet* you. The vertical feeds on TikTok, YouTube Shorts, and Instagram Reels are built to shove your clip in front of strangers, no subscribe required. That's the whole game:
 
@@ -26,7 +26,7 @@ The catch: it only works if you actually post consistently. Which means the work
 
 ---
 
-## 🪝 Step 1: Find the Best Moment
+## Step 1: Find the Best Moment
 
 This is where most people lose the fight — scrubbing back and forth through a four-hour VOD trying to remember when the good thing happened. Don't do it by memory. Do it by data.
 
@@ -43,7 +43,7 @@ This is exactly what the [Clip Library](/features/clip-library) in [streamerOS](
 
 ---
 
-## ✂️ Step 2: Trim It Tight
+## Step 2: Trim It Tight
 
 Once you've got your moment, cut it down hard. The instinct is to keep too much context. Resist it.
 
@@ -55,7 +55,7 @@ The goal is that a stranger scrolling at speed *cannot* scroll past because the 
 
 ---
 
-## 📐 Step 3: Crop 16:9 to Vertical 9:16
+## Step 3: Crop 16:9 to Vertical 9:16
 
 Here's the technical hurdle. Your stream records in wide **16:9** — great for a monitor, useless for a phone feed. TikTok, Shorts, and Reels all want tall **9:16**. So you have to reframe: take the widescreen footage and crop it into a vertical frame that keeps the important part (usually you, your facecam, or the key on-screen action) centered and readable on a phone.
 
@@ -65,7 +65,7 @@ Done by hand, this means dropping the clip into an editor, adding a vertical can
 
 ---
 
-## 💬 Step 4: Caption It and Post Everywhere
+## Step 4: Caption It and Post Everywhere
 
 A vertical clip with no captions is a wasted clip. A huge share of short-form gets watched on mute, and captions keep people locked in.
 
@@ -76,7 +76,7 @@ A vertical clip with no captions is a wasted clip. A huge share of short-form ge
 
 ---
 
-## 🔁 Consistency Beats Perfection
+## Consistency Beats Perfection
 
 If you take one thing from this: **volume and rhythm win.** One decent clip every day will out-grow one flawless clip every month, every time. The algorithms reward creators who keep feeding the feed.
 

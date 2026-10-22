@@ -1,5 +1,5 @@
 ---
-title: "How to Organise Your Streaming Folders (VODs, Clips, Exports)"
+title: "How to Organise Your Streaming Folders: VODs, Clips, Exports"
 description: "A folder structure that survives a year of streaming, keeps VODs off your system drive, and means you can actually find the clip you remember from March."
 date: "2026-09-09"
 author: "Yaseen Khatib"

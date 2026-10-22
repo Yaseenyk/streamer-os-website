@@ -52,9 +52,11 @@ function useReducedMotionSafe() {
   );
 }
 
+// Rise only — content stays visible in the server HTML so the hero paints
+// before hydration (see components/Reveal.tsx).
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
+  hidden: { y: 20 },
+  show: { y: 0, transition: { duration: 0.7, ease: EASE } },
 };
 const stagger: Variants = {
   hidden: {},
@@ -368,8 +370,8 @@ function Hero() {
 
           {/* The actual app — right */}
           <motion.div
-            initial={{ opacity: 0, y: 32 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 24 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.8, delay: 0.25, ease: EASE }}
             style={reduce ? undefined : { y: shotY }}
           >

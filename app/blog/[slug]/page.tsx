@@ -11,7 +11,8 @@ import { ArrowRight } from 'lucide-react';
 import InlineSignup from '@/components/InlineSignup';
 import { getAllPostMeta, getPostBySlug, getPostSlugs } from '@/lib/posts';
 import { getBlogCta, getRelatedPosts } from '@/lib/blog-cta';
-import { SITE_URL } from '@/config/site';
+import { SITE_URL, siteConfig } from '@/config/site';
+import { BUILDER } from '@/config/engineering';
 import { breadcrumbJsonLd } from '@/lib/seo';
 import JsonLd from '@/components/JsonLd';
 
@@ -53,7 +54,9 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
   const url = `${SITE_URL}/blog/${slug}`;
   const image = `${SITE_URL}${meta.image ?? DEFAULT_OG}`;
   return {
-    title: meta.title,
+    // The " · streamerOS" suffix pushes long titles past the ~60 characters
+    // results show; Google displays the site name separately anyway.
+    title: meta.title.length > 47 ? { absolute: meta.title } : meta.title,
     description: meta.description,
     alternates: { canonical: url },
     openGraph: {
@@ -97,7 +100,7 @@ const markdownComponents: Components = {
   ),
   li: ({ children }) => <li className="leading-relaxed">{children}</li>,
   a: ({ href, children }) => (
-    <a href={href} className="text-cyan-400 underline-offset-2 hover:underline">
+    <a href={href} className="text-cyan-400 underline underline-offset-2">
       {children}
     </a>
   ),
@@ -193,7 +196,10 @@ export default async function BlogPostPage({ params }: { params: PageParams }) {
     description: meta.description,
     datePublished: meta.date,
     dateModified: meta.updated ?? meta.date,
-    author: { '@type': 'Person', name: meta.author },
+    author:
+      meta.author === BUILDER.name
+        ? { '@type': 'Person', name: meta.author, url: `${SITE_URL}/about` }
+        : { '@type': 'Person', name: meta.author },
     keywords: meta.tags.join(', '),
     image: `${SITE_URL}${meta.image ?? DEFAULT_OG}`,
     url,
@@ -227,7 +233,15 @@ export default async function BlogPostPage({ params }: { params: PageParams }) {
           </Reveal>
           <Reveal delay={0.16}>
             <p className="mt-4 text-sm text-zinc-400">
-              By {meta.author} · {meta.updated ? 'Updated ' : ''}{formattedDate}
+              By{' '}
+              {meta.author === BUILDER.name ? (
+                <Link href="/about" className="text-zinc-300 underline-offset-2 hover:underline">
+                  {meta.author}
+                </Link>
+              ) : (
+                meta.author
+              )}{' '}
+              · {meta.updated ? 'Updated ' : ''}{formattedDate}
             </p>
           </Reveal>
         </header>
@@ -263,6 +277,26 @@ export default async function BlogPostPage({ params }: { params: PageParams }) {
         )}
       </article>
 
+      {meta.author === BUILDER.name && (
+        <aside className="mt-16 rounded-xl border border-white/10 bg-white/[0.02] p-5 text-sm leading-relaxed text-zinc-400">
+          <p className="font-semibold text-zinc-200">About the author</p>
+          <p className="mt-2">
+            <Link href="/about" className="text-cyan-400 underline underline-offset-2">
+              {BUILDER.name}
+            </Link>{' '}
+            builds streamerOS, a Rust desktop companion for OBS Studio, and writes up what he
+            tests while building it. He works as a senior full-stack and AI engineer.{' '}
+            <a href={BUILDER.url} className="text-cyan-400 underline underline-offset-2">
+              Portfolio
+            </a>{' '}
+            ·{' '}
+            <a href="https://github.com/Yaseenyk" className="text-cyan-400 underline underline-offset-2">
+              GitHub
+            </a>
+          </p>
+        </aside>
+      )}
+
       <Reveal>
         <InlineSignup
           className="mt-16"
@@ -271,6 +305,21 @@ export default async function BlogPostPage({ params }: { params: PageParams }) {
           blurb={cta.blurb}
         />
       </Reveal>
+
+      {siteConfig.demoUrl && (
+        <p className="mt-6 text-center text-sm text-zinc-400">
+          Not ready to sign up?{' '}
+          <a
+            href={siteConfig.demoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-cyan-400 underline underline-offset-2"
+          >
+            Try the live demo in your browser
+          </a>{' '}
+          — sample data, nothing to install.
+        </p>
+      )}
 
       {/* Search lands almost entirely on these posts, and they are the pages
           Google has actually indexed — so this is where the marketing pages get
@@ -281,15 +330,15 @@ export default async function BlogPostPage({ params }: { params: PageParams }) {
         <p className="mt-6 text-center text-sm leading-relaxed text-zinc-500">
           streamerOS is a Windows desktop app for Twitch and YouTube streamers,
           launching February 2027 —{' '}
-          <Link href="/pricing" className="text-cyan-400 underline-offset-2 hover:underline">
+          <Link href="/pricing" className="text-cyan-400 underline underline-offset-2">
             what it costs
           </Link>
           ,{' '}
-          <Link href="/trust" className="text-cyan-400 underline-offset-2 hover:underline">
+          <Link href="/trust" className="text-cyan-400 underline underline-offset-2">
             how to verify the privacy claims yourself
           </Link>
           , and{' '}
-          <Link href="/vs" className="text-cyan-400 underline-offset-2 hover:underline">
+          <Link href="/vs" className="text-cyan-400 underline underline-offset-2">
             how it compares to the free alternatives
           </Link>
           .

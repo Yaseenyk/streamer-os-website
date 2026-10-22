@@ -23,7 +23,7 @@ import { Screenshot } from '@/components/Screenshot';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
-  title: 'Auto-Mark Stream Highlights From Chat — Viral Moments',
+  title: 'Auto-Mark Stream Highlights From Chat',
   description:
     'Catch clip-worthy moments while you are live: streamerOS measures chat velocity against your stream’s own baseline, timestamps every hype spike and exports the markers to CSV.',
   alternates: { canonical: 'https://streamerosai.com/features/viral-moments' },
@@ -324,22 +324,22 @@ export default function ViralMomentsGuidePage() {
         <h2 className="text-xl font-semibold tracking-tight">Related guides</h2>
         <ul className="mt-4 space-y-2 text-zinc-400">
             <li>
-              <Link href="/blog/what-is-chat-velocity" className="text-cyan-400 underline-offset-2 hover:underline">
+              <Link href="/blog/what-is-chat-velocity" className="text-cyan-400 underline underline-offset-2">
                 What is chat velocity?
               </Link>
             </li>
             <li>
-              <Link href="/blog/auto-clip-twitch-highlights" className="text-cyan-400 underline-offset-2 hover:underline">
+              <Link href="/blog/auto-clip-twitch-highlights" className="text-cyan-400 underline underline-offset-2">
                 How to auto-clip Twitch highlights without watching the VOD
               </Link>
             </li>
             <li>
-              <Link href="/blog/find-best-clips-in-your-vods-automatically" className="text-cyan-400 underline-offset-2 hover:underline">
+              <Link href="/blog/find-best-clips-in-your-vods-automatically" className="text-cyan-400 underline underline-offset-2">
                 Find the best clips in your VODs automatically
               </Link>
             </li>
             <li>
-              <Link href="/blog/turn-twitch-vods-into-shorts-and-tiktoks" className="text-cyan-400 underline-offset-2 hover:underline">
+              <Link href="/blog/turn-twitch-vods-into-shorts-and-tiktoks" className="text-cyan-400 underline underline-offset-2">
                 Turn Twitch VODs into Shorts and TikToks
               </Link>
             </li>

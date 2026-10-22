@@ -536,7 +536,7 @@ export default function AiSidekickGuidePage() {
         <p>
           Later questions pull in the relevant memories automatically — you never
           have to repeat yourself or dig for a setting. Nothing leaves the PC.{' '}
-          <Link href="/features/zero-cloud" className="text-cyan-400 underline-offset-2 hover:underline">
+          <Link href="/features/zero-cloud" className="text-cyan-400 underline underline-offset-2">
             Why streamerOS stays zero-cloud
           </Link>
           .

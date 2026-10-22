@@ -70,7 +70,7 @@ const SOCIALS = [
 function FooterColumn({ title, links }: { title: string; links: FooterLink[] }) {
   return (
     <div>
-      <h3 className="font-mono text-xs uppercase tracking-widest text-zinc-500">{title}</h3>
+      <h3 className="font-mono text-xs uppercase tracking-widest text-zinc-400">{title}</h3>
       <ul className="mt-4 space-y-3">
         {links.map((link) => (
           <li key={link.label}>
@@ -97,7 +97,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center">
               <SignalLogo className="text-2xl" />
             </Link>
-            <p className="mt-4 max-w-xs text-sm text-zinc-500">
+            <p className="mt-4 max-w-xs text-sm text-zinc-400">
               The ultra-lightweight desktop cockpit for live streamers. 1.8% CPU, zero cloud.
             </p>
             <a
@@ -116,11 +116,11 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-zinc-500">
+          <p className="text-sm text-zinc-400">
             © 2026 streamerOS. All rights reserved. Built by{' '}
             <a
               href={BUILDER.url}
-              className="rounded text-zinc-400 underline-offset-4 transition-colors hover:text-cyan-400 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+              className="rounded text-zinc-300 underline underline-offset-4 transition-colors hover:text-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
             >
               {BUILDER.name}
             </a>

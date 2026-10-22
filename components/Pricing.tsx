@@ -173,7 +173,7 @@ export default function Pricing() {
         Trial over and not ready to buy? Your data is never locked away. The
         dashboard, Clip Library, Chat Archive and your last stream&apos;s report
         stay open, and the AI Sidekick keeps answering up to 10 messages a day.{' '}
-        <Link href="/pricing" className="text-cyan-400 underline-offset-2 hover:underline">
+        <Link href="/pricing" className="text-cyan-400 underline underline-offset-2">
           How the free tier works
         </Link>
         .

@@ -104,7 +104,7 @@ export default function PricingPage() {
             <p className="mt-3 max-w-xl text-zinc-400">
               Most streaming tools are either a monthly bill or free because you are
               the product. streamerOS is neither. For a feature-by-feature view, see{' '}
-              <Link href="/vs/streamlabs" className="text-cyan-400 underline-offset-2 hover:underline">
+              <Link href="/vs/streamlabs" className="text-cyan-400 underline underline-offset-2">
                 streamerOS vs Streamlabs
               </Link>
               .
@@ -179,11 +179,11 @@ export default function PricingPage() {
           <Reveal delay={0.15}>
             <p className="mt-8 text-sm text-zinc-500">
               Full details in the{' '}
-              <Link href="/download" className="text-cyan-400 underline-offset-2 hover:underline">
+              <Link href="/download" className="text-cyan-400 underline underline-offset-2">
                 system requirements
               </Link>{' '}
               and the{' '}
-              <Link href="/terms" className="text-cyan-400 underline-offset-2 hover:underline">
+              <Link href="/terms" className="text-cyan-400 underline underline-offset-2">
                 licence terms
               </Link>
               .

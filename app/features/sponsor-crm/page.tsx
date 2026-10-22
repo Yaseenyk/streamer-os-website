@@ -366,22 +366,22 @@ export default function SponsorCrmGuidePage() {
         <h2 className="text-xl font-semibold tracking-tight">Related guides</h2>
         <ul className="mt-4 space-y-2 text-zinc-400">
             <li>
-              <Link href="/blog/sponsors-for-small-streamers" className="text-cyan-400 underline-offset-2 hover:underline">
+              <Link href="/blog/sponsors-for-small-streamers" className="text-cyan-400 underline underline-offset-2">
                 Sponsors for small streamers: get them at 20 viewers
               </Link>
             </li>
             <li>
-              <Link href="/blog/how-much-to-charge-for-stream-sponsorships" className="text-cyan-400 underline-offset-2 hover:underline">
+              <Link href="/blog/how-much-to-charge-for-stream-sponsorships" className="text-cyan-400 underline underline-offset-2">
                 How much to charge for a stream sponsorship
               </Link>
             </li>
             <li>
-              <Link href="/blog/how-to-track-sponsor-deals-as-a-streamer" className="text-cyan-400 underline-offset-2 hover:underline">
+              <Link href="/blog/how-to-track-sponsor-deals-as-a-streamer" className="text-cyan-400 underline underline-offset-2">
                 How to track sponsor deals as a streamer
               </Link>
             </li>
             <li>
-              <Link href="/features/media-kit" className="text-cyan-400 underline-offset-2 hover:underline">
+              <Link href="/features/media-kit" className="text-cyan-400 underline underline-offset-2">
                 Media Kit Generator
               </Link>
             </li>

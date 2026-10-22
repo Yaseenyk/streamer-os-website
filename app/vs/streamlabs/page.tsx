@@ -10,7 +10,7 @@ import { SITE_URL } from '@/config/site';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
-  title: 'streamerOS vs Streamlabs — A Local-First Alternative',
+  title: { absolute: 'streamerOS vs Streamlabs — A Local-First Alternative' },
   description:
     'Streamlabs needs an account and runs on the cloud. streamerOS runs entirely ' +
     'on your PC for $29 once. An honest comparison, including what you give up.',
@@ -271,7 +271,7 @@ export default function VsStreamlabsPage() {
               OBS scripting? That comparison is in{' '}
               <Link
                 href="/blog/streamlabs-alternative-local-first"
-                className="text-cyan-400 underline-offset-2 hover:underline"
+                className="text-cyan-400 underline underline-offset-2"
               >
                 the full local-first roundup
               </Link>

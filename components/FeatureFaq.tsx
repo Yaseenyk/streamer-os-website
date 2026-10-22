@@ -38,7 +38,7 @@ export default function FeatureFaq({ items }: { items: FaqEntry[] }) {
         <Reveal delay={0.1}>
           <p className="mt-8 text-center text-sm text-zinc-500">
             More questions answered on the{' '}
-            <Link href="/faq" className="text-cyan-400 underline-offset-2 hover:underline">
+            <Link href="/faq" className="text-cyan-400 underline underline-offset-2">
               full FAQ
             </Link>
             .

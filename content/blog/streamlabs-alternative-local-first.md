@@ -46,7 +46,7 @@ own — the trigger is always you.
 
 **streamerOS.** A Windows-native cockpit [built local-first from the
 start](/features/zero-cloud): chat velocity and sentiment, [OBS scene automation
-driven by game telemetry](/features/auto-hype), and a [sponsor media
+driven by chat velocity and Super Chats](/features/auto-hype), and a [sponsor media
 kit](/features/media-kit) generated from your own exports. No account, no cloud,
 and a [1.8% CPU footprint](/features/performance) under a live 1080p60 game. Launching February 2027 — 7-day
 trial, then $29 once, no subscription.

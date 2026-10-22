@@ -14,7 +14,7 @@ sustain.**
 
 ---
 
-## 🥊 The short version
+## The short version
 
 | Factor | Twitch | YouTube Live |
 | --- | --- | --- |
@@ -28,7 +28,7 @@ sustain.**
 
 ---
 
-## 🔍 Discovery: the difference that decides everything
+## Discovery: the difference that decides everything
 
 **On Twitch, you exist while you are live and nowhere else.** Someone opens a
 category, scrolls, and clicks. That is essentially the whole mechanism, and it
@@ -55,7 +55,7 @@ showing it.
 
 ---
 
-## 💰 Monetization: the thresholds are not the point
+## Monetization: the thresholds are not the point
 
 Requirements move, so check current platform docs rather than trusting any blog
 post, including this one. Directionally:
@@ -83,7 +83,7 @@ reward different temperaments.
 
 ---
 
-## ♻️ VOD and short-form: the leverage question
+## VOD and short-form: the leverage question
 
 This is the part most comparisons underweight.
 
@@ -102,7 +102,7 @@ not.
 
 ---
 
-## 💬 Culture, briefly
+## Culture, briefly
 
 Twitch chat is a room. People return for the room as much as the content, which
 is why Twitch rewards a schedule so heavily — being reliably live at the same
@@ -117,7 +117,7 @@ thing well, YouTube will.
 
 ---
 
-## 🔀 Should you stream to both?
+## Should you stream to both?
 
 Twitch relaxed its simulcasting restrictions, so streaming to both at once is
 now permitted for most creators — though exclusivity terms are exactly the kind
@@ -139,7 +139,7 @@ using as close to nothing as possible.
 
 ---
 
-## 🏁 The verdict
+## The verdict
 
 **Pick Twitch if** the live stream is the product, you can hold a consistent
 schedule, and you will be strategic about categories. Twitch rewards showing up

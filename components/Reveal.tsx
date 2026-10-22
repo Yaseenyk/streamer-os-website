@@ -3,9 +3,12 @@
 import { motion, type Variants } from 'framer-motion';
 import type { ReactNode } from 'react';
 
+// Rise only, no fade: the server-rendered HTML keeps content visible, so the
+// largest heading paints before hydration instead of waiting on JavaScript
+// (opacity:0 here held mobile LCP at 3.7-5.4s).
 const reveal: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  hidden: { y: 16 },
+  show: { y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 };
 
 interface RevealProps {
@@ -16,7 +19,7 @@ interface RevealProps {
 }
 
 /**
- * Scroll-triggered fade-and-rise — the site's shared reveal primitive, so the
+ * Scroll-triggered rise — the site's shared reveal primitive, so the
  * motion language stays identical across every page. Each <Reveal> is its own
  * client island, which lets the server-rendered pages compose it freely.
  */

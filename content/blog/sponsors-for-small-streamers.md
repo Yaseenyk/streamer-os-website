@@ -2,6 +2,7 @@
 title: "Sponsors for Small Streamers: Get Them at 20 Viewers"
 description: "You do not need thousands of viewers. Which brands work with small channels, what to send them, what to charge, and the deals to turn down."
 date: "2026-09-09"
+updated: "2026-10-22"
 author: "Yaseen Khatib"
 tags: ["Guides", "Growth", "Monetization", "Sponsorship"]
 ---

@@ -17,7 +17,7 @@ Chat sentiment is the earlier signal. Here's what it is, why it's a leading indi
 
 ---
 
-## 🧠 What Is Sentiment Analysis, in Plain Terms?
+## What Is Sentiment Analysis, in Plain Terms?
 
 Sentiment analysis is just software reading the *emotional tone* of your chat instead of the raw words. It looks at the messages scrolling past and sorts the overall mood — is the room hyped, confused, bored, positive, negative?
 
@@ -27,7 +27,7 @@ Real-time sentiment analysis does that read continuously and turns it into somet
 
 ---
 
-## 📈 Why the Room's Mood Is a Leading Indicator
+## Why the Room's Mood Is a Leading Indicator
 
 Numbers like viewers and watch time are **lagging** indicators — they confirm what already happened. Mood is a **leading** indicator: it moves first.
 
@@ -41,7 +41,7 @@ Each of these shows up in chat before it shows up in your retention graph. Read 
 
 ---
 
-## 🎯 How to Actually Respond to What You See
+## How to Actually Respond to What You See
 
 Reading the room is only useful if you change something. The move depends on what the mood is telling you:
 
@@ -53,7 +53,7 @@ The point isn't to perform for the meter. It's that mood gives you a *reason* to
 
 ---
 
-## 🔒 The Privacy Angle: Local Beats Cloud
+## The Privacy Angle: Local Beats Cloud
 
 Here's the part most tools gloss over. To analyze your chat's sentiment, something has to *read your chat*. The question is where.
 
@@ -63,7 +63,7 @@ Running the analysis **locally** solves both. Your chat stays on your computer, 
 
 ---
 
-## 🚀 How streamerOS Reads Sentiment for You
+## How streamerOS Reads Sentiment for You
 
 This is built into [streamerOS](/features) today, and it is what drives the
 [Auto-Hype Director](/features/auto-hype).

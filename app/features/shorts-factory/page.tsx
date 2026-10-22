@@ -170,7 +170,7 @@ function Step({ index, icon: Icon, eyebrow, title, body, last, mock }: StepProps
   );
 }
 
-const LINK_CLASS = 'text-cyan-400 underline-offset-2 hover:underline';
+const LINK_CLASS = 'text-cyan-400 underline underline-offset-2';
 
 // ---------------------------------------------------------------------------
 // Page

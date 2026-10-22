@@ -1,16 +1,22 @@
 ---
 title: "How to Auto-Switch OBS Scenes (Without Scripting)"
-description: "Make OBS change scenes on its own — when the game launches, when chat erupts, when you tab away. What can trigger a switch, and how to keep it from firing constantly."
+description: "Make OBS switch scenes automatically with the built-in switcher, Advanced Scene Switcher macros or a chat-driven tool, plus rules that stop misfires."
 date: "2026-09-09"
+updated: "2026-10-22"
 author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Automation"]
 ---
 
+**To make OBS switch scenes automatically without scripting, use OBS's built-in
+Automatic Scene Switcher (Tools menu) for window-based rules, or install the free
+Advanced Scene Switcher plugin for anything richer — processes, audio, media,
+time and more.** Switching on chat activity needs a separate tool that reads your
+chat. All three are covered below, plus the three rules that stop automation from
+looking broken.
+
 Switching scenes by hand is fine until the moment it matters. The raid lands,
 chat erupts, and your hands are on WASD — so either you miss the switch or you
 miss the play.
-
-Automation fixes that, and it does not require writing code.
 
 ## What can actually trigger a switch
 
@@ -32,22 +38,58 @@ are the interesting ones, because they react to your *audience* rather than to
 your machine — which means something has to be reading chat in the first place,
 and [showing you what it sees](/features/live-cockpit).
 
-## The approaches, briefly
+## Option 1: OBS's built-in Automatic Scene Switcher
 
-**OBS's built-in tools.** Scene switching on window focus is available through
-the Automatic Scene Switcher. Free, local, and limited to window-based rules.
+Free, already installed, and enough if your rules are "this window is focused →
+show this scene".
 
-**A scripting tool like Streamer.bot.** Local and extremely capable — you build
+1. In OBS, open **Tools → Automatic Scene Switcher**.
+2. Pick a window title from the list and the scene it should switch to, then add
+   the rule. Repeat for each window.
+3. Choose what happens **when no window matches**: either don't switch, or
+   switch to a fallback scene such as Be Right Back.
+4. Set the check interval, and press **Start**.
+
+Its limit is in the name: it only knows which window has focus. It cannot react
+to a process starting in the background, your mic, or your chat.
+
+## Option 2: Advanced Scene Switcher (free plugin)
+
+[Advanced Scene Switcher](https://obsproject.com/forum/resources/advanced-scene-switcher.395/)
+is the long-running community plugin for this, and it is open source
+([source on GitHub](https://github.com/WarmUpTill/SceneSwitcher)). It replaces
+"window → scene" with **macros**: one or more conditions, and the actions to run
+when they are true.
+
+1. Install the plugin for your OBS version from its resource page, and restart
+   OBS.
+2. Open **Tools → Advanced Scene Switcher** and go to the **Macro** tab.
+3. Add a macro, add a condition — for example **Process** is running, with your
+   game's executable — and add an action: **Switch scene** to Gameplay.
+4. Add the inverse macro (process not running → Be Right Back), so the switch
+   has a way home.
+
+Conditions cover far more than windows — running processes, audio levels, media
+state, time of day and idle time among them — and macros can be combined. It is
+the right tool for machine-side rules, and it is free. What it does not do on
+its own is read your chat.
+
+## Option 3: Switch scenes from chat activity
+
+Reacting to your *audience* rather than your machine needs something that reads
+chat and talks to OBS. OBS exposes that control through its built-in
+[WebSocket server](/blog/obs-websocket-setup-guide), so any tool can do it.
+
+**A toolkit like Streamer.bot.** Local, free and extremely capable — you build
 the logic in its action system. Worth learning if automation is the point for
 you; steep if you just want a couple of rules. There is a side-by-side in
 [streamerOS vs Streamer.bot](/vs/streamer-bot), and one for [SAMMI](/vs/sammi).
 
-**A tool that watches the stream.** Rather than you defining every rule, it
-monitors chat and telemetry and fires on conditions. This is what streamerOS's
-[Auto-Director](/features/auto-hype) does: it discovers OBS, [connects over
-WebSocket v5](/features/obs-bridge), and drives
-scene changes from game telemetry and chat velocity — locally, in the same
-frame, without a cloud round trip.
+**A ready-made rule editor.** streamerOS's [Auto-Hype Director](/features/auto-hype)
+is one: it [connects over WebSocket v5](/features/obs-bridge) and switches a
+scene when chat velocity or a Super Chat amount crosses a threshold you set.
+It runs locally and is a paid Windows app, so try the free options above first
+if your rules are machine-side.
 
 ## The three rules that keep it from looking broken
 
@@ -86,8 +128,14 @@ keep making by hand.
 ## Frequently Asked Questions
 
 **Can OBS switch scenes automatically on its own?**
-Yes, on window focus, using the built-in Automatic Scene Switcher. Anything
-richer — chat, telemetry, sentiment — needs an external tool over WebSocket.
+Yes, on window focus, using the built-in Automatic Scene Switcher under Tools.
+For processes, audio, media or time, use the free Advanced Scene Switcher
+plugin. Chat-based switching needs a tool that reads chat and controls OBS over
+WebSocket.
+
+**Where is the Automatic Scene Switcher in OBS?**
+In the **Tools** menu. If you installed Advanced Scene Switcher, it appears in
+the same menu as a separate entry.
 
 **Do I need to write scripts?**
 No. Rule-based tools cover the common cases without code.

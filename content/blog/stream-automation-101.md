@@ -12,7 +12,7 @@ If you're a solo streamer, you already know the tax. Every time you alt-tab to f
 
 ---
 
-## 🎯 Why Automation Lets You Focus
+## Why Automation Lets You Focus
 
 Your attention is the scarcest resource on your stream. You have a finite amount of it, and every manual chore spends some. A streamer who is watching connection indicators, timing scene transitions, and remembering to hit "clip" is a streamer who is only half-present in the game and even less present in chat.
 
@@ -27,7 +27,7 @@ The goal is a stream that runs like it has a producer — even when it's just yo
 
 ---
 
-## ✅ What's Worth Automating
+## What's Worth Automating
 
 Not everything should be automated, but a handful of tasks are pure mechanical overhead. These are the ones with clear trigger signals and no need for human taste.
 
@@ -45,7 +45,7 @@ Overlays that respond to what's happening — pulsing on a big moment, reflectin
 
 ---
 
-## ✋ What to Keep Manual (and Human)
+## What to Keep Manual (and Human)
 
 Automation has a hard limit: anything that requires judgment, personality, or genuine connection should stay in your hands. Over-automating here makes a stream feel like a bot is running it.
 
@@ -58,7 +58,7 @@ A good rule of thumb: **automate the reflexes, not the personality.**
 
 ---
 
-## ⚠️ A Caution on Performance
+## A Caution on Performance
 
 Here's the trap many streamers fall into: they pile on automation tools that each run in the cloud, poll constantly, or spin up a heavy browser process in the background. Suddenly your CPU is fighting itself, your framerate dips, and the "productivity" tools are actively degrading the stream they were supposed to help.
 
@@ -72,7 +72,7 @@ A lightweight local tool that sips resources will always beat a bloated one that
 
 ---
 
-## 🚀 How streamerOS Automates the Boring Parts
+## How streamerOS Automates the Boring Parts
 
 This is exactly the philosophy behind [streamerOS](/features): automate the mechanical tasks, keep the human ones human, and do it all at a low footprint. A few pieces map directly onto everything above:
 

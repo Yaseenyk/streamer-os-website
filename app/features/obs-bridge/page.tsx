@@ -22,7 +22,7 @@ import { Screenshot } from '@/components/Screenshot';
 
 export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
-  title: 'Control OBS Scenes From Another App — OBS WebSocket Bridge',
+  title: 'Switch OBS Scenes Without Alt-Tabbing',
   description:
     'Switch OBS scenes without alt-tabbing: streamerOS connects to OBS Studio 28+ over the built-in WebSocket v5 server on your PC, syncs your scenes and cuts the program feed. No plugin.',
   alternates: { canonical: 'https://streamerosai.com/features/obs-bridge' },
@@ -379,22 +379,22 @@ export default function ObsBridgeGuidePage() {
         <h2 className="text-xl font-semibold tracking-tight">Related guides</h2>
         <ul className="mt-4 space-y-2 text-zinc-400">
             <li>
-              <Link href="/blog/obs-websocket-setup-guide" className="text-cyan-400 underline-offset-2 hover:underline">
+              <Link href="/blog/obs-websocket-setup-guide" className="text-cyan-400 underline underline-offset-2">
                 OBS WebSocket setup guide
               </Link>
             </li>
             <li>
-              <Link href="/blog/auto-switch-obs-scenes-guide" className="text-cyan-400 underline-offset-2 hover:underline">
+              <Link href="/blog/auto-switch-obs-scenes-guide" className="text-cyan-400 underline underline-offset-2">
                 How to auto-switch OBS scenes without scripting
               </Link>
             </li>
             <li>
-              <Link href="/blog/optimizing-desktop-ipc-obs-websocket-latency" className="text-cyan-400 underline-offset-2 hover:underline">
+              <Link href="/blog/optimizing-desktop-ipc-obs-websocket-latency" className="text-cyan-400 underline underline-offset-2">
                 Why scene switches feel instant, not laggy
               </Link>
             </li>
             <li>
-              <Link href="/features/auto-hype" className="text-cyan-400 underline-offset-2 hover:underline">
+              <Link href="/features/auto-hype" className="text-cyan-400 underline underline-offset-2">
                 Auto-Hype Director
               </Link>
             </li>
