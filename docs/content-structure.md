@@ -16,11 +16,11 @@ repository. Rewritten 2026-09-11 — the previous version described a
 - **Build:** `npm run build` renders a social card per post (`public/blog-og/`, gitignored),
   runs `next build`, then emits directory indexes and redirects, and verifies the
   sitemap and every internal link. The RSS feed is `app/feed.xml/route.ts`.
-- **AI Blogger** (`scripts/ai_writer.py`) runs Mondays and Thursdays 09:00 UTC and
-  writes one post per query in `scripts/topics.txt` (sales-driven, problem-first
-  queries), using `docs/knowledge-base.md` as its only source of product facts. It
-  opens a pull request for review and never pushes to `main`; topics already in an
-  open draft are skipped. Merge only after checking the claims and links.
+- **AI Blogger** (`scripts/ai_writer.py`) runs Mondays and Thursdays 09:00 UTC, writes one
+  post per query in `scripts/topics.txt` using `docs/knowledge-base.md` as its only
+  source of product facts, and commits it straight to `main` (the deploy chains off
+  the run). The script fails the run instead of publishing when a post breaks its
+  checks. Read each new post after it goes live and fix or remove anything wrong.
 - **Read `AGENTS.md` first** — Next 16 differs from older versions; consult
   `node_modules/next/dist/docs/` before using an API the site does not already use.
 

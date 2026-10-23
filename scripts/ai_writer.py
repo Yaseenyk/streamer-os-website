@@ -52,23 +52,11 @@ def slugify(text: str) -> str:
     return text.strip("-")[:80] or "post"
 
 
-def claimed_topics() -> set[str]:
-    """Topics already drafted in an open PR (the workflow writes their bodies to
-    CLAIMED_TOPICS_FILE). Without this, an unmerged draft's topic is still at the
-    top of topics.txt on main and the next run would write the same post again."""
-    path = os.environ.get("CLAIMED_TOPICS_FILE", "")
-    if not path or not pathlib.Path(path).exists():
-        return set()
-    text = pathlib.Path(path).read_text(encoding="utf-8")
-    return {m.strip() for m in re.findall(r"^Topic:\s*(.+)$", text, re.M)}
-
-
 def read_top_topic() -> str | None:
     if not TOPICS_FILE.exists():
         return None
-    claimed = claimed_topics()
     for line in TOPICS_FILE.read_text(encoding="utf-8").splitlines():
-        if line.strip() and line.strip() not in claimed:
+        if line.strip():
             return line.strip()
     return None
 
@@ -171,8 +159,22 @@ Field requirements:
 EMOJI = re.compile("[\U0001F300-\U0001FAFF☀-➿️]")
 
 
+def link_bare_paths(body: str) -> str:
+    """Turn bare '/blog/slug' and '/download' text into real links, titled from the post."""
+    titles = {f"/blog/{f.stem}": post_title(f) for f in OUT_DIR.glob("*.md")}
+    titles["/download"] = "pre-register"
+    def repl(m: re.Match) -> str:
+        path = m.group(2)
+        return f"{m.group(1)}[{titles.get(path, path)}]({path})" if path in titles else m.group(0)
+    # A path not already inside (...) or [...].
+    return re.sub(r"(^|[\s:—-])(/blog/[a-z0-9-]+|/download)(?=[\s.,;)]|$)", repl, body, flags=re.M)
+
+
 def clean_body(body: str) -> str:
     """Enforce the rules the model is most likely to slip on."""
+    body = link_bare_paths(body)
+    body = re.sub(r"^Q:\s*(.+)$", r"**\1**", body, flags=re.M)
+    body = re.sub(r"^A:\s*", "", body, flags=re.M)
     allowed = set(site_links()) | {DEMO_URL}
     # Drop links to anything that is not a real page; keep the anchor text.
     body = re.sub(
@@ -185,6 +187,9 @@ def clean_body(body: str) -> str:
         sys.exit("ERROR: model emitted the retired AI summary block; not publishing.")
     if len(re.findall(r"streamerOS", body)) > 3:
         sys.exit("ERROR: post mentions streamerOS more than 3 times; not publishing.")
+    bare = re.findall(r"(?<![(\[])(?:^|\s)(/blog/[a-z0-9-]+)", body, flags=re.M)
+    if bare:
+        sys.exit(f"ERROR: unlinked paths left in the post: {bare}; not publishing.")
     return body.strip()
 
 
@@ -256,6 +261,14 @@ def main() -> None:
     body = clean_body(str(data.get("body_markdown") or ""))
 
     title = str(data.get("title") or topic).strip()
+    if title == title.lower():
+        small = {"a", "an", "and", "as", "at", "but", "by", "for", "in", "of", "on", "or", "the", "to", "vs", "with"}
+        acronyms = {"obs": "OBS", "ai": "AI", "nvenc": "NVENC", "cpu": "CPU", "gpu": "GPU", "vod": "VOD", "vods": "VODs", "youtube": "YouTube", "tiktok": "TikTok"}
+        words = title.split()
+        title = " ".join(
+            acronyms.get(w.lower().strip(":"), w.capitalize() if i == 0 or w not in small or words[i - 1].endswith(":") else w) + (":" if w.endswith(":") and w.lower().strip(":") in acronyms else "")
+            for i, w in enumerate(words)
+        )
     if len(title) > 60:
         sys.exit(f"ERROR: title is {len(title)} characters (max 60): {title}")
     slug = slugify(title)
@@ -286,7 +299,6 @@ def main() -> None:
 
     remove_topic(topic)
     print("Removed topic from topics.txt")
-    (ROOT / ".ai-blogger-topic").write_text(topic, encoding="utf-8")
 
 
 if __name__ == "__main__":
