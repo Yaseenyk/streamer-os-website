@@ -9,6 +9,11 @@ interface FooterLink {
   href: string;
 }
 
+// Five columns of similar height. The old layout put thirteen links under
+// "Product" next to two under "Legal", so the footer read as one tall column
+// with stubs beside it. Audiences get their own column; editorial pages move
+// to Company, where they belong.
+
 // The headline features, plus a way to all of them. The full list lives in
 // lib/features.ts; the footer carries the ones people search for by name.
 const FEATURE_LINKS: FooterLink[] = [
@@ -26,24 +31,27 @@ const FEATURE_LINKS: FooterLink[] = [
 const PRODUCT: FooterLink[] = [
   { label: 'Ultra-Light Performance', href: '/features/performance' },
   { label: 'Zero-Cloud Privacy', href: '/features/zero-cloud' },
-  { label: 'For Indian Streamers', href: '/for/indian-streamers' },
-  { label: 'For Low-End PCs', href: '/for/low-end-pc' },
-  { label: 'For Solo Streamers', href: '/for/solo-streamers' },
-  { label: 'For YouTube Live', href: '/for/youtube-live' },
-  { label: 'For VTubers', href: '/for/vtubers' },
   { label: 'Pricing', href: '/pricing' },
-  { label: 'vs Streamlabs', href: '/vs/streamlabs' },
   { label: 'Pre-Register', href: '/download' },
-  { label: 'Founding Streamers', href: '/streamers' },
-  { label: 'Playbook', href: '/playbook' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Compare', href: '/vs' },
+  { label: 'vs Streamlabs', href: '/vs/streamlabs' },
   { label: 'Changelog', href: '/changelog' },
+];
+
+const FOR_YOU: FooterLink[] = [
+  { label: 'Indian Streamers', href: '/for/indian-streamers' },
+  { label: 'Low-End PCs', href: '/for/low-end-pc' },
+  { label: 'Solo Streamers', href: '/for/solo-streamers' },
+  { label: 'YouTube Live', href: '/for/youtube-live' },
+  { label: 'VTubers', href: '/for/vtubers' },
+  { label: 'Founding Streamers', href: '/streamers' },
 ];
 
 const COMPANY: FooterLink[] = [
   { label: 'About', href: '/about' },
   { label: 'Trust & Verification', href: '/trust' },
-  { label: 'Compare', href: '/vs' },
+  { label: 'Playbook', href: '/playbook' },
+  { label: 'Blog', href: '/blog' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },
 ];
@@ -68,17 +76,17 @@ const SOCIALS = [
   },
 ].filter((social) => social.href !== '');
 
+const linkClass =
+  'inline-block rounded text-sm text-zinc-400 transition-colors hover:text-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500';
+
 function FooterColumn({ title, links }: { title: string; links: FooterLink[] }) {
   return (
     <div>
       <h3 className="font-mono text-xs uppercase tracking-widest text-zinc-400">{title}</h3>
-      <ul className="mt-4 space-y-3">
+      <ul className="mt-4 space-y-2.5">
         {links.map((link) => (
           <li key={link.label}>
-            <Link
-              href={link.href}
-              className="inline-block rounded text-sm text-zinc-400 transition-colors hover:text-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
-            >
+            <Link href={link.href} className={linkClass}>
               {link.label}
             </Link>
           </li>
@@ -92,31 +100,49 @@ export default function Footer() {
   return (
     <footer className="border-t border-white/10">
       <div className="mx-auto max-w-6xl px-6 py-14">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
-          {/* Brand */}
+        {/* Brand row: logo, one line, contact and socials — above the link columns, not beside them. */}
+        <div className="flex flex-col gap-6 border-b border-white/10 pb-10 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <Link href="/" className="flex items-center">
+            <Link href="/" className="inline-flex items-center">
               <SignalLogo className="text-2xl" />
             </Link>
-            <p className="mt-4 max-w-xs text-sm text-zinc-400">
+            <p className="mt-3 max-w-md text-sm text-zinc-400">
               The ultra-lightweight desktop cockpit for live streamers. 1.8% CPU, zero cloud.
             </p>
-            <a
-              href={`mailto:${siteConfig.contactEmail}`}
-              className="mt-4 inline-block rounded text-sm text-zinc-400 transition-colors hover:text-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
-            >
+          </div>
+          <div className="flex flex-col gap-3 sm:items-end">
+            <a href={`mailto:${siteConfig.contactEmail}`} className={linkClass}>
               {siteConfig.contactEmail}
             </a>
+            <div className="flex items-center gap-4 empty:hidden">
+              {SOCIALS.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="text-zinc-500 transition-colors hover:text-zinc-100"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5" aria-hidden>
+                    <path d={social.path} />
+                  </svg>
+                </a>
+              ))}
+            </div>
           </div>
+        </div>
 
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10 pt-10 sm:grid-cols-3 lg:grid-cols-5">
           <FooterColumn title="Features" links={FEATURE_LINKS} />
           <FooterColumn title="Product" links={PRODUCT} />
+          <FooterColumn title="For you" links={FOR_YOU} />
           <FooterColumn title="Company" links={COMPANY} />
           <FooterColumn title="Legal" links={LEGAL} />
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 border-t border-white/10 pt-8">
           <p className="text-sm text-zinc-400">
             © 2026 streamerOS. All rights reserved. Built by{' '}
             <a
@@ -127,23 +153,6 @@ export default function Footer() {
             </a>
             .
           </p>
-
-          <div className="flex items-center gap-4 empty:hidden">
-            {SOCIALS.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.label}
-                className="text-zinc-500 transition-colors hover:text-zinc-100"
-              >
-                <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5" aria-hidden>
-                  <path d={social.path} />
-                </svg>
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </footer>

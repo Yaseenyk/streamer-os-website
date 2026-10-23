@@ -18,6 +18,14 @@ export interface Env {
 
 const app = new Hono<{ Bindings: Env }>();
 
+// The facts every answer may rely on, whatever retrieval returns. "What is
+// streamerOS?" was answered with "I don't have information" because the
+// vector search for a short follow-up ("what is it?") surfaced unrelated
+// chunks and the prompt forbade anything outside them. Identity, platform,
+// price and launch are too basic to depend on a similarity score. Keep this
+// in step with docs/knowledge-base.md.
+const CORE_FACTS = `streamerOS is a desktop cockpit app for live streamers on YouTube Live and Twitch. It runs natively on Windows 10 and 11 (64-bit) and works alongside OBS Studio: it reads your chat, measures what your audience is doing, drives OBS scene changes for you, and helps with the work around the stream (clips, Shorts, upload titles, sponsors). It does not replace OBS; you still stream with OBS. It is built in Rust on Tauri, uses about 1.8% CPU under a live 1080p60 game, and is local-first: no account, no login, no cloud backend, no telemetry; chat, audio and data stay on the user's PC. Local AI features (AI Sidekick, Sentiment Horizon, Viral Engine) run on the GPU through Ollama. It does not support macOS or Linux. Pricing: a 7-day free trial with every feature and no card; a one-time $29 licence, not a subscription; people who pre-registered before the February 2027 launch get a 3-month trial. Public launch: February 2027; pre-registration is open at streamerosai.com/download.`;
+
 // The site moved to its own domain and this list did not follow it, so every
 // request from streamerosai.com was blocked by the browser: the widget showed
 // its typing dots for two seconds and then nothing, because the preflight came
@@ -55,6 +63,15 @@ function lastUserText(messages: UIMessage[]): string {
   return '';
 }
 
+/** The last user message, prefixed by the one before it when the last is short. */
+function retrievalQuery(messages: UIMessage[]): string {
+  const users = messages.filter((m) => m.role === 'user');
+  const last = users.length ? lastUserText([users[users.length - 1]]) : '';
+  const prev = users.length > 1 ? lastUserText([users[users.length - 2]]) : '';
+  return last.trim().split(/\s+/).length <= 6 && prev ? `${prev}
+${last}` : last;
+}
+
 app.post('/chat', async (c) => {
   const { messages } = await c.req.json<{ messages: UIMessage[] }>();
 
@@ -78,15 +95,17 @@ app.post('/chat', async (c) => {
   let context = '';
   let retrievalFailed = false;
   try {
+    // Embed the question together with the previous user turn, so a
+    // follow-up like "what is it?" retrieves what "it" referred to.
     const { embedding } = await embed({
       model: google.textEmbeddingModel('gemini-embedding-001'),
-      value: lastUserText(messages),
+      value: retrievalQuery(messages),
       providerOptions: { google: { outputDimensionality: 768 } },
     });
 
     const hits = await index.query({
       vector: embedding,
-      topK: 3,
+      topK: 5,
       includeMetadata: true,
     });
 
@@ -106,10 +125,14 @@ Answer the user's question using ONLY the context provided below. The context is
 Rules:
 - Be helpful, friendly, and concise.
 - Base your answer strictly on the provided context. Do not invent features, requirements, or steps.
-- If the context does not contain the answer, say you don't have that information and suggest contacting streamerOS support, rather than guessing.
+- If neither the core facts nor the context contain the answer, say you don't have that information and suggest contacting streamerOS support, rather than guessing.
+- A question about what streamerOS is, what it runs on, what it costs, or when it launches is answered from the core facts.
 - When the context lists steps, present them as clear, ordered steps.
 
-Context:
+Core facts (always true, use freely):
+${CORE_FACTS}
+
+Context from the knowledge base:
 ${context}`;
 
   // Say so rather than answering from the model's own memory. An ungrounded
