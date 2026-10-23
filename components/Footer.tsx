@@ -9,10 +9,10 @@ interface FooterLink {
   href: string;
 }
 
-// Five columns of similar height. The old layout put thirteen links under
-// "Product" next to two under "Legal", so the footer read as one tall column
-// with stubs beside it. Audiences get their own column; editorial pages move
-// to Company, where they belong.
+// Layout: a brand block on the left (a third of the width) with the one call
+// to action that matters before launch, and four link columns of six to
+// eight items on the right. Legal lives in the bottom bar, so no column is a
+// two-link stub and no column is twice the height of its neighbours.
 
 // The headline features, plus a way to all of them. The full list lives in
 // lib/features.ts; the footer carries the ones people search for by name.
@@ -22,20 +22,19 @@ const FEATURE_LINKS: FooterLink[] = [
   { label: 'AI Sidekick', href: '/features/ai-sidekick' },
   { label: 'Clip Library', href: '/features/clip-library' },
   { label: 'Shorts Factory', href: '/features/shorts-factory' },
-  { label: 'Chat Archive', href: '/features/chat-archive' },
   { label: 'Aura Studio', href: '/features/aura-studio' },
   { label: 'Sponsor CRM', href: '/features/sponsor-crm' },
-  { label: `All ${FEATURE_COUNT} features`, href: '/features' },
+  { label: `All ${FEATURE_COUNT} features →`, href: '/features' },
 ];
 
 const PRODUCT: FooterLink[] = [
   { label: 'Ultra-Light Performance', href: '/features/performance' },
   { label: 'Zero-Cloud Privacy', href: '/features/zero-cloud' },
   { label: 'Pricing', href: '/pricing' },
-  { label: 'Pre-Register', href: '/download' },
   { label: 'Compare', href: '/vs' },
   { label: 'vs Streamlabs', href: '/vs/streamlabs' },
   { label: 'Changelog', href: '/changelog' },
+  { label: 'Pre-Register', href: '/download' },
 ];
 
 const FOR_YOU: FooterLink[] = [
@@ -77,13 +76,13 @@ const SOCIALS = [
 ].filter((social) => social.href !== '');
 
 const linkClass =
-  'inline-block rounded text-sm text-zinc-400 transition-colors hover:text-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500';
+  'inline-block rounded text-[13.5px] leading-6 text-zinc-400 transition-colors hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500';
 
 function FooterColumn({ title, links }: { title: string; links: FooterLink[] }) {
   return (
     <div>
-      <h3 className="font-mono text-xs uppercase tracking-widest text-zinc-400">{title}</h3>
-      <ul className="mt-4 space-y-2.5">
+      <h3 className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">{title}</h3>
+      <ul className="mt-4 space-y-1.5">
         {links.map((link) => (
           <li key={link.label}>
             <Link href={link.href} className={linkClass}>
@@ -98,61 +97,84 @@ function FooterColumn({ title, links }: { title: string; links: FooterLink[] }) 
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10">
-      <div className="mx-auto max-w-6xl px-6 py-14">
-        {/* Brand row: logo, one line, contact and socials — above the link columns, not beside them. */}
-        <div className="flex flex-col gap-6 border-b border-white/10 pb-10 sm:flex-row sm:items-start sm:justify-between">
-          <div>
+    <footer className="relative border-t border-white/10 bg-gradient-to-b from-zinc-950/0 to-black">
+      {/* A hairline of brand colour along the top edge, the only decoration. */}
+      <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
+
+      <div className="mx-auto max-w-6xl px-6 pb-8 pt-14">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
+          {/* Brand block */}
+          <div className="lg:col-span-4 lg:pr-10">
             <Link href="/" className="inline-flex items-center">
               <SignalLogo className="text-2xl" />
             </Link>
-            <p className="mt-3 max-w-md text-sm text-zinc-400">
-              The ultra-lightweight desktop cockpit for live streamers. 1.8% CPU, zero cloud.
+            <p className="mt-4 max-w-sm text-sm leading-6 text-zinc-400">
+              The ultra-lightweight desktop cockpit for live streamers. Chat, OBS and your audience in one window, at 1.8% CPU, with nothing
+              in the cloud.
             </p>
-          </div>
-          <div className="flex flex-col gap-3 sm:items-end">
-            <a href={`mailto:${siteConfig.contactEmail}`} className={linkClass}>
-              {siteConfig.contactEmail}
-            </a>
-            <div className="flex items-center gap-4 empty:hidden">
-              {SOCIALS.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="text-zinc-500 transition-colors hover:text-zinc-100"
-                >
-                  <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5" aria-hidden>
-                    <path d={social.path} />
-                  </svg>
-                </a>
-              ))}
+            <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-500">
+              Windows 10 &amp; 11 · Launch Feb 2027
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <Link
+                href="/download"
+                className="inline-flex items-center rounded-lg bg-cyan-500 px-4 py-2 text-sm font-semibold text-black transition-colors hover:bg-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+              >
+                Pre-register free
+              </Link>
+              <a href={`mailto:${siteConfig.contactEmail}`} className={linkClass}>
+                {siteConfig.contactEmail}
+              </a>
             </div>
           </div>
+
+          {/* Link columns */}
+          <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4 lg:col-span-8">
+            <FooterColumn title="Features" links={FEATURE_LINKS} />
+            <FooterColumn title="Product" links={PRODUCT} />
+            <FooterColumn title="For you" links={FOR_YOU} />
+            <FooterColumn title="Company" links={COMPANY} />
+          </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-x-8 gap-y-10 pt-10 sm:grid-cols-3 lg:grid-cols-5">
-          <FooterColumn title="Features" links={FEATURE_LINKS} />
-          <FooterColumn title="Product" links={PRODUCT} />
-          <FooterColumn title="For you" links={FOR_YOU} />
-          <FooterColumn title="Company" links={COMPANY} />
-          <FooterColumn title="Legal" links={LEGAL} />
-        </div>
-
-        {/* Bottom bar */}
-        <div className="mt-12 border-t border-white/10 pt-8">
-          <p className="text-sm text-zinc-400">
-            © 2026 streamerOS. All rights reserved. Built by{' '}
+        {/* Bottom bar: copyright, legal, socials */}
+        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-[13px] text-zinc-500 sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            © 2026 streamerOS. Built by{' '}
             <a
               href={BUILDER.url}
-              className="rounded text-zinc-300 underline underline-offset-4 transition-colors hover:text-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+              className="rounded text-zinc-300 underline decoration-zinc-600 underline-offset-4 transition-colors hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
             >
               {BUILDER.name}
             </a>
             .
           </p>
+          <div className="flex items-center gap-5">
+            {LEGAL.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="rounded transition-colors hover:text-zinc-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+              >
+                {link.label}
+              </Link>
+            ))}
+            {SOCIALS.length > 0 && <span aria-hidden className="h-4 w-px bg-white/10" />}
+            {SOCIALS.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                className="text-zinc-500 transition-colors hover:text-zinc-100"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden>
+                  <path d={social.path} />
+                </svg>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>
