@@ -99,3 +99,45 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+  # Tell Bing (whose index also feeds ChatGPT search and Copilot) and other
+  # IndexNow engines which pages changed, right after they deploy, instead of
+  # waiting for a re-crawl. The key is public by design: it is served at
+  # /<key>.txt so the engines can confirm we own the host.
+  indexnow:
+    needs: deploy
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' }}
+    env:
+      SITE: https://streamerosai.com
+      KEY: 2d750fae7f775148b7d2d65e1188cd92
+    steps:
+      - name: Checkout (full history for the pushed range)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Submit changed URLs to IndexNow
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          range="$BEFORE..HEAD"
+          if [ -z "$BEFORE" ] || ! git cat-file -e "$BEFORE" 2>/dev/null; then range="HEAD^..HEAD"; fi
+          urls=("$SITE/" "$SITE/blog")
+          for f in $(git diff --name-only "$range" -- content/blog app); do
+            case "$f" in
+              content/blog/*.md) urls+=("$SITE/blog/$(basename "$f" .md)") ;;
+              app/*/page.tsx|app/*/page.mdx)
+                route="${f#app/}"; route="${route%/page.*}"
+                case "$route" in *"["*) continue ;; esac
+                urls+=("$SITE/$route") ;;
+            esac
+          done
+          mapfile -t urls < <(printf '%s\n' "${urls[@]}" | sort -u)
+          printf 'submitting %s urls:\n' "${#urls[@]}"
+          printf '  %s\n' "${urls[@]}"
+          json=$(printf '"%s",' "${urls[@]}"); json="[${json%,}]"
+          curl -sS -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "{\"host\":\"streamerosai.com\",\"key\":\"$KEY\",\"keyLocation\":\"$SITE/$KEY.txt\",\"urlList\":$json}" \
+            -w "\nHTTP %{http_code}\n" || true
