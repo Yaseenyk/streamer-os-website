@@ -80,7 +80,7 @@ Even without any automation, watching velocity live makes you a sharper broadcas
 
 Chat velocity — messages per second or per minute — is the closest thing streaming has to a live hype detector. A spike means your audience just reacted, and that reaction is almost always sitting on top of a clip. It's faster, sharper, and more honest than raw viewer count as a real-time signal, and it powers three of the highest-leverage things you can do: catching clips, automating your production, and reading the room in real time.
 
-You don't have to track it by eye. Let the metric do the watching, and go focus on the stream.
+You don't have to track it by eye. Let the metric do the watching, and go focus on the stream. If you stream on a single screen, here is [how to read chat while streaming on one monitor](/blog/how-to-read-chat-while-streaming-one-monitor).
 
 ---
 

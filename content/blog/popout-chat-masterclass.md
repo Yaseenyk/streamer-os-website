@@ -26,7 +26,7 @@ Here's how:
 
 That's it. The moment you start the monitor, your velocity gauges come to life.
 
-> **Tip:** Keep the popout window open and un-minimized while you stream. The local scraper reads what's rendered on screen, so a fully minimized window can starve it of the data it needs. Tuck it onto a second monitor or a corner of your desktop and forget about it.
+> **Tip:** On a single screen? See [how to read chat while streaming on one monitor](/blog/how-to-read-chat-while-streaming-one-monitor). Keep the popout window open and un-minimized while you stream. The local scraper reads what's rendered on screen, so a fully minimized window can starve it of the data it needs. Tuck it onto a second monitor or a corner of your desktop and forget about it.
 
 ---
 

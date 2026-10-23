@@ -46,7 +46,7 @@ The moments are real. The hunt is what breaks the workflow.
 
 This is exactly what the streamerOS **Clip Library** is built for.
 
-The Clip Library scans your local `.mp4` and `.mkv` recordings — the files already sitting on your drive ([organised like this](/blog/streaming-workspace-folder-setup)) — and gives each one a **hype score**. That score isn't a guess. It's built from the telemetry streamerOS captured while you were live, stored locally in SQLite on your own machine.
+Saved chat helps here too — see [how to save YouTube live chat and Twitch chat logs](/blog/how-to-save-youtube-live-chat-and-twitch-chat-logs). The Clip Library scans your local `.mp4` and `.mkv` recordings — the files already sitting on your drive ([organised like this](/blog/streaming-workspace-folder-setup)) — and gives each one a **hype score**. That score isn't a guess. It's built from the telemetry streamerOS captured while you were live, stored locally in SQLite on your own machine.
 
 To generate the score, the app correlates each recording's time window against that stored telemetry and weights three signals:
 

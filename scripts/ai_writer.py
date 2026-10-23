@@ -52,11 +52,23 @@ def slugify(text: str) -> str:
     return text.strip("-")[:80] or "post"
 
 
+def claimed_topics() -> set[str]:
+    """Topics already drafted in an open PR (the workflow writes their bodies to
+    CLAIMED_TOPICS_FILE). Without this, an unmerged draft's topic is still at the
+    top of topics.txt on main and the next run would write the same post again."""
+    path = os.environ.get("CLAIMED_TOPICS_FILE", "")
+    if not path or not pathlib.Path(path).exists():
+        return set()
+    text = pathlib.Path(path).read_text(encoding="utf-8")
+    return {m.strip() for m in re.findall(r"^Topic:\s*(.+)$", text, re.M)}
+
+
 def read_top_topic() -> str | None:
     if not TOPICS_FILE.exists():
         return None
+    claimed = claimed_topics()
     for line in TOPICS_FILE.read_text(encoding="utf-8").splitlines():
-        if line.strip():
+        if line.strip() and line.strip() not in claimed:
             return line.strip()
     return None
 
@@ -72,6 +84,7 @@ def remove_topic(topic: str) -> None:
 
 
 KNOWLEDGE_BASE = ROOT / "docs" / "knowledge-base.md"
+DEMO_URL = "https://demo.streamerosai.com"
 CONTENT_PLAN = ROOT / "docs" / "content-plan.md"
 
 # Tags lib/blog-cta.ts maps to a closing pitch; anything else gets the generic one.
@@ -89,9 +102,15 @@ def site_links() -> list[str]:
     return sorted(set(pages)) + posts
 
 
+def post_title(path: pathlib.Path) -> str:
+    m = re.search(r'^title:\s*"?(.*?)"?\s*$', path.read_text(encoding="utf-8"), re.M)
+    return m.group(1) if m else path.stem
+
+
 def build_prompt(topic: str) -> str:
     kb = KNOWLEDGE_BASE.read_text(encoding="utf-8")
     links = "\n".join(site_links())
+    existing = "\n".join(f"/blog/{f.stem}: {post_title(f)}" for f in sorted(OUT_DIR.glob("*.md")))
     return f"""You are writing one article for the streamerOS blog. Its job is to be the most
 useful page on the web for one search query, written for working Twitch and
 YouTube streamers.
@@ -104,16 +123,23 @@ Rules — every one is mandatory:
 2. Put the searcher's exact words in the title and in one H2.
 3. Teach the method that works for everyone first — OBS settings, free tools, the
    reasoning. Name real free alternatives where they exist.
-4. Mention streamerOS at most ONCE, near the end, only where it genuinely fits the
-   query, and state its honest limits: Windows only, $29 after a 7-day trial,
-   reads chat but never posts to it. If it does not fit the query, leave it out.
+4. Close with ONE short section, near the end, on how streamerOS solves this
+   problem — the sales point of the post. Tie it to the specific streamerOS
+   feature from the KNOWLEDGE BASE that solves the reader's problem, state its
+   honest limits (Windows only, $29 once after the trial, reads chat but never
+   posts to it, launches February 2027), and end that section with two offers:
+   the live demo ({DEMO_URL}, runs in the browser, nothing to install) and that
+   founding members — anyone who pre-registers at /download before launch — get
+   the beta first. Do not mention streamerOS anywhere else in the post.
 5. Every fact about streamerOS must come from the KNOWLEDGE BASE below. Never
    invent a feature, trigger, button name, menu path, number or benchmark. The
    Auto-Hype Director's only triggers are chat velocity and Super Chat amount.
 6. Do not invent facts about other products either. If you are not certain of an
    exact OBS menu path or setting name, describe it generally.
-7. Internal links: use only URLs from the ALLOWED LINKS list, as root-relative
-   Markdown links. Two to four links. No external links.
+7. Links: use only URLs from the ALLOWED LINKS list (root-relative) plus the
+   live demo URL above. Two to four internal links. No other external links.
+11. Do not repeat an existing post. EXISTING POSTS are listed below; if one
+    already answers part of this query, cover the distinct part and link to it.
 8. No emoji anywhere. No "summary for AI" blocks, no "AI Discovery Directive".
    No H1 — the title is rendered separately; use ## and ### only.
 9. Short paragraphs, real steps where the reader has to do something, a table
@@ -135,6 +161,10 @@ Field requirements:
 === ALLOWED LINKS ===
 {links}
 === END ALLOWED LINKS ===
+
+=== EXISTING POSTS ===
+{existing}
+=== END EXISTING POSTS ===
 """
 
 
@@ -143,7 +173,7 @@ EMOJI = re.compile("[\U0001F300-\U0001FAFF☀-➿️]")
 
 def clean_body(body: str) -> str:
     """Enforce the rules the model is most likely to slip on."""
-    allowed = set(site_links())
+    allowed = set(site_links()) | {DEMO_URL}
     # Drop links to anything that is not a real page; keep the anchor text.
     body = re.sub(
         r"\[([^\]]+)\]\(([^)]+)\)",
@@ -256,6 +286,7 @@ def main() -> None:
 
     remove_topic(topic)
     print("Removed topic from topics.txt")
+    (ROOT / ".ai-blogger-topic").write_text(topic, encoding="utf-8")
 
 
 if __name__ == "__main__":

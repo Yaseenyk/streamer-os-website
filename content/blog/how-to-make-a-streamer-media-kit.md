@@ -1,7 +1,8 @@
 ---
-title: "How to Make a Streamer Media Kit (Free)"
-description: "What sponsors actually want to see, built from your own stats - audience, reach, formats and rates, on one page you can send today."
+title: "Streamer Media Kit: Free Template, Examples and Tips"
+description: "A free streamer media kit template you can copy, two example layouts, and what sponsors actually look for: average viewers, watch time, audience and rates."
 date: "2026-07-06"
+updated: "2026-10-23"
 author: "Yaseen Khatib"
 tags: ["Guides", "Sponsorships", "Media Kit", "Monetization"]
 ---
@@ -28,6 +29,53 @@ A media kit is not a design contest. It's a fast, honest snapshot that answers a
 That's it. Everything else is decoration.
 
 ---
+
+## Free streamer media kit template
+
+Copy this into Google Docs, Canva or any slide tool and fill in the brackets. It
+fits on one page, which is what a sponsor wants.
+
+```text
+[CHANNEL NAME]  ·  [Twitch / YouTube handle]
+[One line: what you stream and the vibe — e.g. "Late-night co-op horror with a loud, friendly chat"]
+
+AUDIENCE (last 30–90 days)
+  Average concurrent viewers: [number]
+  Peak concurrent viewers:    [number]
+  Hours watched:              [number]
+  Streams per week:           [number]
+  Top regions / languages:    [e.g. US 40%, UK 15%, India 12%]
+
+COMMUNITY
+  Followers / subscribers:    [number]
+  Chat activity:              [e.g. avg messages per stream]
+  Returning viewers:          [if your platform shows it]
+
+WHAT I OFFER
+  Dedicated segment (60 s) · Verbal mention · Panel / description link
+  Pinned chat message · Clip for your socials · Discount code tracking
+
+RATES
+  [Your package prices, or "Rates on request"]
+
+CONTACT
+  [business email]  ·  [Discord or other]
+```
+
+## Streamer media kit examples
+
+Two layouts that work, depending on what your strongest number is:
+
+* **The small, loyal channel (say 40 average viewers).** Lead with engagement:
+  chat messages per stream, returning viewers, a quote from your community or a
+  past sponsor. Put the audience numbers second. Brands that sponsor small
+  streamers are buying a niche that trusts you, not reach.
+* **The steady YouTube creator (VODs plus live).** Lead with watch time and total
+  views across live and on-demand, then the live numbers. Add a one-line case
+  study if you have one: "Last sponsor segment: 1,200 code uses in 30 days."
+
+Whichever you use, every number should come from your own analytics exports, and
+the date range should be on the page.
 
 ## The hard way vs the fast way
 

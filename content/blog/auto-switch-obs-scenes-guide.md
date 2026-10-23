@@ -53,6 +53,26 @@ show this scene".
 Its limit is in the name: it only knows which window has focus. It cannot react
 to a process starting in the background, your mic, or your chat.
 
+### OBS Automatic Scene Switcher not working? Check these
+
+When the built-in switcher does nothing, it is almost always one of these:
+
+* **It was never started.** Adding rules is not enough — the switcher only runs
+  after you press **Start** in its window. After restarting OBS, open the window
+  again and check it still says it is running.
+* **The window title changed.** The rule matches the window's title text.
+  Browsers change the title with every tab, and many games show a launcher window
+  first and the game window second. Pick the title the window has *while you
+  play*, not the one it had when you set the rule up.
+* **"When no window matches" is fighting you.** If that is set to switch to a
+  fallback scene, every alt-tab to an unlisted window cuts away. Set it to
+  **Don't switch** while you test.
+* **Two switchers are running at once.** If Advanced Scene Switcher is also
+  installed and running, the two can undo each other's switches. Use one.
+* **The game is not a window OBS can see by title.** Some full-screen games and
+  overlays report generic titles. Try running the game borderless windowed, or
+  switch on the game's process instead (Option 2 below).
+
 ## Option 2: Advanced Scene Switcher (free plugin)
 
 [Advanced Scene Switcher](https://obsproject.com/forum/resources/advanced-scene-switcher.395/)

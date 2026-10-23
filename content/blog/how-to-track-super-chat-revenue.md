@@ -1,12 +1,12 @@
 ---
-title: "How to Track Super Chat Revenue (Live and After the Stream)"
-description: "YouTube Studio shows Super Chat revenue in its Revenue tab, with a delay. How to read it, what you actually keep, and how to see a live total during the stream."
+title: "YouTube Super Chat Tracker: See Your Revenue Live"
+description: "How to track Super Chats on YouTube: where Studio shows the revenue, how much YouTube takes (you keep 70%), and how to see a live running total mid-stream."
 date: "2026-10-23"
 author: "Yaseen Khatib"
 tags: ["YouTube", "Monetization", "Guides"]
 ---
 
-**To track Super Chat revenue, open YouTube Studio → Analytics → Revenue, where
+**YouTube Studio is built for reviewing Super Chat revenue after the stream, not for a running total while you play. To track it after the fact, open YouTube Studio → Analytics → Revenue, where
 earnings from Supers (Super Chat, Super Stickers and Super Thanks) are broken out
 from ad revenue.** Those figures are estimates and arrive with a delay, so if you
 want a running total *during* the stream you need something reading your live
@@ -29,7 +29,7 @@ Two things trip people up:
 * **It is already converted.** Studio reports in your payout currency, even
   though viewers paid in their own currency.
 
-## How to track Super Chat revenue during a live stream
+## A live Super Chat tracker: totals during the stream
 
 Studio cannot tell you, mid-stream, that you have made $140 so far. The options:
 
@@ -47,7 +47,7 @@ are busiest.
 it up for you. That is the only way to get an accurate running total without
 looking away from the game.
 
-## What you actually keep from a Super Chat
+## How much does YouTube take from Super Chats?
 
 The amount a viewer pays is not what lands in your account:
 
