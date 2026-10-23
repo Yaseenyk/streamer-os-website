@@ -84,7 +84,7 @@ reporting floor; they are not zero on Google.
 
 ### Decision
 
-1. New post: an Advanced Scene Switcher guide. It goes deeper than the
+1. **Done 2026-10-23** (`/blog/obs-advanced-scene-switcher-guide`). New post: an Advanced Scene Switcher guide. It goes deeper than the
    section in `auto-switch-obs-scenes-guide` (macro recipes, a manual override,
    fixing "not switching") and ends on the one trigger the plugin cannot
    handle on its own: chat spikes. The two posts link to each other so they do
@@ -120,8 +120,9 @@ are competitors rather than buyers.
 | 6 weeks | Clicks on pages that had impressions and none | Impressions on each target keyword |
 | 12 weeks | Pre-registrations from these pages | Better than position 20; if not, change the angle rather than write more of the same |
 
-## Open question
+## Open question (resolved 2026-10-23)
 
-`docs/content-structure.md` says launch is November 2026; the live home page
-says February 2027. Settle it before the next post's call to action is
-written.
+Launch is **February 2027**. `docs/content-structure.md` and every page now say
+so. Note the guide ends on Advanced Scene Switcher's real limit: its Twitch
+condition reacts to single chat messages and events (follows, subscriptions,
+cheers), but has no measure of chat speed against a baseline.

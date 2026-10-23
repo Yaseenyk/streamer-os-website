@@ -41,7 +41,7 @@ data (dashboard metrics, Clip Library, Chat Archive, last stream report) and 10
 AI chat messages a day stay free. Keys are verified offline and tied to one PC's
 Installation ID.
 
-**Launch:** November 2026, Windows 10/11. CTAs are pre-registration until
+**Launch:** February 2027, Windows 10/11. CTAs are pre-registration until
 `siteConfig.downloadUrl` / `supporterCheckoutUrl` are set.
 
 **Markets:** global, with a dedicated page for Indian creators (Hinglish-aware

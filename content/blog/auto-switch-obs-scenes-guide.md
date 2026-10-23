@@ -91,14 +91,17 @@ when they are true.
 
 Conditions cover far more than windows — running processes, audio levels, media
 state, time of day and idle time among them — and macros can be combined. It is
-the right tool for machine-side rules, and it is free. What it does not do on
-its own is read your chat.
+the right tool for machine-side rules, and it is free. The full walkthrough,
+with five macro recipes, is in the
+[Advanced Scene Switcher guide](/blog/obs-advanced-scene-switcher-guide).
 
 ## Option 3: Switch scenes from chat activity
 
 Reacting to your *audience* rather than your machine needs something that reads
-chat and talks to OBS. OBS exposes that control through its built-in
-[WebSocket server](/blog/obs-websocket-setup-guide), so any tool can do it.
+chat and talks to OBS. Advanced Scene Switcher's Twitch condition can react to
+individual chat messages and events like new subscribers, but not to how *busy*
+chat is. For that you need a tool that measures chat speed and controls OBS
+through its built-in [WebSocket server](/blog/obs-websocket-setup-guide).
 
 **A toolkit like Streamer.bot.** Local, free and extremely capable — you build
 the logic in its action system. Worth learning if automation is the point for
@@ -161,8 +164,9 @@ keep making by hand.
 **Can OBS switch scenes automatically on its own?**
 Yes, on window focus, using the built-in Automatic Scene Switcher under Tools.
 For processes, audio, media or time, use the free Advanced Scene Switcher
-plugin. Chat-based switching needs a tool that reads chat and controls OBS over
-WebSocket.
+plugin, which can also react to single Twitch chat messages and events.
+Switching when chat gets busy needs a tool that measures chat speed and controls
+OBS over WebSocket.
 
 **Where is the Automatic Scene Switcher in OBS?**
 In the **Tools** menu. If you installed Advanced Scene Switcher, it appears in

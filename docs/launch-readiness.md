@@ -1,4 +1,4 @@
-# Launch readiness — streamerOS, November 2026
+# Launch readiness — streamerOS (launch moved to February 2027)
 
 Written 2026-09-09. Roughly eight weeks to launch.
 
