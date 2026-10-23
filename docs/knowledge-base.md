@@ -391,3 +391,28 @@ update checks.
 A: Sentiment Horizon reads Hinglish chat — Hindi written in Roman script, mixed
 with English — so "Bhai sahi hai" scores positive. The AI Sidekick currently
 replies in English, and Brand Guard's speech model is English-focused.
+
+### Q: Can I get a refund?
+
+A: Founding members — anyone who pre-registered before the February 2027
+launch — can get a full refund within 14 days of purchase, no questions asked:
+write to contact@streamerosai.com from the email used to buy. For everyone
+else, purchases are final except where local consumer law requires a refund,
+because the 7-day trial lets you use every feature before paying.
+
+### Q: What do I get if I pre-register?
+
+A: Pre-registering is free, needs no card, and makes you a founding member:
+the beta before the public launch in February 2027, a 3-month trial instead of
+7 days, the next major version included in your $29 licence, a 14-day
+no-questions refund, and a short build-log email about once a month until
+launch. Pre-register at https://streamerosai.com/download.
+
+### Q: Is there a beta or a program for streamers?
+
+A: Yes. Working Windows streamers can apply to the Founding Streamers program
+at https://streamerosai.com/streamers to use the earliest beta builds on real
+streams before launch. Accepted streamers get a free licence (including the
+next major version) and a direct line to the developer. Promotion is never
+required. Founding members who pre-register also get the beta before the
+public launch.
