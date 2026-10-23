@@ -19,11 +19,11 @@ You’ll wire OBS to streamerOS, create a reactive Aura overlay, calibrate a hyp
 - Native OBS WebSocket v5 control for instant sync via [OBS Bridge](/features/obs-bridge).
 - Overlay built in [Aura Studio](/features/aura-studio), reactive at 1 Hz with hype calibration.
 
-If you also want the app to auto-switch scenes on spikes, you can add Auto-Director rules later (optional).
+If you also want the app to auto-switch scenes on spikes, you can add Auto-Hype Director rules later (optional).
 
 ## Requirements
 - Windows PC with OBS installed and its WebSocket server enabled (v5).
-- streamerOS installed and running.
+- streamerOS, which launches February 2027 for Windows. Until then you can [try the live demo](https://demo.streamerosai.com) in your browser, or [pre-register](/download) to get the build on launch day.
 - Twitch or YouTube chat connected to OBS/stream as usual.
 - Optional: If you plan to use mood-based reactions, enable Live Chat Sentiment in streamerOS. AI features require Ollama running locally.
 
@@ -93,7 +93,7 @@ Placement tips:
 Now do a live poke test: have a mod trigger a short message burst and confirm the overlay brightens on cue, then calms.
 
 ## Step 6: Make reactions stream-wide with smart rules (optional)
-If you want more than visual overlays—like cutting to a wider camera or showing a hype stinger—add an Auto-Director rule. Auto-Director can watch chat velocity, Super Chats, and even game combat to switch scenes hands-free. Keep the rule simple:
+If you want more than visual overlays—like cutting to a wider camera or showing a hype stinger—add an Auto-Hype Director rule. Auto-Hype Director can watch chat velocity, Super Chats, and even game combat to switch scenes hands-free. Keep the rule simple:
 - If chat velocity > your calibrated threshold for a few seconds, then switch to a “Hype” scene or enable an OBS source that pairs with your Aura overlay.
 - When chat cools below the threshold, revert.
 

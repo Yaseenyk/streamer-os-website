@@ -5,21 +5,23 @@ import { LaunchBadge } from '@/components/PreRegisterModal';
 import { ScreenshotStrip } from '@/components/ScreenshotStrip';
 import { SHOTS } from '@/lib/shots';
 import InlineSignup from '@/components/InlineSignup';
+import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Download streamerOS for Windows — OBS Automation App' },
+  title: { absolute: 'Download streamerOS (Windows) — Pre-Register for Launch' },
   description:
-    'Download streamerOS for Windows 10/11: OBS scene automation, clip markers and a local AI sidekick. No account, no cloud. 7-day trial, then $29 once.',
+    'Pre-register for streamerOS for Windows 10/11: OBS scene automation, clip markers and a local AI sidekick. No account, no cloud. 7-day trial, then $29 once.',
   alternates: { canonical: 'https://streamerosai.com/download' },
 };
 
 // The "recommended" profile is streamerOS's documented target hardware.
 // TODO: confirm certified minimum specs before launch.
+// Split so the low-CPU claim and the hardware list stop contradicting each
+// other: the app itself needs Windows and OBS; the GPU is for the optional AI.
 const REQUIREMENTS = [
-  { label: 'Operating system', value: 'Windows 10 or 11 (64-bit)' },
-  { label: 'Recommended memory', value: '16 GB RAM' },
-  { label: 'Recommended CPU', value: 'An 8-core processor' },
-  { label: 'Local AI features', value: 'A discrete Graphics Processing Unit (GPU) — RTX 3060-class or better' },
+  { label: 'Required', value: 'Windows 10 or 11 (64-bit) and OBS Studio 28 or later' },
+  { label: 'Recommended', value: '16 GB RAM and an 8-core CPU, for headroom next to your game' },
+  { label: 'Only for local AI', value: 'An RTX 3060-class GPU and Ollama' },
 ];
 
 const STEPS = [
@@ -50,13 +52,14 @@ export default function DownloadPage() {
           </Reveal>
           <Reveal delay={0.08}>
             <h1 className="mt-3 text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
-              Get streamerOS.
+              streamerOS isn’t out yet. Get it first.
             </h1>
           </Reveal>
           <Reveal delay={0.16}>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              Free for 7 days, then $29 once — no subscription. Landing on your desktop
-              this November. Pre-register and we’ll send the build the day it ships.
+              It launches February 2027 for Windows. Pre-register and we’ll
+              send you the build the day it ships, with a 3-month trial instead of 7 days.
+              After that it’s $29 once, no subscription.
             </p>
           </Reveal>
         </div>
@@ -67,18 +70,25 @@ export default function DownloadPage() {
         <Reveal>
           <div className="rounded-2xl border border-cyan-400/30 bg-white/[0.03] p-8 text-center shadow-[0_0_60px_-20px_rgba(34,211,238,0.4)] sm:p-10">
             <LaunchBadge />
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight">For Windows 10 &amp; 11</h2>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight">Pre-register for the Windows build</h2>
             <p className="mt-2 text-sm text-zinc-400">
-              64-bit · 7-day free trial · no account required
+              Windows 10 &amp; 11 · 3-month trial for pre-registrants · no account required
             </p>
             <InlineSignup variant="bare" source="download" className="mt-6" />
-            <p className="mt-4 text-xs text-zinc-500">
-              Want to see what it does first?{' '}
-              <Link href="/features" className="text-cyan-400 hover:underline">
-                Every feature, screen by screen
-              </Link>
-              .
-            </p>
+            {siteConfig.demoUrl && (
+              <p className="mt-4 text-sm text-zinc-400">
+                Want to see it first?{' '}
+                <a
+                  href={siteConfig.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-cyan-400 underline underline-offset-2"
+                >
+                  Try the live demo in your browser
+                </a>{' '}
+                — sample data, nothing to install.
+              </p>
+            )}
           </div>
         </Reveal>
 
@@ -94,9 +104,10 @@ export default function DownloadPage() {
         {/* System requirements */}
         <Reveal>
           <h2 className="text-xl font-semibold tracking-tight">System requirements</h2>
-          <p className="mt-2 text-sm text-zinc-500">
-            streamerOS itself is featherweight — these recommendations are mostly
-            headroom for the optional on-device AI.
+          <p className="mt-2 text-sm text-zinc-400">
+            The app itself stays under 2% CPU. Without a GPU or Ollama, everything
+            except the local AI features (AI Sidekick, Sentiment Horizon, Viral
+            Engine) still works.
           </p>
           <div className="mt-4 divide-y divide-white/10 overflow-hidden rounded-xl border border-white/10 bg-white/[0.03]">
             {REQUIREMENTS.map((req) => (
@@ -137,9 +148,9 @@ export default function DownloadPage() {
         {/* Footnote */}
         <Reveal>
           <p className="text-center text-sm text-zinc-500">
-            Curious what’s new? Read the{' '}
-            <Link href="/changelog" className="text-cyan-400 hover:underline">
-              v1.0 release notes
+            Follow what is being built for v1.0 in the{' '}
+            <Link href="/changelog" className="text-cyan-400 underline underline-offset-2">
+              changelog
             </Link>
             .
           </p>

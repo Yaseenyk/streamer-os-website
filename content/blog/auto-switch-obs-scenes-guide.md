@@ -1,5 +1,5 @@
 ---
-title: "How to Auto-Switch OBS Scenes (Without Scripting)"
+title: "How to Auto-Switch OBS Scenes, Including From Chat Activity"
 description: "Make OBS switch scenes automatically with the built-in switcher, Advanced Scene Switcher macros or a chat-driven tool, plus rules that stop misfires."
 date: "2026-09-09"
 updated: "2026-10-22"
@@ -108,6 +108,17 @@ seconds of enforced calm after a switch is usually right.
 **3. Automate the return too.** A rule that cuts to a reaction scene and never
 comes back leaves you stranded there. Every automatic switch needs a defined way
 home — a timer, or the inverse condition.
+
+## Test it before you go live
+
+Whatever tool you use, rehearse the rules where a misfire costs nothing:
+
+1. Start an unlisted or private stream, or simply run OBS without going live.
+2. Trigger each condition on purpose — launch the game, alt-tab, or have a
+   friend send a burst of messages in your chat.
+3. Watch for two failure modes: a rule that never fires, and a rule that flips
+   back and forth. The second one almost always means a missing cooldown.
+4. Keep a manual scene hotkey on your keyboard for the first few real streams.
 
 ## Start with two rules, not ten
 

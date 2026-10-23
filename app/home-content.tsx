@@ -327,19 +327,19 @@ function Hero() {
               variants={fadeUp}
               className="text-balance text-4xl font-semibold leading-[1.06] tracking-tight sm:text-6xl"
             >
-              Run your stream like{' '}
+              Your OBS scenes{' '}
               <span className="bg-[linear-gradient(to_right,#22d3ee,#a855f7)] bg-clip-text text-transparent">
-                mission control
-              </span>
-              .
+                switch themselves
+              </span>{' '}
+              when chat spikes.
             </motion.h1>
 
             <motion.p variants={fadeUp} className="mt-6 max-w-xl text-lg text-zinc-400">
-              streamerOS is a Windows desktop app for Twitch &amp; YouTube streamers
-              — not an operating system — that runs alongside OBS Studio. Built in
-              Rust, it reads your chat on your own PC, scores its mood with local AI,
-              and switches your OBS scenes automatically while your game keeps the
-              rest of the machine.
+              streamerOS is a Windows app that runs next to OBS Studio (an app, not an
+              operating system). It reads your Twitch or YouTube chat on your own PC,
+              cuts to the right scene when chat velocity or a Super Chat crosses your
+              threshold, and marks the moment for clipping — at under 2% CPU. No
+              account, no cloud, $29 once.
             </motion.p>
 
             <motion.div variants={fadeUp} className="mt-8">
@@ -499,7 +499,7 @@ function ProductTour() {
           Nothing below is a mockup.
         </h2>
         <p className="mt-4 text-zinc-400">
-          {TOUR.length} screens from the build that ships in November, and what
+          {TOUR.length} screens from the build that ships in February 2027, and what
           each one is for.
         </p>
       </motion.div>
@@ -802,148 +802,8 @@ function HowItWorks() {
   );
 }
 
-// ---------------------------------------------------------------------------
-// Wall of Love — temporarily removed.
-// TODO: Restore Wall of Love when real quotes are acquired. The block below is
-// commented out because the testimonials were fabricated placeholders, and we
-// cannot ship fabricated quotes to production. Uncomment and swap in real,
-// attributable quotes to restore it.
-// ---------------------------------------------------------------------------
-/*
-interface Testimonial {
-  name: string;
-  handle: string;
-  initial: string;
-  tone: 'cyan' | 'purple';
-  quote: string;
-}
-
-const TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Nova Reyes',
-    handle: '@NovaOnAir',
-    initial: 'N',
-    tone: 'cyan',
-    quote:
-      'I watched Task Manager the whole first stream. 1.8% CPU — it just isn’t there. My game finally gets the whole machine.',
-  },
-  {
-    name: 'Kai Whitlock',
-    handle: '@KaiClutch',
-    initial: 'K',
-    tone: 'purple',
-    quote:
-      'The Auto-Hype Director cut to my raid scene before I even saw chat move. It reads the room better than I do.',
-  },
-  {
-    name: 'Mira Sol',
-    handle: '@MiraStreams',
-    initial: 'M',
-    tone: 'cyan',
-    quote:
-      'Zero-cloud, open source, featherweight. Someone finally built the tool streamers actually deserve.',
-  },
-  {
-    name: 'Dex Almeida',
-    handle: '@DexLive',
-    initial: 'D',
-    tone: 'purple',
-    quote:
-      'Not one dropped frame since I switched. My VODs have never looked this clean.',
-  },
-  {
-    name: 'Priya Anand',
-    handle: '@PriyaPlays',
-    initial: 'P',
-    tone: 'cyan',
-    quote:
-      'Mapped three trigger nodes once. Now my scenes run on the energy of the room — it feels like having a producer.',
-  },
-  {
-    name: 'Theo Brandt',
-    handle: '@TheoOnTwitch',
-    initial: 'T',
-    tone: 'purple',
-    quote:
-      'Elite engineering, honestly. 1.8% CPU under a live game is a flex — and they earned it.',
-  },
-];
-
-const AVATAR_TONE: Record<Testimonial['tone'], string> = {
-  cyan: 'bg-[linear-gradient(to_bottom_right,#22d3ee,#0284c7)]',
-  purple: 'bg-[linear-gradient(to_bottom_right,#a855f7,#6366f1)]',
-};
-
-function TestimonialCard({ t }: { t: Testimonial }) {
-  return (
-    <figure className="mr-5 w-[340px] shrink-0 rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm">
-      <div className="flex items-center gap-3">
-        <div
-          className={`flex h-10 w-10 items-center justify-center rounded-full text-sm font-semibold text-[#05070A] ${AVATAR_TONE[t.tone]}`}
-        >
-          {t.initial}
-        </div>
-        <figcaption>
-          <p className="text-sm font-semibold text-zinc-100">{t.name}</p>
-          <p className="text-xs text-zinc-500">{t.handle}</p>
-        </figcaption>
-      </div>
-      <blockquote className="mt-4 text-sm leading-relaxed text-zinc-300">{t.quote}</blockquote>
-    </figure>
-  );
-}
-
-function WallOfLove() {
-  const reduce = useReducedMotionSafe();
-  return (
-    <section className="border-t border-white/5 py-24 sm:py-28">
-      <div className="mx-auto max-w-6xl px-6">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-80px' }}
-          className="max-w-2xl"
-        >
-          <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">
-            Wall of Love
-          </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-            Streamers stop noticing it’s there.
-          </h2>
-          <p className="mt-3 text-zinc-400">
-            The best compliment a tool can earn is no compliment at all.
-          </p>
-        </motion.div>
-      </div>
-
-      <div className="relative mt-12 overflow-hidden">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-[linear-gradient(to_right,#05070A,transparent)]"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-[linear-gradient(to_left,#05070A,transparent)]"
-        />
-        <motion.div
-          className="flex w-max"
-          animate={reduce ? undefined : { x: ['-50%', '0%'] }}
-          transition={reduce ? undefined : { duration: 46, repeat: Infinity, ease: 'linear' }}
-        >
-          {[0, 1].map((set) => (
-            <div key={set} className="flex shrink-0" aria-hidden={set === 1}>
-              {TESTIMONIALS.map((t) => (
-                <TestimonialCard key={t.handle} t={t} />
-              ))}
-            </div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-*/
+// Wall of Love: removed. The earlier placeholder quotes were fabricated; add a
+// testimonials section only once there are real, attributable quotes.
 
 // ---------------------------------------------------------------------------
 // Page body. The JSON-LD for this route lives in the server component at

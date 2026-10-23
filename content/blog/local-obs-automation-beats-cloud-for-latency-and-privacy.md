@@ -18,7 +18,7 @@ streamerOS is built for local, zero-cloud control. No account, no backend—just
 
 What you’ll set up in this guide:
 - A direct OBS link using [OBS Bridge](/features/obs-bridge)
-- A local auto-switch rule with [Auto-Director](/features/auto-hype)
+- A local auto-switch rule with [Auto-Hype Director](/features/auto-hype)
 - A quick latency check to prove it’s snappier than cloud
 - A privacy and performance checklist you can show a sponsor
 
@@ -26,7 +26,7 @@ For a quick feature overview, see [Features](/features).
 
 ## Prerequisites (2 minutes)
 - Windows PC with OBS installed and its WebSocket server enabled (v5).
-- streamerOS installed. No login required.
+- streamerOS, which launches February 2027 for Windows. Until then you can [try the live demo](https://demo.streamerosai.com) in your browser, or [pre-register](/download) to get the build on launch day.
 - Optional: If you plan to use AI features (e.g., AI Sidekick), run Ollama locally. Not required for OBS automation.
 
 Note: OBS control features depend on OBS’s WebSocket being enabled. AI features depend on Ollama running locally.
@@ -39,10 +39,10 @@ Goal: A rock-solid, local connection to OBS that lists your scenes and can switc
 
 Why this matters: With a local WebSocket path, there’s no round-trip to a cloud service. It’s your PC talking directly to OBS—fast and predictable.
 
-## Step 2 — Build a local Auto-Director rule (chat → scene)
+## Step 2 — Build a local Auto-Hype Director rule (chat → scene)
 Goal: Automatically cut scenes when hype hits, using chat velocity and Super Chats—no cloud bots needed.
 
-- Open the Auto-Director visual rules canvas. (If it’s your first time, the feature page has a quick primer: [Auto-Director](/features/auto-hype).)
+- Open the Auto-Hype Director visual rules canvas. (If it’s your first time, the feature page has a quick primer: [Auto-Hype Director](/features/auto-hype).)
 - Add a trigger for Chat Velocity. Set a threshold that represents “chat is popping.” Keep it conservative for your average stream; you can tune later.
 - Add an action to Switch Scene and pick your hype-friendly scene (e.g., Face Cam, Hype Cam, or a full-screen overlay).
 - Add a second trigger for Super Chats/featured messages. Route it to a Switch Scene action as well (same scene or a different one if you prefer a distinct look for paid support).
@@ -55,12 +55,12 @@ Goal: Show viewers when hype is spiking, so your scene changes feel “earned,�
 - In Aura Studio, enable a reactive overlay and calibrate the hype threshold so it nudges on light chatter and flares during real spikes. The overlay updates at 1 Hz—enough to match what viewers feel without burning CPU.
 - Render your Aura Scene into OBS like any other overlay source.
 
-Now, your audience sees the hype rise while Auto-Director makes your camera cut. It feels intentional and synced.
+Now, your audience sees the hype rise while Auto-Hype Director makes your camera cut. It feels intentional and synced.
 
 ## Step 4 — Prove the latency win (simple on-stream test)
 You don’t need lab gear. Just measure what you care about: how fast a moment triggers a cut.
 
-- Open your stream preview and the streamerOS Auto-Director canvas.
+- Open your stream preview and the streamerOS Auto-Hype Director canvas.
 - Have a mod fire a real Super Chat or simulate a chat burst.
 - Watch for the overlay shift (if enabled) and the scene cut. Count “one-one-thousand” or use your phone stopwatch. You’ll typically see the scene flip as soon as OBS receives the local trigger.
 - If you also use a cloud bot, run the same test with its trigger. You’ll feel the difference in delay and reliability.
@@ -69,7 +69,7 @@ You don’t need lab gear. Just measure what you care about: how fast a moment t
 
 | Trigger → Scene Cut | Network hops | Typical failure points | Data exposure |
 |---|---:|---|---|
-| streamerOS local (OBS Bridge + Auto-Director) | 0 internet hops | Local WebSocket only | Stays on your PC |
+| streamerOS local (OBS Bridge + Auto-Hype Director) | 0 internet hops | Local WebSocket only | Stays on your PC |
 | Cloud bot/webhook → local OBS | Multiple internet hops | API quota, webhook delay, ISP jitter, local listener | Chat and event metadata leave your PC |
 
 ## Privacy checklist (show this to a sponsor)
@@ -104,4 +104,4 @@ You don’t need to sacrifice frames for automation.
 - Sponsor-grade privacy: Nothing leaves your desktop unless you export it.
 - Headroom for the game: Tiny CPU footprint means more budget for your encoder and your title.
 
-Cloud tools have their place, but when the goal is instant, trustworthy scene automation, local wins. With [OBS Bridge](/features/obs-bridge) and [Auto-Director](/features/auto-hype), streamerOS gives you the snap and privacy your stream deserves—no logins, no cloud, just results.
+Cloud tools have their place, but when the goal is instant, trustworthy scene automation, local wins. With [OBS Bridge](/features/obs-bridge) and [Auto-Hype Director](/features/auto-hype), streamerOS gives you the snap and privacy your stream deserves—no logins, no cloud, just results.

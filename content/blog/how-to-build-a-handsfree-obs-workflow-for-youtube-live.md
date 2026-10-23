@@ -14,11 +14,11 @@ tags:
 ## What you’ll build
 A hands-free, YouTube-ready OBS flow that automatically cuts to the right scene when chat heats up, spotlights Super Chats, and returns to gameplay when things calm down. It’s all local-first (no accounts, no cloud), tiny on CPU, and built to respect your privacy.
 
-You’ll wire OBS once with [OBS Bridge](/features/obs-bridge), then design smart switching rules with [Auto-Director](/features/auto-hype). Optional layers include reactive overlays (Aura Studio), live hype monitoring (Viral Moments), and quick manual control via the local AI Sidekick.
+You’ll wire OBS once with [OBS Bridge](/features/obs-bridge), then design smart switching rules with [Auto-Hype Director](/features/auto-hype). Optional layers include reactive overlays (Aura Studio), live hype monitoring (Viral Moments), and quick manual control via the local AI Sidekick.
 
 ## Before you start
 - Windows PC with OBS (WebSocket v5 server enabled). OBS features require the WebSocket server to be on.
-- streamerOS installed. No account needed; everything stays on your machine.
+- streamerOS, which launches February 2027 for Windows. Until then you can [try the live demo](https://demo.streamerosai.com) in your browser, or [pre-register](/download) to get the build on launch day.
 - YouTube live stream plan: decide your core scenes (Gameplay, Facecam, BRB, Alerts).
 - Optional: Ollama running locally if you want to use the AI Sidekick or other AI features.
 - Tip: Spin up an unlisted test stream to tune thresholds without an audience.
@@ -41,7 +41,7 @@ Keep your OBS scene names clean and consistent. Recommended set:
 Short, clear names make rule-building easier and reduce switching mistakes.
 
 ## Step 3: Calibrate hype for YouTube chat
-Auto-Director can respond to chat velocity and Super Chats. Calibrating now prevents scene “twitchiness.”
+Auto-Hype Director can respond to chat velocity and Super Chats. Calibrating now prevents scene “twitchiness.”
 
 - Run a short test stream (unlisted). Watch the live chat-velocity graph in Viral Moments to observe your baseline and typical spikes. If YouTube chat stalls when its window is in the background, the [popout chat guide](/blog/popout-chat-masterclass) explains why and how to fix it.
 - Define bands in your head: Low (baseline), Medium (warm-up), High (spike), Peak (frenzy). You’ll use these in your rules.
@@ -49,8 +49,8 @@ Auto-Director can respond to chat velocity and Super Chats. Calibrating now prev
 
 Result: You know what “normal,” “hype,” and “peak” look like for your channel, so your rules won’t overreact.
 
-## Step 4: Build Auto-Director rules (hands-free switching)
-Open Auto-Director’s visual rules and design your flow. You don’t need perfect numbers—start simple, iterate fast. See the [Auto-Director feature page](/features/auto-hype) for the visual node setup.
+## Step 4: Build Auto-Hype Director rules (hands-free switching)
+Open Auto-Hype Director’s visual rules and design your flow. You don’t need perfect numbers—start simple, iterate fast. See the [Auto-Hype Director feature page](/features/auto-hype) for the visual node setup.
 
 Suggested starter rules:
 - Chat Velocity → Gameplay Zoom: When chat moves from Medium to High, cut from Gameplay (wide) to Gameplay Zoom. Add a cooldown so it doesn’t flap.

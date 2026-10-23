@@ -83,7 +83,7 @@ export default function PricingPage() {
           <Reveal delay={0.16}>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
               Try the whole cockpit free first — every feature, no card. Pre-register
-              before the November launch and that trial runs three months instead of
+              before the February 2027 launch and that trial runs three months instead of
               seven days.
             </p>
           </Reveal>

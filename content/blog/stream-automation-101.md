@@ -76,7 +76,7 @@ A lightweight local tool that sips resources will always beat a bloated one that
 
 This is exactly the philosophy behind [streamerOS](/features): automate the mechanical tasks, keep the human ones human, and do it all at a low footprint. A few pieces map directly onto everything above:
 
-- **[Auto-Director](/features/auto-hype)** fires your OBS scene switches automatically from chat and game signals, so the right scene is always live without you touching a hotkey.
+- **[Auto-Hype Director](/features/auto-hype)** fires your OBS scene switches automatically from chat and game signals, so the right scene is always live without you touching a hotkey.
 - **[Viral Moments](/features/viral-moments)** auto-marks hype spikes the instant they happen, flagging your best clip candidates so nothing worth sharing slips away.
 - **[Aura Studio](/features/aura-studio)** drives reactive overlays that respond to your channel's live energy, so your production feels alive without manual nudging.
 

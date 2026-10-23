@@ -68,7 +68,7 @@ export default function FeaturesPage() {
               {FEATURE_COUNT} tools in one lightweight Windows app — a live chat
               cockpit, OBS automation, hype-ranked clips and Shorts, a local AI that
               acts for you, overlays and sponsor tooling. Every one of them runs on
-              your PC, and every one ships in the November launch build.
+              your PC, and every one ships in the February 2027 launch build.
             </p>
           </Reveal>
           <Reveal delay={0.22}>
@@ -89,7 +89,7 @@ export default function FeaturesPage() {
 
       <ScreenshotStrip
         heading="Not a mockup. This is the build."
-        blurb="Every screen here is a capture of streamerOS running on Windows — the same cockpit that ships in November."
+        blurb="Every screen here is a capture of streamerOS running on Windows — the same cockpit that ships in February 2027."
         shots={[
           SHOTS.dashboard,
           SHOTS.autoDirector,

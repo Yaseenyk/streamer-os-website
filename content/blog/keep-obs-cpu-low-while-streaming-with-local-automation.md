@@ -15,7 +15,7 @@ tags:
 You’ll wire streamerOS to OBS, build a low-CPU scene auto-switcher for hype moments, and add a reactive overlay that updates at a gentle 1 Hz. The whole flow is local-first and zero-cloud, so no hidden background churn from webhooks or browser scripts. The result: steady FPS and fewer CPU spikes during big moments.
 
 We’ll use two core pieces:
-- [Auto-Director](/features/auto-hype) for rules that switch scenes on chat velocity or Super Chats.
+- [Auto-Hype Director](/features/auto-hype) for rules that switch scenes on chat velocity or Super Chats.
 - [OBS Bridge](/features/obs-bridge) for native OBS WebSocket v5 control with a tiny CPU footprint.
 
 You can explore everything else streamerOS can do on the main features overview at [/features](/features).
@@ -28,7 +28,7 @@ Cloud bots and web overlays often poll APIs at high frequency, spin up heavy bro
 
 ## Prerequisites
 - OBS installed with its WebSocket server enabled (v5). Note your server host, port, and password.
-- streamerOS installed on Windows.
+- streamerOS, which launches February 2027 for Windows. Until then you can [try the live demo](https://demo.streamerosai.com) in your browser, or [pre-register](/download) to get the build on launch day.
 - Optional: Ollama installed and running locally if you plan to use AI Sidekick. If you don’t need AI during the show, keep Ollama off for the lowest CPU.
 
 ## Step 1 — Connect streamerOS to OBS (once, then forget it)
@@ -38,14 +38,14 @@ Cloud bots and web overlays often poll APIs at high frequency, spin up heavy bro
 
 Outcome: streamerOS can switch scenes and trigger actions without adding browser overhead.
 
-## Step 2 — Build a low-CPU Auto-Director flow
+## Step 2 — Build a low-CPU Auto-Hype Director flow
 The goal is event-driven scene switching that reacts to hype without thrashing between scenes.
 
-1) Open Auto-Director. Create a simple rule: “If chat velocity spikes, cut to ‘Hype’ scene.” Start with one rule before layering more.
+1) Open Auto-Hype Director. Create a simple rule: “If chat velocity spikes, cut to ‘Hype’ scene.” Start with one rule before layering more.
 2) Add a second trigger for on-stream monetization moments: “On Super Chat, punch to ‘Fullscreen Cam’ for 6–10 seconds, then return.” Focused, short cuts reduce constant render changes.
 3) Tune for stability: use reasonable thresholds so you’re not flipping scenes every second. When available, apply cool-downs or hysteresis concepts (e.g., a higher threshold to switch in, a lower one to switch back). Keep it calm.
 
-Check the [Auto-Director](/features/auto-hype) page for the exact node and rule wiring patterns.
+Check the [Auto-Hype Director](/features/auto-hype) page for the exact node and rule wiring patterns.
 
 Outcome: OBS switches scenes only when it matters—no loops, no polling, minimal CPU.
 
@@ -83,7 +83,7 @@ Outcome: Cleaner live CPU budget; stronger post-stream output.
 ## Live vs. after-stream: what to run when
 | When to run | Feature | Why |
 | --- | --- | --- |
-| Live | Auto-Director | Event-driven scene switching (no browser polling). |
+| Live | Auto-Hype Director | Event-driven scene switching (no browser polling). |
 | Live | Aura Studio overlay | 1 Hz reactive visual = hype with minimal CPU. |
 | Live | Viral Moments | Marks spikes without adding overlay complexity. |
 | After | Clip Library | Scores VOD locally; no impact on live FPS. |
@@ -100,7 +100,7 @@ Outcome: Cleaner live CPU budget; stronger post-stream output.
 ## A sample minimal, stable live stack
 - OBS encoding + scenes you actually need today (not tomorrow’s plan).
 - streamerOS with [OBS Bridge](/features/obs-bridge) connected.
-- One focused [Auto-Director](/features/auto-hype) rule for hype cuts, one for monetization moments.
+- One focused [Auto-Hype Director](/features/auto-hype) rule for hype cuts, one for monetization moments.
 - One Aura Studio overlay tuned to your hype threshold.
 - Viral Moments open for markers, no extra visual bells.
 

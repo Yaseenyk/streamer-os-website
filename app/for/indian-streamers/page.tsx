@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `${SITE_URL}/for/indian-streamers` },
 };
 
-// Every answer stays inside what the November build actually does. Checked
+// Every answer stays inside what the launch build actually does. Checked
 // against the product source on 2026-09-11: Hinglish is handled by the chat
 // sentiment classifier's prompt; the AI Sidekick's prompt is English, so this
 // page does not claim Hinglish replies. The caveats (Windows only, fast chats,
@@ -433,7 +433,7 @@ export default function IndianStreamersPage() {
           shot that exists renders full-width. */}
       <ScreenshotStrip
         heading="Hinglish chat, rupees and the whole cockpit."
-        blurb="Captures of streamerOS running on Windows — the same build that ships in November."
+        blurb="Captures of streamerOS running on Windows — the same build that ships in February 2027."
         shots={[
           SHOTS.dashboard,
           SHOTS.hinglishChat,

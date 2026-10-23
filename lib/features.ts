@@ -27,7 +27,7 @@ import {
 // longer exist on one surface and be missing from another — which is exactly
 // how the site ended up advertising 4 things in its menu for a 17-feature app.
 //
-// Every line here has to be true of the build that ships in November. Checked
+// Every line here has to be true of the launch build. Checked
 // against the product repo on 2026-09-11 (API_SPECIFICATION.md, the feature
 // components, and the licence gates in src-tauri/src/services/licensing.rs).
 // Some cards point at a section of a page (`#revenue`) rather than a page of

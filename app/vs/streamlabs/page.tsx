@@ -321,7 +321,7 @@ export default function VsStreamlabsPage() {
               Try it against your own Task Manager.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              Pre-register before the November launch and the trial runs three months
+              Pre-register before the February 2027 launch and the trial runs three months
               instead of seven days — long enough to decide properly. Then $29 once.
             </p>
             <div className="mt-8 flex flex-col items-center gap-4">

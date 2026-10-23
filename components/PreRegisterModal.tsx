@@ -12,6 +12,7 @@ import {
 import { AnimatePresence, motion } from 'framer-motion';
 import { Rocket, X } from 'lucide-react';
 import { SIGNUP_ERROR, submitPreRegistration } from '@/lib/preregister';
+import { SignupProfileQuestion, SignupTrustLine } from '@/components/InlineSignup';
 
 const FIELD_CLASS =
   'w-full rounded-lg border border-white/10 bg-white/[0.03] p-3 text-slate-100 ' +
@@ -139,13 +140,13 @@ export function PreRegisterModal({ isOpen, onClose }: { isOpen: boolean; onClose
             <LaunchBadge />
 
             <h2 id="prereg-title" className="mt-4 text-xl font-bold tracking-tight text-slate-100">
-              Secure Pre-Registration Access
+              Be first in line for streamerOS
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-slate-400">
-              streamerOS launches February 2027. Pre-register now and your trial is{' '}
-              <strong className="text-cyan-300">3 months instead of 7 days</strong> — the
-              whole cockpit, unlocked, on your own machine. One email, no card, and you
-              get the build the day it ships.
+              Your OBS scenes switch themselves when chat spikes, and every hype moment
+              gets marked for clipping. It launches February 2027. Pre-register and your
+              trial is <strong className="text-cyan-300">3 months instead of 7 days</strong>,
+              with the build sent to you the day it ships.
             </p>
 
             <PreRegisterForm />
@@ -159,6 +160,7 @@ export function PreRegisterModal({ isOpen, onClose }: { isOpen: boolean; onClose
 function PreRegisterForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submittedEmail, setSubmittedEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -177,6 +179,7 @@ function PreRegisterForm() {
     setIsSubmitting(true);
     try {
       await submitPreRegistration(email, 'modal');
+      setSubmittedEmail(email);
       setIsSuccess(true);
     } catch {
       setErrorMessage(SIGNUP_ERROR);
@@ -191,10 +194,11 @@ function PreRegisterForm() {
         role="status"
         className="mt-6 rounded-lg border border-cyan-400/30 bg-cyan-400/[0.06] p-6 text-center"
       >
-        <p className="text-base font-semibold text-slate-100">You’re on the launch list. 🚀</p>
+        <p className="text-base font-semibold text-slate-100">You’re on the list.</p>
         <p className="mt-1 text-sm text-slate-400">
-          We’ll email you the moment streamerOS goes live.
+          Your trial will be 3 months instead of 7 days. We’ll email you when your build is ready.
         </p>
+        {submittedEmail && <SignupProfileQuestion email={submittedEmail} source="modal" />}
       </div>
     );
   }
@@ -238,12 +242,10 @@ function PreRegisterForm() {
         disabled={isSubmitting}
         className={`mt-1 inline-flex items-center justify-center rounded-lg bg-cyan-400 px-5 py-3 text-sm font-semibold text-[#05070A] transition-all duration-200 hover:bg-cyan-300 hover:shadow-[0_0_15px_rgba(6,182,212,0.25)] ${INTERACTIVE} disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:shadow-none`}
       >
-        {isSubmitting ? 'Joining…' : 'Join Launch List'}
+        {isSubmitting ? 'Joining…' : 'Pre-register free'}
       </button>
 
-      <p className="text-center text-xs text-slate-500">
-        No spam. One launch-day email, then you choose.
-      </p>
+      <SignupTrustLine centered />
     </form>
   );
 }

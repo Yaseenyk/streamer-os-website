@@ -1,8 +1,89 @@
 'use client';
 
+import Link from 'next/link';
 import { useId, useState, type FormEvent } from 'react';
 import { ArrowRight, Check, ShieldCheck } from 'lucide-react';
-import { SIGNUP_ERROR, submitPreRegistration } from '@/lib/preregister';
+import {
+  SIGNUP_ERROR,
+  submitPreRegistration,
+  submitSignupProfile,
+  type SignupProfile,
+} from '@/lib/preregister';
+
+/**
+ * The trust line under every email field. It answers the three objections a
+ * visitor has at the moment of signing up: is there a catch, who is behind it,
+ * and why might Windows warn about it later.
+ */
+export function SignupTrustLine({ centered = false }: { centered?: boolean }) {
+  return (
+    <p className={`mt-3 flex items-start gap-1.5 text-xs leading-relaxed text-zinc-400 ${centered ? 'mx-auto max-w-md' : ''}`}>
+      <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden />
+      <span>
+        No card, no account. Built by one developer,{' '}
+        <Link href="/about" className="text-zinc-300 underline underline-offset-2">
+          Yaseen Khatib
+        </Link>
+        . The installer is not code-signed yet, so Windows may warn on first install —{' '}
+        <Link href="/trust" className="text-zinc-300 underline underline-offset-2">
+          how to verify it
+        </Link>
+        .
+      </span>
+    </p>
+  );
+}
+
+const PLATFORMS: { value: SignupProfile['platform']; label: string }[] = [
+  { value: 'twitch', label: 'Twitch' },
+  { value: 'youtube', label: 'YouTube' },
+  { value: 'both', label: 'Both' },
+  { value: 'not-yet', label: 'Not streaming yet' },
+];
+
+/**
+ * Optional follow-up shown after the email is captured, so it never costs a
+ * signup. Two taps; skipping it is fine.
+ */
+export function SignupProfileQuestion({ email, source }: { email: string; source: string }) {
+  const [platform, setPlatform] = useState<SignupProfile['platform'] | null>(null);
+  const [done, setDone] = useState(false);
+
+  const choiceClass =
+    'rounded-lg border border-white/10 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-cyan-400/50 hover:text-cyan-300 ' +
+    INTERACTIVE;
+
+  if (done) {
+    return <p className="mt-3 text-xs text-zinc-400">Thanks — that helps us build for how you stream.</p>;
+  }
+
+  const answer = (usesObs: SignupProfile['usesObs']) => {
+    if (!platform) return;
+    setDone(true);
+    void submitSignupProfile(email, source, { platform, usesObs });
+  };
+
+  return (
+    <div className="mt-4 text-left">
+      <p className="text-xs font-medium text-zinc-300">
+        {platform ? 'And do you stream with OBS Studio?' : 'Optional: where do you stream?'}
+      </p>
+      <div className="mt-2 flex flex-wrap gap-2">
+        {platform
+          ? (['yes', 'no'] as const).map((v) => (
+              <button key={v} type="button" onClick={() => answer(v)} className={choiceClass}>
+                {v === 'yes' ? 'Yes, OBS' : 'Something else'}
+              </button>
+            ))
+          : PLATFORMS.map((p) => (
+              <button key={p.value} type="button" onClick={() => setPlatform(p.value)} className={choiceClass}>
+                {p.label}
+              </button>
+            ))}
+      </div>
+    </div>
+  );
+}
 
 const INTERACTIVE =
   'cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 ' +
@@ -46,6 +127,7 @@ export default function InlineSignup({
   const fieldId = useId();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [email, setEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -61,7 +143,9 @@ export default function InlineSignup({
 
     setIsSubmitting(true);
     try {
-      await submitPreRegistration(String(formData.get('email') ?? ''), source);
+      const value = String(formData.get('email') ?? '');
+      await submitPreRegistration(value, source);
+      setEmail(value);
       setIsSuccess(true);
     } catch {
       setErrorMessage(SIGNUP_ERROR);
@@ -82,11 +166,12 @@ export default function InlineSignup({
             <Check className="h-4 w-4" strokeWidth={2.5} aria-hidden />
           </span>
           <div>
-            <p className="text-base font-semibold text-zinc-100">You’re on the launch list. 🚀</p>
+            <p className="text-base font-semibold text-zinc-100">You’re on the list.</p>
             <p className="mt-1 text-sm text-zinc-400">
-              Your trial is 3 months instead of 7 days. We’ll email you the day streamerOS ships —
-              nothing before that.
+              Your trial will be 3 months instead of 7 days. We’ll email you when your build is
+              ready.
             </p>
+            {email && <SignupProfileQuestion email={email} source={source} />}
           </div>
         </div>
       ) : (
@@ -141,10 +226,7 @@ export default function InlineSignup({
               </button>
             </div>
 
-            <p className={`mt-3 flex items-center gap-1.5 text-xs text-zinc-500 ${isBare ? 'justify-center' : ''}`}>
-              <ShieldCheck className="h-3.5 w-3.5 shrink-0" aria-hidden />
-              No card, no account. One launch-day email, then you choose.
-            </p>
+            <SignupTrustLine centered={isBare} />
           </form>
         </>
       )}

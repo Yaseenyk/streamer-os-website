@@ -45,6 +45,8 @@ export const BLOG_REDIRECTS = {
   'serialization-adapter-payload-reduction': 'obs-automation-on-a-low-end-pc',
   'understanding-stream-telemetry': 'what-is-chat-velocity',
   'how-to-get-your-first-twitch-sponsorship': 'sponsors-for-small-streamers',
+  // 2026-10-23: competed with the guide for the same query; merged into it.
+  'auto-switch-obs-scenes-from-chat-activity-no-scripts': 'auto-switch-obs-scenes-guide',
 };
 
 let written = 0;

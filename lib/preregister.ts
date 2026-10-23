@@ -59,6 +59,55 @@ export async function submitPreRegistration(email: string, source: string): Prom
 }
 
 /**
+ * Optional answers asked on the thank-you screen, after the email is already
+ * captured — asking up front would cost signups. They tell us which pages
+ * bring actual OBS streamers rather than readers, by platform.
+ */
+export interface SignupProfile {
+  platform: 'twitch' | 'youtube' | 'both' | 'not-yet';
+  usesObs: 'yes' | 'no';
+}
+
+export async function submitSignupProfile(email: string, source: string, profile: SignupProfile): Promise<void> {
+  try {
+    if (PREREGISTER_ENDPOINT) {
+      await fetch(PREREGISTER_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ email, source, platform: profile.platform, uses_obs: profile.usesObs }),
+      });
+    } else {
+      await fetch(EMAILJS_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          service_id: EMAILJS_SERVICE,
+          template_id: EMAILJS_TEMPLATE,
+          user_id: EMAILJS_PUBLIC_KEY,
+          template_params: {
+            name: 'streamerOS Pre-Registration Profile',
+            email,
+            message: `Profile for ${email} (source: ${source}): streams on ${profile.platform}, uses OBS: ${profile.usesObs}`,
+            to_email: PREREGISTER_INBOX,
+            reply_to: email,
+          },
+        }),
+      });
+    }
+  } catch {
+    // The signup already succeeded; a lost optional answer is not worth an error.
+  }
+  try {
+    const plausible = (window as unknown as {
+      plausible?: (event: string, options?: { props?: Record<string, string> }) => void;
+    }).plausible;
+    plausible?.('Signup Profile', { props: { source, platform: profile.platform, uses_obs: profile.usesObs } });
+  } catch {
+    // Analytics must never surface to the visitor.
+  }
+}
+
+/**
  * Report the conversion to Plausible with the surface that earned it.
  *
  * The source is already written into the notification email, but an inbox

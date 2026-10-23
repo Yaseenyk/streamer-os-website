@@ -338,7 +338,7 @@ export default function ClipLibraryGuidePage() {
               Let your VODs sort themselves out.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              Clip Library ships in the November launch build — scoring every
+              Clip Library ships in the February 2027 launch build — scoring every
               recording against local telemetry, entirely on your own machine,
               and handing the best ones straight to Shorts Factory.
             </p>

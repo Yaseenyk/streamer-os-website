@@ -20,6 +20,7 @@ import JsonLd from '@/components/JsonLd';
  *  the root layout, so every post has to name one explicitly or share blank. */
 const DEFAULT_OG = '/og-image-1200x630.png';
 import Image from 'next/image';
+import { SHOTS } from '@/lib/shots';
 
 // Approved layout tokens → their components. Posts stay pure markdown data;
 // tokens are swapped for components here, never executed from the post itself.
@@ -297,29 +298,48 @@ export default async function BlogPostPage({ params }: { params: PageParams }) {
         </aside>
       )}
 
+      {/* Demo first, email second: a reader who came to fix a setting is not ready
+          to sign up for a product, but will look at one if it costs nothing. */}
+      {siteConfig.demoUrl && (
+        <a
+          href={siteConfig.demoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group mt-16 grid items-center gap-5 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition-colors hover:border-cyan-400/40 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] sm:p-5"
+        >
+          <Image
+            src={SHOTS.dashboard.src}
+            alt={SHOTS.dashboard.alt}
+            width={SHOTS.dashboard.width}
+            height={SHOTS.dashboard.height}
+            loading="lazy"
+            className="w-full rounded-lg border border-white/10"
+          />
+          <div>
+            <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">Live demo</p>
+            <p className="mt-2 text-lg font-semibold tracking-tight text-zinc-100">
+              See the streamerOS cockpit running on live sample chat
+            </p>
+            <p className="mt-1 text-sm text-zinc-400">
+              Opens in your browser. Nothing to install, no email needed.
+            </p>
+            <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-cyan-400 underline underline-offset-2">
+              Open the demo
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+            </span>
+          </div>
+        </a>
+      )}
+
       <Reveal>
         <InlineSignup
-          className="mt-16"
+          className="mt-8"
           source={`blog:${slug}`}
           heading={cta.heading}
           blurb={cta.blurb}
         />
       </Reveal>
 
-      {siteConfig.demoUrl && (
-        <p className="mt-6 text-center text-sm text-zinc-400">
-          Not ready to sign up?{' '}
-          <a
-            href={siteConfig.demoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-semibold text-cyan-400 underline underline-offset-2"
-          >
-            Try the live demo in your browser
-          </a>{' '}
-          — sample data, nothing to install.
-        </p>
-      )}
 
       {/* Search lands almost entirely on these posts, and they are the pages
           Google has actually indexed — so this is where the marketing pages get
