@@ -69,7 +69,7 @@ In OBS: **Settings → Output → Output Mode: Advanced → Streaming**.
 
 **NVENC (single PC, 1080p or 936p, 60 fps):**
 
-* Rate control: **CBR**, with the bitrate your platform recommends.
+* Rate control: **CBR**, with the bitrate your platform recommends (for Twitch, see [OBS bitrate settings for Twitch](/blog/obs-bitrate-settings-for-twitch)).
 * Keyframe interval: **2 s**.
 * Preset: start at **P5** and move toward P4 if you see encoding lag, or P6 if you
   have headroom.

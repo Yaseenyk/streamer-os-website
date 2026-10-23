@@ -1,6 +1,3 @@
-obs bitrate settings for twitch
-obs rendering lag vs encoding lag
 how to stream without moderators
 vtuber obs setup
 local ai for streamers
-twitch clip automation

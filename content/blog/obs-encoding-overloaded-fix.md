@@ -26,9 +26,11 @@ warning.
 So "encoding overloaded" means exactly one thing: **your encoder is too slow for
 the settings you asked it for.** Not your upload. Not your bitrate. Not your ISP.
 
-## First, read the right counter
+## Rendering lag vs encoding lag: read the right counter
 
-This is the step people skip, and it is the one that matters. Open
+**Encoding lag means the encoder cannot keep up; rendering lag means the GPU cannot
+finish compositing your scene in time.** They look similar on stream and need
+opposite fixes. This is the step people skip, and it is the one that matters. Open
 **View → Stats**. OBS tracks three failures, and they are not the same problem:
 
 | Counter | What is late | What it points at |

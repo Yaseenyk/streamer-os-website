@@ -42,7 +42,7 @@ Downscaling from 1440p to 720p also means fewer pixels to encode, which quietly 
 
 More is not better here. Overshooting your upload speed causes dropped frames, not prettier video.
 
-- **Bitrate:** 720p60 looks great at **4,500–6,000 kbps**. Push higher only if your upstream can sustain it with room to spare.
+- **Bitrate:** 720p60 looks great at **4,500–6,000 kbps**. Push higher only if your upstream can sustain it with room to spare. The full table for Twitch is in [OBS bitrate settings for Twitch](/blog/obs-bitrate-settings-for-twitch).
 - **Rate Control:** **CBR** for live streaming. It keeps bandwidth predictable for the platform.
 - **FPS:** This is a real CPU lever people forget. Dropping from **60 to 30 FPS** halves how many frames OBS has to render and encode. For slower-paced content — Just Chatting, strategy games, art — 30 FPS is a massive, nearly free CPU saving.
 
