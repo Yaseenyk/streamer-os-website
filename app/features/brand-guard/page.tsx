@@ -29,9 +29,7 @@ export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
   title: 'Brand Guard — Feature Guide',
   description:
-    'Brand Guard transcribes your mic locally with Whisper and puts an alert on ' +
-    'screen when you say a term your sponsor deal rules out, like a ' +
-    'competitor’s brand. No cloud, no recording unless you opt in.',
+    'Brand Guard transcribes your mic locally with Whisper and alerts you when you say a term your sponsor deal rules out. No cloud, no recording unless you opt in.',
   alternates: { canonical: 'https://streamerosai.com/features/brand-guard' },
 };
 

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
   title: 'Auto-Mark Stream Highlights From Chat',
   description:
-    'Catch clip-worthy moments while you are live: streamerOS measures chat velocity against your stream’s own baseline, timestamps every hype spike and exports the markers to CSV.',
+    'Catch clip-worthy moments live: streamerOS measures chat velocity against your stream’s own baseline, timestamps each hype spike and exports CSV markers.',
   alternates: { canonical: 'https://streamerosai.com/features/viral-moments' },
 };
 

@@ -43,7 +43,7 @@ Short, clear names make rule-building easier and reduce switching mistakes.
 ## Step 3: Calibrate hype for YouTube chat
 Auto-Director can respond to chat velocity and Super Chats. Calibrating now prevents scene “twitchiness.”
 
-- Run a short test stream (unlisted). Watch the live chat-velocity graph in Viral Moments to observe your baseline and typical spikes.
+- Run a short test stream (unlisted). Watch the live chat-velocity graph in Viral Moments to observe your baseline and typical spikes. If YouTube chat stalls when its window is in the background, the [popout chat guide](/blog/popout-chat-masterclass) explains why and how to fix it.
 - Define bands in your head: Low (baseline), Medium (warm-up), High (spike), Peak (frenzy). You’ll use these in your rules.
 - Remember: Super Chats are discrete signals you’ll likely want to prioritize over everything for a few seconds.
 

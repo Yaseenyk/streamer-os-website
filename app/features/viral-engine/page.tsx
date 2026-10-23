@@ -33,9 +33,7 @@ export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
   title: 'Viral Engine — Feature Guide',
   description:
-    'streamerOS writes your upload kit with local AI: three YouTube titles, ' +
-    '6–10 hashtags and a thumbnail plan, built from the game you are playing ' +
-    'and what your chat is reacting to.',
+    'streamerOS writes your upload kit with local AI: three YouTube titles, 6–10 hashtags and a thumbnail plan, based on your game and what chat reacted to.',
   alternates: { canonical: 'https://streamerosai.com/features/viral-engine' },
 };
 

@@ -97,8 +97,8 @@ This is all local-first and zero-cloud. streamerOS runs with a tiny CPU footprin
 - Use a “Fallback” path: If chat quiets for a while, automatically drift back to Gameplay to maintain show rhythm.
 - Pair visuals with hype: If you want overlays that react to the same energy, build them in [Aura Studio](/features/aura-studio). It renders locally into OBS via the Aura Scene builder and can follow your hype-threshold calibration.
 
-## Optional upgrade: Fold in Super Chats and combat
-If you ever want to go beyond chat velocity, Auto-Director can also react to Super Chats and game combat signals. Add those inputs to the same node graph and blend them with your chat thresholds. Keep it simple at first—then iterate between streams.
+## Optional upgrade: Fold in Super Chats
+If you want to go beyond chat velocity, Auto-Director can also trigger on a Super Chat amount. Add it to the same node graph and combine it with your chat threshold using an AND or OR node. Keep it simple at first, then iterate between streams.
 
 ## Troubleshooting
 - OBS won’t connect: Double-check WebSocket v5 is enabled and the port/password match in OBS and streamerOS. See [OBS Bridge](/features/obs-bridge).

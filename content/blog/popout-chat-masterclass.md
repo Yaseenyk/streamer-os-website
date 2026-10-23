@@ -6,12 +6,7 @@ author: "Yaseen Khatib"
 tags: ["Guides", "YouTube", "Live Chat", "Velocity"]
 ---
 
-> **streamerOS Live Cockpit Series · Part 2 of 3**
-> 1. [The Streamer's Cockpit: Your One-Click Setup](/blog/setting-up-your-live-cockpit)
-> 2. **Breaking the Window Freeze: The Popout Chat Masterclass** — you are here
-> 3. [Waking Up the Brain: Handling the "Ollama Offline" Banner](/blog/fixing-the-ollama-offline-banner)
-
-In [Part 1](/blog/setting-up-your-live-cockpit) we toured your cockpit and met the **Control Ribbon** — including the **YouTube Chat** connection badge that opens the **Live Sync modal**. Now it's time to plug in the most important data source of all: your **live chat**.
+Once your [streaming folders are set up](/blog/streaming-workspace-folder-setup), you will meet the **Control Ribbon** — including the **YouTube Chat** connection badge that opens the **Live Sync modal**. Now it's time to plug in the most important data source of all: your **live chat**.
 
 This is where a lot of streamers hit a wall — the dreaded "window freeze," where chat tracking feels sluggish, stutters, or eats CPU you'd rather spend on your game. The good news is that there's one simple trick that makes the whole thing fast, light, and rock-solid. It's called **Popout Chat**, and once you've used it, you'll never go back.
 
@@ -99,4 +94,4 @@ You can't select it as a clean target, and you wouldn't want to. The Control Roo
 
 ## Next Up
 
-Your chat is connected and your velocity gauge is alive. The final piece is the **emotional** layer — understanding not just *how fast* your chat is moving, but *how it feels*. That's powered by a local AI brain, and in **[Part 3: Waking Up the Brain — Handling the "Ollama Offline" Banner](/blog/fixing-the-ollama-offline-banner)**, we'll set it up, explain how streamerOS keeps running gracefully when it's switched off, and get your Sentiment Horizon plotting your stream's emotional weight in real time.
+Your chat is connected and your velocity gauge is alive. The final piece is the **emotional** layer — understanding not just *how fast* your chat is moving, but *how it feels*. That's powered by a local AI brain, and the guide to [running Ollama on Windows](/blog/run-ollama-on-windows-guide) covers installing it and fixing it when it won't start. Sentiment Horizon reads neutral until Ollama is running; everything else in this guide works without it.

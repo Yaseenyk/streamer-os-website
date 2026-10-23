@@ -12,9 +12,8 @@ import { FEATURE_COUNT, featuresByCategory, type CatalogFeature } from '@/lib/fe
 export const metadata: Metadata = {
   title: 'Features',
   description:
-    `All ${FEATURE_COUNT} streamerOS features — live chat cockpit, Super Chat revenue, ` +
-    'OBS automation, hype-ranked clips, Shorts, a local AI sidekick, overlays and ' +
-    'sponsor tools. One Windows app, zero cloud.',
+    `All ${FEATURE_COUNT} streamerOS features: live chat cockpit, Super Chat revenue, OBS automation, ` +
+    'hype-ranked clips, Shorts, local AI, overlays and sponsor tools. Zero cloud.',
   alternates: { canonical: 'https://streamerosai.com/features' },
 };
 

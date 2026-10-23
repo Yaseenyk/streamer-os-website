@@ -29,9 +29,7 @@ export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
   title: 'Chat Archive — Feature Guide',
   description:
-    'streamerOS saves every YouTube and Twitch chat line to a local database ' +
-    'on your PC, grouped by stream. Search it, label streams, redact messages ' +
-    'and export archives — nothing is uploaded.',
+    'Every YouTube and Twitch chat line saved to a local database on your PC, grouped by stream. Search, label, redact and export archives. Nothing is uploaded.',
   alternates: { canonical: 'https://streamerosai.com/features/chat-archive' },
 };
 

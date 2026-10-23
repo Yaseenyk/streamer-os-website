@@ -15,7 +15,7 @@ tags:
 You’ll wire streamerOS to OBS, build a low-CPU scene auto-switcher for hype moments, and add a reactive overlay that updates at a gentle 1 Hz. The whole flow is local-first and zero-cloud, so no hidden background churn from webhooks or browser scripts. The result: steady FPS and fewer CPU spikes during big moments.
 
 We’ll use two core pieces:
-- [Auto-Director](/features/auto-hype) for rules that switch scenes on chat velocity, Super Chats, or combat.
+- [Auto-Director](/features/auto-hype) for rules that switch scenes on chat velocity or Super Chats.
 - [OBS Bridge](/features/obs-bridge) for native OBS WebSocket v5 control with a tiny CPU footprint.
 
 You can explore everything else streamerOS can do on the main features overview at [/features](/features).
@@ -43,8 +43,7 @@ The goal is event-driven scene switching that reacts to hype without thrashing b
 
 1) Open Auto-Director. Create a simple rule: “If chat velocity spikes, cut to ‘Hype’ scene.” Start with one rule before layering more.
 2) Add a second trigger for on-stream monetization moments: “On Super Chat, punch to ‘Fullscreen Cam’ for 6–10 seconds, then return.” Focused, short cuts reduce constant render changes.
-3) If you stream gameplay that supports combat telemetry, add a combat trigger to switch to a tighter gameplay scene during fights.
-4) Tune for stability: use reasonable thresholds so you’re not flipping scenes every second. When available, apply cool-downs or hysteresis concepts (e.g., a higher threshold to switch in, a lower one to switch back). Keep it calm.
+3) Tune for stability: use reasonable thresholds so you’re not flipping scenes every second. When available, apply cool-downs or hysteresis concepts (e.g., a higher threshold to switch in, a lower one to switch back). Keep it calm.
 
 Check the [Auto-Director](/features/auto-hype) page for the exact node and rule wiring patterns.
 

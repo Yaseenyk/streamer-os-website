@@ -10,9 +10,7 @@ import { SHOTS } from '@/lib/shots';
 export const metadata: Metadata = {
   title: 'Stream automation for VTubers',
   description:
-    'streamerOS does not touch your avatar — your tracking software keeps ' +
-    'doing that. It handles everything around it: overlays that react to chat ' +
-    'mood, scenes that switch on hype, and clips marked as they happen.',
+    'streamerOS leaves your avatar to your tracking software and handles the rest: overlays that react to chat, scenes that switch on hype, clips marked live.',
   alternates: { canonical: 'https://streamerosai.com/for/vtubers' },
 };
 

@@ -10,9 +10,7 @@ import { SHOTS } from '@/lib/shots';
 export const metadata: Metadata = {
   title: 'Stream automation for a low-end PC',
   description:
-    'streamerOS holds a 1.8% CPU footprint under a live 1080p60 game because ' +
-    'it is Rust and Tauri, not a browser engine. What that does and does not ' +
-    'fix on a modest streaming PC, stated plainly.',
+    'streamerOS holds 1.8% CPU under a live 1080p60 game because it is Rust and Tauri, not a browser engine. What that does and does not fix on a modest PC.',
   alternates: { canonical: 'https://streamerosai.com/for/low-end-pc' },
 };
 

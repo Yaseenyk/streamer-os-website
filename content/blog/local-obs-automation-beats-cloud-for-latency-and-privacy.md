@@ -46,7 +46,6 @@ Goal: Automatically cut scenes when hype hits, using chat velocity and Super Cha
 - Add a trigger for Chat Velocity. Set a threshold that represents “chat is popping.” Keep it conservative for your average stream; you can tune later.
 - Add an action to Switch Scene and pick your hype-friendly scene (e.g., Face Cam, Hype Cam, or a full-screen overlay).
 - Add a second trigger for Super Chats/featured messages. Route it to a Switch Scene action as well (same scene or a different one if you prefer a distinct look for paid support).
-- Optionally, include a game “combat” signal if you feed telemetry to streamerOS. Route combat spikes to your action cam or a more dynamic layout.
 
 Test it: Trigger a simulated chat burst (raid test, mod spam in a safe sandbox, or your own test messages). You should see OBS cut scenes immediately via the local bridge.
 
@@ -91,7 +90,7 @@ You don’t need to sacrifice frames for automation.
 ## Troubleshooting the local path
 - OBS not switching? Ensure OBS WebSocket v5 is enabled and the port matches what you configured in streamerOS. Re-run the connection steps on the [OBS Bridge page](/features/obs-bridge).
 - No chat-driven triggers? Confirm your chat source is connected and visible to streamerOS. Start with a lower chat-velocity threshold to verify the pipeline, then raise it.
-- AI features unresponsive? Start Ollama locally. Not required for scene switching, only for AI-specific tools.
+- AI features unresponsive? Start Ollama locally ([setup and fixes](/blog/run-ollama-on-windows-guide)). Not required for scene switching, only for AI-specific tools.
 - Firewall pop-ups? Allow local loopback for streamerOS and OBS so the WebSocket can bind.
 
 ## Workflow tips to lock in the win

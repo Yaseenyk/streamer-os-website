@@ -114,4 +114,5 @@ immediately.
 **Does local-first mean less capable?**
 For sentiment, velocity, scene automation and analytics — no, modern CPUs handle
 all of it. For very large AI models or anything multi-device, cloud genuinely
-does more.
+does more. The longer case for local tools is in
+[why zero-cloud stream tools win](/blog/the-rise-of-zero-cloud-stream-tools).

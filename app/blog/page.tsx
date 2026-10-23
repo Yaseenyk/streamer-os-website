@@ -10,7 +10,10 @@ export const metadata: Metadata = {
   description:
     'Engineering deep-dives and product notes from the team building streamerOS — ' +
     'performance, UI, and the Auto-Hype Director.',
-  alternates: { canonical: `${SITE_URL}/blog` },
+  alternates: {
+    canonical: `${SITE_URL}/blog`,
+    types: { 'application/rss+xml': [{ url: '/feed.xml', title: 'streamerOS Blog' }] },
+  },
 };
 
 export default async function BlogIndexPage() {

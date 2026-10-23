@@ -42,3 +42,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 temp blogs
+
+# Generated per-post social cards (scripts/emit-og-images.mjs)
+/public/blog-og/

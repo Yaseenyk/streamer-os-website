@@ -24,9 +24,7 @@ export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
   title: 'Zero-Cloud Privacy — Feature Guide',
   description:
-    'streamerOS is local-first by architecture: no account, no backend ' +
-    'servers, and your chat, audio and stream data stay on your own PC. ' +
-    'Every connection it makes, listed.',
+    'streamerOS is local-first: no account, no backend servers, and your chat, audio and stream data stay on your own PC. Every connection it makes, listed.',
   alternates: { canonical: 'https://streamerosai.com/features/zero-cloud' },
 };
 

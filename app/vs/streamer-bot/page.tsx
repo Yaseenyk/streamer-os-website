@@ -13,11 +13,9 @@ import { breadcrumbJsonLd, faqPageJsonLd, type FaqEntry } from '@/lib/seo';
 // facts, never quality judgements, and anything about Streamer.bot that is not
 // on its own site stays off this page.
 export const metadata: Metadata = {
-  title: { absolute: 'Streamer.bot Alternative: streamerOS vs Streamer.bot Compared' },
+  title: { absolute: 'Streamer.bot Alternative: streamerOS vs Streamer.bot' },
   description:
-    'An honest comparison: Streamer.bot is a free, established automation ' +
-    'toolkit you build with. streamerOS is a paid, ready-made cockpit with ' +
-    'local AI chat sentiment. Both run on your own PC, and they can run together.',
+    'Streamer.bot is a free automation toolkit you build with. streamerOS is a paid, ready-made cockpit with local AI chat sentiment. Both run locally, together.',
   alternates: { canonical: 'https://streamerosai.com/vs/streamer-bot' },
 };
 

@@ -1,6 +1,6 @@
 ---
 title: "A Streamlabs Alternative That Runs Entirely Local"
-description: "If you want OBS automation without a cloud account, background telemetry or an Electron app eating your frames, here is what the local-first options actually are."
+description: "Want OBS automation without a cloud account, background telemetry or an Electron app eating frames? The local-first Streamlabs alternatives, compared."
 date: "2026-09-09"
 author: "Yaseen Khatib"
 tags: ["Guides", "Comparison", "Privacy", "OBS Studio"]

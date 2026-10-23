@@ -10,9 +10,7 @@ import { SHOTS } from '@/lib/shots';
 export const metadata: Metadata = {
   title: 'Stream automation for YouTube Live',
   description:
-    'Super Chat revenue totalled live and per currency, YouTube chat read on ' +
-    'your own PC with no API key, hype spikes marked for clipping, and OBS ' +
-    'scenes that switch themselves.',
+    'Super Chat revenue totalled live per currency, YouTube chat read on your PC with no API key, hype spikes marked for clips, and OBS scenes that switch.',
   alternates: { canonical: 'https://streamerosai.com/for/youtube-live' },
 };
 

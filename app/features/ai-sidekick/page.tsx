@@ -32,9 +32,7 @@ export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
   title: 'AI Sidekick — Feature Guide',
   description:
-    'A local AI assistant that knows your stream: it answers from your live ' +
-    'stats and Streamer Bible, switches OBS scenes when you ask and remembers ' +
-    'what you tell it — running on your own PC.',
+    'A local AI assistant that knows your stream: it answers from your live stats, switches OBS scenes on request and remembers what you tell it, on your own PC.',
   alternates: { canonical: 'https://streamerosai.com/features/ai-sidekick' },
 };
 

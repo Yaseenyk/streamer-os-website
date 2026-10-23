@@ -34,9 +34,7 @@ export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
   title: 'Live Cockpit — Feature Guide',
   description:
-    'The streamerOS Dashboard puts chat triage, Super Chat revenue, top ' +
-    'chatters, a local AI read on chat sentiment and OBS scene switching on ' +
-    'one screen — all running on your own PC.',
+    'Chat triage, Super Chat revenue, top chatters, a local AI read on chat sentiment and OBS scene switching on one screen, all running on your own PC.',
   alternates: { canonical: 'https://streamerosai.com/features/live-cockpit' },
 };
 

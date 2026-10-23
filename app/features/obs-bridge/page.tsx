@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
   title: 'Switch OBS Scenes Without Alt-Tabbing',
   description:
-    'Switch OBS scenes without alt-tabbing: streamerOS connects to OBS Studio 28+ over the built-in WebSocket v5 server on your PC, syncs your scenes and cuts the program feed. No plugin.',
+    'Switch OBS scenes without alt-tabbing: streamerOS connects to OBS 28+ over its built-in WebSocket v5 server, syncs your scenes and cuts the feed. No plugin.',
   alternates: { canonical: 'https://streamerosai.com/features/obs-bridge' },
 };
 

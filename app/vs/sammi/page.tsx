@@ -13,9 +13,7 @@ import { breadcrumbJsonLd, faqPageJsonLd, type FaqEntry } from '@/lib/seo';
 export const metadata: Metadata = {
   title: { absolute: 'SAMMI Alternative: streamerOS vs SAMMI Compared' },
   description:
-    'SAMMI is a free, no-code stream automation toolkit you build decks and ' +
-    'buttons with. streamerOS is a paid, ready-made cockpit with local AI chat ' +
-    'sentiment. Both run on your own PC on Windows, and they can run together.',
+    'SAMMI is a free, no-code stream automation toolkit. streamerOS is a paid, ready-made cockpit with local AI chat sentiment. Both run on Windows, side by side.',
   alternates: { canonical: 'https://streamerosai.com/vs/sammi' },
 };
 

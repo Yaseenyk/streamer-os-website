@@ -43,7 +43,10 @@ export const metadata: Metadata = {
   // Note: under `trailingSlash: false` Next normalizes the root canonical to the
   // bare origin, so this always emits `https://streamerosai.com` — keep the
   // sitemap's homepage entry in the same form.
-  alternates: { canonical: SITE_URL },
+  alternates: {
+    canonical: SITE_URL,
+    types: { 'application/rss+xml': [{ url: '/feed.xml', title: 'streamerOS Blog' }] },
+  },
   openGraph: {
     type: 'website',
     siteName: 'streamerOS',

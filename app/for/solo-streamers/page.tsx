@@ -10,9 +10,7 @@ import { SHOTS } from '@/lib/shots';
 export const metadata: Metadata = {
   title: 'Stream automation for solo streamers',
   description:
-    'Streaming alone means playing, talking, watching chat and driving OBS at ' +
-    'the same time. streamerOS takes the scene switching and the chat watching, ' +
-    'so you can do the two that need a person.',
+    'Streaming alone means playing, talking, reading chat and driving OBS at once. streamerOS takes the scene switching and chat watching off your hands.',
   alternates: { canonical: 'https://streamerosai.com/for/solo-streamers' },
 };
 

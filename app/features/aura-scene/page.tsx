@@ -27,9 +27,7 @@ export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
   title: 'Aura Scene Builder — Feature Guide',
   description:
-    'Build your own stream overlays inside streamerOS. Drag text, images and ' +
-    'video onto a 1920×1080 transparent canvas, save, and OBS shows it through ' +
-    'a Browser Source served from your own PC.',
+    'Build your own stream overlays in streamerOS: drag text, images and video onto a 1920×1080 canvas and OBS shows it as a Browser Source served from your PC.',
   alternates: { canonical: 'https://streamerosai.com/features/aura-scene' },
 };
 

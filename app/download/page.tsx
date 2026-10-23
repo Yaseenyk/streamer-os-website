@@ -9,7 +9,7 @@ import InlineSignup from '@/components/InlineSignup';
 export const metadata: Metadata = {
   title: { absolute: 'Download streamerOS for Windows — OBS Automation App' },
   description:
-    'Download streamerOS for Windows 10/11: OBS scene automation, clip markers and a local AI sidekick with no account and no cloud. Free 7-day trial, then $29 once. Launching February 2027.',
+    'Download streamerOS for Windows 10/11: OBS scene automation, clip markers and a local AI sidekick. No account, no cloud. 7-day trial, then $29 once.',
   alternates: { canonical: 'https://streamerosai.com/download' },
 };
 

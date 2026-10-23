@@ -16,9 +16,7 @@ import { siteConfig } from '@/config/site';
 export const metadata: Metadata = {
   title: 'Trust & Verification',
   description:
-    'streamerOS is a paid Windows desktop app from an independent developer, ' +
-    'not an operating system and not open source. What it does, what it never ' +
-    'does, how to verify each claim yourself, and what we cannot prove yet.',
+    'streamerOS is a paid Windows app from an independent developer, not an operating system or open source. What it does, what it never does, how to verify it.',
   alternates: { canonical: 'https://streamerosai.com/trust' },
 };
 

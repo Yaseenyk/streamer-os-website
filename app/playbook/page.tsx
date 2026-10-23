@@ -5,9 +5,7 @@ import {
   ArrowRight,
   Coffee,
   Crosshair,
-  Gamepad2,
   Ghost,
-  GitMerge,
   MonitorPlay,
   Swords,
   Trophy,
@@ -22,9 +20,7 @@ export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
   title: 'The Streamer’s Playbook',
   description:
-    'Real-world automation scenarios built with the Auto-Hype Director — boss-fight ' +
-    'facecam push-ins, match-win celebrations, clutch focus cuts, AFK breaks, and ' +
-    'auto-marked clip moments.',
+    'Real Auto-Hype Director automations built on chat velocity and Super Chats: facecam push-ins, celebration scenes, clutch focus cuts, BRB breaks and saved clips.',
   alternates: { canonical: 'https://streamerosai.com/playbook' },
 };
 
@@ -108,29 +104,27 @@ const SCENARIOS: Scenario[] = [
     title: 'The Boss Fight: Pushing In the OBS Facecam on a Chat-Velocity Hype Spike',
     prose: [
       'You’re forty minutes into a brutal boss attempt and the run is finally going right. You can’t feel it from inside the fight, but chat can — the messages start stacking faster, the emotes pour in, and the room leans forward all at once. That surge of chat velocity is the most honest hype signal you have, and it’s happening at the exact moment your hands are least free to do anything about it.',
-      'So you let the Auto-Hype Director watch it for you. A Trigger node tracks chat velocity and fires the instant it crosses your hype threshold and holds there. It flows into a Logic node that keeps the rule from twitching on a single spike, and out to an Action node that switches OBS to a tighter facecam angle — pushing the camera in on your reaction right as the room peaks. You never touch a hotkey; the broadcast simply tightens around the moment.',
+      'So you let the Auto-Hype Director watch it for you. A Trigger node compares chat velocity against your hype threshold, and an Action node switches OBS to a tighter facecam angle the moment it crosses. The switch fires once when the condition becomes true — not on every tick — and when chat settles back below the threshold, streamerOS returns you to the scene you were on. You never touch a hotkey; the broadcast simply tightens around the moment.',
     ],
     setupTitle: 'Node setup · Boss Fight',
     nodes: [
       { kind: 'trigger', icon: Zap, label: 'Chat Velocity > 50 / s', detail: 'hype detected' },
-      { kind: 'logic', icon: GitMerge, label: 'Sustained for 4s', detail: 'ignore single spikes' },
       { kind: 'action', icon: MonitorPlay, label: 'Scene = Facecam Close-Up', detail: 'push in on the reaction' },
     ],
   },
   {
     icon: Trophy,
     eyebrow: 'Scenario 02',
-    title: 'The Victory Screen: Triggering a Celebration Scene from Game-State and Audio Signals',
+    title: 'The Big Super Chat: A Celebration Scene and Sound When Support Lands',
     prose: [
-      'The match ends and the win lands. This is the beat your highlight reel is made of — but it’s also the beat you’re most likely to fumble, because you’re busy celebrating, not reaching for a scene switch. A win deserves more than you flatly cutting to a static screen three seconds too late.',
-      'The Auto-Hype Director catches it by combining two signals. A game-state Trigger fires the moment the match resolves to a victory, and an audio-level Trigger confirms the room actually erupted — your mic and game audio spiking together. A Logic gate requires both to be true, so a quiet, anticlimactic win won’t set it off. When they line up, the Action node fires a massive celebratory scene transition: confetti overlay, hype music sting, the works — perfectly timed, every single time.',
+      'A viewer drops a big Super Chat in the middle of a fight. It deserves a moment on stream — but you’re mid-game, and by the time you’ve read it and reached for a hotkey, the moment has passed and the supporter got a flat “thanks” three minutes late.',
+      'The Auto-Hype Director catches it for you. A Super Chat Trigger fires when a single Super Chat crosses the amount you set, and two Action nodes run together: one switches OBS to your celebration scene, the other plays your thank-you sting from the clips folder. Super Chats interrupt the rule loop ahead of the regular velocity ticks, so the reaction lands while the donation is still on screen.',
     ],
-    setupTitle: 'Node setup · Victory Screen',
+    setupTitle: 'Node setup · Big Super Chat',
     nodes: [
-      { kind: 'trigger', icon: Gamepad2, label: 'Game State = Victory', detail: 'match resolved as a win' },
-      { kind: 'trigger', icon: Volume2, label: 'Audio Level > threshold', detail: 'the room erupts' },
-      { kind: 'logic', icon: GitMerge, label: 'AND gate', detail: 'both must be true' },
-      { kind: 'action', icon: MonitorPlay, label: 'Scene = Victory Celebration', detail: 'transition + hype sting' },
+      { kind: 'trigger', icon: Trophy, label: 'Super Chat ≥ $20', detail: 'real support lands' },
+      { kind: 'action', icon: MonitorPlay, label: 'Scene = Celebration', detail: 'give it a moment' },
+      { kind: 'action', icon: Volume2, label: 'Play Sound = Thank-You Sting', detail: 'with a cooldown' },
     ],
   },
   {
@@ -139,44 +133,43 @@ const SCENARIOS: Scenario[] = [
     title: 'The Clutch: Switching OBS Studio to a Focus Scene When Chat Goes Silent',
     prose: [
       'You’re in a 1v5. The whole lobby is on you, and there is no universe where you take a hand off the mouse to reach for an OBS hotkey and swap to your “Tryhard / Focus” scene — the moment you do, you lose the round. Meanwhile chat goes dead silent, everyone holding their breath at once.',
-      'The Auto-Hype Director reads that silence for exactly what it is. A Trigger watches chat velocity freeze near zero and switches you to a clean Focus scene, stripping away the overlays that would distract you. Then, when you clutch it, chat detonates — velocity spikes and sentiment turns pure hype — and streamerOS instantly cuts to your Victory / Replay scene. You never touched a key; the broadcast told your story for you.',
+      'The Auto-Hype Director reads that silence for exactly what it is. A Trigger watches for chat velocity dropping below a low threshold and switches you to a clean Focus scene, stripping away the overlays that would distract you. Then, when you clutch it, chat detonates — velocity spikes past your hype threshold — and streamerOS cuts to your Victory / Replay scene and saves the OBS replay buffer, so the round is already on disk. You never touched a key; the broadcast told your story for you.',
     ],
     setupTitle: 'Node setup · The Clutch',
     nodes: [
-      { kind: 'trigger', icon: Activity, label: 'Chat Velocity ≈ 0 (held 8s)', detail: 'the room holds its breath' },
+      { kind: 'trigger', icon: Activity, label: 'Chat Velocity < 0.5 / s', detail: 'the room holds its breath' },
       { kind: 'action', icon: MonitorPlay, label: 'Scene = Focus Mode', detail: 'cut the distractions' },
-      { kind: 'trigger', icon: Zap, label: 'Velocity Spike > 40 / s + Hype', detail: 'chat detonates' },
-      { kind: 'action', icon: MonitorPlay, label: 'Scene = Victory / Replay', detail: 'ride the moment' },
+      { kind: 'trigger', icon: Zap, label: 'Chat Velocity > 40 / s', detail: 'chat detonates' },
+      { kind: 'action', icon: MonitorPlay, label: 'Scene = Victory / Replay + Save Replay', detail: 'ride the moment' },
     ],
   },
   {
     icon: Coffee,
     eyebrow: 'Scenario 04',
-    title: 'The Snack Break: Auto-Triggering a BRB Scene from Idle Game Audio and Chat',
+    title: 'The Snack Break: A BRB Scene and Muted Mic When the Room Goes Quiet',
     prose: [
-      'You step away for thirty seconds to grab food. Thirty seconds becomes five minutes. You forgot to hit the BRB screen — so a few thousand people are now watching an empty chair and a paused game, and the energy you spent all stream building quietly drains away.',
-      'streamerOS notices the room going quiet on its own: zero game audio and chat velocity falling off for five straight minutes. A Logic node makes sure it’s a real break and not a brief lull, then the Action node fades gently into your AFK / Be Right Back scene and mutes your mic — so the kitchen stays off-stream and your viewers get a tidy “back soon” instead of an empty chair.',
+      'You step away for thirty seconds to grab food. Thirty seconds becomes five minutes. You forgot to hit the BRB screen — so viewers are watching an empty chair and a paused game, and the energy you spent all stream building quietly drains away.',
+      'A rule built on a very low chat-velocity threshold catches it: when chat falls almost silent, the Action nodes switch to your AFK / Be Right Back scene and mute your mic input in OBS, so the kitchen stays off-stream. Set the threshold low enough that only a genuinely empty room trips it — a normal lull should not — and when chat picks back up, streamerOS returns to the scene you left.',
     ],
     setupTitle: 'Node setup · Snack Break',
     nodes: [
-      { kind: 'trigger', icon: Volume2, label: 'Game Audio = 0 + Chat Velocity ↓', detail: 'the room goes quiet' },
-      { kind: 'logic', icon: GitMerge, label: 'Sustained for 5 min', detail: 'a real break, not a lull' },
+      { kind: 'trigger', icon: Activity, label: 'Chat Velocity < 0.1 / s', detail: 'the room goes quiet' },
       { kind: 'action', icon: MonitorPlay, label: 'Scene = BRB + Mute Mic', detail: 'a tidy “back soon”' },
     ],
   },
   {
     icon: Ghost,
     eyebrow: 'Scenario 05',
-    title: 'The Jump Scare: Auto-Marking Clip Moments from an Emote-Sentiment Spike',
+    title: 'The Jump Scare: Saving the Clip the Moment Chat Floods',
     prose: [
       'The horror game finally gets you. You scream, you flinch clean out of frame — and chat instantly floods with OMEGALUL and LMAO. It’s a perfect clip moment, the kind that makes the rounds the next day, and right now it’s slipping past completely unmarked.',
-      'The sentiment engine reads the emote flood for exactly what it is — a massive spike of laughter — and a Logic node confirms it’s well above your laughter threshold rather than a stray emote or two. The Action node fires a temporary black-and-white “Wasted” filter over your webcam for ten seconds and drops a clip marker. The bit lands on its own, the moment gets saved, and you just keep playing.',
+      'The flood itself is the signal: chat velocity jumps far above your normal pace. A Trigger on that spike saves the OBS replay buffer, so the last few seconds are already on disk, and sets your Aura overlay to its Hype mood for the moment. Viral Moments independently drops a timestamped marker on the spike, so the clip is easy to find after the stream. The bit lands on its own, and you just keep playing.',
     ],
     setupTitle: 'Node setup · Jump Scare',
     nodes: [
-      { kind: 'trigger', icon: Activity, label: 'Emote Sentiment = “LMAO” spike', detail: 'the laughter flood' },
-      { kind: 'logic', icon: GitMerge, label: 'Above laughter threshold', detail: 'real, not a trickle' },
-      { kind: 'action', icon: MonitorPlay, label: 'Webcam Filter = Wasted (10s)', detail: 'the bit lands itself' },
+      { kind: 'trigger', icon: Zap, label: 'Chat Velocity > 30 / s', detail: 'the laughter flood' },
+      { kind: 'action', icon: MonitorPlay, label: 'Save Replay Buffer', detail: 'the clip is already saved' },
+      { kind: 'action', icon: Activity, label: 'Aura Mood = Hype', detail: 'the overlay reacts' },
     ],
   },
 ];
@@ -189,12 +182,12 @@ const GLOSSARY: { term: string; definition: string }[] = [
   {
     term: 'Auto-Hype Director',
     definition:
-      'The Auto-Hype Director is streamerOS’s visual, node-based automation engine. It links Trigger nodes (chat velocity, game state, audio level, emote sentiment), Logic nodes, and Action nodes so that Open Broadcaster Software (OBS) Studio scenes switch automatically the instant your stream peaks — without touching a hotkey.',
+      'The Auto-Hype Director is streamerOS’s visual, node-based automation engine. It links Trigger nodes (chat velocity and Super Chat amount, each above or below a threshold you set), Logic nodes (AND / OR), and Action nodes so that Open Broadcaster Software (OBS) Studio scenes switch automatically the instant your stream peaks — without touching a hotkey.',
   },
   {
     term: 'Chat Velocity',
     definition:
-      'Chat velocity is the rate of incoming chat messages over a short rolling window, such as messages per second. streamerOS treats a sharp rise in chat velocity as a real-time hype signal, and a sustained drop toward zero as a lull, using both to drive automatic scene changes.',
+      'Chat velocity is the rate of incoming chat messages over a short rolling window, such as messages per second. streamerOS treats a sharp rise in chat velocity as a real-time hype signal, and a drop below a low threshold as a lull, using both to drive automatic scene changes.',
   },
   {
     term: 'Interprocess Communication (IPC)',

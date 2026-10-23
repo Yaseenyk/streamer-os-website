@@ -27,9 +27,7 @@ export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
   title: 'Shorts Factory — Feature Guide',
   description:
-    'Turn stream VODs into vertical 9:16 shorts on your own PC. Pick a hype ' +
-    'marker, set the window, and streamerOS crops and encodes an .mp4 locally ' +
-    'with FFmpeg. No upload.',
+    'Turn stream VODs into vertical 9:16 shorts on your PC: pick a hype marker, set the window, and streamerOS crops and encodes an .mp4 with FFmpeg. No upload.',
   alternates: { canonical: 'https://streamerosai.com/features/shorts-factory' },
 };
 

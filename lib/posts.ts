@@ -1,4 +1,5 @@
 import { readFile, readdir } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
 
@@ -43,7 +44,12 @@ export async function getPostBySlug(slug: string): Promise<Post> {
       updated: data.updated,
       author: data.author,
       tags: data.tags ?? [],
-      image: data.image,
+      // Per-post card from scripts/emit-og-images.mjs, when it has been generated.
+      image:
+        data.image ??
+        (existsSync(path.join(process.cwd(), 'public', 'blog-og', `${slug}.png`))
+          ? `/blog-og/${slug}.png`
+          : undefined),
     },
     content,
   };

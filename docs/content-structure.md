@@ -13,8 +13,12 @@ repository. Rewritten 2026-09-11 — the previous version described a
 - **Styling:** Tailwind CSS v4, dark theme — near-black `#05070A`, cyan
   (`#22d3ee`) → purple (`#a855f7`) accents, zinc text.
 - **Animation:** Framer Motion. **Icons:** lucide-react. **Font:** Inter.
-- **Build:** `npm run build` runs `next build`, then emits directory indexes and
-  redirects, and verifies the sitemap and every internal link.
+- **Build:** `npm run build` renders a social card per post (`public/blog-og/`, gitignored),
+  runs `next build`, then emits directory indexes and redirects, and verifies the
+  sitemap and every internal link. The RSS feed is `app/feed.xml/route.ts`.
+- **AI Blogger** (`scripts/ai_writer.py`, manual dispatch only) writes one post per
+  query in `scripts/topics.txt`, using `docs/knowledge-base.md` as its only source of
+  product facts, and opens a pull request for review — it never pushes to `main`.
 - **Read `AGENTS.md` first** — Next 16 differs from older versions; consult
   `node_modules/next/dist/docs/` before using an API the site does not already use.
 

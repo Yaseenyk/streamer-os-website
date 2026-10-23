@@ -14,9 +14,7 @@ import { breadcrumbJsonLd, faqPageJsonLd, type FaqEntry } from '@/lib/seo';
 export const metadata: Metadata = {
   title: { absolute: 'Streamer.bot, SAMMI & Streamlabs Alternatives Compared' },
   description:
-    'How streamerOS compares with Streamlabs, Streamer.bot and SAMMI — ' +
-    'including where the free alternatives are the better choice — and which ' +
-    'projects named StreamerOS are unrelated to this one.',
+    'How streamerOS compares with Streamlabs, Streamer.bot and SAMMI, where the free tools are the better choice, and which projects named StreamerOS are unrelated.',
   alternates: { canonical: 'https://streamerosai.com/vs' },
 };
 
