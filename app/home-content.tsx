@@ -343,7 +343,7 @@ function Hero() {
             </motion.p>
 
             <motion.div variants={fadeUp} className="mt-8">
-              <InlineSignup variant="bare" source="hero" cta="Get 3 months free" className="text-left" />
+              <InlineSignup variant="bare" source="hero" cta="Get the beta" className="text-left" />
               {siteConfig.demoUrl && (
                 <a
                   href={siteConfig.demoUrl}
@@ -651,7 +651,8 @@ function BentoFeatures() {
                 <p className="mt-2 max-w-sm text-sm text-zinc-400">
                   Try everything free for 7 days, then $29 once and it is yours —
                   no renewal, no account, no cloud. Pre-register before launch and
-                  your trial is 3 months instead of 7 days.
+                  you get the beta first, a 3-month trial and the next major version
+                  included.
                 </p>
               </div>
               <Link

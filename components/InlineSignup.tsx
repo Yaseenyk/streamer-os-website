@@ -119,7 +119,7 @@ export default function InlineSignup({
   source,
   heading,
   blurb,
-  cta = 'Get 3 months free',
+  cta = 'Get the beta',
   variant = 'card',
   className = '',
 }: InlineSignupProps) {
@@ -166,10 +166,10 @@ export default function InlineSignup({
             <Check className="h-4 w-4" strokeWidth={2.5} aria-hidden />
           </span>
           <div>
-            <p className="text-base font-semibold text-zinc-100">You’re on the list.</p>
+            <p className="text-base font-semibold text-zinc-100">You’re a founding member.</p>
             <p className="mt-1 text-sm text-zinc-400">
-              Your trial will be 3 months instead of 7 days. We’ll email you when your build is
-              ready.
+              You’ll get the beta before the public launch, a 3-month trial, and a short build-log
+              email about once a month until launch.
             </p>
             {email && <SignupProfileQuestion email={email} source={source} />}
           </div>

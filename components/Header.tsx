@@ -357,7 +357,7 @@ export default function Header() {
                 }}
                 className="mt-4 inline-flex cursor-pointer items-center justify-center rounded-lg bg-cyan-400 px-4 py-3 text-sm font-semibold text-[#05070A] transition-all duration-200 hover:bg-cyan-300 hover:shadow-[0_0_15px_rgba(6,182,212,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
               >
-                Pre-Register for Launch
+                Get the beta
               </button>
             </nav>
           </motion.div>

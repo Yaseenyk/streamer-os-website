@@ -1,8 +1,8 @@
 # Launch copy — February 2027
 
 > **Updated 2026-10-22:** launch moved to February 2027, and a hosted live demo
-> is at https://demo.streamerosai.com. Copy below that still says November or
-> "next month" needs the date changed before it is sent. Section 6 is new: the
+> is at https://demo.streamerosai.com. Updated 2026-10-23: the founding-member
+> offer is live on the site and section 4 is rewritten for it. Section 6 is new: the
 > directory listings and off-site footprint the 2026-10-22 SEO audit found missing.
 
 Drafts for the channels that can actually reach people before launch. SEO
@@ -12,12 +12,6 @@ These are the ones that work in eight weeks.
 Everything here is written for the audience chosen on 2026-09-09: **technical,
 privacy-conscious streamers**. Nothing claims a feature outside the launch build.
 
-> **Updated 2026-09-11:** Shorts Factory, Brand Guard and Creator Memory were
-> moved from "v1.1" to launch features (they are in the app's default build).
-> The "What it does not do yet" lines below still name them as v1.1 — rewrite
-> those before posting. Two of them have launch blockers first: Shorts Factory
-> needs FFmpeg bundled in the installer, and Aura Scene overlays need the OBS
-> renderer served by the installed app. See docs/session-logs/2026-09-11.md.
 
 ---
 
@@ -52,12 +46,12 @@ Alternates worth testing:
 > are scored on your machine — nothing is uploaded, there is no account, and if
 > you unplug the network the automation keeps running.
 >
-> What it does today: OBS scene switching from game telemetry and chat velocity,
+> What it does today: OBS scene switching from chat velocity and Super Chats,
 > live sentiment, automatic hype-spike markers exported as CSV, and a sponsor
 > media kit generated from your own Twitch/YouTube CSV exports.
 >
-> What it does not do yet, so nobody is surprised: vertical Shorts export,
-> assistant memory across streams, and mic monitoring are v1.1.
+> What it does not do, so nobody is surprised: macOS or Linux, and it never
+> posts to your chat — it only reads it.
 >
 > 7-day trial, $29 once, not a subscription. Happy to answer anything.
 
@@ -149,31 +143,45 @@ by everyone else.
 
 ---
 
-## 4. The pre-register list
+## 4. The pre-register list (founding members)
 
-Ten people as of 2026-09-09. That list is the launch, so email it properly.
+Everyone who pre-registers is a **founding member**. The site promises them, in
+these words: the beta before the public launch, a 3-month trial instead of 7
+days, the next major version included in their $29, a 14-day no-questions
+refund, and a short build-log email about once a month until launch. Every email
+below keeps those promises — do not add new ones in an email.
 
-**Before launch — one email, roughly two weeks out:**
+**Monthly build log (send around the 1st of each month until launch).** Short,
+specific, one screenshot, no hype:
 
-> Subject: streamerOS ships next month — and your trial is 3 months, not 7 days
+> Subject: streamerOS build log — [month]
 >
-> You pre-registered, so two things.
+> Hi — this month in streamerOS:
 >
-> First: the build lands in November and you get it the day it ships.
+> - [The one thing that shipped, in a sentence, with a screenshot]
+> - [A bug that was fixed that a streamer would notice]
+> - [What is next]
 >
-> Second, and the reason this email is worth reading: pre-registrants get **three
-> months** rather than the seven-day trial. No card, nothing to claim — the key
-> arrives with the download.
+> Beta: [on track for <month> / slipped to <month>, and why — be straight].
 >
-> What ships: OBS scene automation from chat velocity and Super Chats, live sentiment,
-> automatic hype-spike markers, and a sponsor media kit built from your own
-> exports. All on your machine, no account.
->
-> What does not, so there are no surprises: Shorts export, assistant memory and
-> mic monitoring are v1.1.
+> Reply to this email with anything — I read every one.
+> Yaseen
 
-**Launch day:** shortest email you will write. Link, one line on what it does,
-the three-month key. Nothing else.
+**Beta invite (when the beta build is ready):**
+
+> Subject: Your streamerOS beta is ready
+>
+> As promised, founding members get it first. Download: [link]. Your 3-month
+> trial starts when you first open it — no card.
+>
+> Windows may show a SmartScreen warning because the installer is not code-signed
+> yet; [here is how to check the file is ours](https://streamerosai.com/trust).
+>
+> If something breaks, reply to this email. This is exactly what the beta is for.
+
+**Launch day:** shortest email you will write. Link, one line on what changed
+since the beta, and a reminder that founding members keep the 14-day refund and
+the next major version.
 
 ---
 

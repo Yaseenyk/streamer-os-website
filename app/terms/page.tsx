@@ -164,10 +164,12 @@ export default function TermsPage() {
         <section>
           <h2 className={H2}>Payment and refunds</h2>
           <p className={P}>
-            A licence costs $29 once. Because the trial lets you run every
-            feature before paying, purchases are final except where a refund is
-            required by the law that applies to you — write to us and we will
-            sort it out.
+            A licence costs $29 once. Founding members — anyone who
+            pre-registered before the February 2027 launch — can get a full
+            refund within 14 days of purchase, no questions asked: write to us
+            from the email you bought with. Otherwise, because the trial lets you
+            run every feature before paying, purchases are final except where a
+            refund is required by the law that applies to you.
           </p>
         </section>
 

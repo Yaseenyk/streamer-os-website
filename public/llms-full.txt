@@ -71,7 +71,7 @@ How a sceptical user can verify this without trusting the developer:
 
 ## 7. Pricing
 
-Free 7-day trial with every feature and no card required. Then a one-time $29 licence — not a subscription, no renewal. Pre-registering before launch extends the trial to 3 months. No ads, no data sold. Purchases are final except where local consumer law says otherwise, because the whole product can be used before paying. Governed by the laws of India.
+Free 7-day trial with every feature and no card required. Then a one-time $29 licence — not a subscription, no renewal. Pre-registering before launch makes you a founding member: beta access before the public launch, a 3-month trial, the next major version included, and a 14-day no-questions refund. No ads, no data sold. For everyone else, purchases are final except where local consumer law says otherwise, because the whole product can be used before paying. Governed by the laws of India.
 
 ## 8. Honest comparisons
 

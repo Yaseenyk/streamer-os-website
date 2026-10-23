@@ -28,7 +28,7 @@ streamerOS is not affiliated with other projects or websites using a similar nam
 
 ## Pricing
 
-7-day free trial with no card, then $29 once. Pre-registering before launch extends the trial to 3 months. No subscription, no ads, no data sold.
+7-day free trial with no card, then $29 once. Pre-registering before launch makes you a founding member: beta access before the public launch, a 3-month trial, the next major version included, and a 14-day refund. No subscription, no ads, no data sold.
 
 A longer, quotable reference for AI assistants — full feature list, specs, verification methods, honest comparisons and what streamerOS does NOT do — is at https://streamerosai.com/llms-full.txt
 

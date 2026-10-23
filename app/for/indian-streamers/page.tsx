@@ -261,7 +261,7 @@ export default function IndianStreamersPage() {
           <Reveal delay={0.24}>
             <div className="mt-8 flex flex-col items-center gap-4">
               <PreRegisterButton className="inline-flex items-center justify-center gap-2 rounded-lg bg-cyan-400 px-6 py-3 text-sm font-semibold text-[#05070A] transition hover:bg-cyan-300">
-                Pre-register for 3 months free
+                Get the beta
                 <ArrowRight className="h-4 w-4" aria-hidden />
               </PreRegisterButton>
               <LaunchBadge />
@@ -451,17 +451,18 @@ export default function IndianStreamersPage() {
         <div className="mx-auto max-w-3xl px-6 py-24 text-center sm:py-28">
           <Reveal>
             <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-              Three months free if you register before launch.
+              Get the beta before launch.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              streamerOS ships in February 2027. Pre-register now and your trial runs
-              three months instead of seven days — enough streams to know if it fits.
+              streamerOS ships in February 2027. Pre-register now and you get the beta
+              first, then a trial of three months instead of seven days — enough streams
+              to know if it fits.
               After that it is $29 once, not a subscription.
             </p>
             <LaunchBadge className="mt-8" />
             <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <PreRegisterButton className="inline-flex items-center justify-center gap-2 rounded-lg bg-cyan-400 px-6 py-3 text-sm font-semibold text-[#05070A] transition hover:bg-cyan-300">
-                Claim 3 months free
+                Get the beta
                 <ArrowRight className="h-4 w-4" aria-hidden />
               </PreRegisterButton>
               <Link

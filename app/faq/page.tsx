@@ -39,7 +39,7 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: 'What does streamerOS cost?',
-    a: 'Free for 7 days with every feature and no card. After that a licence is $29 once — not a subscription, no account, verified offline on your PC. Pre-register before the February 2027 launch and your trial is 3 months instead of 7 days. If you do not buy, your own data stays readable and a free tier keeps working: the dashboard, Clip Library, Chat Archive, your last stream’s report and 10 AI chat messages a day.',
+    a: 'Free for 7 days with every feature and no card. After that a licence is $29 once — not a subscription, no account, verified offline on your PC. Pre-register before the February 2027 launch and you become a founding member: the beta before the public launch, a 3-month trial, the next major version included and a 14-day refund. If you do not buy, your own data stays readable and a free tier keeps working: the dashboard, Clip Library, Chat Archive, your last stream’s report and 10 AI chat messages a day.',
   },
   {
     q: 'Will it slow down my game?',

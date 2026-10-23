@@ -58,8 +58,8 @@ export default function DownloadPage() {
           <Reveal delay={0.16}>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
               It launches February 2027 for Windows. Pre-register and we’ll
-              send you the build the day it ships, with a 3-month trial instead of 7 days.
-              After that it’s $29 once, no subscription.
+              send you the beta before the public launch, with a 3-month trial instead of
+              7 days. After that it’s $29 once, no subscription.
             </p>
           </Reveal>
         </div>
@@ -70,9 +70,9 @@ export default function DownloadPage() {
         <Reveal>
           <div className="rounded-2xl border border-cyan-400/30 bg-white/[0.03] p-8 text-center shadow-[0_0_60px_-20px_rgba(34,211,238,0.4)] sm:p-10">
             <LaunchBadge />
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight">Pre-register for the Windows build</h2>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight">Become a founding member</h2>
             <p className="mt-2 text-sm text-zinc-400">
-              Windows 10 &amp; 11 · 3-month trial for pre-registrants · no account required
+              Beta before launch · 3-month trial · 14-day refund · no account required
             </p>
             <InlineSignup variant="bare" source="download" className="mt-6" />
             {siteConfig.demoUrl && (

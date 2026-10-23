@@ -124,4 +124,5 @@ cores. With a hardware encoder, the preset is not in play at all.
 
 **Should I use x264 or NVENC?**
 NVENC if you have it. It moves encoding off the CPU entirely, which is the
-outcome most people are chasing when they open this dropdown.
+outcome most people are chasing when they open this dropdown. The full
+comparison is in [NVENC vs x264 for streaming](/blog/nvenc-vs-x264-for-streaming).

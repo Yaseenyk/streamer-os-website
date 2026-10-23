@@ -406,7 +406,7 @@ export default function BrandGuardGuidePage() {
             <LaunchBadge className="mt-8" />
             <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <PreRegisterButton className="inline-flex items-center justify-center gap-2 rounded-lg bg-cyan-400 px-6 py-3 text-sm font-semibold text-[#05070A] transition hover:bg-cyan-300">
-                Pre-Register for Launch
+                Get the beta
                 <ArrowRight className="h-4 w-4" aria-hidden />
               </PreRegisterButton>
               <Link

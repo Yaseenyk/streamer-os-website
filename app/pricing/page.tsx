@@ -36,7 +36,11 @@ const FAQ_ITEMS: FaqEntry[] = [
   },
   {
     q: 'Does the $29 licence cover every feature?',
-    a: 'Yes. Every feature in the launch build is included — Shorts Factory, Brand Guard and Creator Memory too — with no add-ons. A future major version may be a separate purchase; it will never become a subscription.',
+    a: 'Yes. Every feature in the launch build is included — Shorts Factory, Brand Guard and Creator Memory too — with no add-ons. Founding members get the next major version included as well. For everyone else a future major version may be a separate purchase; it will never become a subscription.',
+  },
+  {
+    q: 'What is a founding member?',
+    a: 'Anyone who pre-registers before the February 2027 launch. Founding members get the beta before the public launch, a 3-month trial instead of 7 days, the next major version included in their $29 licence, a 14-day no-questions refund, and a short build-log email about once a month until launch. Pre-registering is free and needs no card.',
   },
   {
     q: 'Can I use one licence on more than one PC?',
@@ -199,18 +203,18 @@ export default function PricingPage() {
         <div className="mx-auto max-w-3xl px-6 py-24 text-center sm:py-28">
           <Reveal>
             <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-              Three months, not seven days.
+              Become a founding member.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              Pre-registering before launch is the only way to get the longer trial.
-              One email, no card.
+              Pre-register before launch and you get the beta first, a 3-month trial,
+              the next major version included in your $29, and a 14-day refund. No card.
             </p>
             <div className="mt-8">
               <Link
                 href="/download"
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-cyan-400 px-6 py-3 text-sm font-semibold text-[#05070A] transition hover:bg-cyan-300"
               >
-                Claim 3 months free
+                Get the beta
                 <ArrowRight className="h-4 w-4" aria-hidden />
               </Link>
             </div>

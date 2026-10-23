@@ -172,7 +172,7 @@ export default function UseCaseLayout({
             </div>
             <p className="mt-4 flex items-center justify-center gap-2 text-sm text-zinc-500">
               <Check className="h-4 w-4 text-cyan-400" aria-hidden />
-              Pre-register and your trial is 3 months instead of 7 days
+              Pre-register: the beta first, then a 3-month trial
             </p>
           </Reveal>
         </div>

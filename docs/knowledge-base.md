@@ -73,7 +73,11 @@ Sentiment Horizon, Viral Engine) run on the GPU through Ollama.
 ### How the Trial and Licence Work
 
 - **Free trial:** 7 days with every feature and no credit card. People who
-  pre-registered before the November 2026 launch get 3 months.
+  pre-register before the February 2027 launch get 3 months.
+- **Founding members:** everyone who pre-registers before the February 2027
+  launch. They get the beta before the public launch, a 3-month trial, the next
+  major version included in their $29 licence, a 14-day no-questions refund, and
+  a short build-log email about once a month until launch.
 - **Licence:** $29, paid once. Not a subscription; it does not expire or renew.
   It includes every feature, including Shorts Factory, Brand Guard and Creator
   Memory.

@@ -34,9 +34,9 @@ const TIERS: Tier[] = [
       'Every feature, no restrictions',
       'No credit card to start',
       'Runs entirely on your PC',
-      'Pre-register now and get 3 months instead of 7 days',
+      'Pre-register: beta access first and a 3-month trial',
     ],
-    cta: 'Pre-Register for Launch',
+    cta: 'Get the beta',
     href: siteConfig.downloadUrl,
     featured: false,
     preRegister: true,
@@ -82,8 +82,9 @@ export default function Pricing() {
         </h2>
         <p className="mt-4 text-zinc-400">
           Try the whole cockpit free for 7 days, then $29 once — no subscription,
-          no account, no cloud. Pre-register before launch and your trial is three
-          months instead of seven days.
+          no account, no cloud. Pre-register before launch and you become a founding
+          member: the beta first, a 3-month trial, the next major version included and
+          a 14-day refund.
         </p>
         <LaunchBadge className="mt-6" />
       </motion.div>

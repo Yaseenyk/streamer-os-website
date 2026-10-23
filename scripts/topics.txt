@@ -1,10 +1,6 @@
-nvenc vs x264 for streaming
 obs bitrate settings for twitch
 obs rendering lag vs encoding lag
-how to switch obs scenes when a game launches
-how to track super chat revenue
 how to stream without moderators
-mix it up alternative
 vtuber obs setup
 local ai for streamers
 twitch clip automation
