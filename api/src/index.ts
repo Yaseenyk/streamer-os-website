@@ -118,6 +118,10 @@ app.post('/chat', async (c) => {
     console.error('retrieval failed', err instanceof Error ? err.message : err);
   }
 
+  const retrievalNote = retrievalFailed
+    ? '\n\nNOTE: the knowledge-base lookup failed for this request. Answer only from the core facts; for anything else, say the detailed knowledge base is temporarily unavailable and suggest trying again shortly or contacting streamerOS support.'
+    : '';
+
   const system = `You are the streamerOS Tier-1 Support Agent, a friendly and concise customer support assistant for streamerOS.
 
 Answer the user's question using ONLY the context provided below. The context is drawn from the official streamerOS knowledge base.
@@ -133,17 +137,13 @@ Core facts (always true, use freely):
 ${CORE_FACTS}
 
 Context from the knowledge base:
-${context}`;
+${context}${retrievalNote}`;
 
-  // Say so rather than answering from the model's own memory. An ungrounded
-  // answer that looks grounded is worse than no answer for a support bot.
-  if (retrievalFailed) {
-    return new Response(
-      'The support knowledge base is temporarily unavailable, so I cannot look ' +
-        'this up right now. Please try again shortly, or contact streamerOS support.',
-      { status: 503, headers: { 'Content-Type': 'text/plain; charset=utf-8' } },
-    );
-  }
+  // When retrieval is down (the embedding API rate-limits, or the Upstash
+  // free-tier index vanishes again), still answer from the core facts and say
+  // that detailed lookups are unavailable — rather than refusing everything,
+  // including "what is streamerOS?". The prompt forbids guessing, so an
+  // answer outside the core facts still comes back as "I don't have that".
 
   const result = streamText({
     model: openai('gpt-5.5'),
