@@ -17,7 +17,26 @@ const FIELD_CLASS =
   'placeholder-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 ' +
   'outline-none rounded-lg p-3';
 
-export default function ContactForm() {
+interface ContactFormProps {
+  /** Fixed subject; hides the subject field (e.g. a program application). */
+  subject?: string;
+  nameLabel?: string;
+  namePlaceholder?: string;
+  messageLabel?: string;
+  messagePlaceholder?: string;
+  submitLabel?: string;
+  successText?: string;
+}
+
+export default function ContactForm({
+  subject: fixedSubject,
+  nameLabel = 'Name',
+  namePlaceholder = 'Your name',
+  messageLabel = 'Message',
+  messagePlaceholder = 'Tell us more…',
+  submitLabel = 'Send message',
+  successText = 'Transmission received. We’ll be in touch.',
+}: ContactFormProps = {}) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -38,7 +57,7 @@ export default function ContactForm() {
 
     const name = String(formData.get('name') ?? '');
     const email = String(formData.get('email') ?? '');
-    const subject = String(formData.get('subject') ?? '');
+    const subject = fixedSubject ?? String(formData.get('subject') ?? '');
     const message = String(formData.get('message') ?? '');
 
     setIsSubmitting(true);
@@ -79,7 +98,7 @@ export default function ContactForm() {
         className="rounded-lg border border-cyan-400/30 bg-cyan-400/[0.06] p-8 text-center"
       >
         <p className="text-lg font-semibold text-white">
-          Transmission received. We&apos;ll be in touch.
+          {successText}
         </p>
       </div>
     );
@@ -108,14 +127,14 @@ export default function ContactForm() {
 
       <div className="flex flex-col gap-2">
         <label htmlFor="name" className="text-sm font-medium text-slate-300">
-          Name
+          {nameLabel}
         </label>
         <input
           id="name"
           name="name"
           type="text"
           required
-          placeholder="Your name"
+          placeholder={namePlaceholder}
           className={FIELD_CLASS}
         />
       </div>
@@ -134,30 +153,32 @@ export default function ContactForm() {
         />
       </div>
 
-      <div className="flex flex-col gap-2">
-        <label htmlFor="subject" className="text-sm font-medium text-slate-300">
-          Subject
-        </label>
-        <input
-          id="subject"
-          name="subject"
-          type="text"
-          required
-          placeholder="What's this about?"
-          className={FIELD_CLASS}
-        />
-      </div>
+      {!fixedSubject && (
+        <div className="flex flex-col gap-2">
+          <label htmlFor="subject" className="text-sm font-medium text-slate-300">
+            Subject
+          </label>
+          <input
+            id="subject"
+            name="subject"
+            type="text"
+            required
+            placeholder="What's this about?"
+            className={FIELD_CLASS}
+          />
+        </div>
+      )}
 
       <div className="flex flex-col gap-2">
         <label htmlFor="message" className="text-sm font-medium text-slate-300">
-          Message
+          {messageLabel}
         </label>
         <textarea
           id="message"
           name="message"
           rows={5}
           required
-          placeholder="Tell us more…"
+          placeholder={messagePlaceholder}
           className={`${FIELD_CLASS} resize-y`}
         />
       </div>
@@ -167,7 +188,7 @@ export default function ContactForm() {
         disabled={isSubmitting}
         className="mt-1 inline-flex cursor-pointer items-center justify-center rounded-lg bg-cyan-400 px-5 py-3 text-sm font-semibold text-[#05070A] transition-all duration-200 hover:bg-cyan-300 hover:shadow-[0_0_15px_rgba(6,182,212,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:shadow-none"
       >
-        {isSubmitting ? 'Transmitting…' : 'Send message'}
+        {isSubmitting ? 'Sending…' : submitLabel}
       </button>
     </form>
   );

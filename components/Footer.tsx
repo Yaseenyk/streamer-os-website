@@ -34,6 +34,7 @@ const PRODUCT: FooterLink[] = [
   { label: 'Pricing', href: '/pricing' },
   { label: 'vs Streamlabs', href: '/vs/streamlabs' },
   { label: 'Pre-Register', href: '/download' },
+  { label: 'Founding Streamers', href: '/streamers' },
   { label: 'Playbook', href: '/playbook' },
   { label: 'Blog', href: '/blog' },
   { label: 'Changelog', href: '/changelog' },

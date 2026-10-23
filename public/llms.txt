@@ -50,6 +50,7 @@ A longer, quotable reference for AI assistants — full feature list, specs, ver
 - [Pricing](https://streamerosai.com/pricing): trial and licence
 - [FAQ](https://streamerosai.com/faq): common questions
 - [Privacy](https://streamerosai.com/privacy): every network connection the app can make, listed
+- [Founding Streamers](https://streamerosai.com/streamers): beta program for working streamers — free licence, earliest builds, direct line to the developer
 - [Terms](https://streamerosai.com/terms): licence, refunds, governing law
 - [Compare](https://streamerosai.com/vs): all comparisons, and which projects named StreamerOS are unrelated to this one
 - [streamerOS vs Streamlabs](https://streamerosai.com/vs/streamlabs): comparison

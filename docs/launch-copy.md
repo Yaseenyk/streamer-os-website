@@ -355,3 +355,126 @@ Starting points:
   search.
 - r/LocalLLaMA: a build write-up on running a local LLM next to a live game
   (GPU budget, model size) is on-topic there and links naturally.
+
+---
+
+## 7. Outreach kit — recruiting Founding Streamers
+
+Goal: 20–50 working streamers on the beta before launch, for honest feedback and,
+with permission, the site's first real testimonials. The offer is exactly what
+https://streamerosai.com/streamers promises — a free licence (including the next
+major version), the earliest beta builds and a direct line to you. **Do not offer
+anything that page does not**, and never offer money or a licence in exchange for
+a positive review or a mention.
+
+### Who to approach
+
+* Windows streamers on Twitch or YouTube, roughly 10–500 average viewers,
+  streaming at least weekly.
+* Best fit: solo streamers in fast games (shooters, horror, competitive), and
+  YouTube Live streamers who get Super Chats — the two groups the product helps
+  most.
+* Find them through the categories you already watch, OBS-help threads where they
+  ask about scene switching, and streamer Discord servers' "share your stream"
+  channels (only where the server's rules allow outreach).
+
+### Direct message (Twitch whisper, Discord, X, email)
+
+Keep it short, specific to them, and easy to ignore:
+
+> Hey [name] — caught your [game] stream on [day]; the [specific moment] was great.
+>
+> I'm building streamerOS, a Windows app that runs next to OBS and switches your
+> scene when chat spikes or a Super Chat lands, and marks the moment for clipping.
+> It's in beta before a February launch, and I'm looking for a few streamers to
+> use it on real streams and tell me what breaks.
+>
+> In return you'd get a free licence to keep. No promotion required.
+> Details here if you're curious: https://streamerosai.com/streamers — and no
+> worries at all if it's not for you.
+>
+> — Yaseen
+
+Rules: one message, no follow-up spam (one polite nudge after a week at most),
+never paste it into someone's stream chat.
+
+### Reddit — r/obs (value post, not an ad)
+
+Read the subreddit rules first; many forbid self-promotion except in specific
+threads. A post that teaches something stands on its own:
+
+> **Title:** I measured how fast chat moves to auto-switch OBS scenes — what worked
+> and what didn't
+>
+> Body: the problem (you can't hit a hotkey mid-fight), the approaches (built-in
+> switcher, Advanced Scene Switcher macros, chat-speed based), the three rules that
+> stop automation looking broken (baseline not fixed numbers, cooldowns, automatic
+> return). End with: "Disclosure: I'm building a Windows app around the chat-speed
+> approach — happy to answer questions, but everything above works with free
+> tools." Link the blog guide only if someone asks.
+
+### Discord — streamer communities
+
+Only in channels meant for tools or self-promotion:
+
+> I'm the developer of streamerOS — a Windows companion app for OBS that switches
+> scenes when chat spikes and marks clip moments. It's in beta and I'm looking for
+> a few streamers to try it on real streams (free licence, no promo required):
+> https://streamerosai.com/streamers. Happy to answer anything here.
+
+### OBS forum
+
+Answer the question in the thread fully, in your own words. Mention streamerOS
+only if the asker's problem is chat-driven switching, disclose that you build it,
+and follow the forum's resource and AI-disclosure rules (section 6).
+
+### After someone joins
+
+1. Reply within a day with the beta date and what you want them to test.
+2. After their first two streams, ask three questions: what broke, what they
+   expected that wasn't there, and whether they'd keep using it.
+3. Only then, and only if they're positive, ask whether you may quote them with
+   their name and channel on the site. Keep the exact words they approve.
+
+---
+
+## 8. Video scripts
+
+### 8.1 The 60-second demo (YouTube, plus 15-second cuts for Shorts/TikTok/X)
+
+Record a real (or test) stream with a friend flooding chat. No music over the
+first five seconds; the cut has to be visible immediately.
+
+| Time | On screen | Voice / caption |
+|---|---|---|
+| 0–5 s | Game, chat suddenly flooding, OBS cuts to the facecam scene by itself | "My OBS scene just switched itself." |
+| 5–15 s | The streamerOS cockpit: chat velocity line spiking past the baseline | "streamerOS watches how fast chat is moving. When it spikes past my normal pace, it cuts the scene." |
+| 15–25 s | The Auto-Hype Director node: Chat Velocity > threshold → Switch scene | "The rule is one trigger and one action. No scripts." |
+| 25–35 s | A Super Chat arrives, celebration scene + sound | "Super Chats can trigger their own scene and sound." |
+| 35–45 s | Viral Moments marker list, CSV export | "Every spike is timestamped, so the clip is waiting after the stream." |
+| 45–55 s | Task Manager: streamerOS CPU next to the game | "It runs on my PC, no cloud, and stays under 2% CPU." |
+| 55–60 s | End card: streamerosai.com/streamers and demo link | "Windows, February 2027. Try the browser demo, or apply to beta it." |
+
+Title: "My OBS scenes switch themselves when chat spikes". Description: one line
+on what it is, the demo link, the /streamers link, and "Windows only, launches
+February 2027".
+
+### 8.2 Tutorial: OBS Automatic Scene Switcher not working (5–7 min)
+
+Mirrors the blog section so the two support each other:
+1. What the built-in switcher does (window focus only), 30 s.
+2. The five failure causes, each shown fixed on screen: not started, window title
+   changed, "when no window matches" fighting you, two switchers at once, game not
+   visible by title.
+3. When to move to Advanced Scene Switcher (one macro shown).
+4. Ten-second mention: switching on chat activity needs a tool that measures chat
+   speed — "I build one, link below", nothing more.
+
+### 8.3 Tutorial: Read chat while streaming on one monitor (4–6 min)
+
+1. Why full-screen hides chat, 20 s.
+2. Borderless windowed + popout chat + PowerToys Always On Top, shown live.
+3. OBS custom browser dock.
+4. Phone/tablet and text-to-speech options.
+5. Close on "stop reading every message — know when to look" with the cockpit
+   shown for ten seconds, and the demo link.

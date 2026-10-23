@@ -74,6 +74,12 @@ Sentiment Horizon, Viral Engine) run on the GPU through Ollama.
 
 - **Free trial:** 7 days with every feature and no credit card. People who
   pre-register before the February 2027 launch get 3 months.
+- **Founding Streamers program:** working Windows streamers (Twitch or YouTube,
+  streaming at least weekly; small and mid-sized channels especially) can apply at
+  https://streamerosai.com/streamers to use the earliest beta builds on real
+  streams. Accepted streamers get a free licence including the next major
+  version and a direct line to the developer. Promotion is never required; the
+  affiliate programme opens at launch with terms published then.
 - **Founding members:** everyone who pre-registers before the February 2027
   launch. They get the beta before the public launch, a 3-month trial, the next
   major version included in their $29 licence, a 14-day no-questions refund, and

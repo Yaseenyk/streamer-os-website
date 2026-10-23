@@ -34,6 +34,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/features/performance`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/features/zero-cloud`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/download`, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE_URL}/streamers`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/pricing`, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE_URL}/vs/streamlabs`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/trust`, changeFrequency: 'monthly', priority: 0.8 },
