@@ -1,4 +1,3 @@
-ai co host for streaming
 companies that sponsor small streamers
 youtube super chat requirements
 obs dropping frames with good internet
