@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { getAllPostMeta } from '@/lib/posts';
+import { GLOSSARY } from '@/lib/glossary';
 import { SITE_URL as BASE_URL } from '@/config/site';
 
 // Required for `output: 'export'` — emit a static sitemap.xml at build time.
@@ -30,6 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/features/aura-scene`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/features/shorts-factory`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/features/brand-guard`, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/features/scene-switcher`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/for/indian-streamers`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/features/performance`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/features/zero-cloud`, changeFrequency: 'monthly', priority: 0.8 },
@@ -46,6 +48,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/for/youtube-live`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/for/vtubers`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/playbook`, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/glossary`, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/blog`, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE_URL}/docs`, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/docs/installation`, changeFrequency: 'monthly', priority: 0.6 },
@@ -66,5 +69,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...postRoutes];
+  // Glossary terms come from lib/glossary.ts, the same list the pages render.
+  const glossaryRoutes: MetadataRoute.Sitemap = GLOSSARY.map((entry) => ({
+    url: `${BASE_URL}/glossary/${entry.slug}`,
+    lastModified: new Date(entry.checked),
+    changeFrequency: 'yearly',
+    priority: 0.5,
+  }));
+
+  return [...staticRoutes, ...postRoutes, ...glossaryRoutes];
 }

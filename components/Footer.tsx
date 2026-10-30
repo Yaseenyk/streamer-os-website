@@ -33,6 +33,7 @@ const PRODUCT: FooterLink[] = [
   { label: 'Pricing', href: '/pricing' },
   { label: 'Compare', href: '/vs' },
   { label: 'vs Streamlabs', href: '/vs/streamlabs' },
+  { label: 'OBS Scene Switcher', href: '/features/scene-switcher' },
   { label: 'Changelog', href: '/changelog' },
   { label: 'Pre-Register', href: '/download' },
 ];
@@ -51,6 +52,7 @@ const COMPANY: FooterLink[] = [
   { label: 'Trust & Verification', href: '/trust' },
   { label: 'Playbook', href: '/playbook' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Glossary', href: '/glossary' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },
 ];

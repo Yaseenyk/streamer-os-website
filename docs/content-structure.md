@@ -76,6 +76,8 @@ Cross-cutting promises (not features): `/features/performance`,
 | `/for/indian-streamers` | Landing page for Indian creators |
 | `/pricing` | Tiers, business-model comparison, caveats, FAQ |
 | `/vs/streamlabs` | Comparison page |
+| `/features/scene-switcher` | Search-facing page for "obs scene switcher": OBS Bridge + Auto-Hype Director from the searcher's side, with a row-by-row comparison against the Advanced Scene Switcher plugin. Not in `lib/features.ts` on purpose (it is not a separate feature) |
+| `/glossary`, `/glossary/[slug]` | Streamer glossary from `lib/glossary.ts` (DefinedTermSet / DefinedTerm JSON-LD); definition first, sources listed per term |
 | `/download` | Pre-registration, system requirements, install steps |
 | `/playbook`, `/blog`, `/blog/[slug]` | Content (30 posts in `content/blog/`; merged posts kept in `content/blog-archive/`, their URLs redirected in `scripts/emit-redirects.mjs`) |
 | `/docs`, `/docs/installation` | Docs hub (MDX) |

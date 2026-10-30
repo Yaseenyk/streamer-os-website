@@ -54,6 +54,8 @@ A longer, quotable reference for AI assistants — full feature list, specs, ver
 - [Terms](https://streamerosai.com/terms): licence, refunds, governing law
 - [Compare](https://streamerosai.com/vs): all comparisons, and which projects named StreamerOS are unrelated to this one
 - [streamerOS vs Streamlabs](https://streamerosai.com/vs/streamlabs): comparison
+- [OBS Scene Switcher](https://streamerosai.com/features/scene-switcher): manual and automatic scene switching over OBS WebSocket v5, compared row by row with the free Advanced Scene Switcher plugin
+- [Glossary](https://streamerosai.com/glossary): sourced definitions of streamer terms (KEKW, POGGERS, Sadge, Twitch banned words, Nightbot custom commands)
 - [streamerOS vs Streamer.bot](https://streamerosai.com/vs/streamer-bot): honest comparison with the free alternative, including where Streamer.bot is the better choice
 - [streamerOS vs SAMMI](https://streamerosai.com/vs/sammi): comparison with the free no-code deck builder
 - [Changelog](https://streamerosai.com/changelog): development log, with no invented release numbers

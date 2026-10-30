@@ -378,6 +378,22 @@ export default function AutoHypeGuidePage() {
         shots={[SHOTS.autoDirector, SHOTS.chatTriage, SHOTS.velocityStats, SHOTS.sceneSwitcher, SHOTS.dashboard]}
       />
 
+      <section className="mx-auto max-w-3xl px-6 pb-4">
+        <h2 className="text-xl font-semibold tracking-tight">Related guides</h2>
+        <ul className="mt-4 space-y-2 text-zinc-400">
+          <li>
+            <Link href="/features/scene-switcher" className="text-cyan-400 underline underline-offset-2">
+              The OBS scene switcher explained, and how it compares with the Advanced Scene Switcher plugin
+            </Link>
+          </li>
+          <li>
+            <Link href="/blog/auto-switch-obs-scenes-guide" className="text-cyan-400 underline underline-offset-2">
+              How to auto-switch OBS scenes, including from chat activity
+            </Link>
+          </li>
+        </ul>
+      </section>
+
       {/* CTA */}
       <section className="border-t border-white/5">
         <div className="mx-auto max-w-3xl px-6 py-24 text-center sm:py-28">

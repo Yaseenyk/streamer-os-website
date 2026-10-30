@@ -394,6 +394,11 @@ export default function ObsBridgeGuidePage() {
               </Link>
             </li>
             <li>
+              <Link href="/features/scene-switcher" className="text-cyan-400 underline underline-offset-2">
+                The OBS scene switcher, manual and automatic, vs the Advanced Scene Switcher plugin
+              </Link>
+            </li>
+            <li>
               <Link href="/features/auto-hype" className="text-cyan-400 underline underline-offset-2">
                 Auto-Hype Director
               </Link>
