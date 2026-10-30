@@ -111,7 +111,8 @@ That is the gap streamerOS fills. Its Auto-Hype Director measures
 and switches your OBS scene when chat spikes or a Super Chat crosses an amount you
 set, for Twitch and YouTube (YouTube without an API key). It runs on your PC next
 to OBS and works alongside Advanced Scene Switcher — keep the plugin for your
-machine-side rules. It is Windows-only, $29 once after a free trial, and it reads
+machine-side rules; the row-by-row comparison is on the
+[OBS scene switcher page](/features/scene-switcher). It is Windows-only, $29 once after a free trial, and it reads
 chat but never posts to it; it launches in February 2027. You can
 [try the live demo](https://demo.streamerosai.com) in your browser now, and
 founding members — everyone who [pre-registers](/download) before launch — get

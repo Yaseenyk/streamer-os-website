@@ -112,7 +112,9 @@ you; steep if you just want a couple of rules. There is a side-by-side in
 is one: it [connects over WebSocket v5](/features/obs-bridge) and switches a
 scene when chat velocity or a Super Chat amount crosses a threshold you set.
 It runs locally and is a paid Windows app, so try the free options above first
-if your rules are machine-side.
+if your rules are machine-side. A side-by-side of what it does and does not
+switch on, against the plugin, is on the
+[OBS scene switcher page](/features/scene-switcher).
 
 ## The three rules that keep it from looking broken
 

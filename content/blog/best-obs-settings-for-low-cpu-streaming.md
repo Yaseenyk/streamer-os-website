@@ -1,10 +1,20 @@
 ---
-title: "Best OBS Settings for Low-CPU Streaming (2026)"
-description: "The encoder, resolution and rendering settings that cut CPU without wrecking quality - plus what else on your PC is stealing frames."
+title: "Best OBS Settings for a Low-End PC (Low CPU, 2026)"
+description: "The best OBS settings for a low-end PC: NVENC or AV1 instead of x264, 720p output, Bilinear downscale, 30 FPS for slow content, CBR at 4,500-6,000 kbps - and what else on your PC is stealing frames."
 date: "2026-07-06"
+updated: "2026-10-30"
 author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Optimization", "Performance"]
 ---
+
+**The best OBS settings for a low-end PC are: a hardware encoder (NVENC on
+NVIDIA, or AV1 on RTX 40-series and newer) instead of x264, an output resolution
+of 1280x720, the Bilinear downscale filter, 30 FPS for anything that is not
+fast-paced action, CBR at 4,500-6,000 kbps, and NV12 colour format.** Set those
+under Settings → Output (Advanced mode) and Settings → Video, then close the
+heavy helper apps running beside OBS - on a weak PC they take back what the
+settings just saved. Each setting is explained below, with the reason it
+matters.
 
 If OBS is turning your stream into a slideshow of dropped frames, the fix is almost never "buy a better PC." It's settings. Most streamers leave OBS on defaults that hammer the CPU when the GPU is sitting half-idle right next to it.
 
