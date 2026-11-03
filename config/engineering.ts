@@ -9,11 +9,11 @@
  */
 export const BUILDER = {
   name: 'Yaseen Khatib',
-  url: 'https://yaseenkhatib.streamerosai.com/',
+  url: 'https://yk.streamerosai.com/',
   // Deep links to the builder's key pages. Contextual links to a related site
   // on the same registrable domain give crawlers real paths to those pages and
   // consolidate the shared-domain signal — both genuinely relevant to this
   // site's developer audience.
-  hireUrl: 'https://yaseenkhatib.streamerosai.com/hire/',
-  journeyUrl: 'https://yaseenkhatib.streamerosai.com/final-year-projects/journey/',
+  hireUrl: 'https://yk.streamerosai.com/hire/',
+  journeyUrl: 'https://yk.streamerosai.com/final-year-projects/journey/',
 } as const;

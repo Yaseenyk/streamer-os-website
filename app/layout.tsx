@@ -115,7 +115,7 @@ const jsonLd = {
       '@id': `${SITE_URL}/#person`,
       name: 'Yaseen Khatib',
       url: `${SITE_URL}/about`,
-      sameAs: ['https://github.com/Yaseenyk', 'https://yaseenkhatib.streamerosai.com/'],
+      sameAs: ['https://github.com/Yaseenyk', 'https://yk.streamerosai.com/'],
       jobTitle: 'Senior Full-Stack Developer',
       email: siteConfig.contactEmail,
       knowsAbout: ['TypeScript', 'Node.js', 'Systems Architecture', 'OBS WebSocket Protocol'],
