@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SupportChatbot from '@/components/SupportChatbot';
@@ -215,6 +216,10 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           <Footer />
           <SupportChatbot />
         </PreRegisterProvider>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-9W846YK3FZ" strategy="afterInteractive" />
+        <Script id="ga4" strategy="afterInteractive">
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9W846YK3FZ');`}
+        </Script>
       </body>
     </html>
   );

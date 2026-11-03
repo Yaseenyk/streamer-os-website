@@ -142,7 +142,7 @@ export default function PrivacyPage() {
         <section>
           <h2 className={H2}>This website</h2>
           <p className={P}>
-            streamerosai.com is a static site and sets no tracking cookies. A few
+            streamerosai.com is a static site and sets no advertising cookies. A few
             services are involved when you use it:
           </p>
           <ul className={LI}>
@@ -150,6 +150,13 @@ export default function PrivacyPage() {
               <strong className="text-zinc-200">Plausible Analytics</strong> —
               counts page visits and sign-ups in aggregate, without cookies and
               without collecting personal data.
+            </li>
+            <li>
+              <strong className="text-zinc-200">Google Analytics</strong> —
+              measures how visitors find and use the site. It sets first-party
+              analytics cookies and sends usage data, such as pages viewed and
+              approximate location, to Google. We don&apos;t use it for advertising.
+              You can block it with a browser extension or by disabling cookies.
             </li>
             <li>
               <strong className="text-zinc-200">Pre-registration and the contact
