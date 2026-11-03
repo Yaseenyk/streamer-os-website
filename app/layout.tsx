@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
-import { Inter } from 'next/font/google';
-import Script from 'next/script';
-import Header from '@/components/Header';
+import { Inter } from 'next/font/google';import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SupportChatbot from '@/components/SupportChatbot';
 import { PreRegisterProvider } from '@/components/PreRegisterModal';
@@ -200,6 +198,15 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
               'window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}',
           }}
         />
+        {/* Google tag (GA4). A plain tag in the server-rendered head, so Google's tag checker finds it
+            in the HTML; next/script would inject it client-side and the checker misses it. */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W846YK3FZ" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9W846YK3FZ');",
+          }}
+        />
       </head>
       {/* Browser extensions (password managers, ColorZilla's `cz-shortcut-listen`,
           Grammarly and friends) add attributes to <body> before React hydrates,
@@ -216,10 +223,6 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           <Footer />
           <SupportChatbot />
         </PreRegisterProvider>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-9W846YK3FZ" strategy="afterInteractive" />
-        <Script id="ga4" strategy="afterInteractive">
-          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9W846YK3FZ');`}
-        </Script>
       </body>
     </html>
   );
