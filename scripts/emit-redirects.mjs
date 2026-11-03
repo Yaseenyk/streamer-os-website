@@ -59,7 +59,8 @@ for (const [from, to] of Object.entries(BLOG_REDIRECTS)) {
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8">
 <title>Moved</title>
 <link rel="canonical" href="${target}">
-<meta http-equiv="refresh" content="0; url=${target}">
+<noscript><meta http-equiv="refresh" content="0; url=${target}"></noscript>
+<script>var t="${target}";location.replace(t+(location.search||"")+(location.hash||""))</script>
 </head><body>This page moved to <a href="${target}">${target}</a>.</body></html>
 `;
 
