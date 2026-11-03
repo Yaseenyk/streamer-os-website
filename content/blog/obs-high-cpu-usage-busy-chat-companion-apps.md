@@ -1,6 +1,6 @@
 ---
 title: "OBS High CPU Usage? Check the Apps Around It, Like My Chat Reader"
-description: "A chat tool I built fell ten minutes behind a fast chat and starved itself of CPU. How to audit the apps running next to OBS, under a busy chat, before touching encoder settings."
+description: "A chat tool I built fell ten minutes behind a busy chat and starved its own CPU. How to audit the apps beside OBS before touching encoder settings."
 date: "2026-11-04"
 author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Performance", "Optimization"]

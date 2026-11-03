@@ -1,6 +1,6 @@
 ---
 title: "OBS Scripts: What They Are and Which to Install"
-description: "OBS scripts are Lua or Python files loaded under Tools → Scripts that add small features without a plugin. How they differ from plugins, the five that ship with OBS, and how to vet one before installing it."
+description: "OBS scripts are Lua or Python files loaded under Tools → Scripts. How they differ from plugins, the five that ship with OBS, and how to vet one."
 date: "2026-10-30"
 author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Automation"]

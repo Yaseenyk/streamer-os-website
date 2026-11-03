@@ -1,6 +1,6 @@
 ---
 title: "Best OBS Settings for a Low-End PC (Low CPU, 2026)"
-description: "The best OBS settings for a low-end PC: NVENC or AV1 instead of x264, 720p output, Bilinear downscale, 30 FPS for slow content, CBR at 4,500-6,000 kbps - and what else on your PC is stealing frames."
+description: "Best OBS settings for a low-end PC: NVENC or AV1 over x264, 720p, Bilinear, 30 FPS, CBR 4,500-6,000 kbps, and what else steals frames."
 date: "2026-07-06"
 updated: "2026-10-30"
 author: "Yaseen Khatib"

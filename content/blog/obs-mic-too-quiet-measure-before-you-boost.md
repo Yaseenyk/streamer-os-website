@@ -1,6 +1,6 @@
 ---
 title: "OBS Mic Too Quiet? Measure Before You Boost"
-description: "My laptop mic was about 16 times too quiet for the speech test I was running, and I blamed my code for a day. How to measure your level and fix a quiet mic in Windows and OBS."
+description: "My laptop mic was about 16 times too quiet for my speech test. How to measure your level, then fix a quiet mic in Windows and OBS."
 date: "2026-11-04"
 author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Audio"]

@@ -163,7 +163,7 @@ export const GLOSSARY: GlossaryTerm[] = [
     aliases: ['banned words on Twitch', 'Twitch blocked terms', 'words you cannot say on Twitch'],
     title: 'Twitch Banned Words — What the Rules Actually Say',
     description:
-      'Twitch does not publish a list of banned words. What its Community Guidelines prohibit, the one slur it names, and how Blocked Terms and AutoMod work in your own channel.',
+      'Twitch publishes no banned-words list. What its Community Guidelines prohibit, the one slur it names, and how Blocked Terms and AutoMod work in your channel.',
     definition:
       'Twitch has no published list of banned words. Its Community Guidelines prohibit categories of speech, including hateful conduct, harassment, sexual harassment, threats and spam, and Twitch states that it keeps its list of prohibited slurs private so the policy cannot be gamed. Streamers add their own banned words per channel with the Blocked Terms tool.',
     sections: [

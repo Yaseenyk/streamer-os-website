@@ -20,7 +20,7 @@ import { SITE_URL } from '@/config/site';
 export const metadata: Metadata = {
   title: { absolute: 'OBS Automatic Scene Switcher That Watches Your Chat — streamerOS' },
   description:
-    'An OBS scene switcher that switches on chat velocity and Super Chats, over OBS WebSocket v5 with no plugin. How it compares with Advanced Scene Switcher, and when the free plugin is the better pick.',
+    'An OBS scene switcher that reacts to chat velocity and Super Chats over OBS WebSocket v5, no plugin. Compared with Advanced Scene Switcher.',
   alternates: { canonical: `${SITE_URL}/features/scene-switcher` },
 };
 

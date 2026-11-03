@@ -1,6 +1,6 @@
 ---
 title: "Twitch Chat Overlay in OBS: Transparent Chat Without a Plugin"
-description: "Add a Twitch chat overlay to OBS with a Browser Source: the popout chat URL for a quick version, a chat widget for a transparent one, and the fixes for a black box or a frozen feed."
+description: "Add a Twitch chat overlay to OBS with a Browser Source: the popout URL for a quick one, a chat widget for a transparent one, and fixes for a black box."
 date: "2026-10-30"
 author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Twitch"]

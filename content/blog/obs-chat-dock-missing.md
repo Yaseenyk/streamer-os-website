@@ -1,6 +1,6 @@
 ---
 title: "OBS Chat Dock Missing? How to Get Twitch or YouTube Chat Back"
-description: "The OBS chat dock only exists after you connect your account under Settings → Stream. The six reasons it goes missing, in the order to check them, plus the Custom Browser Dock fallback."
+description: "The OBS chat dock only appears after you connect your account in Settings → Stream. The six reasons it goes missing, in order, plus a browser dock fallback."
 date: "2026-10-30"
 author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Twitch"]

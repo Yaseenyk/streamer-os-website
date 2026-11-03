@@ -1,6 +1,6 @@
 ---
 title: "OBS Automatic Scene Switcher Not Switching: The Cold-Start Bug"
-description: "My OBS scene automation stopped switching after a cold boot, then hammered OBS with a deleted scene name. What went wrong, and the checks that fix an automatic scene switcher."
+description: "My OBS scene automation stopped switching after a cold boot, then spammed OBS with a deleted scene name. What went wrong and the checks that fix it."
 date: "2026-11-04"
 author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Automation"]

@@ -1,6 +1,6 @@
 ---
 title: "OBS Timer Plugin: The Built-In Countdown Script vs Ashmanix"
-description: "OBS already ships a countdown timer script under Tools → Scripts. When that is enough, when you want the Ashmanix Countdown Timer plugin instead, and how to set each one up."
+description: "OBS ships a countdown timer script under Tools → Scripts. When it is enough, when the Ashmanix Countdown Timer plugin is better, and how to set each up."
 date: "2026-10-30"
 author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Automation"]
