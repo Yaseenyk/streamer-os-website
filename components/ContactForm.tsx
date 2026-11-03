@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
+import { gaEvent } from '@/lib/ga';
 
 // Delivered via EmailJS's REST API (client-side, works on the static export) to
 // the site contact inbox. Native fetch keeps the bundle lean — no SDK. The
@@ -81,6 +82,7 @@ export default function ContactForm({
       if (!response.ok) {
         throw new Error(`EmailJS returned ${response.status}`);
       }
+      gaEvent('generate_lead', { form_name: 'contact' });
       setIsSuccess(true);
     } catch {
       setErrorMessage(

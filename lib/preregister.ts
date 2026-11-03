@@ -1,3 +1,5 @@
+import { gaEvent } from './ga';
+
 // Pre-registration capture. Shared by the modal (components/PreRegisterModal)
 // and the inline forms embedded in blog posts and the hero, so there is exactly
 // one place that knows how a signup is delivered.
@@ -122,6 +124,7 @@ function trackSignup(source: string): void {
       plausible?: (event: string, options?: { props?: Record<string, string> }) => void;
     }).plausible;
     plausible?.('Signup', { props: { source } });
+    gaEvent('generate_lead', { form_name: 'pre-register', cta_text: source });
   } catch {
     // Never let a blocked or missing analytics script surface to the visitor.
   }
