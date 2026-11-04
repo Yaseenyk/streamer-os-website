@@ -315,6 +315,15 @@ const TOUR: TourStop[] = [
   },
 ];
 
+// The rupee sign is the only character on this page outside Inter's base Latin
+// subset; rendering it in Inter pulls in the 85 KB latin-ext font file for one
+// glyph. A system font draws it just as well, so the file is never requested.
+function withRupee(text: string): ReactNode {
+  return text.split('₹').flatMap((part, i) =>
+    i === 0 ? [part] : [<span key={i} className="font-[ui-sans-serif,system-ui,'Segoe_UI',sans-serif]">{'₹'}</span>, part],
+  );
+}
+
 function ProductTour() {
   return (
     <section className="mx-auto max-w-6xl px-6 py-24 sm:py-28">
@@ -345,7 +354,7 @@ function ProductTour() {
               <h3 className="mt-3 text-2xl font-semibold tracking-tight text-zinc-100 sm:text-3xl">
                 {stop.title}
               </h3>
-              <p className="mt-4 text-zinc-400">{stop.body}</p>
+              <p className="mt-4 text-zinc-400">{withRupee(stop.body)}</p>
               <Link
                 href={stop.href}
                 className="mt-5 inline-flex items-center gap-1.5 font-mono text-sm text-cyan-400 transition-colors hover:text-cyan-300"
