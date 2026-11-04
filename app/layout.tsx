@@ -37,6 +37,8 @@ export const metadata: Metadata = {
   authors: [{ name: 'Yaseen Khatib', url: 'https://github.com/yaseenyk' }],
   creator: 'Yaseen Khatib',
   publisher: 'streamerOS',
+  // Lets Google AdSense verify ownership of the domain. It loads nothing and shows no ads on this site.
+  other: { 'google-adsense-account': 'ca-pub-9421223162668437' },
   // Homepage self-canonical. Server pages override with their own absolute URL.
   // Note: under `trailingSlash: false` Next normalizes the root canonical to the
   // bare origin, so this always emits `https://streamerosai.com` — keep the
