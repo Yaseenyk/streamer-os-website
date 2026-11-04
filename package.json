@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/emit-og-images.mjs && next build && node scripts/emit-directory-indexes.mjs && node scripts/emit-redirects.mjs && node scripts/verify-sitemap.mjs && node scripts/verify-links.mjs",
+    "build": "node scripts/emit-og-images.mjs && next build && node scripts/emit-directory-indexes.mjs && node scripts/emit-redirects.mjs && node scripts/verify-sitemap.mjs && node scripts/verify-links.mjs && node scripts/verify-no-ads.mjs",
     "start": "next start",
     "lint": "eslint"
   },
