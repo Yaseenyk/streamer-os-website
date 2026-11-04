@@ -183,7 +183,7 @@ export default function InlineSignup({
           )}
           {blurb && <p className="mt-2 text-sm leading-relaxed text-zinc-400">{blurb}</p>}
 
-          <form onSubmit={handleSubmit} className={heading || blurb ? 'mt-5' : ''}>
+          <form onSubmit={handleSubmit} data-clarity-mask="true" className={heading || blurb ? 'mt-5' : ''}>
             {/* Honeypot: hidden from humans, bots tend to fill it in. */}
             <input
               type="text"

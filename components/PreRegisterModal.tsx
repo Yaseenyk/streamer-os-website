@@ -205,7 +205,7 @@ function PreRegisterForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-3">
+    <form onSubmit={handleSubmit} data-clarity-mask="true" className="mt-6 flex flex-col gap-3">
       {/* Honeypot: hidden from humans, bots tend to fill it in. */}
       <input
         type="text"

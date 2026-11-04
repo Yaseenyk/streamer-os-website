@@ -107,7 +107,7 @@ export default function ContactForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+    <form onSubmit={handleSubmit} data-clarity-mask="true" className="flex flex-col gap-5">
       {/* Honeypot: hidden from humans, bots tend to fill it in. */}
       <input
         type="text"

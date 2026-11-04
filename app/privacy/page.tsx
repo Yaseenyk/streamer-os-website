@@ -159,6 +159,12 @@ export default function PrivacyPage() {
               You can block it with a browser extension or by disabling cookies.
             </li>
             <li>
+              <strong className="text-zinc-200">Microsoft Clarity</strong> —
+              a free tool that records anonymised heatmaps and session replays so
+              we can see where visitors get stuck. Text typed into forms is
+              masked and is not recorded. We don&apos;t use it for advertising.
+            </li>
+            <li>
               <strong className="text-zinc-200">Pre-registration and the contact
               form</strong> — what you submit, such as your email address and
               message, is delivered to our inbox through EmailJS. We use it only to
