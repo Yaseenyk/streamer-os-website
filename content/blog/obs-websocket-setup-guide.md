@@ -1,6 +1,6 @@
 ---
 title: "How to Set Up OBS WebSocket on Windows (2026)"
-description: "Enable OBS WebSocket v5, find your port and password, and connect an external tool to control your scenes — plus the three reasons a connection usually fails."
+description: "OBS WebSocket setup on Windows: enable v5, find your port and password, confirm it works, and fix the three usual connection failures."
 date: "2026-09-09"
 author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Automation"]

@@ -1,6 +1,6 @@
 ---
 title: "OBS Psycho Visual Tuning & Adaptive Quantization: On or Off?"
-description: "Leave them on unless your GPU is maxed out. What Psycho Visual Tuning (renamed Adaptive Quantization in OBS 31) and Look-ahead do, plus a 5-minute test."
+description: "OBS Psycho Visual Tuning (Adaptive Quantization in OBS 31): what it and Look-ahead change, what they cost, and a ten-minute on/off test."
 date: "2026-09-09"
 updated: "2026-10-22"
 author: "Yaseen Khatib"

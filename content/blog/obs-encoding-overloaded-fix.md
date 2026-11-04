@@ -1,6 +1,6 @@
 ---
 title: "OBS 'Encoding Overloaded': What It Means and How to Fix It"
-description: "The red warning means your encoder can't keep up, not that your internet is bad. How to tell which OBS frame counter is moving, and fix the right one."
+description: "OBS encoding overloaded: how to tell encoding lag from rendering lag in View > Stats, then a four-step fix order and what will not help."
 date: "2026-09-09"
 updated: "2026-10-22"
 author: "Yaseen Khatib"

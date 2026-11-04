@@ -1,8 +1,6 @@
 ---
 title: 'OBS Replay Buffer Settings: The Setup That Works'
-description: Set OBS Replay Buffer to 30–90s, use your recording encoder (NVENC if
-  you have it), record to MKV, bind a Save Replay hotkey, and start the buffer before
-  going live.
+description: "OBS Replay Buffer settings: starting length, encoder and format, hotkeys, safety checks, and fixes for silent replays or a greyed-out Save button."
 date: '2026-10-23'
 author: Yaseen Khatib
 tags:

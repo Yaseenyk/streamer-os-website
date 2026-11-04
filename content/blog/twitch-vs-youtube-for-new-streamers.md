@@ -1,6 +1,6 @@
 ---
 title: "Twitch vs YouTube for New Streamers (2026)"
-description: "Which platform should you start on? How discovery really works on each, when the money starts, and whether streaming to both is worth it."
+description: "Twitch vs YouTube for new streamers: how discovery works on each, how the monetization paths differ, and when streaming to both makes sense."
 date: "2026-09-09"
 author: "Yaseen Khatib"
 tags: ["Guides", "Twitch", "YouTube", "Growth"]

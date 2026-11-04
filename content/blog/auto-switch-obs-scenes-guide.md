@@ -1,6 +1,6 @@
 ---
 title: "How to Auto-Switch OBS Scenes, Including From Chat Activity"
-description: "Make OBS switch scenes automatically with the built-in switcher, Advanced Scene Switcher macros or a chat-driven tool, plus rules that stop misfires."
+description: "Auto-switch OBS scenes: the built-in switcher, Advanced Scene Switcher and chat-activity options, plus three rules that stop misfires."
 date: "2026-09-09"
 updated: "2026-10-22"
 author: "Yaseen Khatib"

@@ -1,6 +1,6 @@
 ---
 title: "Why Scene Switches Feel Instant, Not Laggy"
-description: "The gap between a hype spike and the scene actually cutting is where automation feels cheap or magic. What makes the difference."
+description: "OBS scene switch lag: where the delay between a chat spike and the cut comes from, and why a local WebSocket link to OBS avoids most of it."
 date: "2026-07-06"
 author: "Yaseen Khatib"
 tags: ["Guides", "Automation", "OBS Studio", "Performance"]

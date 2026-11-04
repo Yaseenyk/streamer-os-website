@@ -1,6 +1,6 @@
 ---
 title: "NVENC vs x264 for Streaming: Which Encoder Should You Use?"
-description: "Use NVENC if you have an NVIDIA GPU from the last few generations. When x264 still wins, the settings for each, and how to tell which one your PC can carry."
+description: "NVENC vs x264 for streaming: how they differ, when each wins, settings for both, and how to test which one your PC can carry."
 date: "2026-10-23"
 author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Optimization", "Performance"]

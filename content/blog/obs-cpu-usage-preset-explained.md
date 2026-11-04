@@ -1,6 +1,6 @@
 ---
 title: "OBS CPU Usage Preset: Which One Should You Use?"
-description: "veryfast, ultrafast or faster? What each preset costs your CPU, which way to move it when you drop frames, and when to stop using x264."
+description: "OBS CPU Usage Preset explained: what each x264 preset costs your CPU, which way to move it when frames drop, and what to change instead."
 date: "2026-09-09"
 author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Optimization", "Performance"]
