@@ -1,0 +1,172 @@
+'use client';
+
+import { useEffect, useState, type FormEvent } from 'react';
+import { X } from 'lucide-react';
+import { SIGNUP_ERROR, submitPreRegistration } from '@/lib/preregister';
+import { SignupProfileQuestion, SignupTrustLine } from '@/components/InlineSignup';
+import { LaunchBadge } from '@/components/PreRegisterModal';
+
+const FIELD_CLASS =
+  'w-full rounded-lg border border-white/10 bg-white/[0.03] p-3 text-slate-100 ' +
+  'placeholder-slate-500 outline-none backdrop-blur-xl transition-colors focus:border-cyan-400 ' +
+  'focus:ring-1 focus:ring-cyan-400';
+
+const INTERACTIVE =
+  'cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 ' +
+  'focus-visible:ring-offset-2 focus-visible:ring-offset-[#05070A]';
+
+/**
+ * Controlled pre-registration modal. Centered glassmorphic panel with a fade-in
+ * backdrop and scale-up entrance.
+ */
+export function PreRegisterModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  // Lock body scroll and close on Escape while open. No setState here — the form
+  // lives in a child that remounts each open, so it always starts fresh.
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    document.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [isOpen, onClose]);
+
+  return (
+    <>
+      {isOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={onClose}>
+          <div aria-hidden className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="prereg-title"
+            onClick={(e) => e.stopPropagation()}
+            className="sos-pop relative w-full max-w-md rounded-2xl border border-white/10 bg-slate-950/80 p-8 shadow-[0_0_80px_-20px_rgba(34,211,238,0.45)] backdrop-blur-xl"
+          >
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label="Close"
+              className={`absolute right-4 top-4 inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition-colors hover:text-cyan-400 ${INTERACTIVE}`}
+            >
+              <X className="h-5 w-5" aria-hidden />
+            </button>
+
+            <LaunchBadge />
+
+            <h2 id="prereg-title" className="mt-4 text-xl font-bold tracking-tight text-slate-100">
+              Be first in line for streamerOS
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-slate-400">
+              Your OBS scenes switch themselves when chat spikes, and every hype moment
+              gets marked for clipping. Pre-register and you become a{' '}
+              <strong className="text-cyan-300">founding member</strong>: the beta before the
+              February 2027 launch, a 3-month trial, the next major version included in your
+              $29, and a 14-day refund.
+            </p>
+
+            <PreRegisterForm />
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
+function PreRegisterForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [submittedEmail, setSubmittedEmail] = useState('');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setErrorMessage(null);
+
+    const formData = new FormData(e.currentTarget);
+    const email = String(formData.get('email') ?? '');
+
+    // Honeypot — bots fill this hidden field. Report success without sending.
+    if (formData.get('_gotcha')) {
+      setIsSuccess(true);
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      await submitPreRegistration(email, 'modal');
+      setSubmittedEmail(email);
+      setIsSuccess(true);
+    } catch {
+      setErrorMessage(SIGNUP_ERROR);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  if (isSuccess) {
+    return (
+      <div
+        role="status"
+        className="mt-6 rounded-lg border border-cyan-400/30 bg-cyan-400/[0.06] p-6 text-center"
+      >
+        <p className="text-base font-semibold text-slate-100">You’re a founding member.</p>
+        <p className="mt-1 text-sm text-slate-400">
+          You’ll get the beta before the public launch, a 3-month trial, and a short build-log email about once a month until launch.
+        </p>
+        {submittedEmail && <SignupProfileQuestion email={submittedEmail} source="modal" />}
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} data-clarity-mask="true" className="mt-6 flex flex-col gap-3">
+      {/* Honeypot: hidden from humans, bots tend to fill it in. */}
+      <input
+        type="text"
+        name="_gotcha"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ display: 'none' }}
+      />
+
+      {errorMessage && (
+        <p
+          role="alert"
+          className="rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-300"
+        >
+          {errorMessage}
+        </p>
+      )}
+
+      <label htmlFor="prereg-email" className="sr-only">
+        Email address
+      </label>
+      <input
+        id="prereg-email"
+        name="email"
+        type="email"
+        required
+        autoFocus
+        placeholder="Enter your email address"
+        className={FIELD_CLASS}
+      />
+
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className={`mt-1 inline-flex items-center justify-center rounded-lg bg-cyan-400 px-5 py-3 text-sm font-semibold text-[#05070A] transition-all duration-200 hover:bg-cyan-300 hover:shadow-[0_0_15px_rgba(6,182,212,0.25)] ${INTERACTIVE} disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:shadow-none`}
+      >
+        {isSubmitting ? 'Joining…' : 'Get the beta'}
+      </button>
+
+      <SignupTrustLine centered />
+    </form>
+  );
+}

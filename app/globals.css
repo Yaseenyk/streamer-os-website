@@ -66,3 +66,63 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+/* ---- Motion without JavaScript ----
+   Replaces framer-motion on the first screen. Content is visible in the
+   server HTML; these only add a small rise or a slow drift. */
+@keyframes sos-rise {
+  from { transform: translateY(16px); }
+  to { transform: none; }
+}
+@keyframes sos-blob-a {
+  50% { transform: translate(80px, 50px) scale(1.2); }
+}
+@keyframes sos-blob-b {
+  50% { transform: translate(-70px, 60px) scale(1.15); }
+}
+@keyframes sos-blob-c {
+  0%, 100% { transform: scale(1.1); }
+  50% { transform: translate(50px, -45px) scale(1); }
+}
+@keyframes sos-marquee {
+  to { transform: translateX(-50%); }
+}
+@keyframes sos-pop {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes sos-progress {
+  to { transform: scaleX(1); }
+}
+@keyframes sos-pulse {
+  50% { opacity: 0.55; }
+}
+
+.sos-rise { animation: sos-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.sos-pop { animation: sos-pop 0.2s ease-out both; }
+.sos-blob-a { animation: sos-blob-a 22s ease-in-out infinite; }
+.sos-blob-b { animation: sos-blob-b 27s ease-in-out infinite; }
+.sos-blob-c { animation: sos-blob-c 31s ease-in-out infinite; }
+.sos-marquee { animation: sos-marquee 34s linear infinite; }
+/* CSS-only placeholder for client-only widgets that appear after first paint. */
+.sos-skeleton { animation: sos-pulse 1.6s ease-in-out infinite; }
+
+/* Scroll progress bar and scroll-linked reveals: progressive enhancement, no JS.
+   Browsers without scroll-driven animations simply show the content as is. */
+.sos-progress { transform: scaleX(0); transform-origin: left; }
+@supports (animation-timeline: scroll()) {
+  .sos-progress { animation: sos-progress linear both; animation-timeline: scroll(root); }
+  .sos-reveal {
+    animation: sos-rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 40%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sos-rise, .sos-pop, .sos-blob-a, .sos-blob-b, .sos-blob-c,
+  .sos-marquee, .sos-skeleton, .sos-progress, .sos-reveal {
+    animation: none !important;
+  }
+  .sos-progress { display: none; }
+}

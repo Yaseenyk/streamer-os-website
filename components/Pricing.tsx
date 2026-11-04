@@ -1,15 +1,7 @@
-'use client';
-
 import Link from 'next/link';
-import { motion, type Variants } from 'framer-motion';
 import { Check, Heart, Sparkles } from 'lucide-react';
 import { siteConfig } from '@/config/site';
 import { PreRegisterButton, LaunchBadge } from '@/components/PreRegisterModal';
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
-};
 
 interface Tier {
   name: string;
@@ -70,13 +62,7 @@ const CHECKOUT_LIVE = siteConfig.supporterCheckoutUrl !== '';
 export default function Pricing() {
   return (
     <section id="pricing" className="mx-auto max-w-5xl scroll-mt-24 px-6 py-20 sm:py-28">
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: '-80px' }}
-        className="mx-auto max-w-2xl text-center"
-      >
+      <div className="sos-reveal mx-auto max-w-2xl text-center">
         <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
           Pay once. Own it.
         </h2>
@@ -87,18 +73,13 @@ export default function Pricing() {
           a 14-day refund.
         </p>
         <LaunchBadge className="mt-6" />
-      </motion.div>
+      </div>
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2">
-        {TIERS.map((tier, i) => (
-          <motion.div
+        {TIERS.map((tier) => (
+          <div
             key={tier.name}
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ delay: i * 0.1 }}
-            className={`relative flex flex-col rounded-2xl border bg-white/[0.03] p-8 ${
+            className={`sos-reveal relative flex flex-col rounded-2xl border bg-white/[0.03] p-8 ${
               tier.featured
                 ? 'border-purple-500/40 shadow-[0_0_60px_-15px_rgba(168,85,247,0.45)] ring-2 ring-purple-500'
                 : 'border-white/10'
@@ -158,18 +139,14 @@ export default function Pricing() {
                 {tier.cta}
               </a>
             )}
-          </motion.div>
+          </div>
         ))}
       </div>
 
       {/* What survives the trial. Telling people up front that their own data is
           never held hostage removes the main reason not to start one. */}
-      <motion.p
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: '-80px' }}
-        className="mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-zinc-400"
+      <p
+        className="sos-reveal mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-zinc-400"
       >
         Trial over and not ready to buy? Your data is never locked away. The
         dashboard, Clip Library, Chat Archive and your last stream&apos;s report
@@ -178,7 +155,7 @@ export default function Pricing() {
           How the free tier works
         </Link>
         .
-      </motion.p>
+      </p>
     </section>
   );
 }

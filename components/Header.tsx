@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight, ChevronDown, IndianRupee, Menu, Play, X } from 'lucide-react';
 import { siteConfig } from '@/config/site';
 import { SignalLogo } from '@/components/SignalLogo';
@@ -93,15 +92,9 @@ export default function Header() {
                   aria-hidden
                 />
               </button>
-
-              <AnimatePresence>
                 {isFeaturesOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.18, ease: 'easeOut' }}
-                    className="absolute left-0 top-full pt-3"
+                  <div
+                    className="sos-pop absolute left-0 top-full pt-3"
                   >
                     <div className="w-[46rem] rounded-xl border border-white/10 bg-[#05070A]/95 p-5 shadow-xl backdrop-blur-xl">
                       <div className="columns-3 gap-6">
@@ -171,9 +164,8 @@ export default function Header() {
                         </Link>
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 )}
-              </AnimatePresence>
             </div>
 
             {NAV_LINKS.map((link) => (
@@ -231,16 +223,10 @@ export default function Header() {
 
       {/* Mobile drawer — sibling of <header> (the header's backdrop-filter
           would otherwise clamp this `fixed` element). */}
-      <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            key="mobile-drawer"
+          <div
             id="mobile-menu"
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto bg-[#05070A] lg:hidden"
+            className="sos-pop fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto bg-[#05070A] lg:hidden"
           >
             <nav aria-label="Mobile" className="flex flex-col gap-1 px-6 py-8">
               {/* Features accordion */}
@@ -260,15 +246,9 @@ export default function Header() {
                     aria-hidden
                   />
                 </button>
-
-                <AnimatePresence initial={false}>
                   {isMobileFeaturesOpen && (
-                    <motion.div
+                    <div
                       id="mobile-features"
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.2, ease: 'easeOut' }}
                       className="overflow-hidden"
                     >
                       <div className="flex flex-col gap-4 py-2 pl-3">
@@ -320,9 +300,8 @@ export default function Header() {
                           ))}
                         </div>
                       </div>
-                    </motion.div>
+                    </div>
                   )}
-                </AnimatePresence>
               </div>
 
               {NAV_LINKS.map((link) => (
@@ -360,9 +339,8 @@ export default function Header() {
                 Get the beta
               </button>
             </nav>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
     </>
   );
 }

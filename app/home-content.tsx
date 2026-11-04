@@ -1,21 +1,5 @@
-'use client';
-
-import {
-  useCallback,
-  useSyncExternalStore,
-  type MouseEvent,
-  type ReactNode,
-} from 'react';
 import Link from 'next/link';
-import {
-  motion,
-  useMotionTemplate,
-  useMotionValue,
-  useScroll,
-  useSpring,
-  useTransform,
-  type Variants,
-} from 'framer-motion';
+import type { ReactNode } from 'react';
 import { ArrowRight, Gauge, Play, ShieldCheck, Workflow } from 'lucide-react';
 import { siteConfig } from '@/config/site';
 import Pricing from '@/components/Pricing';
@@ -23,175 +7,46 @@ import InlineSignup from '@/components/InlineSignup';
 import { ProductShot } from '@/components/ProductShot';
 import { SHOTS } from '@/lib/shots';
 
-// ---------------------------------------------------------------------------
-// Motion vocabulary
-// ---------------------------------------------------------------------------
-const EASE = [0.22, 1, 0.36, 1] as const;
+// Server component: no framer-motion and no hydration cost for the sections
+// below the hero. Motion is plain CSS (the sos-* classes in globals.css) and
+// all copy is in the exported HTML. Only InlineSignup and the pricing CTA
+// buttons are client islands.
 
-// framer-motion's own useReducedMotion reads the media query during the very
-// first client render, while the server has no media query and always renders
-// as "no preference". Branching markup or style props straight off it therefore
-// guarantees a hydration mismatch for anyone with Reduced Motion enabled.
-//
-// useSyncExternalStore solves exactly this: React uses the server snapshot for
-// both SSR and the hydrating render, then re-renders with the real value. It
-// also tracks later changes to the setting, which framer's hook does not.
-const REDUCED_MOTION = '(prefers-reduced-motion: reduce)';
-
-function subscribeReducedMotion(onChange: () => void) {
-  const query = window.matchMedia(REDUCED_MOTION);
-  query.addEventListener('change', onChange);
-  return () => query.removeEventListener('change', onChange);
-}
-
-function useReducedMotionSafe() {
-  return useSyncExternalStore(
-    subscribeReducedMotion,
-    () => window.matchMedia(REDUCED_MOTION).matches,
-    () => false,
-  );
-}
-
-// Rise only — content stays visible in the server HTML so the hero paints
-// before hydration (see components/Reveal.tsx).
-const fadeUp: Variants = {
-  hidden: { y: 20 },
-  show: { y: 0, transition: { duration: 0.7, ease: EASE } },
-};
-const stagger: Variants = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
-};
-
-// ---------------------------------------------------------------------------
-// ScrollProgress — fixed 2px bar that fills as the page scrolls
-// ---------------------------------------------------------------------------
+// Fixed 2px bar that fills as the page scrolls (CSS scroll-driven animation).
 function ScrollProgress() {
-  const { scrollYProgress } = useScroll();
   return (
-    <motion.div
+    <div
       aria-hidden
-      style={{ scaleX: scrollYProgress }}
-      className="fixed inset-x-0 top-0 z-[60] h-0.5 origin-left bg-[linear-gradient(to_right,#22d3ee,#a855f7)]"
+      className="sos-progress fixed inset-x-0 top-0 z-[60] h-0.5 bg-[linear-gradient(to_right,#22d3ee,#a855f7)]"
     />
   );
 }
 
-// ---------------------------------------------------------------------------
-// useCardMotion — per-card mouse tracking. Spotlight coordinates AND 3D tilt
-// live entirely in MotionValues (tilt smoothed with useSpring), so neither
-// effect ever triggers a React re-render.
-// ---------------------------------------------------------------------------
-const MAX_TILT = 8; // degrees
-
-function useCardMotion() {
-  const mx = useMotionValue(-400);
-  const my = useMotionValue(-400);
-  const tiltXRaw = useMotionValue(0);
-  const tiltYRaw = useMotionValue(0);
-  const rotateX = useSpring(tiltXRaw, { stiffness: 150, damping: 17 });
-  const rotateY = useSpring(tiltYRaw, { stiffness: 150, damping: 17 });
-
-  const onMouseMove = useCallback(
-    (e: MouseEvent<HTMLElement>) => {
-      const rect = e.currentTarget.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      mx.set(x);
-      my.set(y);
-      // normalise to -0.5..0.5, then map to a tilt
-      tiltXRaw.set(-(y / rect.height - 0.5) * MAX_TILT);
-      tiltYRaw.set((x / rect.width - 0.5) * MAX_TILT);
-    },
-    [mx, my, tiltXRaw, tiltYRaw],
-  );
-
-  const onMouseLeave = useCallback(() => {
-    tiltXRaw.set(0);
-    tiltYRaw.set(0);
-  }, [tiltXRaw, tiltYRaw]);
-
-  return { mx, my, rotateX, rotateY, onMouseMove, onMouseLeave };
-}
-
-// ---------------------------------------------------------------------------
-// BentoCard — glass tile with a mouse-tracked spotlight (background + masked
-// border ring) and a physics-sprung 3D hover tilt.
-// ---------------------------------------------------------------------------
-function BentoCard({ className = '', children }: { className?: string; children: ReactNode }) {
-  const reduce = useReducedMotionSafe();
-  const { mx, my, rotateX, rotateY, onMouseMove, onMouseLeave } = useCardMotion();
-  const glow = useMotionTemplate`radial-gradient(280px circle at ${mx}px ${my}px, rgba(34,211,238,0.14), transparent 70%)`;
-  const borderGlow = useMotionTemplate`radial-gradient(360px circle at ${mx}px ${my}px, rgba(34,211,238,0.55), transparent 65%)`;
-
-  return (
-    <motion.article
-      onMouseMove={onMouseMove}
-      onMouseLeave={onMouseLeave}
-      style={{
-        rotateX: reduce ? 0 : rotateX,
-        rotateY: reduce ? 0 : rotateY,
-        transformPerspective: 900,
-      }}
-      className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition-colors duration-300 hover:border-white/20 ${className}`}
-    >
-      {/* mouse-tracked background spotlight */}
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        style={{ background: glow }}
-      />
-      {/* mouse-tracked border spotlight — gradient masked down to a 1px ring */}
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        style={{
-          background: borderGlow,
-          padding: '1px',
-          WebkitMask: 'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',
-          WebkitMaskComposite: 'xor',
-          maskComposite: 'exclude',
-        }}
-      />
-      <div className="relative h-full">{children}</div>
-    </motion.article>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// MeshBackground — slow-drifting multi-colour radial blobs (the gradient mesh)
-// ---------------------------------------------------------------------------
+// Slow-drifting radial blobs behind the hero.
 const BLOBS = [
-  {
-    className: 'left-[-12%] top-[-22%] h-[460px] w-[460px] bg-cyan-500/20',
-    anim: { x: [0, 80, 0], y: [0, 50, 0], scale: [1, 1.2, 1] },
-    duration: 22,
-  },
-  {
-    className: 'right-[-8%] top-[2%] h-[420px] w-[420px] bg-purple-600/20',
-    anim: { x: [0, -70, 0], y: [0, 60, 0], scale: [1, 1.15, 1] },
-    duration: 27,
-  },
-  {
-    className: 'left-[34%] bottom-[-28%] h-[400px] w-[400px] bg-cyan-400/10',
-    anim: { x: [0, 50, 0], y: [0, -45, 0], scale: [1.1, 1, 1.1] },
-    duration: 31,
-  },
+  'sos-blob-a left-[-12%] top-[-22%] h-[460px] w-[460px] bg-cyan-500/20',
+  'sos-blob-b right-[-8%] top-[2%] h-[420px] w-[420px] bg-purple-600/20',
+  'sos-blob-c left-[34%] bottom-[-28%] h-[400px] w-[400px] bg-cyan-400/10',
 ];
 
 function MeshBackground() {
-  const reduce = useReducedMotionSafe();
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-      {BLOBS.map((blob, i) => (
-        <motion.div
-          key={i}
-          className={`absolute rounded-full blur-[120px] ${blob.className}`}
-          animate={reduce ? undefined : blob.anim}
-          transition={reduce ? undefined : { duration: blob.duration, repeat: Infinity, ease: 'easeInOut' }}
-        />
+      {BLOBS.map((cls) => (
+        <div key={cls} className={`absolute rounded-full blur-[120px] ${cls}`} />
       ))}
     </div>
+  );
+}
+
+// Glass tile with a CSS hover highlight.
+function BentoCard({ className = '', children }: { className?: string; children: ReactNode }) {
+  return (
+    <article
+      className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition-colors duration-300 hover:border-cyan-400/30 hover:bg-white/[0.05] ${className}`}
+    >
+      <div className="relative h-full">{children}</div>
+    </article>
   );
 }
 
@@ -210,7 +65,6 @@ const MARQUEE_ITEMS = [
 ];
 
 function Marquee() {
-  const reduce = useReducedMotionSafe();
   return (
     <div className="relative overflow-hidden border-y border-white/5 bg-white/[0.015] py-5">
       <div
@@ -221,11 +75,7 @@ function Marquee() {
         aria-hidden
         className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-[linear-gradient(to_left,#05070A,transparent)]"
       />
-      <motion.div
-        className="flex w-max"
-        animate={reduce ? undefined : { x: ['0%', '-50%'] }}
-        transition={reduce ? undefined : { duration: 34, repeat: Infinity, ease: 'linear' }}
-      >
+      <div className="sos-marquee flex w-max">
         {[0, 1].map((set) => (
           <div key={set} className="flex shrink-0 items-center" aria-hidden={set === 1}>
             {MARQUEE_ITEMS.map((item) => (
@@ -239,7 +89,7 @@ function Marquee() {
             ))}
           </div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 }
@@ -302,10 +152,6 @@ function HeroFeatures() {
 // Hero
 // ---------------------------------------------------------------------------
 function Hero() {
-  const reduce = useReducedMotionSafe();
-  const { scrollY } = useScroll();
-  const shotY = useTransform(scrollY, [0, 700], [0, 60]);
-
   return (
     <section className="relative overflow-hidden">
       <MeshBackground />
@@ -314,35 +160,33 @@ function Hero() {
       <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-24 sm:pt-28">
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-16">
           {/* Copy — left */}
-          <motion.div variants={stagger} initial="hidden" animate="show" className="text-left">
-            <motion.span
-              variants={fadeUp}
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-zinc-300"
+          <div className="text-left">
+            <span
+              className="sos-rise mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-zinc-300"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
               Launching February 2027 · Windows
-            </motion.span>
+            </span>
 
-            <motion.h1
-              variants={fadeUp}
-              className="text-balance text-4xl font-semibold leading-[1.06] tracking-tight sm:text-6xl"
+            <h1
+              className="sos-rise text-balance text-4xl font-semibold leading-[1.06] tracking-tight sm:text-6xl"
             >
               Your OBS scenes{' '}
               <span className="bg-[linear-gradient(to_right,#22d3ee,#a855f7)] bg-clip-text text-transparent">
                 switch themselves
               </span>{' '}
               when chat spikes.
-            </motion.h1>
+            </h1>
 
-            <motion.p variants={fadeUp} className="mt-6 max-w-xl text-lg text-zinc-400">
+            <p className="sos-rise mt-6 max-w-xl text-lg text-zinc-400">
               streamerOS is a Windows app that runs next to OBS Studio (an app, not an
               operating system). It reads your Twitch or YouTube chat on your own PC,
               cuts to the right scene when chat velocity or a Super Chat crosses your
               threshold, and marks the moment for clipping — at under 2% CPU. No
               account, no cloud, $29 once.
-            </motion.p>
+            </p>
 
-            <motion.div variants={fadeUp} className="mt-8">
+            <div className="sos-rise mt-8">
               <InlineSignup variant="bare" source="hero" cta="Get the beta" className="text-left" />
               {siteConfig.demoUrl && (
                 <a
@@ -365,29 +209,18 @@ function Hero() {
                   See what it does first
                 </Link>
               </p>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* The actual app — right */}
-          <motion.div
-            initial={{ y: 24 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.8, delay: 0.25, ease: EASE }}
-            style={reduce ? undefined : { y: shotY }}
-          >
+          <div>
             <ProductShot shot={SHOTS.dashboard} priority sizes="(max-width: 1024px) 100vw, 720px" />
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-          transition={{ delay: 0.5 }}
-          className="mt-16"
-        >
+        <div className="mt-16">
           <HeroFeatures />
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -485,13 +318,7 @@ const TOUR: TourStop[] = [
 function ProductTour() {
   return (
     <section className="mx-auto max-w-6xl px-6 py-24 sm:py-28">
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: '-80px' }}
-        className="mx-auto max-w-2xl text-center"
-      >
+      <div className="sos-reveal mx-auto max-w-2xl text-center">
         <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">
           The actual app
         </p>
@@ -502,18 +329,11 @@ function ProductTour() {
           {TOUR.length} screens from the build that ships in February 2027, and what
           each one is for.
         </p>
-      </motion.div>
+      </div>
 
       <div className="mt-16 space-y-20 sm:space-y-24">
         {TOUR.map((stop, i) => (
-          <motion.div
-            key={stop.shot.src}
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: '-80px' }}
-            className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14"
-          >
+          <div key={stop.shot.src} className="sos-reveal grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
             {/* Alternate sides so the eye zig-zags down the page. */}
             <div className={i % 2 === 1 ? 'lg:order-2' : ''}>
               <ProductShot shot={stop.shot} caption={false} sizes="(max-width: 1024px) 100vw, 560px" />
@@ -534,7 +354,7 @@ function ProductTour() {
                 <ArrowRight className="h-4 w-4" aria-hidden />
               </Link>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>
@@ -547,28 +367,16 @@ function ProductTour() {
 function BentoFeatures() {
   return (
     <section id="features" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24 sm:py-28">
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: '-80px' }}
-        className="max-w-2xl"
-      >
+      <div className="sos-reveal max-w-2xl">
         <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">Features</p>
         <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
           A cockpit that earns its place on your CPU.
         </h2>
-      </motion.div>
+      </div>
 
-      <motion.div
-        variants={stagger}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: '-80px' }}
-        className="mt-10 grid gap-4 lg:grid-cols-3"
-      >
+      <div className="mt-10 grid gap-4 lg:grid-cols-3">
         {/* Auto-Hype Director — showpiece tile */}
-        <motion.div variants={fadeUp} className="lg:col-span-2 lg:row-span-2">
+        <div className="lg:col-span-2 lg:row-span-2">
           <BentoCard className="h-full">
             <div className="flex h-full flex-col p-7">
               <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-cyan-400">
@@ -589,10 +397,10 @@ function BentoFeatures() {
               </div>
             </div>
           </BentoCard>
-        </motion.div>
+        </div>
 
         {/* 1.8% CPU */}
-        <motion.div variants={fadeUp}>
+        <div>
           <BentoCard className="h-full min-h-[210px]">
             <div className="flex h-full flex-col p-7">
               <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-cyan-400">
@@ -606,10 +414,10 @@ function BentoFeatures() {
               </p>
             </div>
           </BentoCard>
-        </motion.div>
+        </div>
 
         {/* Zero-Cloud */}
-        <motion.div variants={fadeUp}>
+        <div>
           <BentoCard className="h-full min-h-[210px]">
             <div className="flex h-full flex-col p-7">
               <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-cyan-400">
@@ -621,10 +429,10 @@ function BentoFeatures() {
               </p>
             </div>
           </BentoCard>
-        </motion.div>
+        </div>
 
         {/* OBS WebSocket */}
-        <motion.div variants={fadeUp}>
+        <div>
           <BentoCard className="h-full min-h-[210px]">
             <div className="flex h-full flex-col p-7">
               <span className="inline-flex w-fit items-center rounded-md border border-white/10 bg-white/5 px-2.5 py-1 font-mono text-xs text-zinc-300">
@@ -638,10 +446,10 @@ function BentoFeatures() {
               </p>
             </div>
           </BentoCard>
-        </motion.div>
+        </div>
 
         {/* Pricing — wide tile */}
-        <motion.div variants={fadeUp} className="lg:col-span-2">
+        <div className="lg:col-span-2">
           <BentoCard className="h-full min-h-[210px]">
             <div className="flex h-full flex-col justify-between gap-6 p-7 sm:flex-row sm:items-center">
               <div>
@@ -664,8 +472,8 @@ function BentoFeatures() {
               </Link>
             </div>
           </BentoCard>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 }
@@ -688,29 +496,6 @@ const STEPS = [
   },
 ];
 
-const stepVariants: Variants = { dim: {}, lit: {} };
-const nodeVariants: Variants = {
-  dim: {
-    borderColor: 'rgba(255,255,255,0.15)',
-    color: 'rgba(255,255,255,0.4)',
-    boxShadow: '0 0 0px rgba(34,211,238,0)',
-  },
-  lit: {
-    borderColor: 'rgba(34,211,238,0.8)',
-    color: 'rgb(34,211,238)',
-    boxShadow: '0 0 22px rgba(34,211,238,0.45)',
-    transition: { duration: 0.5, ease: EASE },
-  },
-};
-const lineVariants: Variants = {
-  dim: { scaleY: 0 },
-  lit: { scaleY: 1, transition: { duration: 0.6, ease: EASE } },
-};
-const stepTextVariants: Variants = {
-  dim: { opacity: 0.4, y: 6 },
-  lit: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
-};
-
 function TimelineStep({
   index,
   title,
@@ -722,49 +507,27 @@ function TimelineStep({
   body: string;
   isLast: boolean;
 }) {
-  const reduce = useReducedMotionSafe();
   return (
-    <motion.div
-      variants={stepVariants}
-      initial={reduce ? 'lit' : 'dim'}
-      // `whileInView` stays set whatever the motion preference is. Dropping it
-      // to undefined for reduced motion left the step with no target: the
-      // preference resolves after mount, by which point `initial` has already
-      // been applied, so the copy stayed at the dim variant's 0.4 opacity for
-      // good. Reduced motion is handled by making the transition instant here
-      // instead, so the content always ends up lit.
-      whileInView="lit"
-      transition={reduce ? { duration: 0 } : undefined}
-      viewport={{ once: true, amount: 0.55 }}
-      className="flex gap-6"
-    >
+    <div className="flex gap-6">
       {/* rail */}
       <div className="flex flex-col items-center">
-        <motion.div
-          variants={nodeVariants}
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border bg-[#05070A] font-mono text-sm font-semibold"
-        >
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-cyan-400/80 bg-[#05070A] font-mono text-sm font-semibold text-cyan-400">
           {index + 1}
-        </motion.div>
+        </div>
         {!isLast && (
-          <div className="mt-2 w-px flex-1 bg-white/10">
-            <motion.div
-              variants={lineVariants}
-              className="h-full w-px origin-top bg-[linear-gradient(to_bottom,#22d3ee,#a855f7)]"
-            />
-          </div>
+          <div className="mt-2 w-px flex-1 bg-[linear-gradient(to_bottom,#22d3ee,#a855f7)]" />
         )}
       </div>
 
       {/* copy */}
-      <motion.div variants={stepTextVariants} className={isLast ? 'pb-0' : 'pb-14'}>
+      <div className={isLast ? 'pb-0' : 'pb-14'}>
         <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">
           Step {index + 1}
         </p>
         <h3 className="mt-1.5 text-xl font-semibold text-zinc-100">{title}</h3>
         <p className="mt-2 max-w-md text-sm leading-relaxed text-zinc-400">{body}</p>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }
 
@@ -772,12 +535,7 @@ function HowItWorks() {
   return (
     <section className="border-t border-white/5">
       <div className="mx-auto max-w-3xl px-6 py-24 sm:py-28">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-80px' }}
-        >
+        <div className="sos-reveal">
           <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">
             How it works
           </p>
@@ -785,7 +543,7 @@ function HowItWorks() {
             From chat noise to scene cuts.
           </h2>
           <p className="mt-3 text-zinc-400">Three steps. Then it runs itself.</p>
-        </motion.div>
+        </div>
 
         <div className="mt-14">
           {STEPS.map((step, i) => (
@@ -807,6 +565,37 @@ function HowItWorks() {
 // testimonials section only once there are real, attributable quotes.
 
 // ---------------------------------------------------------------------------
+// Common OBS problems — plain links to the guides people already find us for.
+// ---------------------------------------------------------------------------
+const OBS_GUIDES = [
+  { href: '/blog/obs-psycho-visual-tuning-explained', label: 'Psycho Visual Tuning: on or off?' },
+  { href: '/blog/obs-advanced-scene-switcher-guide', label: 'Advanced Scene Switcher setup and recipes' },
+  { href: '/blog/obs-cpu-usage-preset-explained', label: 'Which OBS CPU Usage Preset to use' },
+  { href: '/blog/obs-encoding-overloaded-fix', label: 'Fixing "Encoding overloaded"' },
+  { href: '/blog/best-obs-settings-for-low-cpu-streaming', label: 'Best OBS settings for a low-end PC' },
+];
+
+function CommonProblems() {
+  return (
+    <section className="mx-auto max-w-3xl px-6 pb-8 pt-4">
+      <h2 className="text-xl font-semibold tracking-tight text-zinc-100">Common OBS problems</h2>
+      <ul className="mt-4 grid gap-x-8 gap-y-2 text-sm sm:grid-cols-2">
+        {OBS_GUIDES.map((g) => (
+          <li key={g.href}>
+            <Link
+              href={g.href}
+              className="text-zinc-300 underline decoration-white/20 underline-offset-4 transition-colors hover:text-cyan-300 hover:decoration-cyan-400/50"
+            >
+              {g.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Page body. The JSON-LD for this route lives in the server component at
 // app/page.tsx — React never executes a <script> rendered on the client, so it
 // cannot sit in here.
@@ -823,6 +612,7 @@ export default function HomeContent() {
         <HowItWorks />
         {/* TODO: Restore Wall of Love when real quotes are acquired */}
         <Pricing />
+        <CommonProblems />
       </main>
     </>
   );

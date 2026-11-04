@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 import { Inter } from 'next/font/google';import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import SupportChatbot from '@/components/SupportChatbot';
 import { PreRegisterProvider } from '@/components/PreRegisterModal';
 import JsonLd from '@/components/JsonLd';
 import { SITE_URL, siteConfig } from '@/config/site';
@@ -198,17 +197,23 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
               'window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}',
           }}
         />
-        {/* Google tag (GA4). A plain tag in the server-rendered head, so Google's tag checker finds it
-            in the HTML; next/script would inject it client-side and the checker misses it. */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W846YK3FZ" />
+        {/* Google tag (GA4). The bootstrap below runs immediately, so events queue in
+            dataLayer; gtag.js and Clarity are injected once by the loader after it. */}
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "(function(){var w=window,d=document,q=new URLSearchParams(location.search),st=null;try{st=w.localStorage}catch(e){}function g(k){return q.get(k)||''}var ref=g('ref'),hasUtm=!!g('utm_source');var ft=null;try{ft=JSON.parse(st.getItem('ga_ft')||'null')}catch(e){}if(!ft){var rh='';try{rh=d.referrer?new URL(d.referrer).hostname:''}catch(e){}ft={s:g('utm_source')||ref||rh||'direct',m:g('utm_medium')||(ref?'share':(rh?'referral':'none')),c:g('utm_campaign')||(ref?'ref-tag':'(not set)')};try{st.setItem('ga_ft',JSON.stringify(ft))}catch(e){}}w.dataLayer=w.dataLayer||[];function gtag(){w.dataLayer.push(arguments)}w.gtag=gtag;gtag('js',new Date());var cfg={};if(!hasUtm&&ref){cfg.campaign_source=ref;cfg.campaign_medium='share';cfg.campaign_name='ref-tag'}gtag('config','G-9W846YK3FZ',cfg);w.gaEvent=function(n,p){try{p=p||{};p.first_source=ft.s;p.first_medium=ft.m;p.first_campaign=ft.c;p.cta_page=p.cta_page||location.pathname;gtag('event',n,p)}catch(e){}};d.addEventListener('click',function(e){try{var a=e.target&&e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href')||'',n='';if(/^(https?:)?\\/\\/(wa\\.me|api\\.whatsapp\\.com)|^whatsapp:/i.test(h))n='whatsapp_click';else if(/^mailto:/i.test(h))n='email_click';else if(/^tel:/i.test(h))n='phone_click';else if(/\\.(apk|ipa)([?#]|$)/i.test(h))n='app_download';else if(/\\.md([?#]|$)/i.test(h))n='template_download';if(n)w.gaEvent(n,{cta_text:(a.textContent||'').trim().slice(0,60),link_url:h.slice(0,100)});}catch(x){}},true);})();",
+              "(function(){var w=window,d=document,q=new URLSearchParams(location.search),st=null;try{st=w.localStorage}catch(e){}function g(k){return q.get(k)||''}var ref=g('ref'),hasUtm=!!g('utm_source');var ft=null;try{ft=JSON.parse(st.getItem('ga_ft')||'null')}catch(e){}if(!ft){var rh='';try{rh=d.referrer?new URL(d.referrer).hostname:''}catch(e){}ft={s:g('utm_source')||ref||rh||'direct',m:g('utm_medium')||(ref?'share':(rh?'referral':'none')),c:g('utm_campaign')||(ref?'ref-tag':'(not set)')};try{st.setItem('ga_ft',JSON.stringify(ft))}catch(e){}}w.dataLayer=w.dataLayer||[];function gtag(){w.dataLayer.push(arguments)}w.gtag=gtag;gtag('js',new Date());var cfg={};if(!hasUtm&&ref){cfg.campaign_source=ref;cfg.campaign_medium='share';cfg.campaign_name='ref-tag'}gtag('config','G-9W846YK3FZ',cfg);w.gaEvent=function(n,p){try{p=p||{};p.first_source=ft.s;p.first_medium=ft.m;p.first_campaign=ft.c;p.cta_page=p.cta_page||location.pathname;gtag('event',n,p)}catch(e){}};d.addEventListener('click',function(e){try{var a=e.target&&e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href')||'',n='';if(/^(https?:)?\\/\\/(wa\\.me|api\\.whatsapp\\.com)|^whatsapp:/i.test(h))n='whatsapp_click';else if(/^mailto:/i.test(h))n='email_click';else if(/^tel:/i.test(h))n='phone_click';else if(/\\.(apk|ipa)([?#]|$)/i.test(h))n='app_download';else if(/\\.md([?#]|$)/i.test(h))n='template_download';var u=h;if(!n&&h!=='#'){var o=null;try{o=new URL(h,location.href)}catch(x){}if(o&&o.origin===location.origin){n=a.closest('header,nav')?'nav_click':(a.closest('footer')?'footer_click':'internal_link_click');u=o.pathname}}if(n)w.gaEvent(n,{cta_text:(a.textContent||'').trim().slice(0,60),link_url:u.slice(0,100)});}catch(x){}},true);})();",
           }}
         />
-        {/* Microsoft Clarity: free heatmaps and session replay. Forms carry data-clarity-mask, so typed text is hidden. */}
-        <script dangerouslySetInnerHTML={{ __html: '(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","z8avowdpj1");' }} />
+        {/* One loader for gtag.js and Microsoft Clarity (heatmaps and replay; forms carry
+            data-clarity-mask, so typed text is hidden). It injects both once, at the first
+            of: a user interaction, idle time after load, or 4 s after load. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){var w=window,d=document,x=0;function go(){if(x)return;x=1;var s=d.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-9W846YK3FZ';d.head.appendChild(s);(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(w,d,'clarity','script','z8avowdpj1')}['pointerdown','keydown','scroll','touchstart'].forEach(function(e){w.addEventListener(e,go,{once:true,passive:true})});function idle(){if(w.requestIdleCallback)w.requestIdleCallback(go,{timeout:3000});else setTimeout(go,3000);setTimeout(go,4000)}if(d.readyState==='complete')idle();else w.addEventListener('load',idle)})();",
+          }}
+        />
       </head>
       {/* Browser extensions (password managers, ColorZilla's `cz-shortcut-listen`,
           Grammarly and friends) add attributes to <body> before React hydrates,
@@ -223,7 +228,6 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           <Header />
           {children}
           <Footer />
-          <SupportChatbot />
         </PreRegisterProvider>
       </body>
     </html>

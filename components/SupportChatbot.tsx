@@ -1,7 +1,6 @@
 'use client';
 
 import { lazy, Suspense, useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
 import { Bot, X } from 'lucide-react';
 
 // The panel pulls in the AI SDK (~0.5 MB with its schema validation). Loading it
@@ -32,7 +31,7 @@ export default function SupportChatbot() {
       )}
 
       {/* Toggle button */}
-      <motion.button
+      <button
         type="button"
         onClick={() => {
           setHasOpened(true);
@@ -40,22 +39,14 @@ export default function SupportChatbot() {
         }}
         aria-label={isOpen ? 'Close support chat' : 'Open support chat'}
         aria-expanded={isOpen}
-        whileHover={{ scale: 1.06 }}
-        whileTap={{ scale: 0.95 }}
-        className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-cyan-400 text-[#05070A] shadow-lg shadow-cyan-500/20 transition-colors hover:bg-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#05070A]"
+        className="sos-pop active:scale-95 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-cyan-400 text-[#05070A] shadow-lg shadow-cyan-500/20 transition hover:scale-105 hover:bg-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#05070A]"
       >
-        <AnimatePresence mode="wait" initial={false}>
-          {isOpen ? (
-            <motion.span key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
-              <X className="h-6 w-6" aria-hidden />
-            </motion.span>
-          ) : (
-            <motion.span key="open" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
-              <Bot className="h-6 w-6" strokeWidth={1.75} aria-hidden />
-            </motion.span>
-          )}
-        </AnimatePresence>
-      </motion.button>
+        {isOpen ? (
+          <X className="h-6 w-6" aria-hidden />
+        ) : (
+          <Bot className="h-6 w-6" strokeWidth={1.75} aria-hidden />
+        )}
+      </button>
     </div>
   );
 }
