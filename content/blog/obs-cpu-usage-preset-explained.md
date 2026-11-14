@@ -1,6 +1,6 @@
 ---
-title: "OBS CPU Usage Preset: Which One Should You Use?"
-description: "OBS CPU Usage Preset explained: what each x264 preset costs your CPU, which way to move it when frames drop, and what to change instead."
+title: "OBS CPU Usage Preset: When veryfast Is Right (and When Not)"
+description: "The OBS x264 CPU Usage Preset explained: what each preset costs your CPU, why veryfast is the default, which way to move when frames drop, and the setting that saves more."
 date: "2026-09-09"
 author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Optimization", "Performance"]

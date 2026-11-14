@@ -1,6 +1,6 @@
 ---
-title: "NVENC vs x264 for Streaming: Which Encoder Should You Use?"
-description: "NVENC vs x264 for streaming: how they differ, when each wins, settings for both, and how to test which one your PC can carry."
+title: "NVENC vs x264 (2026): Use NVENC Unless You Have a Second PC"
+description: "NVENC or x264 for streaming? The short answer, when each one wins, settings for both, and a quick test to see which your PC can carry."
 date: "2026-10-23"
 author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Optimization", "Performance"]

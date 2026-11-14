@@ -1,7 +1,6 @@
 ---
-title: 'YouTube Super Chat Requirements: Eligibility and Setup'
-description: To use Super Chat on YouTube, join YPP, be 18+, live in an eligible country,
-  link AdSense, and stream with live chat on (not made for kids or age‑restricted).
+title: "YouTube Super Chat Requirements: 6-Point Eligibility Checklist"
+description: "Can you turn on Super Chat? You need YPP, to be 18+, an eligible country, a linked AdSense account, live chat on, and a stream not made for kids or age-restricted."
 date: '2026-11-02'
 author: Yaseen Khatib
 tags:

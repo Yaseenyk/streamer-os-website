@@ -1,6 +1,6 @@
 ---
-title: "How to Read Chat While Streaming on One Monitor"
-description: "Run the game borderless, pin a popout chat on top, or dock chat inside OBS. Five ways to read Twitch or YouTube chat on one monitor, and which suits which game."
+title: "Read Chat on One Monitor While Streaming: 5 Setups That Work"
+description: "Five ways to read Twitch or YouTube chat on one monitor while you stream, from a pinned popout to docked chat, and which suits which game."
 date: "2026-10-23"
 author: "Yaseen Khatib"
 tags: ["Guides", "Twitch", "YouTube", "OBS Studio"]

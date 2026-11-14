@@ -1,6 +1,6 @@
 ---
-title: "OBS Psycho Visual Tuning & Adaptive Quantization: On or Off?"
-description: "OBS Psycho Visual Tuning (Adaptive Quantization in OBS 31): what it and Look-ahead change, what they cost, and a ten-minute on/off test."
+title: "OBS Adaptive Quantization (Psycho Visual Tuning): On or Off?"
+description: "OBS Adaptive Quantization, called Psycho Visual Tuning before OBS 31: what it and Look-ahead change, what they cost, and a ten-minute on/off test."
 date: "2026-09-09"
 updated: "2026-10-22"
 author: "Yaseen Khatib"
