@@ -1,88 +1,119 @@
 ---
 title: "How to Track Sponsor Deals as a Streamer"
-description: "Brand leads die in cluttered DMs. A simple pipeline for every deal, from first message to signed contract, without a messy spreadsheet."
+description: "A five-stage pipeline, the fields worth recording, a follow-up rule and a weekly review, so brand leads stop dying in your DMs."
 date: "2026-07-06"
+updated: "2026-11-15"
 author: "Yaseen Khatib"
 tags: ["Guides", "Sponsorships", "Monetization", "Business"]
 ---
 
-A brand slides into your DMs. "Love your content — we'd like to work with you." Your heart rate spikes. This is the one. You fire back a reply, maybe swap a couple of messages, and then... your stream schedule eats the week.
+**Short answer:** give every sponsor conversation one card with a stage, a value, and a **next action with a date**. Use five stages (Prospect, Contacted, Negotiating, Won, Lost), and spend fifteen minutes once a week moving cards and doing the overdue next actions. The tool matters less than the habit. A spreadsheet is fine up to roughly a dozen live deals; after that a board is easier to read.
 
-Three weeks later that conversation is buried under fan messages, mod pings, and a hundred "first!" comments. You never followed up. The brand moved on. The deal is dead — and you never even knew what it was worth.
+Most lost sponsor deals are not rejections. They are conversations that went quiet because nobody wrote down who owed the next message. That is the thing this system fixes.
 
-If that stings, keep reading. It doesn't have to be that way.
+## The five stages, with exit rules
 
----
+A stage is only useful if you know exactly when a card moves. Write the rule down, or you will argue with yourself about it later.
 
-## Why streamers lose sponsor money
+| Stage | A card is here when | It moves on when |
+|---|---|---|
+| **Prospect** | A brand you plan to pitch, or an inbound message you have not answered yet | You send the first message |
+| **Contacted** | You have written and are waiting, or they have replied but no scope or money has been discussed | Both sides are talking about deliverables or price |
+| **Negotiating** | Scope, dates or price are on the table | You agree terms in writing, or someone drops out |
+| **Won** | Terms are agreed in writing | The campaign is delivered and paid (see below) |
+| **Lost** | They declined, went silent after your last follow-up, or you turned it down | Never; keep the card and the reason |
 
-Most creators aren't losing deals because their content is bad. They're losing deals because their *process* is bad. Sound familiar?
+Keep **Lost**. It is the cheapest market research you will ever have. A pile of "too expensive" tells you something different from a pile of "no budget this quarter".
 
-- **Leads get lost in DMs.** Instagram, Discord, email, Twitter — a brand can reach you five different ways, and every one of them is a black hole.
-- **No follow-up.** The money is in the second and third message. But if nothing reminds you, you forget, and silence kills the deal.
-- **No idea which stage a deal is at.** Did you reply? Are you negotiating? Waiting on them? You genuinely can't remember, so you do nothing.
-- **Business and personal are mixed together.** A serious brand offer sits in the same inbox as memes and spam, so it never gets treated like the opportunity it is.
+## What to record on every card
 
-None of this is a talent problem. It's an organization problem — and organization problems are fixable.
+- **Brand and the human.** A name and an email or handle, not just a company.
+- **Source.** Inbound DM, your outreach, a marketplace, a referral. After a few months this tells you where your deals actually come from.
+- **Estimated value.** Your best guess in money, updated as scope changes. Needed to know what to chase first.
+- **Scope in one line.** "Four 60-second reads, one clip, 30-day code."
+- **Date of last contact.**
+- **Next action and its due date.** This is the field that does the work. "Send revised quote, Thursday" beats a note that says "negotiating".
+- **Notes.** What they said, what you promised, anything they asked you to avoid. Your memory is not a database.
 
----
+## The follow-up rule
 
-## The pipeline every creator needs
+Silence is the default outcome of outreach, and one message is rarely enough. This is a suggested cadence, not a statistic. I am not claiming any particular reply rate. It is just a rule that stops you deciding case by case when you are tired:
 
-Here's the secret every agency and salesperson already knows: **a deal isn't a message, it's a journey.** Every sponsorship moves through the same handful of stages, and your only job is to keep pushing each one forward.
+1. Send the first message and set the next action for **four days** out.
+2. If nothing, send a short follow-up that adds something (a clip, a number, a specific idea), not "just checking in". Set another date a week out.
+3. If still nothing, send one last short note that makes it easy to say no, then move the card to **Lost** with the reason "no reply". It stays on your list for a later, different pitch.
 
-Picture four columns:
+Three touches, then closure. Without a cap you either pester people or keep dead cards alive in your head.
 
-- **New** — a brand just reached out (or you spotted one worth pitching). Raw, untouched.
-- **Contacted** — you've replied and opened the conversation.
-- **Negotiating** — you're talking numbers, deliverables, and dates.
-- **Won** — signed, agreed, money on the way.
+## The weekly review (15 minutes)
 
-Every lead is a card that slides left to right as it progresses. One glance tells you exactly where every deal stands — no digging, no guessing. When a card sits too long in one column, you *see* it, and you know exactly who to nudge.
+Pick a fixed slot, for example before your first stream of the week.
 
-That single mental shift — from "messy inbox" to "moving pipeline" — is what turns scattered DMs into real income.
+1. Open every card with a next action due today or earlier. Do those first.
+2. Look at **Contacted** cards older than your follow-up window. Follow up or close.
+3. Look at **Negotiating**. These are closest to money, so they get the most attention.
+4. Update values on anything where scope changed.
+5. Add three new Prospects. A pipeline that only contains inbound mail is a waiting room.
 
----
+## A worked example
 
-## Track the details that close deals
+Hypothetical board after a month of outreach:
 
-A stage isn't enough on its own. To actually close, you need the details that let you walk into a negotiation prepared. For every lead, capture:
+| Brand | Stage | Value | Days since last contact |
+|---|---|---|---|
+| A | Negotiating | $150 | 2 |
+| B | Contacted | $300 | 9 |
+| C | Prospect | $80 | not yet written |
+| D | Negotiating | $200 | 5 |
+| E | Won | $120 | 1 |
+| F | Lost | $60 | reason: "no budget until next year" |
 
-- **Brand** — who you're dealing with.
-- **Contact** — the actual human, and how to reach them.
-- **Estimated value** — what the deal is roughly worth, so you know which ones to chase first.
-- **Source** — where the lead came from (DM, email, a referral, an event).
-- **Notes** — everything you've discussed, so nothing lives only in your memory.
-- **Next step** — the single most important field. What do *you* need to do next, and when?
+Open value (Prospect, Contacted, Negotiating): 80 + 300 + 150 + 200 = **$730**. Of that, $350 is in Negotiating (150 + 200), so those two get attention first. Brand B holds the largest single value ($300) but has been quiet for nine days, which is past the follow-up window above; that is the card that would have died in an inbox. Brand C has not been written to, which is a task, not a pipeline.
 
-Fill these in and a cold lead you haven't touched in a week becomes instantly workable again. No re-reading old threads, no "wait, who was this?"
+Notice what the table gives you that an inbox cannot: the next thing to do, in order, in ten seconds.
 
----
+## Won is not the end
 
-## How streamerOS Sponsor CRM works
+A signed deal is where delivery begins, and a deal can still go wrong afterwards. Record these in the card's notes and next action, because "Won" alone will not remind you:
 
-This is exactly why we built the **Sponsor CRM** inside [streamerOS](/features) — a lead-pipeline and deal-tracking CRM made for creators, not corporate sales teams.
+- Posting or stream dates, and the exact deliverables
+- Whether you disclosed the sponsorship the way your platform and local advertising rules require, on every placement
+- Tracked code or link set up and working
+- Invoice sent, with the payment terms they agreed, and the date it is due
+- A short results summary sent after the campaign
+- A renewal conversation date. Repeat deals are cheaper to win than new ones
 
-Here's how it works:
+If you quote a lot, [how to price a stream sponsorship](/blog/how-much-to-charge-for-stream-sponsorships) shows how to build the number you put on the card.
 
-- You **create, update, and track sponsor leads** on a **pipeline board** — the same New → Contacted → Negotiating → Won stages we just walked through.
-- Each lead opens a **lead inspector**, where you keep that deal's details in one place: the brand, the contact, the value, the source, your notes, and your next step.
-- As a conversation progresses, you move the lead across the board so its stage always reflects reality.
+## Spreadsheet or a pipeline tool
 
-Everything is **stored locally in a database on your own machine**. There's no web dashboard to log into and no account to create — it lives right alongside the rest of your streaming command center.
+A spreadsheet works. Columns: brand, contact, source, stage, value, scope, last contact, next action, next action date, notes. Sort by next action date. Its weakness is that nothing shows you a stalled deal unless you look; a board makes it visible.
 
----
+The streamerOS [Sponsor CRM](/features/sponsor-crm) is a pipeline board of this kind. It tracks leads through prospect, contacted, negotiating, won and lost, with the brand, contact, estimated value and notes on each lead, and stores everything locally on your own PC rather than on a third-party server. That matters here because your contact list and your quoted rates are the most commercially sensitive thing you own as a creator. It is paired with the [Media Kit Generator](/features/media-kit), which builds the one-page PDF you attach to your pitch.
 
-## Own your data
+## When this is more than you need
 
-Your sponsor list is one of the most valuable assets you own as a creator. It's your income pipeline, your contacts, your leverage.
+- **You get one or two offers a year.** A note in your calendar is enough.
+- **A manager or agency handles brands for you.** They run the pipeline; you only need to see delivery dates.
+- **You are pre-revenue with no analytics yet.** Fix the evidence first, using [sponsors for small streamers](/blog/sponsors-for-small-streamers), then track the replies you earn.
 
-So it shouldn't live on someone else's server. With the streamerOS Sponsor CRM, **your leads stay on your machine** — not locked inside a third-party SaaS that can change its pricing, get acquired, or shut down and take your data with it. It's yours, on your hardware, full stop.
+## Frequently Asked Questions
 
----
+**How many stages do I need?**
+Five is enough: Prospect, Contacted, Negotiating, Won, Lost. More stages mean more moving cards and fewer updates. Put delivery and payment details in the next action on a Won card instead of adding stages.
 
-## Stop losing deals in your DMs
+**How often should I follow up with a brand?**
+There is no proven magic interval. A workable rule is a first follow-up after about four days, a second a week later, and a closing note after that. What matters is that the rule is fixed so you do not decide it case by case.
 
-Every buried DM is a check you never cashed. A simple pipeline — four stages and the right details on each lead — is the difference between "I think I had a deal once" and a steady stream of sponsorship income.
+**Should I keep Lost deals?**
+Yes, with the reason. They show whether your price, your timing or your pitch is the problem, and some can be revived later with a different offer.
 
-Ready to turn your scattered brand chats into a real pipeline? **[Explore the streamerOS Sponsor CRM →](/features/sponsor-crm)**
+**Where should sponsor leads come in?**
+Pick one place to log them even if they arrive by DM, email and Discord. Copy the essentials onto a card the same day. If the only record of a deal is a DM thread, it is not tracked.
+
+**Is it safe to keep sponsor data in a cloud tool?**
+Depends on the tool and its terms. Your contacts and rates are commercially sensitive, so prefer something you control, such as a local file or a local-first app, and know what happens to the data if the service changes. [What stream tools send to the cloud](/blog/what-stream-tools-send-to-the-cloud) explains how to check.
+
+## The short version
+
+One card per deal, five stages with written exit rules, a dated next action, a capped follow-up routine, and a fifteen-minute weekly review. Do that in a spreadsheet and you are ahead of most inboxes. If you would rather see the board than read rows, the [Sponsor CRM](/features/sponsor-crm) is built for exactly this.
