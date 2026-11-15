@@ -1,13 +1,16 @@
 import type { Metadata } from 'next';
 import { Gauge, ShieldCheck, Workflow, type LucideIcon } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
+import Link from 'next/link';
 import { BUILDER } from '@/config/engineering';
+import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Why we built streamerOS — a Rust-powered, local-first streaming cockpit born ' +
-    'out of frustration with bloated tools, dropped frames, and missed hype moments.',
+    'streamerOS is built by one person, Yaseen Khatib, in Hyderabad, India. ' +
+    'Who he is, why he built a local-first streaming cockpit, where the product ' +
+    'stands today and how this site is run.',
   alternates: { canonical: 'https://streamerosai.com/about' },
 };
 
@@ -26,7 +29,7 @@ const VALUES: Value[] = [
   {
     icon: ShieldCheck,
     title: 'Absolute Privacy',
-    body: 'Local-first isn’t a setting — it’s the architecture. No server, ours or anyone else’s, ever sees your chat or your audio.',
+    body: 'Local-first isn’t a setting — it’s the architecture. There is no streamerOS server that receives your chat or your audio, because there is no streamerOS server for user data at all.',
   },
   {
     icon: Workflow,
@@ -35,98 +38,184 @@ const VALUES: Value[] = [
   },
 ];
 
+const LINK =
+  'rounded text-cyan-400 underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500';
+
 export default function AboutPage() {
   return (
     <main className="mx-auto max-w-4xl px-6 py-24 sm:py-32">
-      {/* Hero */}
       <section>
         <Reveal>
           <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">
-            Our story
+            About
           </p>
         </Reveal>
         <Reveal delay={0.08}>
           <h1 className="mt-3 text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
-            Built by Streamers. Engineered for Performance.
+            One developer, one problem: a streaming PC that is already full.
           </h1>
         </Reveal>
       </section>
 
-      {/* The Origin Story — narrow, prose-heavy reading column */}
       <section className="mt-14 sm:mt-16">
         <Reveal>
-          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            The Origin Story
-          </h2>
+          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Who builds it</h2>
         </Reveal>
         <Reveal delay={0.08}>
           <div className="mt-6 max-w-prose space-y-4 leading-relaxed text-slate-300">
             <p>
-              streamerOS started as a complaint. We were streamers before we were
-              builders — and every night, the same two problems. Our “lightweight”
-              broadcast tools quietly ate CPU until a clutch moment turned into a
-              stutter. And the best beats of the stream — the raid, the comeback,
-              the chat going feral — slipped past while we fumbled for a scene hotkey.
+              streamerOS is built by{' '}
+              <a href={BUILDER.url} className={LINK}>
+                {BUILDER.name}
+              </a>
+              , a full-stack and AI engineer working alone from Hyderabad, India. There
+              is no company, no team and no support desk behind it: the person who
+              wrote the code also writes the guides on this site and answers the
+              email sent to{' '}
+              <a href={`mailto:${siteConfig.contactEmail}`} className={LINK}>
+                {siteConfig.contactEmail}
+              </a>
+              . The{' '}
+              <Link href="/terms" className={LINK}>
+                terms
+              </Link>{' '}
+              say the same thing in legal language: you are dealing with one
+              independent developer.
             </p>
             <p>
-              So we built the tool we wanted. A Rust core, measured obsessively, that
-              holds a 1.8% CPU footprint under a live game. An automation engine — the
-              Auto-Hype Director — that watches chat velocity and Super Chats and
-              switches scenes the instant the room peaks. And an architecture that is
-              local-first by construction: your chat, your audio, your audience never
-              leave your machine.
-            </p>
-            <p>
-              streamerOS costs $29 once, because the people who go live every night
-              deserve tools built with the same care they put into their broadcast —
-              and because a tool you buy outright owes its answers to you, not to an
-              advertiser, an investor, or a renewal date.
+              Alongside streamerOS he takes on senior full-stack and AI engineering
+              work (
+              <a href={BUILDER.hireUrl} className={LINK}>
+                more on that here
+              </a>
+              ) and publishes a free{' '}
+              <a href={BUILDER.journeyUrl} className={LINK}>
+                sixteen-chapter AI engineering journey
+              </a>
+              . None of that is hidden: it is the day job that funds a product with
+              no investors and no advertising inside the app.
             </p>
           </div>
         </Reveal>
       </section>
 
-      {/* Engineering notes — the working-out behind the numbers quoted above. */}
       <section className="mt-16 sm:mt-20">
         <Reveal>
-          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            How it was built
-          </h2>
+          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Why it exists</h2>
         </Reveal>
         <Reveal delay={0.08}>
-          <p className="mt-6 max-w-prose leading-relaxed text-slate-300">
-            streamerOS is built by{' '}
-            <a
-              href={BUILDER.url}
-              className="rounded text-cyan-400 underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
-            >
-              {BUILDER.name}
-            </a>
-            , who writes up the engineering as it happens. He is{' '}
-            <a
-              href={BUILDER.hireUrl}
-              className="rounded text-cyan-400 underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
-            >
-              available for senior full-stack and AI engineering work
-            </a>
-            , and teaches the same stack in a free,{' '}
-            <a
-              href={BUILDER.journeyUrl}
-              className="rounded text-cyan-400 underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
-            >
-              sixteen-chapter AI engineering journey
-            </a>
-            .
-          </p>
+          <div className="mt-6 max-w-prose space-y-4 leading-relaxed text-slate-300">
+            <p>
+              The starting point was practical. A streaming PC is already running a
+              game, a video encoder and OBS Studio. Most companion tools for streamers
+              ask for an account and then ship a browser engine to draw a few meters,
+              which costs frame rate on the one thing viewers came to watch. streamerOS
+              is a native Windows app written in Rust on Tauri, aimed at staying out of
+              the way: its target is about 1.8% CPU under a live 1080p60 game, for the
+              core app (chat monitoring, automation and the cockpit).
+            </p>
+            <p>
+              The second reason is that chat belongs to your viewers. They never chose
+              your tools, so streamerOS keeps chat, microphone audio, stream history
+              and sponsor records on your own computer: no account, no backend, no
+              analytics inside the app. The{' '}
+              <Link href="/privacy" className={LINK}>
+                privacy policy
+              </Link>{' '}
+              lists every network connection the app can make, and the{' '}
+              <Link href="/trust" className={LINK}>
+                trust page
+              </Link>{' '}
+              explains how to check the claims on your own PC instead of taking them
+              on faith.
+            </p>
+          </div>
         </Reveal>
       </section>
 
-      {/* Core values */}
       <section className="mt-16 sm:mt-20">
         <Reveal>
-          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            Core values
-          </h2>
+          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Where it stands today</h2>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <div className="mt-6 max-w-prose space-y-4 leading-relaxed text-slate-300">
+            <p>
+              streamerOS has not been released. Version 1.0 for Windows 10 and 11 is
+              planned for February 2027 and there is no public download yet, which is
+              why the download page asks you to pre-register rather than offering an
+              installer. Until launch you can{' '}
+              <a href={siteConfig.demoUrl} className={LINK}>
+                try the live demo
+              </a>
+              , which is the real interface running on sample data in your browser,
+              read the{' '}
+              <Link href="/features" className={LINK}>
+                feature pages
+              </Link>{' '}
+              (each uses screenshots from the working app) and follow the{' '}
+              <Link href="/changelog" className={LINK}>
+                development log
+              </Link>
+              , which records when each part first landed and does not invent release
+              numbers.
+            </p>
+            <p>
+              When it ships it costs $29 once, with a 7-day free trial, because a tool
+              you buy outright owes its answers to you rather than to a renewal date.
+              Details are on the{' '}
+              <Link href="/pricing" className={LINK}>
+                pricing page
+              </Link>
+              .
+            </p>
+          </div>
+        </Reveal>
+      </section>
+
+      <section className="mt-16 sm:mt-20">
+        <Reveal>
+          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">About this website</h2>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <div className="mt-6 max-w-prose space-y-4 leading-relaxed text-slate-300">
+            <p>
+              The blog is written by the same developer and is mostly OBS and streaming
+              how-tos: settings, fixes and measurements you can repeat, with sources
+              where a number comes from somewhere else. The{' '}
+              <Link href="/docs" className={LINK}>
+                docs
+              </Link>{' '}
+              cover installation and setup, and the{' '}
+              <Link href="/playbook" className={LINK}>
+                playbook
+              </Link>{' '}
+              and{' '}
+              <Link href="/glossary" className={LINK}>
+                glossary
+              </Link>{' '}
+              explain the concepts.
+            </p>
+            <p>
+              The app will never show ads. This website may display Google AdSense
+              ads in future; if it does, they will be labelled by Google, kept away from
+              navigation and forms, and covered in the{' '}
+              <Link href="/privacy" className={LINK}>
+                privacy policy
+              </Link>
+              , including how to opt out of personalised ads. Corrections and
+              questions are welcome on the{' '}
+              <Link href="/contact" className={LINK}>
+                contact page
+              </Link>
+              .
+            </p>
+          </div>
+        </Reveal>
+      </section>
+
+      <section className="mt-16 sm:mt-20">
+        <Reveal>
+          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Core values</h2>
         </Reveal>
         <div className="mt-6 grid gap-5 sm:grid-cols-3">
           {VALUES.map((value, i) => {

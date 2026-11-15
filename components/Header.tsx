@@ -16,6 +16,7 @@ const GROUPS = featuresByCategory();
 const NAV_LINKS = [
   { label: 'Playbook', href: '/playbook' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Docs', href: '/docs' },
   { label: 'Pricing', href: '/pricing' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Changelog', href: '/changelog' },

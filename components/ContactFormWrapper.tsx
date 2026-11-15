@@ -1,5 +1,6 @@
 'use client';
 
+import type { ReactNode } from 'react';
 import { motion, type Variants } from 'framer-motion';
 import ContactForm from '@/components/ContactForm';
 import { siteConfig } from '@/config/site';
@@ -14,7 +15,7 @@ const item: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 };
 
-export default function ContactFormWrapper() {
+export default function ContactFormWrapper({ children }: { children?: ReactNode }) {
   return (
     <motion.main
       variants={container}
@@ -24,11 +25,12 @@ export default function ContactFormWrapper() {
     >
       <motion.section variants={item} className="text-center">
         <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-          Secure Channel.
+          Contact
         </h1>
         <p className="mt-4 text-slate-400">
-          Have a question about pricing or licensing, or want to report a bug?
-          Drop us a line.
+          streamerOS is built by one person, Yaseen Khatib, in Hyderabad, India.
+          Questions, bug reports, corrections to a guide and privacy requests all
+          reach him directly.
         </p>
         <p className="mt-3 text-sm text-slate-500">
           Prefer email? Reach us at{' '}
@@ -47,6 +49,8 @@ export default function ContactFormWrapper() {
       >
         <ContactForm />
       </motion.div>
+
+      {children}
     </motion.main>
   );
 }

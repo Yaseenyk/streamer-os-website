@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
@@ -24,7 +25,7 @@ export default function PrivacyPage() {
       <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
         Privacy Policy
       </h1>
-      <p className="mt-3 text-sm text-zinc-500">Last updated: October 10, 2026</p>
+      <p className="mt-3 text-sm text-zinc-500">Last updated: November 16, 2026</p>
 
       <p className="mt-5 leading-relaxed text-zinc-300">
         Every claim on this page can be checked from outside the app — the{' '}
@@ -142,8 +143,8 @@ export default function PrivacyPage() {
         <section>
           <h2 className={H2}>This website</h2>
           <p className={P}>
-            streamerosai.com is a static site and sets no advertising cookies. A few
-            services are involved when you use it:
+            streamerosai.com is a static site. It currently shows no advertisements and
+            sets no advertising cookies. These services are involved when you use it:
           </p>
           <ul className={LI}>
             <li>
@@ -163,6 +164,17 @@ export default function PrivacyPage() {
               a free tool that records anonymised heatmaps and session replays so
               we can see where visitors get stuck. Text typed into forms is
               masked and is not recorded. We don&apos;t use it for advertising.
+            </li>
+            <li>
+              <strong className="text-zinc-200">A first-party visit counter</strong>{' '}
+              (a small script served from a Cloudflare Worker run by the site owner,
+              named &ldquo;pulse&rdquo;) — records which page was viewed, the
+              referring site, clicks on links and whether the visit looks like a
+              person or a bot, so we can tell real readers from automated traffic.
+              It sets no cookies, does not store your IP address or browser
+              user-agent string, and records no text typed into forms. It switches
+              itself off if your browser sends Do Not Track or Global Privacy
+              Control, and rows older than 90 days are deleted automatically.
             </li>
             <li>
               <strong className="text-zinc-200">Pre-registration and the contact
@@ -190,9 +202,110 @@ export default function PrivacyPage() {
         </section>
 
         <section>
+          <h2 className={H2}>Cookies and similar storage</h2>
+          <p className={P}>
+            Google Analytics sets first-party cookies (for example <code>_ga</code>)
+            to tell visits apart, and Microsoft Clarity sets its own cookies to link
+            the pages of one visit. The site also keeps a small label in your
+            browser&apos;s local storage recording the first source that sent you here
+            (for example a search engine or a link), used only in aggregate reports.
+            Plausible and the visit counter use no cookies. Analytics scripts do not
+            load on localhost, and they load only after the page has finished, so
+            they never block reading. You can clear or block cookies in your browser
+            settings at any time; the site works the same without them.
+          </p>
+        </section>
+
+        <section>
+          <h2 className={H2}>Advertising and Google AdSense</h2>
+          <p className={P}>
+            There are no ads on this website today. The site owner intends to show ads
+            served by Google AdSense if Google approves the site, and this policy
+            will be updated at the same time any ads appear.
+            The streamerOS application itself never shows ads and never will.
+          </p>
+          <p className={P}>
+            If ads are switched on, Google and its partners use cookies and similar
+            technologies to serve and measure ads, and may use them to show
+            personalised ads based on your visits to this and other sites. In the
+            European Economic Area, the United Kingdom and Switzerland, personalised
+            ads are shown only with your consent. You can opt out of personalised
+            advertising at any time:
+          </p>
+          <ul className={LI}>
+            <li>
+              In{' '}
+              <a href="https://adssettings.google.com" className="text-cyan-400 hover:underline" rel="noopener noreferrer">
+                Google Ad Settings
+              </a>
+              , where you can turn off personalised ads for your Google account and
+              browser.
+            </li>
+            <li>
+              Through{' '}
+              <a href="https://www.aboutads.info/choices/" className="text-cyan-400 hover:underline" rel="noopener noreferrer">
+                aboutads.info/choices
+              </a>{' '}
+              or{' '}
+              <a href="https://www.youronlinechoices.com" className="text-cyan-400 hover:underline" rel="noopener noreferrer">
+                youronlinechoices.com
+              </a>{' '}
+              to opt out of interest-based ads from many providers at once.
+            </li>
+            <li>
+              By blocking third-party cookies in your browser. Non-personalised ads
+              may still appear.
+            </li>
+          </ul>
+          <p className={P}>
+            How Google uses data from sites that use its services is explained at{' '}
+            <a href="https://policies.google.com/technologies/partner-sites" className="text-cyan-400 hover:underline" rel="noopener noreferrer">
+              policies.google.com/technologies/partner-sites
+            </a>
+            . Google Analytics is used for measurement only, not to target ads.
+          </p>
+        </section>
+
+        <section>
+          <h2 className={H2}>How long we keep things</h2>
+          <p className={P}>
+            Pre-registration emails and contact messages are kept until you ask for
+            them to be deleted. The visit counter deletes its rows after 90 days. Google
+            Analytics and Microsoft Clarity keep data under their own retention
+            settings, which we do not control beyond the options those tools offer.
+            The site is not directed at children under 13 and does not knowingly
+            collect their data.
+          </p>
+        </section>
+
+        <section>
+          <h2 className={H2}>Your rights</h2>
+          <p className={P}>
+            Depending on where you live, including under the GDPR in Europe and
+            India&apos;s Digital Personal Data Protection Act, you can ask what we
+            hold about you, ask for it to be corrected or deleted, and withdraw
+            consent. Write to the address below from the email address concerned.
+            Most requests are simple to meet because the only personal data we hold
+            on purpose is the email and message you chose to send.
+          </p>
+        </section>
+
+        <section>
+          <h2 className={H2}>Who is responsible</h2>
+          <p className={P}>
+            streamerosai.com is run by Yaseen Khatib, an independent developer based
+            in Hyderabad, India, trading as streamerOS.
+          </p>
+        </section>
+
+        <section>
           <h2 className={H2}>Contact</h2>
           <p className={P}>
-            Questions about this policy? Reach us through the{' '}
+            Questions about this policy? Write to{' '}
+            <a href={`mailto:${siteConfig.contactEmail}`} className="text-cyan-400 hover:underline">
+              {siteConfig.contactEmail}
+            </a>{' '}
+            or use the{' '}
             <Link href="/contact" className="text-cyan-400 hover:underline">
               contact page
             </Link>

@@ -19,7 +19,7 @@ export default function TermsPage() {
       <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
         Terms of Service
       </h1>
-      <p className="mt-3 text-sm text-zinc-500">Last updated: October 10, 2026</p>
+      <p className="mt-3 text-sm text-zinc-500">Last updated: November 16, 2026</p>
 
       <div className="mt-10 space-y-10">
         <section>
@@ -184,6 +184,24 @@ export default function TermsPage() {
           <p className={P}>
             If any part of these terms is found unenforceable, the rest stays in
             force.
+          </p>
+        </section>
+
+        <section>
+          <h2 className={H2}>This website and its content</h2>
+          <p className={P}>
+            The guides, documentation and other pages on streamerosai.com are
+            published for general information. They are written with care and
+            checked against the product and, where a figure comes from elsewhere,
+            against a named source, but settings that work on one PC can differ on
+            another, so test changes before relying on them on a live stream. You
+            may quote short excerpts with a link back; please do not republish whole
+            pages. The site may display third-party advertising, such as Google
+            AdSense, in future; the{' '}
+            <Link href="/privacy" className="text-cyan-400 hover:underline">
+              privacy policy
+            </Link>{' '}
+            explains how that works and how to opt out of personalised ads.
           </p>
         </section>
 

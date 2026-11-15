@@ -52,6 +52,7 @@ const COMPANY: FooterLink[] = [
   { label: 'Trust & Verification', href: '/trust' },
   { label: 'Playbook', href: '/playbook' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Docs', href: '/docs' },
   { label: 'Glossary', href: '/glossary' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },
@@ -63,7 +64,6 @@ const LEGAL: FooterLink[] = [
 ];
 
 // External brand links — kept as plain <a> (next/link is for internal routes).
-// TODO: verify brand marks against each brand's official press kit.
 const SOCIALS = [
   {
     label: 'X (Twitter)',
