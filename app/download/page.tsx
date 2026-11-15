@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 // The "recommended" profile is streamerOS's documented target hardware.
-// TODO: confirm certified minimum specs before launch.
+// These are the documented target specs; certified minimums are set at launch.
 // Split so the low-CPU claim and the hardware list stop contradicting each
 // other: the app itself needs Windows and OBS; the GPU is for the optional AI.
 const REQUIREMENTS = [
@@ -143,6 +143,44 @@ export default function DownloadPage() {
               </li>
             ))}
           </ol>
+        </Reveal>
+
+        {/* What pre-registering means */}
+        <Reveal>
+          <h2 className="text-xl font-semibold tracking-tight">What pre-registering means</h2>
+          <div className="mt-3 space-y-3 text-sm leading-relaxed text-zinc-400">
+            <p>
+              Pre-registering is free and is not a purchase. You give an email address and
+              nothing else. It puts you on the list for the beta builds before the public
+              launch, a 3-month trial instead of the standard 7 days, the next major version
+              included in the $29 licence, a 14-day no-questions refund, and a short
+              build-log email about once a month until launch. The address is used only for
+              that and is deleted if you ask, as the{' '}
+              <Link href="/privacy" className="text-cyan-400 underline underline-offset-2">
+                privacy policy
+              </Link>{' '}
+              describes.
+            </p>
+            <p>
+              No installer exists yet, and streamerOS is built by one developer, so the
+              February 2027 date is a plan, not a guarantee. If it moves, the changelog and
+              this page say so. A streamerOS download offered anywhere else did not come
+              from this site. To judge the product before launch, use the live demo, read
+              the{' '}
+              <Link href="/features" className="text-cyan-400 underline underline-offset-2">
+                feature pages
+              </Link>
+              , or read{' '}
+              <Link href="/trust" className="text-cyan-400 underline underline-offset-2">
+                how to verify what it does
+              </Link>
+              . Working streamers who want earlier access can apply to the{' '}
+              <Link href="/streamers" className="text-cyan-400 underline underline-offset-2">
+                Founding Streamers program
+              </Link>
+              .
+            </p>
+          </div>
         </Reveal>
 
         {/* Footnote */}

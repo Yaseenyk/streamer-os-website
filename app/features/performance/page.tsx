@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   // Root layout applies the `%s · streamerOS` template.
   title: 'Ultra-Light Performance — Feature Guide',
   description:
-    'How streamerOS holds a 1.8% CPU footprint under a live 1080p60 game. ' +
+    'How the streamerOS core reached about 1.8% CPU in the developer’s RTX 3060 benchmark, what that covers and what it does not. ' +
     'A Rust + Tauri core that leaves your frames for the stream.',
   alternates: { canonical: 'https://streamerosai.com/features/performance' },
 };
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 const FAQ_ITEMS: FaqEntry[] = [
   {
     q: 'How much CPU does streamerOS use while streaming?',
-    a: 'streamerOS holds a 1.8% CPU footprint profiled under a live 1080p60 game. The core is written in Rust with a Tauri shell — monitoring, automation, and telemetry all fit in that sliver.',
+    a: 'The streamerOS core sustained about 1.8% CPU in the developer’s RTX 3060 benchmark, a single-machine result. The core is written in Rust with a Tauri shell — monitoring, automation, and telemetry all fit in that sliver.',
   },
   {
     q: 'Will streamerOS steal frames from my game or OBS?',
@@ -42,8 +42,12 @@ const FAQ_ITEMS: FaqEntry[] = [
     a: 'There is no bundled browser engine. The core is Rust on a Tauri shell, so the app is a native process rather than a Chromium instance with a UI drawn inside it. Chat parsing, velocity and sentiment scoring all run in Rust off the UI thread, and events cross to the interface as batched MessagePack rather than a JSON message per event.',
   },
   {
+    q: 'What does the CPU figure include, and what costs more?',
+    a: 'It covers the core app: chat monitoring, the automation engine and the cockpit. Two features you start on purpose use far more. Brand Guard speech recognition uses CPU while you are speaking, and Shorts Factory video encoding is meant to run after the stream, not during it. The local AI features (AI Sidekick, Sentiment Horizon, Viral Engine) run on the GPU through Ollama, which is a separate process. The project’s targets are at most 5% CPU for the whole process tree under a live game and at most 600 MB of memory.',
+  },
+  {
     q: 'Is 1.8% CPU measured or estimated?',
-    a: 'Measured under a live 1080p60 game with OBS encoding, which is the only condition that matters. An idle desktop number would be meaningless — every tool looks light with nothing else running.',
+    a: 'The 1.8% is a sustained CPU figure recorded on the developer’s own RTX 3060 test PC, for the core app only. It is one machine measured by one person, not an independent audit. The formal capture under a live 1080p60 game with OBS encoding, defined in the project’s benchmark protocol, is part of the pre-launch checklist and its result will be published whichever way it comes out. Idle-desktop numbers are meaningless for a streaming tool, which is why the protocol requires a game running.',
   },
 ];
 
@@ -64,19 +68,19 @@ interface TelemetryRow {
 const TELEMETRY: TelemetryRow[] = [
   {
     label: 'Game Engine',
-    readout: 'CPU: 65% | RAM: 4.8GB',
+    readout: 'illustrative share of CPU',
     barWidth: 'w-[65%]',
     fill: 'bg-gradient-to-r from-amber-500 to-red-500',
   },
   {
     label: 'OBS Studio',
-    readout: 'CPU: 25% | RAM: 1.1GB',
+    readout: 'illustrative share of CPU',
     barWidth: 'w-[25%]',
     fill: 'bg-gradient-to-r from-blue-500 to-slate-500',
   },
   {
     label: 'streamerOS',
-    readout: 'CPU: 1.8% | RAM: 152MB',
+    readout: 'core app: 1.8% on the test PC',
     barWidth: 'w-[1.8%]',
     fill: 'bg-[#22d3ee] shadow-[0_0_10px_#22d3ee]',
   },
@@ -113,16 +117,17 @@ const STATS: Stat[] = [
     stat: '1.8%',
     label: 'CPU under load',
     body:
-      'Measured while capturing a live 1080p60 game — not an idle benchmark. ' +
-      'The cockpit stays out of the way of your frames.',
+      'Sustained, core app only, on the developer’s RTX 3060 test PC. A ' +
+      'single-machine result, not an independent audit.',
   },
   {
     icon: Cpu,
-    stat: '152 MB',
-    label: 'Resident memory',
+    stat: '600 MB',
+    label: 'Memory budget',
     body:
-      'The entire broadcast control surface fits in roughly the memory of a ' +
-      'single browser tab. No Chromium, no bloat.',
+      'The design ceiling for resident memory in the project’s benchmark ' +
+      'protocol. A target that the release benchmark checks, not a measured ' +
+      'result. No bundled Chromium.',
   },
   {
     icon: Zap,
@@ -163,8 +168,8 @@ export default function PerformanceGuidePage() {
           </Reveal>
           <Reveal delay={0.16}>
             <p className="mx-auto mt-4 max-w-2xl text-zinc-400">
-              Powered by Rust and Tauri, streamerOS runs a 1.8% CPU footprint under a
-              live 1080p60 game. Save your frames for the stream.
+              Powered by Rust and Tauri, the streamerOS core sustained about 1.8% CPU on
+              the developer’s RTX 3060 test PC. Save your frames for the stream.
             </p>
           </Reveal>
         </div>
@@ -195,7 +200,7 @@ export default function PerformanceGuidePage() {
               <div className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" aria-hidden />
                 <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
-                  Live · 1080p60
+                  Illustrative · 1080p60
                 </span>
               </div>
             </div>

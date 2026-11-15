@@ -4,30 +4,119 @@ import { breadcrumbJsonLd } from '@/lib/seo';
 export const metadata = {
   title: 'Technical Documentation',
   description:
-    'Technical documentation for streamerOS — installation, configuration, and the internals of the Auto-Hype Director.',
+    'Technical documentation for streamerOS — what streamerOS is, system requirements, connecting OBS and local AI, how the trial and licence work, and where your data is kept.',
   alternates: { canonical: 'https://streamerosai.com/docs' },
   openGraph: {
     title: 'streamerOS Technical Documentation',
     description:
-      'Installation, configuration, and the internals of the Auto-Hype Director.',
+      'What streamerOS is, requirements, connecting OBS and local AI, licensing, and where your data lives.',
     url: 'https://streamerosai.com/docs',
   },
 };
 
 <JsonLd data={breadcrumbJsonLd([{ name: 'Docs', path: '/docs' }])} />
 
-# streamerOS Technical Documentation
+# streamerOS documentation
 
-Welcome to the technical documentation for **streamerOS** — the Rust-powered,
-ultra-lightweight desktop cockpit for Twitch & YouTube streamers, built as a
-companion to OBS Studio.
+This is the reference for **streamerOS**, a native Windows desktop cockpit for
+Twitch and YouTube Live streamers that runs next to OBS Studio. It is built in
+Rust on Tauri. streamerOS does not replace OBS: you still stream with OBS, and
+streamerOS reads your chat, measures what your audience is doing, drives OBS for
+you and helps with the work around the stream, such as clips, Shorts and
+sponsors. Version 1.0 is planned for **February 2027**; there is no public build
+yet, so this page describes the launch build. You can look at the interface now
+in the [live demo](https://demo.streamerosai.com), which runs on sample data in
+your browser.
 
-These docs cover installation, configuration, and the internals of the
-Auto-Hype Director engine. For product information and downloads, head back to
-the [main site](/).
+## Requirements
 
-## What you'll find here
+| Requirement | What is needed |
+| --- | --- |
+| Operating system | Windows 10 or 11, 64-bit. macOS and Linux are not supported. |
+| Other software | OBS Studio 28 or later (it includes the WebSocket server streamerOS uses). Ollama, for the local AI features only. |
+| Memory and CPU | 16 GB RAM and an 8-core CPU are recommended, for headroom next to your game and OBS. |
+| GPU | An RTX 3060-class GPU is recommended for the local AI features (AI Sidekick, Sentiment Horizon, Viral Engine). Everything else works without one. |
 
-- **[Installation](/docs/installation)** — system requirements and a quick-start guide,
-  including how to enable the OBS WebSocket server that streamerOS connects to.
-- More guides are on the way.
+The core app targets about 1.8% CPU under a live 1080p60 game. Two features you
+start on purpose cost much more: Brand Guard speech recognition, while you are
+speaking, and Shorts Factory video encoding, which is meant to run after the
+stream. See [performance](/features/performance) for what the figure covers.
+
+## Connect streamerOS to OBS
+
+streamerOS controls OBS through **OBS WebSocket v5**, built into OBS Studio 28
+and later, and only ever connects to OBS on the same computer (`127.0.0.1`).
+
+1. In OBS, open **Tools, WebSocket Server Settings** and tick **Enable WebSocket
+   server**. The default port is 4455.
+2. If authentication is off, start streamerOS with OBS running. It finds OBS on
+   the same PC and connects on its own.
+3. If authentication is on, click **Show Connect Info** in OBS, copy the
+   password, and enter it with host `127.0.0.1` and the port from OBS in the
+   OBS Bridge connection form.
+4. Once connected, your OBS scenes appear in the OBS Bridge stream deck and the
+   cockpit scene switcher. The password is kept in memory while the app runs and
+   is not written to disk.
+
+The full walkthrough with screenshots is on the [installation page](/docs/installation).
+If the connection fails, [OBS WebSocket connection failed: three failures, three fixes](/blog/obs-websocket-connection-failed-three-failures)
+covers the usual reasons, and the [OBS WebSocket setup guide](/blog/obs-websocket-setup-guide)
+explains the protocol side.
+
+## Set up local AI
+
+The AI features run on your own GPU through Ollama, so nothing is sent to a
+cloud model. Install Ollama from ollama.com, turn on the **AI Engine** toggle in
+streamerOS and choose or download models in Settings. The defaults are
+`llama3.2` for chat and `nomic-embed-text` for memory. If Ollama is not running,
+Sentiment Horizon shows an "Ollama offline" banner and a neutral reading rather
+than an invented score, and everything else keeps working. A longer walkthrough
+is in the [Ollama on Windows guide](/blog/run-ollama-on-windows-guide).
+
+## Trial and licence
+
+- **Trial:** 7 days with every feature and no credit card. People who pre-register
+  before launch get 3 months.
+- **Licence:** $29, paid once. It is not a subscription and does not expire. It
+  includes every feature.
+- **Verification is offline.** A key is made for one computer. The activation
+  screen shows an anonymous Installation ID derived on your PC; you send it with
+  the order and enter the key you receive. There is no activation server, account
+  or login.
+- **When the trial ends,** features that act during a live stream lock until a key
+  is entered: OBS control and the Auto-Hype Director, the live chat monitors, Aura
+  overlays, Shorts Factory, Brand Guard, the Viral Engine, AI actions, and Sponsor
+  CRM changes and media kit export. Your own data is never locked or deleted:
+  settings, imported analytics, the Clip Library list, the Chat Archive, the most
+  recent stream's report and up to 10 AI Sidekick messages a day stay free.
+
+Prices and the refund terms are on the [pricing page](/pricing).
+
+## Where your data lives
+
+Everything is stored on your computer: in the streamerOS data folder under your
+Windows AppData folder, and in a workspace folder you choose (for example
+`Documents\streamerOS`), which holds exports, Shorts, chat archive exports and
+any opt-in Brand Guard audit recordings. To remove everything, delete those
+folders. streamerOS has no account, no login and no backend server for user data,
+and the app contains no analytics or crash reporting. The only network
+connections are features you switch on (Twitch chat, an optional YouTube Data
+API key, model downloads, Google Fonts for overlays, Discord webhooks you add,
+and opt-in update checks), all listed in the [privacy policy](/privacy) and
+explained on [the trust page](/trust). See also [workspace folder setup](/blog/streaming-workspace-folder-setup).
+
+## What each part does
+
+- [Live Cockpit](/features/live-cockpit): chat triage, Super Chat revenue, top chatters and the scene switcher on one screen.
+- [OBS Bridge](/features/obs-bridge) and [Scene Switcher](/features/scene-switcher): connect to OBS and switch scenes.
+- [Auto-Hype Director](/features/auto-hype): a node editor that turns chat velocity and Super Chats into scene switches, sounds and overlay changes.
+- [Aura Studio](/features/aura-studio) and [Aura Scene](/features/aura-scene): overlays that react to chat mood.
+- [Viral Moments](/features/viral-moments), [Clip Library](/features/clip-library) and [Shorts Factory](/features/shorts-factory): mark, rank and cut clips.
+- [AI Sidekick](/features/ai-sidekick), [Viral Engine](/features/viral-engine) and [Brand Guard](/features/brand-guard): the local AI features.
+- [Chat Archive](/features/chat-archive), [Sponsor CRM](/features/sponsor-crm) and [Media Kit](/features/media-kit): keeping chat, sponsor deals and a media kit on your PC.
+
+## Pages in these docs
+
+- **[Installation](/docs/installation)**: requirements and a four-step quick start.
+
+Questions the docs do not answer belong on the [FAQ](/faq) or the [contact page](/contact).
