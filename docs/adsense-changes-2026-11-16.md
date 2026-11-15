@@ -216,3 +216,29 @@ guarantee a pass: the underlying risk (an unreleased product with no audience ye
 set aimed at search queries) is not something edits can remove. Recommended: wait for Google to
 recrawl (2 to 3 weeks), check that the Search Console not-indexed count has not grown, then
 request the review.
+
+## Follow-up: the 1.8% CPU claim made honest site-wide
+
+Product repo record: `SYSTEM_ARCHITECTURE.md` logs "CPU 1.8 % sustained" from an offline RTX 3060
+benchmark; the formal capture under Cyberpunk 2077 at 1080p60 in `BENCHMARK_PROTOCOL.md` is still
+pending (`PENDING_TESTS.md`, `README_v1_GA_BLOCKER.md`). Every place that said the figure was
+measured or held "under a live 1080p60 game" now says it is a single-machine RTX 3060 benchmark,
+and where room allows that a live-game capture has not been run yet. Sentence-level edits only.
+
+Files changed (29): home page, footer, root layout JSON-LD and meta text, blog index blurb,
+features index and menu, the performance, about, docs, docs/installation, download, FAQ,
+ai-sidekick, aura-studio, auto-hype, live-cockpit, low-end-pc and vs/streamlabs pages,
+`lib/blog-cta.ts` (CTA shown on blog posts), `lib/features.ts`, `lib/shots.ts` (caption),
+`public/llms.txt`, `public/llms-full.txt`, and 8 blog posts. Searches covered `1.8%`, "152 MB",
+"live 1080p60", "under 2% CPU" and other numeric performance claims in app, components, lib, blog
+and the LLM text files; the built `out/` HTML was grepped for leftovers.
+
+Other invented numbers found and removed: "152 MB" resident memory and the 65% / 25% game and OBS
+bars (earlier commit), "stays under 2% CPU" on the download page, "a promise, not a peak" on About.
+
+Could not verify: the app screenshot caption showing "Cyberpunk2077 at 1.8% CPU" (a real capture
+of the app's own readout, left as the screenshot alt text; the visible caption was reworded); the
+"app displays its own current figure" statement (from the knowledge base, not re-checked against
+the app); "94% payload reduction" and MessagePack batching statements on the performance page (not
+re-checked against the product code); the Hinglish, latency and "instant" scene-switch wording on
+feature pages (no measurements found in the product repo).
