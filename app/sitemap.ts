@@ -48,7 +48,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/for/youtube-live`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/for/vtubers`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/playbook`, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/glossary`, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/blog`, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE_URL}/docs`, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/docs/installation`, changeFrequency: 'monthly', priority: 0.6 },

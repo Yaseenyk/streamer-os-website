@@ -9,7 +9,7 @@ tags: ["Guides", "Automation", "OBS Studio", "Workflow"]
 
 **Short answer:** automate a chore if it happens often or is costly to miss, **and** it needs no judgment from you. For most streamers that means three things, in this order: scene switching, marking clip moments, and reactive overlays. Do one at a time, test each offline, and keep talking to chat, moderation decisions and your reactions in your own hands.
 
-This is the starting guide. It tells you how to decide what is worth automating. For the how-to on each piece, there are separate step-by-step posts linked below, and the question of where automation software should run is covered in [zero-cloud stream tools](/blog/the-rise-of-zero-cloud-stream-tools).
+This is the starting guide. It tells you how to decide what is worth automating. For the how-to on each piece, there are separate step-by-step posts linked below, and the question of where automation software should run is covered in [what your stream tools send to the cloud](/blog/what-stream-tools-send-to-the-cloud).
 
 ## The three-question filter
 

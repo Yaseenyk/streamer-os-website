@@ -38,17 +38,28 @@ export interface GlossaryTerm {
 
 export const GLOSSARY: GlossaryTerm[] = [
   {
-    slug: 'kekw',
-    term: 'KEKW',
-    aliases: ['KEKW emote', 'KEKW meaning'],
-    title: 'KEKW Meaning — The Twitch Laughing Emote',
+    slug: 'twitch-emotes',
+    term: 'Twitch emotes: KEKW, POGGERS and Sadge',
+    aliases: ['KEKW', 'KEKW meaning', 'POGGERS', 'poggers meaning', 'Sadge', 'sadge meaning', 'Twitch emote meanings'],
+    title: 'KEKW, POGGERS and Sadge: What These Twitch Emotes Mean',
     description:
-      'KEKW is a Twitch emote of Spanish comedian Juan Joya Borja (El Risitas) laughing. What it means, where it came from, and why some viewers only see the text.',
+      'What KEKW, POGGERS and Sadge mean in Twitch chat, where each emote came from, why some viewers only see the word, and what a burst of each tells a streamer.',
     definition:
-      'KEKW is a Twitch chat emote that means laughter. It shows a still of the Spanish comedian Juan Joya Borja, known as El Risitas, mid-laugh, and chat types it the way other people type LOL.',
+      'KEKW means laughter, POGGERS means excitement or hype, and Sadge means sadness or disappointment. All three are emotes served by the BetterTTV and FrankerFaceZ browser extensions rather than by Twitch itself, so viewers without an extension see only the word.',
     sections: [
       {
-        heading: 'Where it comes from',
+        heading: 'The short version',
+        paragraphs: [
+          'The three emotes cover the three reactions a streamer most needs to read in chat: something was funny, something was impressive, something was sad. Chat types the name the way other people type LOL, hype or sad face, and the extension replaces the word with the image.',
+        ],
+        list: [
+          'KEKW: laughter, a still of the Spanish comedian Juan Joya Borja (El Risitas) mid-laugh. Also used sarcastically when something fails.',
+          'POGGERS: excitement, a wide-eyed Pepe the Frog. The same job as PogChamp: a big play, a surprise, a raid landing.',
+          'Sadge: sadness or disappointment, a squashed, downcast Pepe the Frog. Used sincerely (a loss, a stream ending) and ironically (a small inconvenience treated as a tragedy).',
+        ],
+      },
+      {
+        heading: 'KEKW: where it comes from',
         paragraphs: [
           'The image is from a June 2007 interview on the Spanish TV programme Ratones Coloraos, in which Borja breaks down laughing while telling a story about throwing kitchen pans into the sea. The clip became a meme in its own right years before the emote existed.',
           'The emote itself was submitted to FrankerFaceZ on 21 August 2019 by the user Keesual. It spread across Twitch over the following weeks after large chats such as xQc’s and AdmiralBulldog’s enabled it.',
@@ -56,103 +67,43 @@ export const GLOSSARY: GlossaryTerm[] = [
         ],
       },
       {
-        heading: 'Why you might see only the word',
-        paragraphs: [
-          'KEKW is not a Twitch-native emote. It is served by browser extensions, FrankerFaceZ and BetterTTV, that replace the text with an image for people who have them installed. Anyone without the extension, including most mobile viewers, sees the plain text “KEKW”. The same is true in chat logs and in any tool that reads chat as text.',
-        ],
-      },
-      {
-        heading: 'How it is used',
-        paragraphs: [
-          'As a reaction to something funny, or sarcastically to something that failed. Variants stack other emote suffixes onto the name; the base form is the one worth knowing.',
-        ],
-      },
-    ],
-    related: ['poggers', 'sadge'],
-    seeAlso: [
-      { label: 'Chat Archive — every stream’s chat saved and searchable', href: '/features/chat-archive' },
-      { label: 'What chat velocity is', href: '/blog/what-is-chat-velocity' },
-    ],
-    sources: [
-      { label: 'Know Your Meme: KEKW', url: 'https://knowyourmeme.com/memes/kekw' },
-    ],
-    checked: '2026-10-30',
-  },
-  {
-    slug: 'poggers',
-    term: 'POGGERS',
-    aliases: ['Poggers', 'POGGERS emote', 'poggers meaning'],
-    title: 'POGGERS Meaning — The Twitch Hype Emote',
-    description:
-      'POGGERS is a Twitch emote of a wide-eyed Pepe the Frog used for excitement, in the same spirit as PogChamp. Where it came from and how chat uses it.',
-    definition:
-      'POGGERS is a Twitch chat emote that means excitement or hype. It shows Pepe the Frog with a wide-eyed, open-mouthed expression and is used the way PogChamp is used: when something impressive or surprising just happened.',
-    sections: [
-      {
-        heading: 'Where it comes from',
+        heading: 'POGGERS: where it comes from',
         paragraphs: [
           'POGGERS was submitted to BetterTTV on 23 February 2017. It is one of several Pepe-based emotes that took hold on Twitch through the browser extensions, alongside emotes such as monkaS. By October 2020 it was enabled in more than 160,000 Twitch channels.',
           'The name is a play on PogChamp, the Twitch-native emote that originally showed the face of fighting-game commentator Ryan “Gootecks” Gutierrez. Twitch removed that original image in January 2021; the PogChamp name now shows a Komodo dragon, the emote known as KomodoHype.',
+          '“Pog” and “poggers” are also used as words in their own right, in chat and in speech, to mean that something is good.',
         ],
       },
       {
-        heading: 'Why you might see only the word',
-        paragraphs: [
-          'POGGERS is served by the BetterTTV extension, not by Twitch. Viewers without the extension, and most mobile viewers, see the plain text. “Pog” and “poggers” are also used as words in their own right, in chat and in speech, to mean that something is good.',
-        ],
-      },
-      {
-        heading: 'How it is used',
-        paragraphs: [
-          'A big play, a surprise reveal, a raid landing, a donation goal hit: POGGERS is the all-purpose hype reaction. A burst of it is one of the clearest signals that chat just spiked, which is what chat-velocity tools measure.',
-        ],
-      },
-    ],
-    related: ['kekw', 'sadge'],
-    seeAlso: [
-      { label: 'Viral Moments — hype spikes marked as they happen', href: '/features/viral-moments' },
-      { label: 'What chat velocity is', href: '/blog/what-is-chat-velocity' },
-    ],
-    sources: [
-      { label: 'Know Your Meme: POGGERS', url: 'https://knowyourmeme.com/memes/poggers' },
-    ],
-    checked: '2026-10-30',
-  },
-  {
-    slug: 'sadge',
-    term: 'Sadge',
-    aliases: ['SADGE', 'Sadge emote', 'sadge meaning'],
-    title: 'Sadge Meaning — The Twitch Sad Emote',
-    description:
-      'Sadge is a Twitch emote of a flattened, downcast Pepe the Frog used to express sadness or disappointment, often ironically. Origin and usage.',
-    definition:
-      'Sadge is a Twitch chat emote that means sadness or disappointment. It shows a squashed, downcast Pepe the Frog, and chat uses it both sincerely (a loss, a stream ending) and ironically (a mild inconvenience treated as a tragedy).',
-    sections: [
-      {
-        heading: 'Where it comes from',
+        heading: 'Sadge: where it comes from',
         paragraphs: [
           'The image is an edit of the much older “Feels Bad Man” sad-frog drawing, which first appeared on 4chan in January 2009. The Sadge emote was submitted to BetterTTV on 3 January 2020 and added to FrankerFaceZ on 14 January 2020.',
-          'It spread through early and mid 2020, particularly in AdmiralBulldog’s and Forsen’s communities, and turned into copypasta and memes outside Twitch soon after.',
+          'It spread through early and mid 2020, particularly in AdmiralBulldog’s and Forsen’s communities, and turned into copypasta and memes outside Twitch soon after. The word has outgrown the image: “sadge” is used on its own as an adjective, on Twitch and off it.',
         ],
       },
       {
         heading: 'Why you might see only the word',
         paragraphs: [
-          'Like KEKW and POGGERS, Sadge is an extension emote. Without BetterTTV or FrankerFaceZ installed, viewers see the word. The word has outgrown the image: “sadge” is used on its own as an adjective, on Twitch and off it.',
+          'None of the three is a Twitch-native emote. BetterTTV and FrankerFaceZ replace the text with an image for people who have the extension installed. Anyone without it, including most mobile viewers, sees the plain text “KEKW”, “POGGERS” or “Sadge”. The same is true in chat logs and in any tool that reads chat as text, which is why a streamer reading an exported chat log will see the words, not the pictures.',
         ],
       },
       {
-        heading: 'How it is used',
+        heading: 'What a burst of each tells a streamer',
         paragraphs: [
-          'As a reaction to bad news, a lost match, or a streamer saying goodnight. A wall of Sadge when a stream ends is a compliment.',
+          'A wall of KEKW after a joke or a fail is a clear laughter signal. A burst of POGGERS after a play, a reveal or a donation goal is one of the clearest signs that chat just spiked, which is what chat-velocity tools measure. A wall of Sadge when a stream ends is a compliment. Reading these three words is the simplest form of chat sentiment: counting how many people typed them in a short window, and which one dominates.',
+          'Variants stack other emote suffixes onto the name; the base forms above are the ones worth knowing. Meanings drift, so treat this as how the emotes are used in mainstream English-language Twitch chat as of the date below.',
         ],
       },
     ],
-    related: ['kekw', 'poggers'],
     seeAlso: [
+      { label: 'Chat Archive: every stream’s chat saved and searchable', href: '/features/chat-archive' },
+      { label: 'Viral Moments: hype spikes marked as they happen', href: '/features/viral-moments' },
+      { label: 'What chat velocity is', href: '/blog/what-is-chat-velocity' },
       { label: 'How to read chat sentiment in real time', href: '/blog/how-to-read-chat-sentiment-in-real-time' },
     ],
     sources: [
+      { label: 'Know Your Meme: KEKW', url: 'https://knowyourmeme.com/memes/kekw' },
+      { label: 'Know Your Meme: POGGERS', url: 'https://knowyourmeme.com/memes/poggers' },
       { label: 'Know Your Meme: Sadge', url: 'https://knowyourmeme.com/memes/sadge' },
     ],
     checked: '2026-10-30',

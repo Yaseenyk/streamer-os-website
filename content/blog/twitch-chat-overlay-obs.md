@@ -101,7 +101,7 @@ cover Kick as well.
   only for viewers with BetterTTV or FrankerFaceZ installed. A Browser Source has
   no extensions, so it shows the words. Widget services often render these
   emotes themselves; check their settings. The glossary explains
-  [KEKW](/glossary/kekw), [POGGERS](/glossary/poggers) and [Sadge](/glossary/sadge).
+  [KEKW, POGGERS and Sadge](/glossary/twitch-emotes).
 - **Chat is behind another source.** Sources render in list order; drag the
   Browser Source above the game capture.
 

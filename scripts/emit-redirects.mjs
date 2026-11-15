@@ -11,7 +11,7 @@
  * meta-refresh - the strongest soft redirect available here. Stubs are kept out
  * of the sitemap deliberately.
  */
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import path from 'node:path';
 
 const OUT = path.join(process.cwd(), 'out');
@@ -47,12 +47,36 @@ export const BLOG_REDIRECTS = {
   'how-to-get-your-first-twitch-sponsorship': 'sponsors-for-small-streamers',
   // 2026-10-23: competed with the guide for the same query; merged into it.
   'auto-switch-obs-scenes-from-chat-activity-no-scripts': 'auto-switch-obs-scenes-guide',
+  // 2026-11-16 (AdSense low-value review): the explainer was folded into the
+  // post it overlapped, which gained its four tests and the cloud trade-offs.
+  // Source kept in content/blog-archive/.
+  'the-rise-of-zero-cloud-stream-tools': 'what-stream-tools-send-to-the-cloud',
 };
 
+/**
+ * Non-blog redirects: old path -> live path (no leading slash).
+ * - docs/auto-hype and docs/performance were real pages once (deleted from
+ *   git history) and Bing still reports them as 4xx; the live equivalents are
+ *   the feature pages.
+ * - the three emote glossary entries were merged into one deeper entry.
+ */
+export const PAGE_REDIRECTS = {
+  'docs/auto-hype': 'features/auto-hype',
+  'docs/performance': 'features/performance',
+  'glossary/kekw': 'glossary/twitch-emotes',
+  'glossary/poggers': 'glossary/twitch-emotes',
+  'glossary/sadge': 'glossary/twitch-emotes',
+};
+
+const ALL = [
+  ...Object.entries(BLOG_REDIRECTS).map(([from, to]) => [`blog/${from}`, `blog/${to}`]),
+  ...Object.entries(PAGE_REDIRECTS),
+];
+
 let written = 0;
-for (const [from, to] of Object.entries(BLOG_REDIRECTS)) {
-  const target = `${SITE}/blog/${to}`;
-  if (!existsSync(path.join(OUT, 'blog', `${to}.html`))) {
+for (const [from, to] of ALL) {
+  const target = `${SITE}/${to}`;
+  if (!existsSync(path.join(OUT, `${to}.html`))) {
     throw new Error(`redirect target missing from ./out: ${from} -> ${to}`);
   }
 
@@ -65,9 +89,10 @@ for (const [from, to] of Object.entries(BLOG_REDIRECTS)) {
 `;
 
   // Both URL shapes, since the export serves /blog/x and /blog/x/.
-  writeFileSync(path.join(OUT, 'blog', `${from}.html`), html);
-  mkdirSync(path.join(OUT, 'blog', from), { recursive: true });
-  writeFileSync(path.join(OUT, 'blog', from, 'index.html'), html);
+  mkdirSync(path.dirname(path.join(OUT, `${from}.html`)), { recursive: true });
+  writeFileSync(path.join(OUT, `${from}.html`), html);
+  mkdirSync(path.join(OUT, from), { recursive: true });
+  writeFileSync(path.join(OUT, from, 'index.html'), html);
   written += 1;
 }
 

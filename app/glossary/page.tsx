@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   description:
     'Short, sourced definitions of the words a new streamer meets in chat: KEKW, POGGERS, Sadge, Twitch banned words, Nightbot custom commands. Definition first.',
   alternates: { canonical: `${SITE_URL}/glossary` },
+  // A three-entry index is a thin list page; the entries themselves are the
+  // substance. Keep it crawlable for links, but out of the index and sitemap
+  // until the glossary is large enough to need a hub (AdSense review, 2026-11-16).
+  robots: { index: false, follow: true },
 };
 
 // DefinedTermSet for the whole glossary; each term page declares its own
