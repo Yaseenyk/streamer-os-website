@@ -53,14 +53,14 @@ If you're shopping for automation that keeps up with your stream, the marketing 
 
 Automatic scene switching lives or dies on timing. A switch that lands a beat late doesn't just fail to help — it actively makes your stream feel off. The cause is almost always distance: the farther your data has to travel and the more servers it has to wait on, the more lag you feel.
 
-A local-first pipeline solves that by keeping the conversation between your automation and OBS entirely on your own machine. No internet round-trip, no shared server queue, no waiting. Just your scene, switching the instant the moment calls for it — so you look like you've got that production crew in the back, even when it's just you.
+A local-first pipeline solves that by keeping the conversation between your automation and OBS entirely on your own machine. No internet round-trip, no shared server queue, no waiting. Just your scene, switching as soon as the rule fires — so you look like you've got that production crew in the back, even when it's just you.
 
 ---
 
 ## Frequently Asked Questions
 
 ### Why does my automation switch scenes a second or two late?
-Usually because the tool runs in the cloud. Your chat data has to travel out to a remote server, get processed, and send the command back to your PC — a full internet round-trip that adds up to a visible delay. A local-first tool skips that trip entirely, so switches fire almost instantly.
+Usually because the tool runs in the cloud. Your chat data has to travel out to a remote server, get processed, and send the command back to your PC — a full internet round-trip that adds up to a visible delay. A local-first tool skips that trip entirely, so the only delay left is the app’s own once-per-second chat sampling (no latency figure has been measured).
 
 ### Is cloud-based stream automation always slower than local?
 For the moment of the switch, yes — structurally so. Cloud tools have to send data across the internet and back, and you're sharing their servers with everyone else. A local tool talking to OBS on your own machine has neither of those delays, so it's consistently faster and keeps working even if a provider goes down.

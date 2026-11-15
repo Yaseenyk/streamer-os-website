@@ -242,3 +242,17 @@ of the app's own readout, left as the screenshot alt text; the visible caption w
 the app); "94% payload reduction" and MessagePack batching statements on the performance page (not
 re-checked against the product code); the Hinglish, latency and "instant" scene-switch wording on
 feature pages (no measurements found in the product repo).
+
+### Follow-up 2: MessagePack, "94%" and "instant" wording
+
+Searched the product repo (src, src-tauri, docs) for MessagePack, msgpack, bincode and "payload
+reduction": no source. The "94%" in the site is not a product claim (a traffic statistic in a code
+comment, and a disk-usage example in a post). Changes: removed the "batched MessagePack" sentence from
+the performance page; "instantly" on the OBS Bridge page became "with one click"; the zero-cloud page
+no longer says scenes switch "the instant chat reacts" and now says there is no internet delay and that
+rules run on the app's once-per-second chat sampling (`SYSTEM_ARCHITECTURE.md`: velocity tick default
+1.0 Hz); two sentences in `optimizing-desktop-ipc-obs-websocket-latency` ("the instant", "almost
+instantly") were reworded and now say no latency figure has been measured. Kept as is: the 800 ms
+first-token wording on the AI Sidekick page ("designed to", matches the PRD target; the architecture
+log records a 315 ms benchmark). Still unverified: "Chat parsing, velocity and sentiment scoring run off
+the UI thread" on the performance page (architecture description, not checked in code).

@@ -322,7 +322,7 @@ export default function ObsBridgeGuidePage() {
             icon={Radio}
             eyebrow="Switch the feed from the cockpit"
             title="Click a scene to cut the program feed."
-            body="Click any scene and streamerOS switches the live program feed over the WebSocket — instantly, without alt-tabbing. The connection-status badge in the top bar stays live and reports the current program scene the whole time."
+            body="Click any scene and streamerOS switches the live program feed over the WebSocket, with one click and without alt-tabbing. The connection-status badge in the top bar stays live and reports the current program scene the whole time."
             last
             mock={
               <div className="space-y-4">

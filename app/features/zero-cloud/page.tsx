@@ -41,7 +41,7 @@ const FAQ_ITEMS: FaqEntry[] = [
   },
   {
     q: 'Why does local-first matter for a streamer?',
-    a: 'Two reasons: latency and privacy. Automation with no cloud round-trip fires scene switches the instant chat reacts, and chat logs that never sit on a third-party server cannot leak from one.',
+    a: 'Two reasons: latency and privacy. Automation with no cloud round-trip adds no internet delay between chat and the scene switch (rules are evaluated on the app’s once-per-second chat sampling), and chat logs that never sit on a third-party server cannot leak from one.',
   },
   {
     q: 'What keeps working with the network unplugged?',

@@ -39,7 +39,7 @@ const FAQ_ITEMS: FaqEntry[] = [
   },
   {
     q: 'What makes it lighter than other stream tools?',
-    a: 'There is no bundled browser engine. The core is Rust on a Tauri shell, so the app is a native process rather than a Chromium instance with a UI drawn inside it. Chat parsing, velocity and sentiment scoring all run in Rust off the UI thread, and events cross to the interface as batched MessagePack rather than a JSON message per event.',
+    a: 'There is no bundled browser engine. The core is Rust on a Tauri shell, so the app is a native process rather than a Chromium instance with a UI drawn inside it. Chat parsing, velocity and sentiment scoring all run in Rust off the UI thread.',
   },
   {
     q: 'What does the CPU figure include, and what costs more?',
