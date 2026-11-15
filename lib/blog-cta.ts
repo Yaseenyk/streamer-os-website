@@ -40,9 +40,9 @@ const CLUSTERS: Cluster[] = [
     match: ['Optimization', 'Performance', 'Streaming Hardware'],
     heading: 'You just freed up CPU. Don’t hand it straight back.',
     blurb:
-      'Most stream tools take back everything these settings won. streamerOS runs your scene automation in 1.8% CPU — local, no cloud round-trip, no OBS plugins to break.',
+      'Most stream tools take back everything these settings won. streamerOS runs your scene automation in about 1.8% CPU in the developer’s benchmark — local, no cloud round-trip, no OBS plugins to break.',
     callout: {
-      text: 'Tuning OBS only helps if the rest of your stack stays out of the way. streamerOS holds 1.8% CPU under a live 1080p60 game.',
+      text: 'Tuning OBS only helps if the rest of your stack stays out of the way. streamerOS sustained about 1.8% CPU in the developer’s RTX 3060 benchmark.',
       linkLabel: 'See the performance numbers',
       href: '/features/performance',
     },

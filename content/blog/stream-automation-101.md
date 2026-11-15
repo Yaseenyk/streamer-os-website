@@ -90,7 +90,7 @@ Automation is not free, and these are the ones that bite:
 
 ## Where streamerOS fits
 
-[streamerOS](/features) automates the three items above in one local app: [Auto-Hype Director](/features/auto-hype) for scene switching from chat signals, [Viral Moments](/features/viral-moments) for marking spikes, and [Aura Studio](/features/aura-studio) for reactive overlays. It runs on your PC with a measured [1.8% CPU footprint](/features/performance) under a live 1080p60 game with OBS encoding. You do not need it to follow anything above; OBS and its free plugins cover the first two steps.
+[streamerOS](/features) automates the three items above in one local app: [Auto-Hype Director](/features/auto-hype) for scene switching from chat signals, [Viral Moments](/features/viral-moments) for marking spikes, and [Aura Studio](/features/aura-studio) for reactive overlays. It runs on your PC with a measured [1.8% CPU footprint](/features/performance) in the developer’s RTX 3060 benchmark. You do not need it to follow anything above; OBS and its free plugins cover the first two steps.
 
 ## When automation is not the answer
 

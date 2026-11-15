@@ -117,8 +117,8 @@ export const SHOTS = {
     src: '/screenshots/panel-obs-connection.webp',
     width: 700,
     height: 258,
-    alt: 'The OBS Connection card showing a connected instance running Cyberpunk2077 at 1.8% CPU with five scenes synced',
-    caption: '1.8% CPU under a live game',
+    alt: 'The OBS Connection card showing a connected instance running Cyberpunk2077 at about 1.8% CPU in the developer’s benchmark with five scenes synced',
+    caption: '1.8% CPU in the developer’s benchmark',
   },
   streamDeck: {
     src: '/screenshots/panel-stream-deck.webp',

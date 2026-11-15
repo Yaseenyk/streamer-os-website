@@ -47,7 +47,7 @@ const FAQ_ITEMS: FaqEntry[] = [
   },
   {
     q: 'Is 1.8% CPU measured or estimated?',
-    a: 'The 1.8% is a sustained CPU figure recorded on the developer’s own RTX 3060 test PC, for the core app only. It is one machine measured by one person, not an independent audit. The formal capture under a live 1080p60 game with OBS encoding, defined in the project’s benchmark protocol, is part of the pre-launch checklist and its result will be published whichever way it comes out. Idle-desktop numbers are meaningless for a streaming tool, which is why the protocol requires a game running.',
+    a: 'The 1.8% is a sustained CPU figure recorded on the developer’s own RTX 3060 test PC, for the core app only. It is one machine measured by one person, not an independent audit. The formal capture in the developer’s RTX 3060 benchmark, defined in the project’s benchmark protocol, is part of the pre-launch checklist and its result will be published whichever way it comes out. Idle-desktop numbers are meaningless for a streaming tool, which is why the protocol requires a game running.',
   },
 ];
 
@@ -269,8 +269,7 @@ export default function PerformanceGuidePage() {
               Light enough to forget it&rsquo;s running.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              streamerOS v1.0 is a full broadcast cockpit at a 1.8% CPU
-              footprint. Free for 7 days, then $29 once.
+              streamerOS v1.0 is a full broadcast cockpit at about 1.8% CPUin the developer’s benchmark. Free for 7 days, then $29 once.
             </p>
             <LaunchBadge className="mt-8" />
             <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">

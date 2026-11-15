@@ -78,7 +78,7 @@ Every extra server is another round trip. I will not put a number on it, because
 
 Local does not mean free. A hosted overlay still **renders on your PC** inside an OBS browser source, so you pay CPU and RAM for it either way. A local-first tool adds its own process on top. The saving comes from running less, and lighter, not from the cloud having moved the cost elsewhere.
 
-That is why the number to look for is a measurement under load. streamerOS publishes a [1.8% CPU footprint](/features/performance), measured under a live 1080p60 game with OBS encoding; whatever tool you use, ask for the same kind of figure and check it yourself with OBS stats while streaming. For the other side of the picture, the [low-end PC automation guide](/blog/obs-automation-on-a-low-end-pc) shows what actually eats frames.
+That is why the number to look for is a measurement under load. streamerOS publishes a [1.8% CPU footprint](/features/performance), measured in the developer’s RTX 3060 benchmark; whatever tool you use, ask for the same kind of figure and check it yourself with OBS stats while streaming. For the other side of the picture, the [low-end PC automation guide](/blog/obs-automation-on-a-low-end-pc) shows what actually eats frames.
 
 ## How to check for yourself
 

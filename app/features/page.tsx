@@ -167,7 +167,7 @@ export default function FeaturesPage() {
               {
                 icon: Gauge,
                 title: 'Ultra-light',
-                body: 'A Rust core profiled against a live 1080p60 game. It yields every spare cycle to your game and disappears.',
+                body: 'A Rust core benchmarked at about 1.8% CPU on the developer’s RTX 3060 PC. It yields every spare cycle to your game and disappears.',
                 href: '/features/performance',
               },
               {

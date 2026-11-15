@@ -280,7 +280,7 @@ export const FOUNDATIONS = [
     name: 'Ultra-Light Performance',
     href: '/features/performance',
     icon: Gauge,
-    menu: '1.8% CPU under a live game.',
+    menu: '1.8% CPU in the developer’s benchmark.',
   },
   {
     name: 'Zero-Cloud Privacy',

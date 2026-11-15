@@ -66,4 +66,4 @@ Usually because the tool runs in the cloud. Your chat data has to travel out to 
 For the moment of the switch, yes — structurally so. Cloud tools have to send data across the internet and back, and you're sharing their servers with everyone else. A local tool talking to OBS on your own machine has neither of those delays, so it's consistently faster and keeps working even if a provider goes down.
 
 ### Will running automation locally slow down my game?
-It shouldn't, if it's built well. streamerOS holds a flat 1.8% CPU footprint even under a live 1080p60 game, so your automation runs quietly in the background without stealing frames from your gameplay.
+It shouldn't, if it's built well. streamerOS sustained about 1.8% CPU in the developer’s RTX 3060 benchmark (single machine, not yet captured under a live game), so your automation runs quietly in the background without stealing frames from your gameplay.

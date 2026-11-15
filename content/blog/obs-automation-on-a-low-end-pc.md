@@ -23,8 +23,7 @@ Break down what a scene-automation tool does:
   Free.
 
 None of that is expensive. A native app doing all three sits in the low single
-digits of one core — streamerOS [holds 1.8% under a live 1080p60
-game](/features/performance), which is
+digits of one core — streamerOS [sustained about 1.8% in the developer’s RTX 3060 benchmark](/features/performance), which is
 the kind of number this work should produce.
 
 ## What is actually eating your frames

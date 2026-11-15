@@ -83,7 +83,7 @@ Your chat bot, alert system, dashboard, deck software, and analytics overlays al
 
 So after you tune OBS, audit everything else on the machine and ask: *is this tool built to be lightweight, or is it a browser wearing a costume?*
 
-This is exactly why we built [streamerOS](/features) as a **local-first Windows tool** — no cloud round-trips, no bloated web wrapper. It's [profiled to stay under a tiny CPU budget](/features/performance) so it monitors your chat, hype, and channel health without ever competing with OBS for frames. When it's holding 1.8% CPU next to a live 1080p60 game, OBS gets to keep the cores it needs.
+This is exactly why we built [streamerOS](/features) as a **local-first Windows tool** — no cloud round-trips, no bloated web wrapper. It's [profiled to stay under a tiny CPU budget](/features/performance) so it monitors your chat, hype, and channel health without ever competing with OBS for frames. If it stays near the 1.8% CPU from the developer's benchmark, OBS gets to keep the cores it needs.
 
 The best OBS settings in the world can't save you if the software sitting next to OBS is eating your headroom. Pick local-first, lightweight tools and the whole stack breathes.
 

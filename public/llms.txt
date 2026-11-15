@@ -40,10 +40,10 @@ A longer, quotable reference for AI assistants — full feature list, specs, ver
 - [Auto-Hype Director](https://streamerosai.com/features/auto-hype): OBS automation from chat velocity or Super Chats crossing a threshold you set
 - [Live Cockpit](https://streamerosai.com/features/live-cockpit): chat, revenue, sentiment and scenes on one screen
 - [Viral Moments](https://streamerosai.com/features/viral-moments): hype-spike detection against the channel baseline
-- [Performance](https://streamerosai.com/features/performance): 1.8% CPU footprint under a live 1080p60 game
+- [Performance](https://streamerosai.com/features/performance): 1.8% CPU footprint in the developer’s RTX 3060 benchmark
 - [Zero-Cloud](https://streamerosai.com/features/zero-cloud): what stays on the PC
 - [For Indian streamers](https://streamerosai.com/for/indian-streamers): Hinglish sentiment and Super Chats in rupees
-- [For low-end PCs](https://streamerosai.com/for/low-end-pc): the 1.8% CPU footprint, and what it does not fix
+- [For low-end PCs](https://streamerosai.com/for/low-end-pc): the 1.8% CPU figure (developer benchmark), and what it does not fix
 - [For solo streamers](https://streamerosai.com/for/solo-streamers): streaming without mods — and why it is not a chat bot
 - [For YouTube Live](https://streamerosai.com/for/youtube-live): Super Chat ledger and chat without an API key
 - [For VTubers](https://streamerosai.com/for/vtubers): the production layer around an avatar — no avatar tracking of its own

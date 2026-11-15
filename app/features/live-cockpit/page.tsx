@@ -64,7 +64,7 @@ const FAQ_ITEMS: FaqEntry[] = [
   },
   {
     q: 'Will the Cockpit slow down my stream?',
-    a: 'The core streamerOS app holds a 1.8% CPU footprint under a live 1080p60 game. That figure is for the core app: the AI model behind Sentiment Horizon runs separately in Ollama, which is why an RTX 3060-class GPU is recommended if you use it.',
+    a: 'The core streamerOS app sustained about 1.8% CPU in the developer’s RTX 3060 benchmark (single machine, not yet captured under a live game). That figure is for the core app: the AI model behind Sentiment Horizon runs separately in Ollama, which is why an RTX 3060-class GPU is recommended if you use it.',
   },
   {
     q: 'What still works after the 7-day trial?',

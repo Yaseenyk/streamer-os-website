@@ -47,7 +47,7 @@ const FAQ_ITEMS: FaqEntry[] = [
   },
   {
     q: 'Does a live reactive overlay cost me frames?',
-    a: 'No. streamerOS runs on a Rust core that holds a 1.8% CPU footprint under a live 1080p60 game — the overlay reacts in real time while your frames stay with the game and OBS.',
+    a: 'No. streamerOS runs on a Rust core that sustained about 1.8% CPU in the developer’s RTX 3060 benchmark (single machine, not yet captured under a live game) — the overlay reacts in real time while your frames stay with the game and OBS.',
   },
 ];
 

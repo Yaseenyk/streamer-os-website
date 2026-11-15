@@ -40,7 +40,7 @@ const FAQ_ITEMS: FaqEntry[] = [
   },
   {
     q: 'Will streamerOS use less CPU than Streamlabs?',
-    a: 'streamerOS holds a 1.8% CPU footprint under a live 1080p60 game. It is a native Rust application rather than an Electron one, so it does not ship a browser engine with it. The comparison that matters on your machine is the one you run yourself — Task Manager during a live stream is the only benchmark worth trusting.',
+    a: 'streamerOS sustained about 1.8% CPU in the developer’s RTX 3060 benchmark (single machine, not yet captured under a live game). It is a native Rust application rather than an Electron one, so it does not ship a browser engine with it. The comparison that matters on your machine is the one you run yourself — Task Manager during a live stream is the only benchmark worth trusting.',
   },
 ];
 

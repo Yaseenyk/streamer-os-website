@@ -43,7 +43,7 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: 'Will it slow down my game?',
-    a: 'No. streamerOS runs on a Rust core profiled against a live 1080p60 game, where it holds a 1.8% CPU footprint. It is built to yield spare cycles to your game — your frames stay with the game, not the tooling. Heavier jobs you start yourself, like encoding a Short, are meant for after the stream.',
+    a: 'No. streamerOS runs on a Rust core benchmarked on the developer’s RTX 3060 PC at about 1.8% CPU (a formal live-game capture has not been run yet). It is built to yield spare cycles to your game — your frames stay with the game, not the tooling. Heavier jobs you start yourself, like encoding a Short, are meant for after the stream.',
   },
   {
     q: 'What exactly is the Auto-Hype Director?',

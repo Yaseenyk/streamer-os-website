@@ -111,7 +111,7 @@ export default function Footer() {
               <SignalLogo className="text-2xl" />
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-6 text-zinc-400">
-              The ultra-lightweight desktop cockpit for live streamers. Chat, OBS and your audience in one window, at 1.8% CPU, with nothing
+              The ultra-lightweight desktop cockpit for live streamers. Chat, OBS and your audience in one window, at about 1.8% CPU in the developer’s benchmark, with nothing
               in the cloud.
             </p>
             <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-500">

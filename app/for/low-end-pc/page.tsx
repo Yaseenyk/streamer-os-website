@@ -10,7 +10,7 @@ import { SHOTS } from '@/lib/shots';
 export const metadata: Metadata = {
   title: 'Stream automation for a low-end PC',
   description:
-    'streamerOS holds 1.8% CPU under a live 1080p60 game because it is Rust and Tauri, not a browser engine. What that does and does not fix on a modest PC.',
+    'streamerOS sustained about 1.8% CPU in the developer’s RTX 3060 benchmark because it is Rust and Tauri, not a browser engine. What that does and does not fix on a modest PC.',
   alternates: { canonical: 'https://streamerosai.com/for/low-end-pc' },
 };
 
@@ -20,19 +20,19 @@ export default function LowEndPcPage() {
       crumb={{ name: 'For low-end PCs', path: '/for/low-end-pc' }}
       kicker="For low-end PCs"
       title="Every frame your game can get."
-      intro="Most stream tools are web apps in a costume: a whole browser engine running next to your game. streamerOS is a Rust desktop app that holds a 1.8% CPU footprint under a live 1080p60 stream."
+      intro="Most stream tools are web apps in a costume: a whole browser engine running next to your game. streamerOS is a Rust desktop app that holds a 1.8% CPU footprint in the developer’s RTX 3060 benchmark."
       problem={{
         heading: 'Where the frames actually go',
         paragraphs: [
           'You tuned your encoder, dropped to 900p, turned off every OBS source you could live without — and the stall is still there when chat gets busy. The usual culprit is not OBS. It is the stack of helper apps beside it, each one shipping its own copy of Chromium to render a dashboard you look at twice an hour.',
           'A browser engine costs you hundreds of megabytes of RAM and a steady slice of CPU whether you are looking at it or not. On a machine with headroom you never notice. On a modest one it is the difference between a clean VOD and encoder overload at the exact moment your chat reacts to something.',
-          'streamerOS is built in Rust with Tauri, which uses the WebView already in Windows rather than bundling a second browser. That is the whole trick, and it is why the cockpit sits at 1.8% CPU with a game running.',
+          'streamerOS is built in Rust with Tauri, which uses the WebView already in Windows rather than bundling a second browser. That is the whole trick, and it is why the cockpit sits at about 1.8% CPU in the developer’s benchmark with a game running.',
         ],
       }}
       cards={[
         {
           icon: Cpu,
-          title: '1.8% CPU under a live game',
+          title: '1.8% CPU in the developer’s benchmark',
           body: 'Measured with a 1080p60 stream running and a game in the foreground. The OBS Connection card shows the number live, so you are not taking our word for it.',
         },
         {
@@ -76,7 +76,7 @@ export default function LowEndPcPage() {
         },
         {
           q: 'Is the 1.8% CPU figure real?',
-          a: 'It is measured with a 1080p60 stream live and a game in the foreground, and the app shows its own current figure on the OBS Connection card while you use it. Your number will vary with your hardware and how many automation rules you run.',
+          a: 'It comes from a single-machine offline benchmark on the developer’s RTX 3060 PC, not from a formal capture under a live 1080p60 game, which has not been run yet. The app shows its own current figure on the OBS Connection card while you use it. Your number will vary with your hardware and how many automation rules you run.',
         },
         {
           q: 'Do I need a good GPU?',

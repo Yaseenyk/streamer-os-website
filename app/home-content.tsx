@@ -54,7 +54,7 @@ function BentoCard({ className = '', children }: { className?: string; children:
 // Marquee — infinite tech-stack / performance ticker
 // ---------------------------------------------------------------------------
 const MARQUEE_ITEMS = [
-  '1.8% CPU footprint',
+  'About 1.8% CPU (developer benchmark)',
   'Your frames stay with the game',
   'Nothing leaves your PC',
   'No account, no cloud',
@@ -109,7 +109,7 @@ const HERO_FEATURES = [
   {
     icon: Gauge,
     label: '1.8% CPU',
-    detail: 'Sustained under a live 1080p60 game.',
+    detail: 'Developer’s RTX 3060 benchmark, not yet a live-game capture.',
     href: '/features/performance',
   },
   {
@@ -419,7 +419,7 @@ function BentoFeatures() {
                 1.8%
               </p>
               <p className="mt-2 text-sm text-zinc-400">
-                Sustained CPU under a live 1080p60 game. Your frames stay yours.
+                Sustained CPU in the developer’s RTX 3060 benchmark; a live-game capture is still to come.
               </p>
             </div>
           </BentoCard>

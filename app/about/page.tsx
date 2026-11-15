@@ -24,7 +24,7 @@ const VALUES: Value[] = [
   {
     icon: Gauge,
     title: 'Performance First',
-    body: 'A Rust core, profiled against a live game until it disappeared into the background. 1.8% CPU is a promise, not a peak.',
+    body: 'A Rust core, built to disappear into the background. About 1.8% CPU is the figure from the developer’s RTX 3060 benchmark, not a guarantee.',
   },
   {
     icon: ShieldCheck,
@@ -111,8 +111,7 @@ export default function AboutPage() {
               ask for an account and then ship a browser engine to draw a few meters,
               which costs frame rate on the one thing viewers came to watch. streamerOS
               is a native Windows app written in Rust on Tauri, aimed at staying out of
-              the way: its target is about 1.8% CPU under a live 1080p60 game, for the
-              core app (chat monitoring, automation and the cockpit).
+              the way: its benchmark figure on the developer’s test PC is about 1.8% CPU for thecore app (chat monitoring, automation and the cockpit).
             </p>
             <p>
               The second reason is that chat belongs to your viewers. They never chose

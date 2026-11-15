@@ -51,7 +51,7 @@ const FAQ_ITEMS: FaqEntry[] = [
   },
   {
     q: 'Will automation add lag to my stream?',
-    a: 'No. Everything runs locally next to OBS — there is no server in the loop. The whole streamerOS app holds a 1.8% CPU footprint under a live 1080p60 game, so your frames stay with the game and the scene cut lands the instant the trigger condition is met.',
+    a: 'No. Everything runs locally next to OBS — there is no server in the loop. The whole streamerOS app sustained about 1.8% CPU in the developer’s RTX 3060 benchmark (single machine, not yet captured under a live game), so your frames stay with the game and the scene cut lands the instant the trigger condition is met.',
   },
   // People search the name as one word. Answering it here means the page can
   // be found by the spelling they actually type.
@@ -403,7 +403,7 @@ export default function AutoHypeGuidePage() {
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
               The Auto-Hype Director ships in streamerOS v1.0, running at a
-              1.8% CPU footprint. Free to try, then $29 once.
+              about 1.8% CPU in the developer’s benchmark. Free to try, then $29 once.
             </p>
             <LaunchBadge className="mt-8" />
             <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">

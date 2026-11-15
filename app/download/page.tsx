@@ -105,7 +105,7 @@ export default function DownloadPage() {
         <Reveal>
           <h2 className="text-xl font-semibold tracking-tight">System requirements</h2>
           <p className="mt-2 text-sm text-zinc-400">
-            The app itself stays under 2% CPU. Without a GPU or Ollama, everything
+            The core app measured about 1.8% CPU in the developer’s own benchmark. Without a GPU or Ollama, everything
             except the local AI features (AI Sidekick, Sentiment Horizon, Viral
             Engine) still works.
           </p>

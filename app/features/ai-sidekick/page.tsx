@@ -54,7 +54,7 @@ const FAQ_ITEMS: FaqEntry[] = [
   },
   {
     q: 'Will running a local AI model slow down my stream?',
-    a: 'Generating a reply uses your GPU while it runs, so the Sidekick keeps answers to a sentence or two and only generates when you send it a message. The AI Engine toggle stops the engine completely when you want every bit of headroom. Note that the 1.8% CPU figure quoted for streamerOS is the core app under a live 1080p60 game — it does not include AI inference, which depends on your model and GPU.',
+    a: 'Generating a reply uses your GPU while it runs, so the Sidekick keeps answers to a sentence or two and only generates when you send it a message. The AI Engine toggle stops the engine completely when you want every bit of headroom. Note that the 1.8% CPU figure quoted for streamerOS is the core app in the developer’s RTX 3060 benchmark, a single-machine result — it does not include AI inference, which depends on your model and GPU.',
   },
   {
     q: 'Can it switch OBS scenes on its own?',

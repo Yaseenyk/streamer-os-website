@@ -172,7 +172,7 @@ const jsonLd = {
         'Viral Engine — AI titles, hashtags and thumbnail plans from your chat',
         'Brand Guard — on-device speech recognition for banned sponsor terms',
         'Sponsor CRM and Media Kit Generator',
-        '1.8% CPU footprint under a live 1080p60 game',
+        '1.8% CPU footprint in the developer’s RTX 3060 benchmark',
         'Zero-cloud, local-first privacy (no account, no backend)',
       ],
     },

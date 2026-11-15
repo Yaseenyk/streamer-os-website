@@ -21,7 +21,7 @@ streamerOS is a Windows desktop application for Twitch and YouTube streamers tha
 - **Platform:** Windows 10 and 11, 64-bit. No macOS or Linux build, and none planned for v1.0.
 - **Stack:** Rust with Tauri, using the Windows WebView rather than a bundled browser engine (not Electron).
 - **Tested configuration:** 16 GB RAM, 8 cores. An RTX 3060-class GPU is needed only for the local AI features.
-- **CPU footprint:** approximately 1.8% under a live 1080p60 stream with a game running. The app displays its own current figure.
+- **CPU footprint:** approximately 1.8% in the developer’s single-machine RTX 3060 benchmark; a formal capture under a live 1080p60 game has not been run yet. The app displays its own current figure.
 - **OBS integration:** OBS WebSocket v5, the interface built into OBS Studio. No OBS plugin is installed.
 - **Local AI:** models run through Ollama on the user's machine. The app only accepts an AI endpoint on `http://127.0.0.1` and rejects any other address — this is enforced in code, not a preference.
 - **Chat sources:** Twitch via an anonymous, read-only connection (no credentials). YouTube by reading the live chat page already open in the user's own browser (no API key, no quota). Kick is not supported.

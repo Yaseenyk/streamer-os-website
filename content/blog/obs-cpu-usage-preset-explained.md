@@ -98,7 +98,7 @@ companion tool you have open — chat clients, alert systems, overlay browsers,
 automation tools. Each browser source is effectively another tab. Collectively
 they routinely take more CPU than the difference between two adjacent presets.
 
-That is the reasoning behind streamerOS [holding a 1.8% CPU
+That is the reasoning behind streamerOS [benchmarking at about 1.8% CPU
 footprint](/features/performance): the
 automation layer should not be part of the negotiation at all, which is the
 whole argument in [stream automation for a low-end PC](/for/low-end-pc).
