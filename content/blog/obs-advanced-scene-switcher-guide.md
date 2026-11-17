@@ -1,6 +1,6 @@
 ---
 title: "OBS Advanced Scene Switcher: Setup Guide and Macro Recipes"
-description: "OBS Advanced Scene Switcher setup: install it, build a first macro, copy five recipes, fix it not switching, and see the one trigger it lacks."
+description: "Advanced Scene Switcher is a free OBS plugin for Windows, macOS and Linux. Install it, build macros, copy five recipes and fix it not switching."
 date: "2026-10-23"
 author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Automation"]
