@@ -1,5 +1,5 @@
 ---
-title: "Why Scene Switches Feel Instant, Not Laggy"
+title: "Where OBS Scene Switch Lag Comes From"
 description: "OBS scene switch lag: where the delay between a chat spike and the cut comes from, and why a local WebSocket link to OBS avoids most of it."
 date: "2026-07-06"
 author: "Yaseen Khatib"

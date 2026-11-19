@@ -390,7 +390,7 @@ export default function ObsBridgeGuidePage() {
             </li>
             <li>
               <Link href="/blog/optimizing-desktop-ipc-obs-websocket-latency" className="text-cyan-400 underline underline-offset-2">
-                Why scene switches feel instant, not laggy
+                Where scene-switch lag comes from
               </Link>
             </li>
             <li>

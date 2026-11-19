@@ -177,7 +177,7 @@ export const SHOTS = {
     width: 900,
     height: 600,
     alt: 'Chat Triage full of Hinglish messages, with Sentiment Horizon reading the mood of the room as positive',
-    caption: 'Hinglish chat, read correctly',
+    caption: 'Hinglish chat with the mood reading',
   },
   creatorMemory: {
     src: '/screenshots/panel-creator-memory.webp',

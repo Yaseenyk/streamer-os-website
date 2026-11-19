@@ -88,7 +88,7 @@ const CLUSTERS: Cluster[] = [
     match: ['Automation', 'OBS Studio', 'Guides'],
     heading: 'Wire it up once, then stop thinking about it.',
     blurb:
-      'streamerOS drives OBS over WebSocket v5 — no fragile plugins — and switches scenes the instant your chat peaks.',
+      'streamerOS drives OBS over WebSocket v5 — no fragile plugins — and switches scenes when your chat peaks.',
     callout: {
       text: 'streamerOS talks straight to OBS over WebSocket v5, so there is no plugin to break on the next OBS update.',
       linkLabel: 'See the OBS Bridge',

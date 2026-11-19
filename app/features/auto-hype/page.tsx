@@ -51,7 +51,7 @@ const FAQ_ITEMS: FaqEntry[] = [
   },
   {
     q: 'Will automation add lag to my stream?',
-    a: 'No. Everything runs locally next to OBS — there is no server in the loop. The whole streamerOS app sustained about 1.8% CPU in the developer’s RTX 3060 benchmark (single machine, not yet captured under a live game), so your frames stay with the game and the scene cut lands the instant the trigger condition is met.',
+    a: 'No. Everything runs locally next to OBS — there is no server in the loop. The whole streamerOS app sustained about 1.8% CPU in the developer’s RTX 3060 benchmark (single machine, not yet captured under a live game), so your frames stay with the game and the scene cut is sent as soon as the trigger condition is met, with no internet round-trip in between.',
   },
   // People search the name as one word. Answering it here means the page can
   // be found by the spelling they actually type.
@@ -224,7 +224,7 @@ export default function AutoHypeGuidePage() {
             <p className="mx-auto mt-4 max-w-2xl text-zinc-400">
               A simple visual node editor that automates OBS based on your chat&rsquo;s
               live energy. You drag nodes onto a canvas, wire them together, and
-              streamerOS switches scenes the instant the room reacts — no scripting,
+              streamerOS switches scenes when the room reacts (rules run on a once-per-second chat reading) — no scripting,
               no plugins, no cloud.
             </p>
           </Reveal>

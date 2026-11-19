@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 const FAQ_ITEMS: FaqEntry[] = [
   {
     q: 'Does streamerOS understand Hinglish?',
-    a: 'Its chat sentiment does. Sentiment Horizon’s local model is built to read Roman-script Hindi mixed with English, so “Bhai sahi hai” scores positive and “cringe yaar” mildly negative, and the mood reading follows what your viewers actually mean. The AI Sidekick currently replies in English, and Brand Guard — which listens to your mic — uses an English-focused speech model for now.',
+    a: 'Its chat sentiment is designed to. Sentiment Horizon’s local model is prompted to read Roman-script Hindi mixed with English, with the aim that “Bhai sahi hai” scores positive and “cringe yaar” mildly negative. Its Hinglish accuracy has not been benchmarked yet, so treat the reading as a guide. The AI Sidekick currently replies in English, and Brand Guard — which listens to your mic — uses an English-focused speech model for now.',
   },
   {
     q: 'Do I need a YouTube API key or a Google sign-in for YouTube Live chat?',
@@ -89,8 +89,8 @@ interface Card {
 const CARDS: Card[] = [
   {
     icon: Activity,
-    title: 'Sentiment that reads Hinglish',
-    body: '“Bhai sahi hai” scores positive, “cringe yaar” mildly negative. The mood of your chat, from toxic to hype, as it happens.',
+    title: 'Sentiment prompted for Hinglish',
+    body: 'The local classifier is told Roman-script Hindi is in scope (accuracy not yet benchmarked). The mood of your chat, from toxic to hype, as it happens.',
     href: '/features/live-cockpit#sentiment',
     cta: 'Sentiment',
   },
@@ -302,13 +302,13 @@ export default function IndianStreamersPage() {
         <div className="mx-auto max-w-5xl px-6 py-20 sm:py-24">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">
-              Your chat, read right
+              Your chat, your currency
             </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-              Hinglish chat understood. Super Chats counted in rupees.
+              Hinglish chat in scope. Super Chats counted in rupees.
             </h2>
             <p className="mt-4 text-zinc-400">
-              Sentiment Horizon scores Hinglish chat the way your viewers mean it, and
+              Sentiment Horizon’s prompt treats Hinglish as in scope (not yet benchmarked), and
               the revenue panel does the currency maths. Both run on your PC.
             </p>
           </Reveal>

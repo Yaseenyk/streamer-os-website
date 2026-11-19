@@ -17,7 +17,7 @@ const DESCRIPTION =
   'streamerOS is a Windows desktop app (not an operating system) for Twitch and YouTube streamers: it automates OBS scenes from live chat and runs on your own PC.';
 // Punchier social-share copy, kept distinct from the page-level description.
 const OG_DESCRIPTION =
-  'Slash automation latency and reclaim your frames with zero-cloud OBS orchestration.';
+  'Local OBS automation driven by your chat, with no cloud round-trip. Windows app, launching February 2027.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

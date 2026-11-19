@@ -58,7 +58,7 @@ streamerOS sidesteps this entirely with a simple, robust approach: **it dynamica
 
 What this means for you, in practice:
 
-- Your **velocity score (`msgs/sec`)** updates the instant your viewers type — no lag, no stalling.
+- Your **velocity score (`msgs/sec`)** updates once per second as your viewers type.
 - The count stays **accurate** even during a massive hype-train of messages flooding in.
 - Your **Hype Heatmap** lights up with a smooth, live-feeling pulse that genuinely reflects the energy in your chat, moment to moment.
 

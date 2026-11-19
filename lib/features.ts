@@ -121,7 +121,7 @@ export const FEATURES: CatalogFeature[] = [
     category: 'live',
     menu: 'The mood of your chat, live.',
     tagline:
-      'A local AI model reads chat every couple of seconds and scores the room from toxic to hype — and it understands Hinglish.',
+      'A local AI model reads chat every couple of seconds and scores the room from toxic to hype — and its prompt covers Hinglish (accuracy not yet benchmarked).',
     pain: 'See the room turning before it shows up in your numbers.',
   },
   {

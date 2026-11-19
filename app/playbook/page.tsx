@@ -182,7 +182,7 @@ const GLOSSARY: { term: string; definition: string }[] = [
   {
     term: 'Auto-Hype Director',
     definition:
-      'The Auto-Hype Director is streamerOS’s visual, node-based automation engine. It links Trigger nodes (chat velocity and Super Chat amount, each above or below a threshold you set), Logic nodes (AND / OR), and Action nodes so that Open Broadcaster Software (OBS) Studio scenes switch automatically the instant your stream peaks — without touching a hotkey.',
+      'The Auto-Hype Director is streamerOS’s visual, node-based automation engine. It links Trigger nodes (chat velocity and Super Chat amount, each above or below a threshold you set), Logic nodes (AND / OR), and Action nodes so that Open Broadcaster Software (OBS) Studio scenes switch automatically when your stream peaks — without touching a hotkey.',
   },
   {
     term: 'Chat Velocity',

@@ -181,7 +181,7 @@ export default function ViralMomentsGuidePage() {
           <Reveal delay={0.16}>
             <p className="mx-auto mt-4 max-w-2xl text-zinc-400">
               streamerOS watches your chat velocity live, bookmarks every hype spike
-              the instant it happens, and hands your editor a timestamped CSV — so
+              at the second it happens, and hands your editor a timestamped CSV — so
               you never rewatch the whole stream hunting for clips again.
             </p>
           </Reveal>
@@ -237,7 +237,7 @@ export default function ViralMomentsGuidePage() {
             icon={Activity}
             eyebrow="Auto-mark"
             title="It auto-marks every hype spike."
-            body="streamerOS tracks messages per second continuously. When velocity spikes past the trend, it drops a session marker on that exact timestamp automatically — no hotkey, no watching a dashboard. Every eruption gets bookmarked the instant it happens."
+            body="streamerOS tracks messages per second continuously. When velocity spikes past the trend, it drops a session marker on that exact timestamp automatically — no hotkey, no watching a dashboard. Every eruption gets bookmarked at the second it happens."
             mock={
               <div className="space-y-4">
                 <p className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-zinc-500">

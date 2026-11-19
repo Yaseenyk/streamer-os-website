@@ -16,7 +16,7 @@ You’ll wire OBS to streamerOS, create a reactive Aura overlay, calibrate a hyp
 
 - Zero-cloud, local-first. Your chat data stays on your PC.
 - Tiny CPU footprint. Keep frames high while overlays react.
-- Native OBS WebSocket v5 control for instant sync via [OBS Bridge](/features/obs-bridge).
+- Native OBS WebSocket v5 control, no plugin, via [OBS Bridge](/features/obs-bridge).
 - Overlay built in [Aura Studio](/features/aura-studio), reactive at 1 Hz with hype calibration.
 
 If you also want the app to auto-switch scenes on spikes, you can add Auto-Hype Director rules later (optional).

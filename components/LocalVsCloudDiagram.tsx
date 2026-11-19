@@ -32,7 +32,7 @@ export default function LocalVsCloudDiagram() {
           </text>
         </svg>
         <p className="mt-3 font-mono text-xs leading-relaxed text-emerald-300/80">
-          Closed loop · instant · never leaves your machine
+          Closed loop · no internet round-trip · never leaves your machine
         </p>
       </div>
 

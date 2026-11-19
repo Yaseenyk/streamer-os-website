@@ -395,7 +395,7 @@ function BentoFeatures() {
               <p className="mt-2 max-w-md text-sm leading-relaxed text-zinc-400">
                 Wire chat-velocity and Super Chat triggers through logic gates into
                 OBS actions — a visual node graph that switches your scene, plays a
-                sound or saves a replay clip the instant the room peaks.
+                sound or saves a replay clip when the room peaks.
               </p>
               <div className="mt-6 flex-1">
                 <ProductShot
@@ -501,7 +501,7 @@ const STEPS = [
   },
   {
     title: 'Never Miss a Hype Moment',
-    body: 'When the room peaks, streamerOS fires your scene change instantly. You stay in the game; the broadcast runs itself.',
+    body: 'When the room peaks, streamerOS fires your scene change for you, with no cloud round-trip. You stay in the game; the broadcast runs itself.',
   },
 ];
 

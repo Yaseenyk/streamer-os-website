@@ -55,7 +55,7 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: 'Does it understand Hinglish chat?',
-    a: 'Yes. Sentiment Horizon’s local model is built to read Hinglish — Roman-script Hindi mixed with English — so “Bhai sahi hai” reads as positive and “Cringe yaar” as mildly negative. The AI Sidekick currently answers in English.',
+    a: 'Partly. Sentiment Horizon’s local model is prompted to read Hinglish — Roman-script Hindi mixed with English — with the aim that “Bhai sahi hai” reads as positive and “Cringe yaar” as mildly negative. How often it gets Hinglish right has not been benchmarked yet. The AI Sidekick currently answers in English.',
   },
   {
     q: 'How does licensing work without an account?',

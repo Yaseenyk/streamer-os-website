@@ -1,7 +1,7 @@
 ---
 title: Local OBS automation beats cloud for latency and privacy
 description: Cut scene-switch delay and protect your data. This guide shows how to
-  automate OBS locally with streamerOS for instant reactions and zero-cloud privacy.
+  automate OBS locally with streamerOS with no internet round-trip and no cloud copy of your chat.
 date: '2026-07-29'
 author: Yaseen Khatib
 tags:
@@ -32,7 +32,7 @@ For a quick feature overview, see [Features](/features).
 Note: OBS control features depend on OBS’s WebSocket being enabled. AI features depend on Ollama running locally.
 
 ## Step 1 — Connect OBS the direct way with OBS Bridge
-Goal: A rock-solid, local connection to OBS that lists your scenes and can switch them instantly.
+Goal: A rock-solid, local connection to OBS that lists your scenes and can switch them on command.
 
 - Open streamerOS and go to the OBS Bridge connection workflow. Follow the connection instructions on the [OBS Bridge feature page](/features/obs-bridge).
 - Confirm: You should see your current OBS scenes appear in streamerOS. If you can switch a scene from streamerOS and watch OBS react, you’re wired correctly.
@@ -104,4 +104,4 @@ You don’t need to sacrifice frames for automation.
 - Sponsor-grade privacy: Nothing leaves your desktop unless you export it.
 - Headroom for the game: Tiny CPU footprint means more budget for your encoder and your title.
 
-Cloud tools have their place, but when the goal is instant, trustworthy scene automation, local wins. With [OBS Bridge](/features/obs-bridge) and [Auto-Hype Director](/features/auto-hype), streamerOS gives you the snap and privacy your stream deserves—no logins, no cloud, just results.
+Cloud tools have their place, but when the goal is scene automation with no internet hop in the middle, local wins. With [OBS Bridge](/features/obs-bridge) and [Auto-Hype Director](/features/auto-hype), streamerOS gives you the snap and privacy your stream deserves—no logins, no cloud, just results.

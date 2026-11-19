@@ -732,7 +732,7 @@ export default function LiveCockpitGuidePage() {
                 Updates once a second, holding the last score between readings so the
                 bar glides instead of flickering.
               </Bullet>
-              <Bullet>Understands Hinglish — “Bhai sahi hai” reads as positive.</Bullet>
+              <Bullet>Prompted for Hinglish chat (accuracy not yet benchmarked).</Bullet>
               <Bullet>
                 When chat is flying, it scores an evenly spread sample of up to 40
                 messages from each window.
