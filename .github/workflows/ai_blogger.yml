@@ -13,10 +13,13 @@ name: AI Blogger
 # published) when a post breaks its checks. Read new posts after they go live
 # and fix or remove any that are wrong.
 on:
-  schedule:
-    # Slowed from Mon+Thu to Thursdays only on 2026-11-19 while AdSense re-reviews the
-    # domain for low-value content (fewer, stronger posts). Restore "1,4" to go back to two a week.
-    - cron: "0 9 * * 4" # Thursdays, 09:00 UTC
+  # Paused 19 Nov 2026 for the AdSense review; owner re-enables.
+  # Nothing publishes on a schedule while this is commented out. A manual run
+  # (workflow_dispatch) still works, so a reviewed post can be pushed by hand.
+  # To re-enable, uncomment the two schedule lines below (Thursdays only), or use
+  # "0 9 * * 1,4" for Mondays and Thursdays.
+  # schedule:
+  #   - cron: "0 9 * * 4" # Thursdays, 09:00 UTC
   workflow_dispatch: {}
 
 # Needed so the workflow can push the generated post back to the repo.
