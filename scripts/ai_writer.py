@@ -108,7 +108,12 @@ Target search query: "{topic}"
 Rules — every one is mandatory:
 1. Answer the query in the first 100 words, in plain language. The first sentence
    should be the answer, not a hook.
-2. Put the searcher's exact words in the title and in one H2.
+2. Put the searcher's words in the title and in one H2, as a natural sentence-case
+   heading ("Why OBS drops frames when your internet is fine"), never the bare
+   lowercase query on its own. Do not use a formula title: no "the setup that
+   works", "real fixes", "list + method" or a "<query>: <tagline>" pattern
+   copied from another post. Each title should read like a person wrote it for
+   this one article.
 3. Teach the method that works for everyone first — OBS settings, free tools, the
    reasoning. Name real free alternatives where they exist.
 4. Close with ONE short section, near the end, on how streamerOS solves this
@@ -271,6 +276,12 @@ def main() -> None:
         )
     if len(title) > 60:
         sys.exit(f"ERROR: title is {len(title)} characters (max 60): {title}")
+    # Formula titles and bare-query H2s made four posts look templated (Nov 2026
+    # AdSense review). Fail the run rather than publish another one.
+    if re.search(r"setup that works|real fixes|list \+ method", title, re.I):
+        sys.exit(f"ERROR: formula title, not publishing: {title}")
+    if re.search(r"^##\s+" + re.escape(topic.strip()) + r"\s*$", body, re.M):
+        sys.exit("ERROR: an H2 is the bare search query; not publishing.")
     slug = slugify(title)
     today = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
 

@@ -1,5 +1,5 @@
 ---
-title: 'AI tools for streamers: the setup that works'
+title: 'AI Tools for Streamers: A Free, Local Stack'
 description: The best AI tools for streamers are a local, free stack—OBS, Ollama,
   Whisper, and FFmpeg—that automates chat, clips, overlays, and titles safely.
 date: '2026-11-12'
@@ -13,7 +13,7 @@ tags:
 
 The best AI tools for streamers are the local, free ones you can run today: OBS Studio for capture, Ollama for on‑PC AI tasks, Whisper for speech‑to‑text, and FFmpeg for clipping and encoding. This stack lets you read chat mood, spot hype moments, react scenes or overlays automatically, and draft titles—all without sending your chat or mic to a third‑party server. Start with lean OBS settings so your AI has headroom, then add small automations that measurably save time: chat sentiment, hype markers, scene reactions, and VOD-to-Shorts.
 
-## AI tools for streamers
+## Which AI tools for streamers are worth running
 
 Here’s the practical setup I recommend to working Twitch and YouTube streamers:
 

@@ -13,7 +13,7 @@ tags:
 
 If OBS is dropping frames with good internet, the cause is almost always on your PC (rendering or encoding lag) or your route/Wi‑Fi quality, not your speed test. Open OBS’s Stats window, watch which counter rises, then match your encoder and resolution to your GPU/CPU and, if it’s network, switch ingest/bitrate and go wired.
 
-## obs dropping frames with good internet
+## Why OBS drops frames when your internet is fine
 
 Here’s the fix order that works for everyone. We start with diagnosis that takes 60 seconds, then apply the right remedy so you don’t wreck quality you didn’t need to touch.
 

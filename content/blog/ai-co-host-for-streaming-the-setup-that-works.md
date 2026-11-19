@@ -1,7 +1,7 @@
 ---
-title: 'AI co host for streaming: the setup that works'
+title: 'How to Build a Free AI Co-Host for Your Stream'
 description: 'Yes—you can build an AI co‑host for Twitch/YouTube with free tools:
-  OBS, Windows TTS, and a local model via Ollama. Here’s the setup that works.'
+  OBS, Windows TTS, and a local model via Ollama. Here is how to set it up.'
 date: '2026-10-26'
 author: Yaseen Khatib
 tags:
@@ -13,7 +13,7 @@ tags:
 
 An AI co host for streaming is a voice or on‑screen assistant that watches chat and answers in short lines while you keep playing. You can build one today for free with OBS Studio, Windows’ built‑in text‑to‑speech voice, and a small local AI model (via Ollama). The reliable recipe is: keep replies short (1–2 sentences), gate what it’s allowed to read from chat, and give it its own audio source in OBS so you can mute or duck it instantly.
 
-## AI co host for streaming
+## What an AI co-host for streaming needs
 
 What it actually does:
 - Fills dead air with quick context‑aware lines.

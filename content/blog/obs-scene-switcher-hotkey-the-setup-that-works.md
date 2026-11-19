@@ -1,5 +1,5 @@
 ---
-title: 'OBS Scene Switcher Hotkey: The Setup That Works'
+title: 'How to Set an OBS Scene Switcher Hotkey'
 description: In OBS, assign a scene switcher hotkey in Settings > Hotkeys by setting
   “Switch to Scene” for each scene, then enable global hotkeys so it works in-game.
 date: '2026-11-16'
@@ -13,7 +13,7 @@ tags:
 
 To set an OBS scene switcher hotkey, open Settings > Hotkeys, find each scene’s Switch-to entry, click in the empty field, and press the key combo you want. Repeat for every scene you plan to switch to. If you want those hotkeys to work while your game is in focus, turn on the OBS Advanced option that keeps hotkeys active when OBS isn’t the foreground app. Test once live: tap the combo and confirm the Program scene changes.
 
-## obs scene switcher hotkey
+## Setting an OBS scene switcher hotkey
 
 Here’s the reliable setup that most streamers use.
 

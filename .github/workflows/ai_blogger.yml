@@ -1,6 +1,6 @@
 name: AI Blogger
 
-# Blog posts on a schedule: twice a week, OpenAI writes one post for the next
+# Blog posts on a schedule: once a week (was twice until 2026-11-19), OpenAI writes one post for the next
 # search query in scripts/topics.txt and publishes it straight to main
 # (owner's decision, 2026-10-23), which triggers the deploy.
 #
@@ -14,7 +14,9 @@ name: AI Blogger
 # and fix or remove any that are wrong.
 on:
   schedule:
-    - cron: "0 9 * * 1,4" # Mondays and Thursdays, 09:00 UTC
+    # Slowed from Mon+Thu to Thursdays only on 2026-11-19 while AdSense re-reviews the
+    # domain for low-value content (fewer, stronger posts). Restore "1,4" to go back to two a week.
+    - cron: "0 9 * * 4" # Thursdays, 09:00 UTC
   workflow_dispatch: {}
 
 # Needed so the workflow can push the generated post back to the repo.

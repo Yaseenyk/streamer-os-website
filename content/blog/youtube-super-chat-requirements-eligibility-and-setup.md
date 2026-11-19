@@ -12,7 +12,7 @@ tags:
 
 The requirements for YouTube Super Chat are: join the YouTube Partner Program (YPP), be 18 or older, live in a country where Super Chat is available, link an AdSense account for payouts, and stream with live chat enabled on content that isn’t set as “made for kids” or age‑restricted. Once you’re eligible, you turn Super Chat on in YouTube Studio under Monetization (Supers) and in the Live Control Room when you go live.
 
-## youtube super chat requirements
+## The YouTube Super Chat requirements
 
 Here’s how eligibility works, in plain language:
 
@@ -36,7 +36,7 @@ If you don’t see the Supers tab, you’re not yet eligible in your region or y
 
 ---
 
-## The setup that works for everyone: OBS + free alert box
+## Show Super Chats on stream with OBS and a free alert box
 
 Viewers expect an on‑screen reaction when they send a Super Chat. The simplest, free setup:
 

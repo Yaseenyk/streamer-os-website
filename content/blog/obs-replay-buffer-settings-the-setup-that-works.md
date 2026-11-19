@@ -1,5 +1,5 @@
 ---
-title: 'OBS Replay Buffer Settings: The Setup That Works'
+title: 'OBS Replay Buffer Settings, Hotkeys and Fixes'
 description: "OBS Replay Buffer settings: starting length, encoder and format, hotkeys, safety checks, and fixes for silent replays or a greyed-out Save button."
 date: '2026-10-23'
 author: Yaseen Khatib

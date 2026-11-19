@@ -13,9 +13,9 @@ tags:
 
 Record your stream to a high‑quality VOD in OBS, then cut a 20–60 second vertical (9:16) moment with a free editor like CapCut, DaVinci Resolve, Shotcut or FFmpeg. Export at 1080×1920 H.264 with your original frame rate, and upload; if it’s vertical and under 60s, YouTube classifies it as a Short.
 
-That’s the whole flow. Below is the setup that works reliably, why each step matters, and faster ways to find the best moments.
+That’s the whole flow. Below is each step in detail, why each step matters, and faster ways to find the best moments.
 
-## how to make youtube shorts from a live stream
+## How to make YouTube Shorts from a live stream, step by step
 
 ### 1) Set up OBS so your VODs are Shorts‑ready
 
