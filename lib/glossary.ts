@@ -208,6 +208,26 @@ export const GLOSSARY: GlossaryTerm[] = [
         ],
       },
       {
+        heading: 'Four commands built from that syntax',
+        paragraphs: [
+          'These combine only the subcommands, options and variables above, so each one can be typed into chat as written. Change the names and wording to suit your channel.',
+        ],
+        list: [
+          'A death counter only moderators can bump: “!commands add !death -ul=moderator -cd=10 Deaths this stream: $(count)”. Every use adds one and posts the new total.',
+          'A friendly shout between viewers: “!commands add !hug $(user) hugs $(touser)”. Typing “!hug sam” makes Nightbot post that the viewer hugs sam.',
+          'A schedule line with a cooldown so it cannot be spammed: “!commands add !schedule -cd=60 Live Monday, Wednesday and Friday at 8 pm IST”.',
+          'A second name for an existing command: “!commands add !dead -a=!death”. Viewers can now use either name and the same counter goes up.',
+        ],
+      },
+      {
+        heading: 'Mistakes that make a command misbehave',
+        paragraphs: [
+          'Options placed after the response are treated as part of the response, so Nightbot posts “-cd=10” in chat instead of applying a cooldown. Keep every option between the command name and the response.',
+          'Editing a command with “!commands edit” replaces its whole response. If the old response used $(count), keep $(count) in the new one or the counter stops showing.',
+          'An alias passes its response text to the target command as input. If the target expects what the viewer typed, the alias needs $(query) in its response, as described above.',
+        ],
+      },
+      {
         heading: 'Who can manage commands',
         paragraphs: [
           'The streamer and the channel’s moderators manage custom commands. The -ul option controls who can trigger a command, not who can create it.',

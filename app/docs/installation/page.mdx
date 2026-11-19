@@ -4,7 +4,7 @@ import { breadcrumbJsonLd } from '@/lib/seo';
 export const metadata = {
   title: 'Installation — Connect streamerOS to OBS Studio',
   description:
-    'Install streamerOS on Windows 10/11 and connect it to OBS Studio over OBS WebSocket v5 in four steps — no account, no plugins, no cloud.',
+    'Install streamerOS on Windows 10/11 and connect it to OBS Studio over OBS WebSocket v5 in a few steps — no account, no plugins, no cloud.',
   alternates: { canonical: 'https://streamerosai.com/docs/installation' },
   openGraph: {
     title: 'Installing streamerOS and connecting it to OBS Studio',
@@ -34,12 +34,12 @@ export const howToJsonLd = {
     {
       '@type': 'HowToStep',
       name: 'Download and run the streamerOS installer',
-      text: 'Grab the latest release and run the installer. There is no account to create and no sign-in — streamerOS is local-first.',
+      text: 'When v1.0 ships (planned February 2027), run the .exe or .msi installer. There is no account to create and no sign-in — streamerOS is local-first.',
     },
     {
       '@type': 'HowToStep',
       name: 'Let streamerOS auto-discover OBS',
-      text: 'Launch streamerOS with OBS running. It auto-discovers your OBS instance over WebSocket v5 on your local machine and loads your scene list into the cockpit.',
+      text: 'Launch streamerOS with OBS running. It probes OBS WebSocket v5 at 127.0.0.1:4455; if OBS asks for a password, paste the one from Show Connect Info in OBS. Your scene list then loads into the cockpit.',
     },
     {
       '@type': 'HowToStep',
@@ -84,20 +84,65 @@ local machine only, so there are no third-party plugins to install.
 
 ### 2. Install streamerOS
 
-Download the latest `v1.0` release and run the installer. No account is
-required — the app is fully functional the moment it opens.
+streamerOS is not released yet: v1.0 is planned for February 2027, and people who
+pre-register get the beta first. When it ships, the Windows build comes as two
+installer formats, an `.exe` installer that installs for your Windows user only
+(no administrator rights needed) and an `.msi` package for people who prefer that
+format. Pick one; they install the same app.
+
+The installer is not code-signed yet, so Windows SmartScreen may warn that the
+publisher is unknown. The [trust page](/trust) explains how to check the file is
+the real one before you run it. No account is created during setup, and there is
+no sign-in screen when the app first opens. The 7-day trial starts on first launch
+([how the trial and licence work](/docs#trial-and-licence)).
 
 ### 3. Connect to OBS
 
-Launch streamerOS while OBS is running. The [OBS Bridge](/features/obs-bridge)
-auto-discovers your OBS instance, loads your scenes, and you can switch the
-program feed from the cockpit immediately.
+Launch streamerOS while OBS is running. On start-up, the
+[OBS Bridge](/features/obs-bridge) probes OBS's default WebSocket address on your
+own PC (`127.0.0.1`, port `4455`). One of three things happens:
+
+- **OBS answers without a password.** streamerOS connects, loads your scene list
+  and the current scene, and you can switch the program feed from the cockpit.
+- **OBS asks for a password.** Recent OBS versions turn authentication on by
+  default. streamerOS reports that a password is needed instead of failing
+  silently. In OBS, open **Tools → WebSocket Server Settings → Show Connect Info**,
+  copy the password, and paste it into the connection form in streamerOS.
+- **Nothing answers.** OBS is closed, the WebSocket server is off, or it listens
+  on a different port. Start OBS, check step 1, or enter the host and port by hand
+  in the connection form. The automatic probe only ever tries the local address;
+  the manual form is where you point it somewhere else.
 
 ### 4. Optional: local AI via Ollama
 
 The AI features (AI Sidekick, chat sentiment) run on a local
-[Ollama](https://ollama.com) install — nothing is sent to a cloud model. Skip
-this step if you only want automation and telemetry.
+[Ollama](https://ollama.com) install, nothing is sent to a cloud model. Install
+Ollama for Windows and leave it running; streamerOS talks to it on your own PC at
+`127.0.0.1:11434`. The default chat model is `llama3.2`, and the app's model
+settings can download a model through Ollama and show the download progress, so
+you do not have to use the command line. Skip this step if you only want
+automation and telemetry: the rest of the app works without it, and the AI panels
+show an offline notice when Ollama is not reachable.
+
+### 5. Optional: YouTube subscriber count
+
+YouTube Live chat is read from your own browser window, so no Google account or
+API key is needed for chat. A YouTube Data API key is optional and only adds your
+exact subscriber count. If you add one, it is stored in Windows Credential Manager,
+not in the app's settings file.
+
+## When something does not connect
+
+| What you see | Most likely cause | What to do |
+| --- | --- | --- |
+| OBS asks for a password | OBS authentication is on (the default) | Copy the password from Show Connect Info in OBS and paste it in |
+| OBS not found | OBS is closed or the WebSocket server is off | Start OBS, enable the server in Tools → WebSocket Server Settings |
+| OBS not found, server is on | OBS uses a port other than 4455 | Enter the port shown in Show Connect Info in the manual form |
+| AI panels say offline | Ollama is not running | Start Ollama; the app reconnects on its next request |
+| SmartScreen warning | The installer is not code-signed yet | Check the file on the [trust page](/trust), then choose Run anyway |
+
+For anything else, the [contact page](/contact) lists what to include in a bug
+report.
 
 ## Where to go next
 
