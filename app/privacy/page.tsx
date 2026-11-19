@@ -25,7 +25,7 @@ export default function PrivacyPage() {
       <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
         Privacy Policy
       </h1>
-      <p className="mt-3 text-sm text-zinc-500">Last updated: November 16, 2026</p>
+      <p className="mt-3 text-sm text-zinc-500">Last updated: November 19, 2026</p>
 
       <p className="mt-5 leading-relaxed text-zinc-300">
         Every claim on this page can be checked from outside the app — the{' '}
@@ -157,24 +157,42 @@ export default function PrivacyPage() {
               measures how visitors find and use the site. It sets first-party
               analytics cookies and sends usage data, such as pages viewed and
               approximate location, to Google. We don&apos;t use it for advertising.
-              You can block it with a browser extension or by disabling cookies.
+              You can block it with a browser extension, by disabling cookies, or
+              with Google&apos;s{' '}
+              <a href="https://tools.google.com/dlpage/gaoptout" className="text-cyan-400 hover:underline" rel="noopener noreferrer">
+                opt-out add-on
+              </a>
+              .
             </li>
             <li>
               <strong className="text-zinc-200">Microsoft Clarity</strong> —
-              a free tool that records anonymised heatmaps and session replays so
-              we can see where visitors get stuck. Text typed into forms is
-              masked and is not recorded. We don&apos;t use it for advertising.
+              a free tool that records session replays and heatmaps (mouse
+              movement, clicks and scrolling) so we can see where visitors get
+              stuck. Text typed into forms is masked and is not recorded. We
+              don&apos;t use it for advertising. Microsoft explains how it handles
+              this data in the{' '}
+              <a href="https://privacy.microsoft.com/privacystatement" className="text-cyan-400 hover:underline" rel="noopener noreferrer">
+                Microsoft privacy statement
+              </a>
+              .
             </li>
             <li>
               <strong className="text-zinc-200">A first-party visit counter</strong>{' '}
-              (a small script served from a Cloudflare Worker run by the site owner,
-              named &ldquo;pulse&rdquo;) — records which page was viewed, the
-              referring site, clicks on links and whether the visit looks like a
-              person or a bot, so we can tell real readers from automated traffic.
-              It sets no cookies, does not store your IP address or browser
-              user-agent string, and records no text typed into forms. It switches
-              itself off if your browser sends Do Not Track or Global Privacy
-              Control, and rows older than 90 days are deleted automatically.
+              (a small script served from pulse.yaseenyk.workers.dev, a Cloudflare
+              Worker run by the site owner, named &ldquo;pulse&rdquo;) — records the
+              page viewed (without the query string), the referring site and
+              campaign tags, country, device type, browser and system name, screen
+              size, language, the name of your network provider, scroll depth, time
+              on the page, page speed, which links and buttons were clicked and,
+              when a form is sent, the form&apos;s name only (never what you typed),
+              so we can tell real readers from automated traffic. It sets no
+              cookies and does not store your IP address or browser user-agent
+              string: the IP address is used in memory only, to limit abuse and to
+              make a visitor code that changes every day (a one-way hash with a
+              random salt that is deleted the next day), so visits cannot be linked
+              across days. It switches itself off if your browser sends Do Not
+              Track or Global Privacy Control, and rows older than 90 days are
+              deleted automatically.
             </li>
             <li>
               <strong className="text-zinc-200">Pre-registration and the contact
@@ -205,8 +223,10 @@ export default function PrivacyPage() {
           <h2 className={H2}>Cookies and similar storage</h2>
           <p className={P}>
             Google Analytics sets first-party cookies (for example <code>_ga</code>)
-            to tell visits apart, and Microsoft Clarity sets its own cookies to link
-            the pages of one visit. The site also keeps a small label in your
+            to tell visits apart, and Microsoft Clarity sets its own cookies
+            (<code>_clck</code>, <code>_clsk</code>) to link the pages of one visit,
+            plus Microsoft cookies on clarity.ms and bing.com (such as{' '}
+            <code>MUID</code>). The site also keeps a small label in your
             browser&apos;s local storage recording the first source that sent you here
             (for example a search engine or a link), used only in aggregate reports.
             Plausible and the visit counter use no cookies. Analytics scripts do not

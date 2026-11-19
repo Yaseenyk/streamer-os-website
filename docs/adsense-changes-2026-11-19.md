@@ -164,3 +164,20 @@ verify-no-ads OK (780 files). Checked in `out/`: the seven pre-launch pages and 
 `<meta name="robots" content="noindex, follow">` and are absent from `sitemap.xml`, `feed.xml` (41 items), the blog
 index and the home page; the home page and kept posts are `index, follow`; the header reads Guides, Playbook, Docs,
 FAQ, About, streamerOS app, Live demo, Early access.
+
+## Privacy and crawl audit (19 Nov 2026)
+
+Method: home and /contact loaded in headless Chromium with every third-party request and cookie recorded, three feature
+pages fetched raw, and `app/layout.tsx` plus the lazily loaded widgets read for scripts injected later.
+
+- Loaded on streamerosai.com: Plausible (plausible.io, no cookies), Google Analytics 4 (googletagmanager.com,
+  analytics.google.com, stats.g.doubleclick.net; cookies `_ga`, `_ga_9W846YK3FZ`), Microsoft Clarity (clarity.ms,
+  c.bing.com; cookies `_clck`, `_clsk`, plus Microsoft's `MUID`/`MR`/`SM` on clarity.ms and bing.com), Pulse
+  (pulse.yaseenyk.workers.dev, no cookies). On demand only: EmailJS (pre-registration and contact form), the support chat
+  API (only when a question is sent). No AdSense, no YouTube embed, no Google Fonts request (Inter is self-hosted).
+- Privacy page fixed: every service was already named, but the Pulse text missed what it records (country, network name,
+  clicks, form name on submit), the daily-rotating visitor code and how the IP is used; Clarity's own and Microsoft's
+  cookies were not named; no GA opt-out link. All three added. AdSense "future use" section kept as it was.
+- Crawl: robots.txt allows crawling and names the sitemap. All 96 live sitemap URLs return 200, none redirects, none is
+  noindex, every canonical matches, none is blocked by robots.txt.
+- Raw HTML: main text is in the static HTML (home about 1,400 words, feature pages 660 to 1,560 words).
