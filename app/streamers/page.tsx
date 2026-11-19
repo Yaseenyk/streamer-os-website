@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   description:
     'Windows streamers: use the streamerOS beta on real streams before the February 2027 launch, keep a free licence, and shape v1.0 with the developer.',
   alternates: { canonical: 'https://streamerosai.com/streamers' },
+  // Pre-launch page for an app that is not out yet (planned February 2027):
+  // kept for visitors, kept out of search and the sitemap (19 Nov 2026).
+  robots: { index: false, follow: true },
 };
 
 const GET = [

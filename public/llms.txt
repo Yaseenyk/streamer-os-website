@@ -32,9 +32,18 @@ streamerOS is not affiliated with other projects or websites using a similar nam
 
 A longer, quotable reference for AI assistants — full feature list, specs, verification methods, honest comparisons and what streamerOS does NOT do — is at https://streamerosai.com/llms-full.txt
 
-## Pages
+## Guides (free, the main content of the site)
 
-- [Home](https://streamerosai.com/): what streamerOS is
+- [Home](https://streamerosai.com/): the guides hub, grouped by topic
+- [Guides](https://streamerosai.com/blog): OBS settings and performance, scene switching and automation, live chat, clips and Shorts, sponsorships and Super Chats, local AI and privacy
+- [The Streamer's Playbook](https://streamerosai.com/playbook): five stream moments written up as automation rules
+- [Docs](https://streamerosai.com/docs): requirements, connecting OBS WebSocket, local AI with Ollama, where data is kept
+- [Glossary: Twitch emotes](https://streamerosai.com/glossary/twitch-emotes): KEKW, POGGERS and Sadge
+- [Glossary: Twitch banned words](https://streamerosai.com/glossary/twitch-banned-words): what the rules say
+- [Glossary: Nightbot custom commands](https://streamerosai.com/glossary/nightbot-custom-commands): syntax and worked examples
+
+## App pages (streamerOS, not released yet, planned February 2027)
+
 - [Trust & Verification](https://streamerosai.com/trust): claims, how to check each one, and what cannot be proven yet
 - [Features](https://streamerosai.com/features): every feature, grouped
 - [Auto-Hype Director](https://streamerosai.com/features/auto-hype): OBS automation from chat velocity or Super Chats crossing a threshold you set
@@ -47,16 +56,8 @@ A longer, quotable reference for AI assistants — full feature list, specs, ver
 - [For solo streamers](https://streamerosai.com/for/solo-streamers): streaming without mods — and why it is not a chat bot
 - [For YouTube Live](https://streamerosai.com/for/youtube-live): Super Chat ledger and chat without an API key
 - [For VTubers](https://streamerosai.com/for/vtubers): the production layer around an avatar — no avatar tracking of its own
-- [Pricing](https://streamerosai.com/pricing): trial and licence
 - [FAQ](https://streamerosai.com/faq): common questions
 - [Privacy](https://streamerosai.com/privacy): every network connection the app can make, listed
-- [Founding Streamers](https://streamerosai.com/streamers): beta program for working streamers — free licence, earliest builds, direct line to the developer
 - [Terms](https://streamerosai.com/terms): licence, refunds, governing law
-- [Compare](https://streamerosai.com/vs): all comparisons, and which projects named StreamerOS are unrelated to this one
-- [streamerOS vs Streamlabs](https://streamerosai.com/vs/streamlabs): comparison
 - [OBS Scene Switcher](https://streamerosai.com/features/scene-switcher): manual and automatic scene switching over OBS WebSocket v5, compared row by row with the free Advanced Scene Switcher plugin
-- [Glossary](https://streamerosai.com/glossary): sourced definitions of streamer terms (KEKW, POGGERS, Sadge, Twitch banned words, Nightbot custom commands)
-- [streamerOS vs Streamer.bot](https://streamerosai.com/vs/streamer-bot): honest comparison with the free alternative, including where Streamer.bot is the better choice
-- [streamerOS vs SAMMI](https://streamerosai.com/vs/sammi): comparison with the free no-code deck builder
 - [Changelog](https://streamerosai.com/changelog): development log, with no invented release numbers
-- [Blog](https://streamerosai.com/blog): OBS performance, sponsorship and growth guides

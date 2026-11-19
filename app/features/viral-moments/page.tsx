@@ -334,13 +334,8 @@ export default function ViralMomentsGuidePage() {
               </Link>
             </li>
             <li>
-              <Link href="/blog/find-best-clips-in-your-vods-automatically" className="text-cyan-400 underline underline-offset-2">
-                Find the best clips in your VODs automatically
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog/turn-twitch-vods-into-shorts-and-tiktoks" className="text-cyan-400 underline underline-offset-2">
-                Turn Twitch VODs into Shorts and TikToks
+              <Link href="/blog/how-to-make-youtube-shorts-from-a-live-stream" className="text-cyan-400 underline underline-offset-2">
+                How to make YouTube Shorts from a live stream
               </Link>
             </li>
         </ul>

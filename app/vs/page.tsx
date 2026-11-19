@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   description:
     'How streamerOS compares with Streamlabs, Streamer.bot, SAMMI, Firebot, Mix It Up and VPE, including where each one is the better choice.',
   alternates: { canonical: 'https://streamerosai.com/vs' },
+  // Pre-launch page for an app that is not out yet (planned February 2027):
+  // kept for visitors, kept out of search and the sitemap (19 Nov 2026).
+  robots: { index: false, follow: true },
 };
 
 interface Comparison {

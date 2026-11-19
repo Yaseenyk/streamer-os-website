@@ -9,6 +9,7 @@ tags:
 - Performance
 - Twitch
 - YouTube
+seeAlso: obs-dropped-frames-find-the-cpu-hog
 ---
 
 If OBS is dropping frames with good internet, the cause is almost always on your PC (rendering or encoding lag) or your route/Wi‑Fi quality, not your speed test. Open OBS’s Stats window, watch which counter rises, then match your encoder and resolution to your GPU/CPU and, if it’s network, switch ingest/bitrate and go wired.

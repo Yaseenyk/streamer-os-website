@@ -75,9 +75,9 @@ Free 7-day trial with every feature and no card required. Then a one-time $29 li
 
 ## 8. Honest comparisons
 
-- **Streamer.bot** — free, more established, supports Kick as well as Twitch and YouTube, integrates with Elgato Stream Deck, and allows custom C# scripting. It is the better choice for custom automation, and it can post in chat. It has no built-in AI chat sentiment. Comparison: https://streamerosai.com/vs/streamer-bot
-- **SAMMI** — free, no-code builder for decks and buttons, Elgato Stream Deck support, established with a community of extensions. Better if designing your own automation is the point. No AI chat sentiment. Comparison: https://streamerosai.com/vs/sammi
-- **Streamlabs** — a cloud suite with an account, sync across machines and phone control. Better if hosted convenience is what is wanted. Comparison: https://streamerosai.com/vs/streamlabs
+- **Streamer.bot** — free, more established, supports Kick as well as Twitch and YouTube, integrates with Elgato Stream Deck, and allows custom C# scripting. It is the better choice for custom automation, and it can post in chat. It has no built-in AI chat sentiment.
+- **SAMMI** — free, no-code builder for decks and buttons, Elgato Stream Deck support, established with a community of extensions. Better if designing your own automation is the point. No AI chat sentiment.
+- **Streamlabs** — a cloud suite with an account, sync across machines and phone control. Better if hosted convenience is what is wanted.
 
 streamerOS differs from all three by shipping assembled: local AI chat sentiment, a Super Chat revenue ledger, a searchable chat archive and hype-ranked clip tooling, with nothing to build first. The licensing status of other projects is not characterised here beyond what their own sites document.
 

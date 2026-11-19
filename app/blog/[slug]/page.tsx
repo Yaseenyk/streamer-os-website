@@ -60,6 +60,9 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
     title: meta.title.length > 47 ? { absolute: meta.title } : meta.title,
     description: meta.description,
     alternates: { canonical: url },
+    // Overlapping posts stay live for readers and links, but only the stronger
+    // post they point to is offered for indexing.
+    ...(meta.seeAlso ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       type: 'article',
       title: meta.title,
@@ -182,6 +185,7 @@ export default async function BlogPostPage({ params }: { params: PageParams }) {
   const cta = getBlogCta(meta);
   const related = getRelatedPosts(meta, await getAllPostMeta());
   const [bodyStart, bodyRest] = splitAtMiddleHeading(content);
+  const seeAlso = meta.seeAlso ? (await getPostBySlug(meta.seeAlso)).meta : null;
 
   const formattedDate = new Date(meta.updated ?? meta.date).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -246,6 +250,19 @@ export default async function BlogPostPage({ params }: { params: PageParams }) {
             </p>
           </Reveal>
         </header>
+
+        {seeAlso && (
+          <aside className="mt-10 rounded-xl border border-cyan-400/30 bg-cyan-400/[0.04] p-5 text-sm leading-relaxed text-zinc-300">
+            <p className="font-semibold text-zinc-100">See also</p>
+            <p className="mt-1">
+              This post covers the same question as a fuller guide on this site:{' '}
+              <Link href={`/blog/${seeAlso.slug}`} className="text-cyan-400 underline underline-offset-2">
+                {seeAlso.title}
+              </Link>
+              . This page stays up for anyone who linked to it.
+            </p>
+          </aside>
+        )}
 
         <div className="mt-12">{renderBody(bodyStart)}</div>
 

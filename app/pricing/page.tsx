@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     'streamerOS costs $29 one time. Free unrestricted trial first — 7 days, ' +
     'or 3 months if you pre-register before the February 2027 launch.',
   alternates: { canonical: `${SITE_URL}/pricing` },
+  // Pre-launch page for an app that is not out yet (planned February 2027):
+  // kept for visitors, kept out of search and the sitemap (19 Nov 2026).
+  robots: { index: false, follow: true },
 };
 
 const FAQ_ITEMS: FaqEntry[] = [

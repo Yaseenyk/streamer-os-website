@@ -9,6 +9,7 @@ tags:
 - Automation
 - Performance
 - Privacy
+seeAlso: what-stream-tools-send-to-the-cloud
 ---
 
 ## The case for local-first automation (in streamer terms)

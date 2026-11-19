@@ -84,7 +84,7 @@ Since a benchmark cannot be handed to you, collect one:
 
 1. **Ask for their budget first.** "What budget do you have for this campaign?" A brand that names a number has told you more than any rate article can. If they won't, quote your package.
 2. **Log every offer you receive.** After five offers you have a range that is true for your niche and size. The [sponsor tracking guide](/blog/how-to-track-sponsor-deals-as-a-streamer) shows what to record.
-3. **Check campaigns on sponsor marketplaces,** which often show the budget for a funded campaign. The [list-and-method post](/blog/companies-that-sponsor-small-streamers-list-method) covers where to look.
+3. **Check campaigns on sponsor marketplaces,** which often show the budget for a funded campaign. The [sponsors for small streamers guide](/blog/sponsors-for-small-streamers) covers where to look.
 4. **Ask streamers a size above you** what they would take for a similar scope. Many will answer in general terms.
 
 ## Flat fee, performance, or both

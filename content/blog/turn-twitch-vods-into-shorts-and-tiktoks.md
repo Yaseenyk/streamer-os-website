@@ -4,6 +4,7 @@ description: "Your best clips are already in your VODs. How to find them fast an
 date: "2026-07-06"
 author: "Yaseen Khatib"
 tags: ["Guides", "Clipping", "Content", "Growth"]
+seeAlso: how-to-make-youtube-shorts-from-a-live-stream
 ---
 
 > **Availability:** everything this article describes in streamerOS — hype-spike markers, the ranked Clip Library, and [Shorts Factory](/features/shorts-factory) for 16:9 to 9:16 cropping and export — ships in the **February 2027 launch build**.

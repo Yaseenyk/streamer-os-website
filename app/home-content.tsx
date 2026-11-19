@@ -1,16 +1,17 @@
 import Link from 'next/link';
-import type { ReactNode } from 'react';
-import { ArrowRight, Gauge, Play, ShieldCheck, Workflow } from 'lucide-react';
+import { ArrowRight, BookOpen, FileText, HelpCircle, Library, Play } from 'lucide-react';
 import { siteConfig } from '@/config/site';
-import Pricing from '@/components/Pricing';
 import InlineSignup from '@/components/InlineSignup';
 import { ProductShot } from '@/components/ProductShot';
 import { SHOTS } from '@/lib/shots';
+import { GLOSSARY } from '@/lib/glossary';
+import { getAllPostMeta, type PostMeta } from '@/lib/posts';
 
-// Server component: no framer-motion and no hydration cost for the sections
-// below the hero. Motion is plain CSS (the sos-* classes in globals.css) and
-// all copy is in the exported HTML. Only InlineSignup and the pricing CTA
-// buttons are client islands.
+// Server component. Since 19 Nov 2026 the home page leads with the site's free
+// guides; the streamerOS app is unreleased (planned February 2027) and gets one
+// labelled section near the end. Motion is plain CSS (sos-* in globals.css);
+// the h1 is plain server HTML with a transform-only animation, so it paints
+// at first render (it is the LCP element). Only InlineSignup is a client island.
 
 // Fixed 2px bar that fills as the page scrolls (CSS scroll-driven animation).
 function ScrollProgress() {
@@ -26,7 +27,6 @@ function ScrollProgress() {
 const BLOBS = [
   'sos-blob-a left-[-12%] top-[-22%] h-[460px] w-[460px] bg-cyan-500/20',
   'sos-blob-b right-[-8%] top-[2%] h-[420px] w-[420px] bg-purple-600/20',
-  'sos-blob-c left-[34%] bottom-[-28%] h-[400px] w-[400px] bg-cyan-400/10',
 ];
 
 function MeshBackground() {
@@ -39,589 +39,393 @@ function MeshBackground() {
   );
 }
 
-// Glass tile with a CSS hover highlight.
-function BentoCard({ className = '', children }: { className?: string; children: ReactNode }) {
-  return (
-    <article
-      className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition-colors duration-300 hover:border-cyan-400/30 hover:bg-white/[0.05] ${className}`}
-    >
-      <div className="relative h-full">{children}</div>
-    </article>
-  );
-}
-
 // ---------------------------------------------------------------------------
-// Marquee — infinite tech-stack / performance ticker
+// Guide topics. Slugs only: titles and descriptions come from the posts, and a
+// slug that is not an indexable post (missing, or noindexed with `seeAlso`) is
+// skipped. Any indexable post not listed here lands in "More guides".
 // ---------------------------------------------------------------------------
-const MARQUEE_ITEMS = [
-  'About 1.8% CPU (developer benchmark)',
-  'Your frames stay with the game',
-  'Nothing leaves your PC',
-  'No account, no cloud',
-  'Scenes switch themselves',
-  'Works with OBS out of the box',
-  'Twitch + YouTube',
-  '$29 once — not a subscription',
+const TOPICS: { id: string; label: string; blurb: string; slugs: string[] }[] = [
+  {
+    id: 'obs-settings',
+    label: 'OBS settings and performance',
+    blurb: 'Encoder, bitrate and preset choices, and how to find what is costing you frames.',
+    slugs: [
+      'best-obs-settings-for-low-cpu-streaming',
+      'obs-encoding-overloaded-fix',
+      'obs-dropped-frames-find-the-cpu-hog',
+      'nvenc-vs-x264-for-streaming',
+      'obs-bitrate-settings-for-twitch',
+      'obs-cpu-usage-preset-explained',
+      'obs-psycho-visual-tuning-explained',
+      'obs-high-cpu-usage-busy-chat-companion-apps',
+      'obs-mic-too-quiet-measure-before-you-boost',
+      'obs-replay-buffer-settings-the-setup-that-works',
+    ],
+  },
+  {
+    id: 'scenes',
+    label: 'Scene switching, plugins and automation',
+    blurb: 'Hotkeys, Advanced Scene Switcher, scripts, OBS WebSocket, and what to automate first.',
+    slugs: [
+      'auto-switch-obs-scenes-guide',
+      'obs-advanced-scene-switcher-guide',
+      'obs-scene-switcher-hotkey-the-setup-that-works',
+      'obs-automatic-scene-switcher-not-switching',
+      'obs-websocket-setup-guide',
+      'obs-websocket-connection-failed-three-failures',
+      'optimizing-desktop-ipc-obs-websocket-latency',
+      'obs-scripts-guide',
+      'obs-timer-plugin',
+      'stream-automation-101',
+    ],
+  },
+  {
+    id: 'chat',
+    label: 'Live chat',
+    blurb: 'Reading chat on one monitor, chat docks and overlays, saving logs, and reading the mood.',
+    slugs: [
+      'how-to-read-chat-while-streaming-one-monitor',
+      'obs-chat-dock-missing',
+      'twitch-chat-overlay-obs',
+      'how-to-save-youtube-live-chat-and-twitch-chat-logs',
+      'what-is-chat-velocity',
+      'how-to-read-chat-sentiment-in-real-time',
+    ],
+  },
+  {
+    id: 'clips',
+    label: 'Clips, Shorts and files',
+    blurb: 'Finding highlights, cutting vertical Shorts, and keeping VODs where you can find them.',
+    slugs: [
+      'auto-clip-twitch-highlights',
+      'how-to-make-youtube-shorts-from-a-live-stream',
+      'streaming-workspace-folder-setup',
+    ],
+  },
+  {
+    id: 'money',
+    label: 'Sponsors, Super Chats and growth',
+    blurb: 'Getting a first sponsor, pricing a deal, media kits, Super Chat rules and platform choice.',
+    slugs: [
+      'sponsors-for-small-streamers',
+      'how-much-to-charge-for-stream-sponsorships',
+      'how-to-make-a-streamer-media-kit',
+      'how-to-track-sponsor-deals-as-a-streamer',
+      'youtube-super-chat-requirements-eligibility-and-setup',
+      'how-to-track-super-chat-revenue',
+      'twitch-vs-youtube-for-new-streamers',
+    ],
+  },
+  {
+    id: 'ai-privacy',
+    label: 'Local AI, privacy and tool choice',
+    blurb: 'Running Ollama on Windows, free AI setups, what cloud tools send, and the alternatives.',
+    slugs: [
+      'run-ollama-on-windows-guide',
+      'ai-tools-for-streamers-the-setup-that-works',
+      'ai-co-host-for-streaming-the-setup-that-works',
+      'what-stream-tools-send-to-the-cloud',
+      'streamlabs-alternative-local-first',
+    ],
+  },
 ];
 
-function Marquee() {
-  return (
-    <div className="relative overflow-hidden border-y border-white/5 bg-white/[0.015] py-5">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-[linear-gradient(to_right,#05070A,transparent)]"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-[linear-gradient(to_left,#05070A,transparent)]"
-      />
-      <div className="sos-marquee flex w-max">
-        {[0, 1].map((set) => (
-          <div key={set} className="flex shrink-0 items-center" aria-hidden={set === 1}>
-            {MARQUEE_ITEMS.map((item) => (
-              <span
-                key={item}
-                className="flex items-center gap-8 whitespace-nowrap px-8 font-mono text-sm text-zinc-400"
-              >
-                {item}
-                <span className="text-cyan-400/60">◆</span>
-              </span>
-            ))}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+function groupPosts(posts: PostMeta[]) {
+  const bySlug = new Map(posts.map((p) => [p.slug, p]));
+  const used = new Set<string>();
+  const groups = TOPICS.map((topic) => {
+    const items = topic.slugs.flatMap((slug) => {
+      const post = bySlug.get(slug);
+      if (!post) return [];
+      used.add(slug);
+      return [post];
+    });
+    return { ...topic, items };
+  }).filter((g) => g.items.length > 0);
+  const rest = posts.filter((p) => !used.has(p.slug));
+  if (rest.length > 0) {
+    groups.push({ id: 'more', label: 'More guides', blurb: 'Newest first.', slugs: [], items: rest });
+  }
+  return groups;
 }
 
 // ---------------------------------------------------------------------------
-// HeroFeatures — the three pillars, stated above the fold. Each tile is a
-// teaser that hands off to its own feature page; the bento grid further down
-// is where they get the full treatment.
+// Hero: what the site is for a reader today.
 // ---------------------------------------------------------------------------
-const HERO_FEATURES = [
-  {
-    icon: Workflow,
-    label: 'Auto-Hype Director',
-    detail: 'Chat peaks and your OBS scene switches itself.',
-    href: '/features/auto-hype',
-  },
-  {
-    icon: Gauge,
-    label: '1.8% CPU',
-    detail: 'Developer’s RTX 3060 benchmark, not yet a live-game capture.',
-    href: '/features/performance',
-  },
-  {
-    icon: ShieldCheck,
-    label: 'Zero-Cloud',
-    detail: 'No account, no backend, nothing leaves the PC.',
-    href: '/features/zero-cloud',
-  },
-];
-
-function HeroFeatures() {
-  return (
-    <div className="mt-12 grid w-full max-w-3xl gap-3 sm:grid-cols-3">
-      {HERO_FEATURES.map(({ icon: Icon, label, detail, href }) => (
-        <Link
-          key={href}
-          href={href}
-          className="group flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4 text-left transition-colors hover:border-cyan-400/30 hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
-        >
-          <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-cyan-400">
-            <Icon className="h-4 w-4" strokeWidth={1.75} aria-hidden />
-          </span>
-          <span className="min-w-0">
-            <span className="flex items-center gap-1 text-sm font-semibold text-zinc-100">
-              {label}
-              <ArrowRight
-                className="h-3.5 w-3.5 -translate-x-1 text-cyan-400 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100"
-                aria-hidden
-              />
-            </span>
-            <span className="mt-1 block text-xs leading-relaxed text-zinc-400">{detail}</span>
-          </span>
-        </Link>
-      ))}
-    </div>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Hero
-// ---------------------------------------------------------------------------
-function Hero() {
+function Hero({ guideCount }: { guideCount: number }) {
   return (
     <section className="relative overflow-hidden">
       <MeshBackground />
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:64px_64px] opacity-40" />
+      <div className="relative mx-auto max-w-6xl px-6 pb-16 pt-24 sm:pt-28">
+        <span className="sos-rise mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-zinc-300">
+          <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+          {guideCount} free guides · no sign-up to read
+        </span>
 
-      <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-24 sm:pt-28">
-        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-16">
-          {/* Copy — left */}
-          <div className="text-left">
-            <span
-              className="sos-rise mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-zinc-300"
+        <h1 className="sos-rise max-w-4xl text-balance text-4xl font-semibold leading-[1.06] tracking-tight sm:text-6xl">
+          OBS and streaming guides for{' '}
+          <span className="bg-[linear-gradient(to_right,#22d3ee,#a855f7)] bg-clip-text text-transparent">
+            Twitch and YouTube
+          </span>{' '}
+          streamers.
+        </h1>
+
+        <p className="sos-rise mt-6 max-w-2xl text-lg text-zinc-400">
+          Step-by-step answers to the problems streamers search for: OBS encoder, bitrate and
+          low-CPU settings, dropped frames, scene switching, reading chat on one monitor, clips
+          and Shorts, and sponsorships for small channels. Plus a playbook of stream automations,
+          a glossary of chat terms, and setup docs.
+        </p>
+
+        <div className="sos-rise mt-8 flex flex-wrap items-center gap-3">
+          <a
+            href="#guides"
+            className="inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-[#05070A] transition-colors hover:bg-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+          >
+            Browse the guides
+            <ArrowRight className="h-4 w-4" aria-hidden />
+          </a>
+          <Link
+            href="/playbook"
+            className="inline-flex items-center gap-2 rounded-lg border border-white/15 px-5 py-2.5 text-sm font-semibold text-zinc-200 transition-colors hover:border-cyan-400/40 hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+          >
+            Read the playbook
+          </Link>
+        </div>
+
+        <p className="mt-6 max-w-2xl text-sm text-zinc-500">
+          Written by{' '}
+          <Link
+            href="/about"
+            className="text-zinc-300 underline decoration-white/20 underline-offset-4 transition-colors hover:text-cyan-300"
+          >
+            Yaseen Khatib
+          </Link>
+          , an independent developer building streamerOS, a Windows companion app for OBS that
+          is not released yet.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Guides by topic: every indexable post, grouped.
+// ---------------------------------------------------------------------------
+function GuideTopics({ groups }: { groups: ReturnType<typeof groupPosts> }) {
+  return (
+    <section id="guides" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-16 sm:py-20">
+      <div className="max-w-2xl">
+        <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">Guides by topic</p>
+        <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+          Pick the problem you have.
+        </h2>
+      </div>
+
+      <nav aria-label="Guide topics" className="mt-6 flex flex-wrap gap-2">
+        {groups.map((g) => (
+          <a
+            key={g.id}
+            href={`#${g.id}`}
+            className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-zinc-300 transition-colors hover:border-cyan-400/40 hover:text-cyan-300"
+          >
+            {g.label}
+          </a>
+        ))}
+      </nav>
+
+      <div className="mt-12 space-y-14">
+        {groups.map((g) => (
+          <div key={g.id} id={g.id} className="sos-reveal scroll-mt-24">
+            <h3 className="text-xl font-semibold tracking-tight text-zinc-100">{g.label}</h3>
+            <p className="mt-1 text-sm text-zinc-400">{g.blurb}</p>
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {g.items.map((post) => (
+                <li key={post.slug}>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="group flex h-full flex-col rounded-xl border border-white/10 bg-white/[0.03] p-4 transition-colors hover:border-cyan-400/30 hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+                  >
+                    <span className="text-sm font-semibold leading-snug text-zinc-100 group-hover:text-cyan-300">
+                      {post.title}
+                    </span>
+                    <span className="mt-2 line-clamp-3 text-xs leading-relaxed text-zinc-400">
+                      {post.description}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <p className="mt-12 text-sm text-zinc-400">
+        <Link href="/blog" className="inline-flex items-center gap-1.5 font-semibold text-cyan-400 hover:text-cyan-300">
+          All guides, newest first
+          <ArrowRight className="h-4 w-4" aria-hidden />
+        </Link>
+      </p>
+    </section>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Reference: playbook, glossary, docs, FAQ.
+// ---------------------------------------------------------------------------
+const REFERENCE = [
+  {
+    icon: BookOpen,
+    title: 'The Streamer’s Playbook',
+    body: 'Five stream moments written up as automation rules: a facecam push-in on a hype spike, a Super Chat celebration, a focus cut, a BRB break and a saved clip.',
+    href: '/playbook',
+  },
+  {
+    icon: Library,
+    title: 'Glossary',
+    body: 'Sourced definitions of terms streamers meet in chat and in moderation settings.',
+    href: '/glossary',
+  },
+  {
+    icon: FileText,
+    title: 'Docs',
+    body: 'System requirements, connecting OBS WebSocket, running a local model with Ollama, and where data is kept.',
+    href: '/docs',
+  },
+  {
+    icon: HelpCircle,
+    title: 'FAQ',
+    body: 'Short answers about the app: how it connects to OBS, privacy, requirements, cost and licensing.',
+    href: '/faq',
+  },
+];
+
+function Reference() {
+  return (
+    <section className="border-t border-white/5">
+      <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+        <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">Reference</p>
+        <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Playbook, glossary and docs.</h2>
+
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {REFERENCE.map(({ icon: Icon, title, body, href }) => (
+            <Link
+              key={href}
+              href={href}
+              className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-colors hover:border-cyan-400/30 hover:bg-white/[0.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
-              Launching February 2027 · Windows
-            </span>
+              <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-cyan-400">
+                <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+              </span>
+              <span className="mt-4 text-base font-semibold text-zinc-100 group-hover:text-cyan-300">{title}</span>
+              <span className="mt-2 text-sm leading-relaxed text-zinc-400">{body}</span>
+            </Link>
+          ))}
+        </div>
 
-            <h1
-              className="sos-rise text-balance text-4xl font-semibold leading-[1.06] tracking-tight sm:text-6xl"
-            >
-              Your OBS scenes{' '}
-              <span className="bg-[linear-gradient(to_right,#22d3ee,#a855f7)] bg-clip-text text-transparent">
-                switch themselves
-              </span>{' '}
-              when chat spikes.
-            </h1>
+        <div className="mt-10">
+          <h3 className="text-sm font-semibold text-zinc-200">Glossary entries</h3>
+          <ul className="mt-3 grid gap-x-8 gap-y-2 text-sm sm:grid-cols-3">
+            {GLOSSARY.map((entry) => (
+              <li key={entry.slug}>
+                <Link
+                  href={`/glossary/${entry.slug}`}
+                  className="text-zinc-300 underline decoration-white/20 underline-offset-4 transition-colors hover:text-cyan-300 hover:decoration-cyan-400/50"
+                >
+                  {entry.term}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
 
-            <p className="sos-rise mt-6 max-w-xl text-lg text-zinc-400">
-              streamerOS is a Windows app that runs next to OBS Studio (an app, not an
-              operating system). It reads your Twitch or YouTube chat on your own PC,
-              cuts to the right scene when chat velocity or a Super Chat crosses your
-              threshold, and marks the moment for clipping — at under 2% CPU. No
-              account, no cloud, $29 once.
+// ---------------------------------------------------------------------------
+// The app: one clearly labelled section. It is not released; nothing here
+// offers a download.
+// ---------------------------------------------------------------------------
+function AppComingSoon() {
+  return (
+    <section id="app" className="border-t border-white/5 scroll-mt-24">
+      <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-14">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">
+              Coming February 2027 · not released yet
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+              streamerOS app: coming February 2027
+            </h2>
+            <p className="mt-4 text-zinc-400">
+              The developer of these guides is building streamerOS, a Windows 10 and 11 app that
+              runs next to OBS Studio (an app, not an operating system). It reads Twitch or
+              YouTube chat on your own PC, can switch OBS scenes when chat activity or a Super
+              Chat crosses a threshold you set, and marks moments for clipping. No account and no
+              cloud service.
+            </p>
+            <p className="mt-3 text-sm text-zinc-500">
+              There is no download yet. February 2027 is the planned launch, built by one
+              developer, so it is a plan rather than a promise; the{' '}
+              <Link href="/changelog" className="text-zinc-300 underline decoration-white/20 underline-offset-4 hover:text-cyan-300">
+                changelog
+              </Link>{' '}
+              says if it moves.
             </p>
 
-            <div className="sos-rise mt-8">
-              <InlineSignup variant="bare" source="hero" cta="Get the beta" className="text-left" />
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
               {siteConfig.demoUrl && (
                 <a
                   href={siteConfig.demoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-2 rounded-lg border border-cyan-400/40 bg-cyan-400/10 px-4 py-2.5 text-sm font-semibold text-cyan-300 transition-colors hover:bg-cyan-400/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+                  className="inline-flex items-center gap-2 rounded-lg border border-cyan-400/40 bg-cyan-400/10 px-4 py-2.5 text-sm font-semibold text-cyan-300 transition-colors hover:bg-cyan-400/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
                 >
                   <Play className="h-4 w-4" aria-hidden />
-                  Try the live demo
-                  <span className="font-normal text-cyan-300/60">· sample data, runs in your browser</span>
+                  Try the browser demo
+                  <span className="font-normal text-cyan-300/60">· sample data</span>
                 </a>
               )}
-              <p className="mt-4 text-sm text-zinc-500">
-                Not ready yet?{' '}
-                <Link
-                  href="/features"
-                  className="text-zinc-300 underline decoration-white/20 underline-offset-4 transition-colors hover:text-cyan-300 hover:decoration-cyan-400/50"
-                >
-                  See what it does first
-                </Link>
-              </p>
-            </div>
-          </div>
-
-          {/* The actual app — right */}
-          <div>
-            <ProductShot shot={SHOTS.dashboard} priority sizes="(max-width: 1024px) 100vw, 720px" />
-          </div>
-        </div>
-
-        <div className="mt-16">
-          <HeroFeatures />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// ProductTour — every claim on this page shown rather than asserted. Each row
-// is a real capture of the build running on Windows, paired with what it does.
-// ---------------------------------------------------------------------------
-interface TourStop {
-  shot: (typeof SHOTS)[keyof typeof SHOTS];
-  eyebrow: string;
-  title: string;
-  body: string;
-  href: string;
-  linkLabel: string;
-}
-
-// Every shot in this tour must already exist in public/screenshots/ — ProductShot
-// renders the <img> unconditionally. Slots still waiting for a capture belong on
-// the feature pages, whose ScreenshotStrip skips missing files.
-const TOUR: TourStop[] = [
-  {
-    shot: SHOTS.chatTriage,
-    eyebrow: 'Chat Triage',
-    title: 'Chat, sorted the moment it lands.',
-    body: 'Every message is tagged as it arrives — viewers, members, Super Chats — with toxic and spam lines filtered out of the viewer feed before you read them. The counts along the top are live, so you can watch the room fill without scrolling.',
-    href: '/features/live-cockpit', linkLabel: 'See the Live Cockpit',
-  },
-  {
-    shot: SHOTS.revenue,
-    eyebrow: 'Super Chat Revenue',
-    title: 'What the stream earned, before you hit End.',
-    body: 'Every Super Chat lands in a ledger on your PC and is totalled for the stream — exact per currency, plus an approximate total in ₹, $ or whatever you choose, at exchange rates you set yourself.',
-    href: '/features/live-cockpit#revenue', linkLabel: 'How revenue is tallied',
-  },
-  {
-    shot: SHOTS.autoDirector,
-    eyebrow: 'Auto-Hype Director',
-    title: 'Wire a trigger to a scene once, then stop touching it.',
-    body: 'Drop a trigger, a logic gate and an action onto the canvas — chat velocity above five, switch to Hype Cam — and the rule runs itself for the rest of the stream. No scripting, and no hotkey to remember mid-fight.',
-    href: '/features/auto-hype', linkLabel: 'See the Auto-Hype Director',
-  },
-  {
-    shot: SHOTS.viralMoments,
-    eyebrow: 'Viral Moments',
-    title: 'The spike, measured while it is still happening.',
-    body: 'streamerOS tracks messages per second against your own baseline for this stream, so a heat ratio well above 1x means the moment is genuinely bigger than your normal — not merely busy. That is the timestamp your clip wants.',
-    href: '/features/viral-moments', linkLabel: 'See Viral Moments',
-  },
-  {
-    shot: SHOTS.sentiment,
-    eyebrow: 'Sentiment Horizon',
-    title: 'Whether the room is hyped or turning.',
-    body: 'A local model scores the last few seconds of chat and holds the reading between beats, so the bar glides instead of flickering. One number for the mood of the room, without reading a single line — and it reads Hinglish chat as well as English.',
-    href: '/features/live-cockpit#sentiment', linkLabel: 'How sentiment is scored',
-  },
-  {
-    shot: SHOTS.obsBridge,
-    eyebrow: 'OBS Bridge',
-    title: 'Native scene control, with nothing to break.',
-    body: 'streamerOS talks straight to OBS over WebSocket v5, so there is no plugin to reinstall after an OBS update. Your scenes sync into a deck you can hit directly, and the status bar shows what it costs while your game runs.',
-    href: '/features/obs-bridge', linkLabel: 'See the OBS Bridge',
-  },
-  {
-    shot: SHOTS.clipLibrary,
-    eyebrow: 'Clip Library',
-    title: 'Your best clips, already found.',
-    body: 'Recordings are scored by what chat actually did — peak velocity, Super Chats, sentiment swing — then ranked. Instead of scrubbing an eight-hour VOD, you open the list and the good bits are at the top.',
-    href: '/features/clip-library', linkLabel: 'See the Clip Library',
-  },
-  {
-    shot: SHOTS.sponsorCrm,
-    eyebrow: 'Sponsor CRM',
-    title: 'Every deal on one board, on your machine.',
-    body: 'Leads move from prospect to contacted to negotiating to won, with the deal value on each card and a running open-pipeline total. It is a SQLite file on your disk — not a subscription, and not a spreadsheet you forget.',
-    href: '/features/sponsor-crm', linkLabel: 'See the Sponsor CRM',
-  },
-  {
-    shot: SHOTS.chatArchive,
-    eyebrow: 'Chat Archive',
-    title: 'Last week’s chat, one search away.',
-    body: 'Every line of chat is saved to your own disk, stream by stream. Search it by word or username, label the big nights, redact a line or export a whole stream — and it stays readable even if you never buy a licence.',
-    href: '/features/chat-archive', linkLabel: 'See the Chat Archive',
-  },
-  {
-    shot: SHOTS.aura,
-    eyebrow: 'Aura Studio',
-    title: 'Overlays that react to the room.',
-    body: 'Pick a design from the gallery and it shifts from Calm to Hype on its own as your game and chat heat up, served to OBS straight from your PC. Want your own look? Build it in the Aura Scene Builder.',
-    href: '/features/aura-studio', linkLabel: 'See Aura Studio',
-  },
-];
-
-// The rupee sign is the only character on this page outside Inter's base Latin
-// subset; rendering it in Inter pulls in the 85 KB latin-ext font file for one
-// glyph. A system font draws it just as well, so the file is never requested.
-function withRupee(text: string): ReactNode {
-  return text.split('₹').flatMap((part, i) =>
-    i === 0 ? [part] : [<span key={i} className="font-[ui-sans-serif,system-ui,'Segoe_UI',sans-serif]">{'₹'}</span>, part],
-  );
-}
-
-function ProductTour() {
-  return (
-    <section className="mx-auto max-w-6xl px-6 py-24 sm:py-28">
-      <div className="sos-reveal mx-auto max-w-2xl text-center">
-        <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">
-          The actual app
-        </p>
-        <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-          Nothing below is a mockup.
-        </h2>
-        <p className="mt-4 text-zinc-400">
-          {TOUR.length} screens from the build that ships in February 2027, and what
-          each one is for.
-        </p>
-      </div>
-
-      <div className="mt-16 space-y-20 sm:space-y-24">
-        {TOUR.map((stop, i) => (
-          <div key={stop.shot.src} className="sos-reveal grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
-            {/* Alternate sides so the eye zig-zags down the page. */}
-            <div className={i % 2 === 1 ? 'lg:order-2' : ''}>
-              <ProductShot shot={stop.shot} caption={false} sizes="(max-width: 1024px) 100vw, 560px" />
-            </div>
-            <div className={i % 2 === 1 ? 'lg:order-1' : ''}>
-              <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">
-                {stop.eyebrow}
-              </p>
-              <h3 className="mt-3 text-2xl font-semibold tracking-tight text-zinc-100 sm:text-3xl">
-                {stop.title}
-              </h3>
-              <p className="mt-4 text-zinc-400">{withRupee(stop.body)}</p>
               <Link
-                href={stop.href}
-                className="mt-5 inline-flex items-center gap-1.5 font-mono text-sm text-cyan-400 transition-colors hover:text-cyan-300"
+                href="/features"
+                className="inline-flex items-center gap-1.5 font-mono text-sm text-cyan-400 transition-colors hover:text-cyan-300"
               >
-                {stop.linkLabel}
+                What it will do
                 <ArrowRight className="h-4 w-4" aria-hidden />
               </Link>
             </div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
 
-// ---------------------------------------------------------------------------
-// Bento features
-// ---------------------------------------------------------------------------
-function BentoFeatures() {
-  return (
-    <section id="features" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24 sm:py-28">
-      <div className="sos-reveal max-w-2xl">
-        <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">Features</p>
-        <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-          A cockpit that earns its place on your CPU.
-        </h2>
-      </div>
-
-      <div className="mt-10 grid gap-4 lg:grid-cols-3">
-        {/* Auto-Hype Director — showpiece tile */}
-        <div className="lg:col-span-2 lg:row-span-2">
-          <BentoCard className="h-full">
-            <div className="flex h-full flex-col p-7">
-              <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-cyan-400">
-                <Workflow className="h-5 w-5" strokeWidth={1.75} aria-hidden />
-              </div>
-              <h3 className="mt-5 text-xl font-semibold text-zinc-100">Auto-Hype Director</h3>
-              <p className="mt-2 max-w-md text-sm leading-relaxed text-zinc-400">
-                Wire chat-velocity and Super Chat triggers through logic gates into
-                OBS actions — a visual node graph that switches your scene, plays a
-                sound or saves a replay clip when the room peaks.
-              </p>
-              <div className="mt-6 flex-1">
-                <ProductShot
-                  shot={SHOTS.autoDirector}
-                  caption={false}
-                  sizes="(max-width: 1024px) 100vw, 640px"
-                />
-              </div>
-            </div>
-          </BentoCard>
-        </div>
-
-        {/* 1.8% CPU */}
-        <div>
-          <BentoCard className="h-full min-h-[210px]">
-            <div className="flex h-full flex-col p-7">
-              <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-cyan-400">
-                <Gauge className="h-5 w-5" strokeWidth={1.75} aria-hidden />
-              </div>
-              <p className="mt-auto bg-[linear-gradient(to_right,#22d3ee,#a855f7)] bg-clip-text pt-6 font-mono text-5xl font-semibold text-transparent">
-                1.8%
-              </p>
-              <p className="mt-2 text-sm text-zinc-400">
-                Sustained CPU in the developer’s RTX 3060 benchmark; a live-game capture is still to come.
-              </p>
-            </div>
-          </BentoCard>
-        </div>
-
-        {/* Zero-Cloud */}
-        <div>
-          <BentoCard className="h-full min-h-[210px]">
-            <div className="flex h-full flex-col p-7">
-              <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-cyan-400">
-                <ShieldCheck className="h-5 w-5" strokeWidth={1.75} aria-hidden />
-              </div>
-              <h3 className="mt-auto pt-6 text-lg font-semibold text-zinc-100">Zero-Cloud</h3>
-              <p className="mt-2 text-sm text-zinc-400">
-                No account, no backend. Your chat and audio never leave the machine.
-              </p>
-            </div>
-          </BentoCard>
-        </div>
-
-        {/* OBS WebSocket */}
-        <div>
-          <BentoCard className="h-full min-h-[210px]">
-            <div className="flex h-full flex-col p-7">
-              <span className="inline-flex w-fit items-center rounded-md border border-white/10 bg-white/5 px-2.5 py-1 font-mono text-xs text-zinc-300">
-                OBS · WebSocket v5
-              </span>
-              <h3 className="mt-auto pt-6 text-lg font-semibold text-zinc-100">
-                Native scene control
-              </h3>
-              <p className="mt-2 text-sm text-zinc-400">
-                Talks straight to OBS — no fragile plugins to keep alive.
-              </p>
-            </div>
-          </BentoCard>
-        </div>
-
-        {/* Pricing — wide tile */}
-        <div className="lg:col-span-2">
-          <BentoCard className="h-full min-h-[210px]">
-            <div className="flex h-full flex-col justify-between gap-6 p-7 sm:flex-row sm:items-center">
-              <div>
-                <h3 className="text-lg font-semibold text-zinc-100">
-                  One payment. Not a subscription.
-                </h3>
-                <p className="mt-2 max-w-sm text-sm text-zinc-400">
-                  Try everything free for 7 days, then $29 once and it is yours —
-                  no renewal, no account, no cloud. Pre-register before launch and
-                  you get the beta first, a 3-month trial and the next major version
-                  included.
-                </p>
-              </div>
-              <Link
-                href="/pricing"
-                className="inline-flex shrink-0 items-center gap-1.5 font-mono text-sm text-cyan-400 transition-colors hover:text-cyan-300"
-              >
-                See pricing
-                <ArrowRight className="h-4 w-4" aria-hidden />
-              </Link>
-            </div>
-          </BentoCard>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// How it works — scroll-linked timeline
-// ---------------------------------------------------------------------------
-const STEPS = [
-  {
-    title: 'Connect Telemetry',
-    body: 'Point streamerOS at your Twitch or YouTube chat. It starts reading velocity and sentiment in real time — entirely on your machine.',
-  },
-  {
-    title: 'Map Your Logic',
-    body: 'Drag trigger, logic, and action nodes onto the canvas. You decide what “hype” means for your stream.',
-  },
-  {
-    title: 'Never Miss a Hype Moment',
-    body: 'When the room peaks, streamerOS fires your scene change for you, with no cloud round-trip. You stay in the game; the broadcast runs itself.',
-  },
-];
-
-function TimelineStep({
-  index,
-  title,
-  body,
-  isLast,
-}: {
-  index: number;
-  title: string;
-  body: string;
-  isLast: boolean;
-}) {
-  return (
-    <div className="flex gap-6">
-      {/* rail */}
-      <div className="flex flex-col items-center">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-cyan-400/80 bg-[#05070A] font-mono text-sm font-semibold text-cyan-400">
-          {index + 1}
-        </div>
-        {!isLast && (
-          <div className="mt-2 w-px flex-1 bg-[linear-gradient(to_bottom,#22d3ee,#a855f7)]" />
-        )}
-      </div>
-
-      {/* copy */}
-      <div className={isLast ? 'pb-0' : 'pb-14'}>
-        <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">
-          Step {index + 1}
-        </p>
-        <h3 className="mt-1.5 text-xl font-semibold text-zinc-100">{title}</h3>
-        <p className="mt-2 max-w-md text-sm leading-relaxed text-zinc-400">{body}</p>
-      </div>
-    </div>
-  );
-}
-
-function HowItWorks() {
-  return (
-    <section className="border-t border-white/5">
-      <div className="mx-auto max-w-3xl px-6 py-24 sm:py-28">
-        <div className="sos-reveal">
-          <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">
-            How it works
-          </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-            From chat noise to scene cuts.
-          </h2>
-          <p className="mt-3 text-zinc-400">Three steps. Then it runs itself.</p>
-        </div>
-
-        <div className="mt-14">
-          {STEPS.map((step, i) => (
-            <TimelineStep
-              key={step.title}
-              index={i}
-              title={step.title}
-              body={step.body}
-              isLast={i === STEPS.length - 1}
+            <InlineSignup
+              className="mt-8"
+              source="home-app"
+              heading="Join the early-access list"
+              blurb="Free, email only, not a purchase. You get the beta builds before the public launch and a short build-log email about once a month."
+              cta="Join the list"
             />
-          ))}
+          </div>
+
+          <div>
+            <ProductShot shot={SHOTS.dashboard} sizes="(max-width: 1024px) 100vw, 640px" />
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-// Wall of Love: removed. The earlier placeholder quotes were fabricated; add a
-// testimonials section only once there are real, attributable quotes.
-
-// ---------------------------------------------------------------------------
-// Common OBS problems — plain links to the guides people already find us for.
-// ---------------------------------------------------------------------------
-const OBS_GUIDES = [
-  { href: '/blog/obs-psycho-visual-tuning-explained', label: 'Psycho Visual Tuning: on or off?' },
-  { href: '/blog/obs-advanced-scene-switcher-guide', label: 'Advanced Scene Switcher setup and recipes' },
-  { href: '/blog/obs-cpu-usage-preset-explained', label: 'Which OBS CPU Usage Preset to use' },
-  { href: '/blog/obs-encoding-overloaded-fix', label: 'Fixing "Encoding overloaded"' },
-  { href: '/blog/best-obs-settings-for-low-cpu-streaming', label: 'Best OBS settings for a low-end PC' },
-];
-
-function CommonProblems() {
-  return (
-    <section className="mx-auto max-w-3xl px-6 pb-8 pt-4">
-      <h2 className="text-xl font-semibold tracking-tight text-zinc-100">Common OBS problems</h2>
-      <ul className="mt-4 grid gap-x-8 gap-y-2 text-sm sm:grid-cols-2">
-        {OBS_GUIDES.map((g) => (
-          <li key={g.href}>
-            <Link
-              href={g.href}
-              className="text-zinc-300 underline decoration-white/20 underline-offset-4 transition-colors hover:text-cyan-300 hover:decoration-cyan-400/50"
-            >
-              {g.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </section>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Page body. The JSON-LD for this route lives in the server component at
-// app/page.tsx — React never executes a <script> rendered on the client, so it
-// cannot sit in here.
-// ---------------------------------------------------------------------------
-export default function HomeContent() {
+export default async function HomeContent() {
+  const posts = await getAllPostMeta();
+  const groups = groupPosts(posts);
   return (
     <>
       <ScrollProgress />
       <main>
-        <Hero />
-        <Marquee />
-        <BentoFeatures />
-        <ProductTour />
-        <HowItWorks />
-        {/* TODO: Restore Wall of Love when real quotes are acquired */}
-        <Pricing />
-        <CommonProblems />
+        <Hero guideCount={posts.length} />
+        <GuideTopics groups={groups} />
+        <Reference />
+        <AppComingSoon />
       </main>
     </>
   );

@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     'Streamlabs needs an account and runs on the cloud. streamerOS runs entirely ' +
     'on your PC for $29 once. An honest comparison, including what you give up.',
   alternates: { canonical: `${SITE_URL}/vs/streamlabs` },
+  // Pre-launch page for an app that is not out yet (planned February 2027):
+  // kept for visitors, kept out of search and the sitemap (19 Nov 2026).
+  robots: { index: false, follow: true },
 };
 
 const FAQ_ITEMS: FaqEntry[] = [

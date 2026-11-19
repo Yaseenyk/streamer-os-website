@@ -9,6 +9,7 @@ tags:
 - Automation
 - Guides
 - Local AI
+seeAlso: auto-switch-obs-scenes-guide
 ---
 
 ## What you’ll build

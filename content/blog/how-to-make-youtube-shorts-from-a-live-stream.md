@@ -100,7 +100,7 @@ General editing tips:
 5) Export 1080×1920 H.264, same frame rate.
 6) Upload the same day while the moment is fresh.
 
-If you’re coming from Twitch and want a deeper dive on turning VODs into Shorts/TikToks, this guide complements the steps here: [Turn Twitch VODs Into Shorts and TikToks](/blog/turn-twitch-vods-into-shorts-and-tiktoks)
+The same steps work for a Twitch VOD: download it from your Video Producer page, or use your local OBS recording, then cut and export as above. TikTok and Instagram Reels take the same 1080×1920 vertical file.
 
 ### Where most Shorts go wrong (and how to avoid it)
 

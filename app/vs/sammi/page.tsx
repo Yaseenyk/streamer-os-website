@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   description:
     'SAMMI is a free, no-code stream automation toolkit. streamerOS is a paid, ready-made cockpit with local AI chat sentiment. Both run on Windows, side by side.',
   alternates: { canonical: 'https://streamerosai.com/vs/sammi' },
+  // Pre-launch page for an app that is not out yet (planned February 2027):
+  // kept for visitors, kept out of search and the sitemap (19 Nov 2026).
+  robots: { index: false, follow: true },
 };
 
 type Verdict = 'yes' | 'no' | 'partial';

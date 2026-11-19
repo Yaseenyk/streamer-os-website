@@ -20,6 +20,10 @@ export interface PostMeta {
    *  back to the site-wide image, since a post that sets `openGraph` without
    *  images inherits none from the layout and would otherwise share unillustrated. */
   image?: string;
+  /** Set on a post that overlaps a stronger one (19 Nov 2026 overlap pass). The
+   *  page stays live but is noindex,follow, shows a "see also" note pointing at
+   *  this slug, and is left out of the blog index, feed, sitemap and related links. */
+  seeAlso?: string;
 }
 
 export interface Post {
@@ -44,6 +48,7 @@ export async function getPostBySlug(slug: string): Promise<Post> {
       updated: data.updated,
       author: data.author,
       tags: data.tags ?? [],
+      seeAlso: typeof data.seeAlso === 'string' && data.seeAlso ? data.seeAlso : undefined,
       // Per-post card from scripts/emit-og-images.mjs, when it has been generated.
       image:
         data.image ??
@@ -55,11 +60,14 @@ export async function getPostBySlug(slug: string): Promise<Post> {
   };
 }
 
-// All post metadata, newest first — used by the blog index.
+// Indexable post metadata, newest first: the blog index, feed, sitemap and
+// related-post links. Posts with `seeAlso` (noindexed overlaps) are left out;
+// their pages are still generated from getPostSlugs().
 export async function getAllPostMeta(): Promise<PostMeta[]> {
   const slugs = await getPostSlugs();
   const posts = await Promise.all(slugs.map((slug) => getPostBySlug(slug)));
   return posts
     .map((post) => post.meta)
+    .filter((meta) => !meta.seeAlso)
     .sort((a, b) => b.date.localeCompare(a.date));
 }

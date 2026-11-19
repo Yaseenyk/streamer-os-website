@@ -13,14 +13,19 @@ import { FEATURE_COUNT, FOUNDATIONS, featuresByCategory } from '@/lib/features';
 // nav concluded the product was an OBS scene switcher and nothing else.
 const GROUPS = featuresByCategory();
 
+// The site's free reading comes first (19 Nov 2026): the app is not released
+// yet, so the guides lead and the app sits in one labelled menu at the end.
+// Pricing, download and comparison pages are pre-launch and left out of the nav.
 const NAV_LINKS = [
+  { label: 'Guides', href: '/blog' },
   { label: 'Playbook', href: '/playbook' },
-  { label: 'Blog', href: '/blog' },
   { label: 'Docs', href: '/docs' },
-  { label: 'Pricing', href: '/pricing' },
   { label: 'FAQ', href: '/faq' },
-  { label: 'Changelog', href: '/changelog' },
+  { label: 'About', href: '/about' },
 ];
+
+const APP_MENU_LABEL = 'streamerOS app';
+const APP_STATUS = 'Coming February 2027 · not released yet';
 
 const INDIA_LINK = { label: 'For Indian streamers', href: '/for/indian-streamers' };
 
@@ -73,6 +78,16 @@ export default function Header() {
 
           {/* Desktop nav */}
           <div className="hidden items-center gap-8 lg:flex">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="rounded text-sm text-zinc-400 transition-colors hover:text-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+              >
+                {link.label}
+              </Link>
+            ))}
+
             {/* Features menu — hover-revealed glass panel. The `pt-3` wrapper
                 keeps the hover area continuous between trigger and panel. */}
             <div
@@ -87,7 +102,7 @@ export default function Header() {
                 aria-expanded={isFeaturesOpen}
                 className="flex cursor-pointer items-center gap-1 rounded text-sm text-zinc-400 transition-colors hover:text-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
               >
-                Features
+                {APP_MENU_LABEL}
                 <ChevronDown
                   className={`h-4 w-4 transition-transform ${isFeaturesOpen ? 'rotate-180' : ''}`}
                   aria-hidden
@@ -95,9 +110,13 @@ export default function Header() {
               </button>
                 {isFeaturesOpen && (
                   <div
-                    className="sos-pop absolute left-0 top-full pt-3"
+                    className="sos-pop absolute right-0 top-full pt-3"
                   >
                     <div className="w-[46rem] rounded-xl border border-white/10 bg-[#05070A]/95 p-5 shadow-xl backdrop-blur-xl">
+                      <p className="mb-4 px-2 text-xs text-zinc-400">
+                        <span className="font-semibold text-zinc-200">{APP_MENU_LABEL}</span> · {APP_STATUS}. A Windows
+                        companion for OBS Studio; the pages below describe what it does.
+                      </p>
                       <div className="columns-3 gap-6">
                         {GROUPS.map((group) => (
                           <div key={group.id} className="mb-5 break-inside-avoid">
@@ -168,16 +187,6 @@ export default function Header() {
                   </div>
                 )}
             </div>
-
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="rounded text-sm text-zinc-400 transition-colors hover:text-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
-              >
-                {link.label}
-              </Link>
-            ))}
           </div>
 
           <div className="flex items-center gap-2">
@@ -200,7 +209,7 @@ export default function Header() {
               onClick={openPreRegister}
               className="hidden cursor-pointer items-center rounded-lg bg-cyan-400 px-4 py-2 text-sm font-semibold text-[#05070A] transition-all duration-200 hover:bg-cyan-300 hover:shadow-[0_0_15px_rgba(6,182,212,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 lg:inline-flex"
             >
-              Pre-Register
+              Early access
             </button>
 
             {/* Mobile toggle */}
@@ -230,6 +239,17 @@ export default function Header() {
             className="sos-pop fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto bg-[#05070A] lg:hidden"
           >
             <nav aria-label="Mobile" className="flex flex-col gap-1 px-6 py-8">
+              {NAV_LINKS.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={closeMenu}
+                  className="rounded-lg px-4 py-3 text-lg font-medium text-zinc-200 transition-colors hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+                >
+                  {link.label}
+                </Link>
+              ))}
+
               {/* Features accordion */}
               <div>
                 <button
@@ -239,7 +259,10 @@ export default function Header() {
                   aria-controls="mobile-features"
                   className="flex w-full cursor-pointer items-center justify-between rounded-lg px-4 py-3 text-lg font-medium text-zinc-200 transition-colors hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
                 >
-                  Features
+                  <span className="text-left">
+                    {APP_MENU_LABEL}
+                    <span className="block text-xs font-normal text-zinc-500">{APP_STATUS}</span>
+                  </span>
                   <ChevronDown
                     className={`h-5 w-5 transition-transform ${
                       isMobileFeaturesOpen ? 'rotate-180' : ''
@@ -305,17 +328,6 @@ export default function Header() {
                   )}
               </div>
 
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  onClick={closeMenu}
-                  className="rounded-lg px-4 py-3 text-lg font-medium text-zinc-200 transition-colors hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
-                >
-                  {link.label}
-                </Link>
-              ))}
-
               {siteConfig.demoUrl && (
                 <a
                   href={siteConfig.demoUrl}
@@ -337,7 +349,7 @@ export default function Header() {
                 }}
                 className="mt-4 inline-flex cursor-pointer items-center justify-center rounded-lg bg-cyan-400 px-4 py-3 text-sm font-semibold text-[#05070A] transition-all duration-200 hover:bg-cyan-300 hover:shadow-[0_0_15px_rgba(6,182,212,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
               >
-                Get the beta
+                Join the early-access list
               </button>
             </nav>
           </div>

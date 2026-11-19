@@ -80,3 +80,87 @@ claims; `/glossary` still `noindex, follow` and absent from the sitemap; new pos
   goes live.
 - Subdomains are judged with the root and are outside this repo. Wait for a recrawl (2 to 3 weeks) before
   requesting review.
+
+## 4. Second pass, 19 Nov 2026: content-first home page, pre-launch pages noindexed, blogger paused, overlaps pruned
+
+Owner-approved the same day, following `portfolio/docs/adsense-case-study-2026-11-19.md` (items 1 to 3 of its
+recommendations). Ads stay OFF; `verify-no-ads` passes. `/privacy` was not touched in this pass.
+
+### Home page and navigation
+
+- The home page (`app/home-content.tsx`, `app/page.tsx`) now leads with the guides. New h1: "OBS and streaming guides
+  for Twitch and YouTube streamers." Below it: every indexable guide grouped into six topics (OBS settings and
+  performance; scene switching, plugins and automation; live chat; clips, Shorts and files; sponsors, Super Chats
+  and growth; local AI, privacy and tool choice), titles and descriptions read from the posts themselves, then a
+  reference row (Playbook, Glossary and its three entries, Docs, FAQ).
+- The app has one labelled section near the end: "streamerOS app: coming February 2027", with "not released yet",
+  "there is no download yet" and "a plan rather than a promise". Links: the browser demo, the features page and the
+  early-access list (email only). The launch month is the one the product repo plans (`streamerOS/docs/session-logs/2026-10-24.md`,
+  Microsoft Store launch Feb 2027) and the site already stated.
+- Removed from the home page: the marquee, feature bento, ten-screen product tour, "how it works" timeline and the
+  pricing block. The h1 is server HTML with a transform-only animation, so it paints at first render (LCP).
+- Home `<title>` is now "streamerOS: Free OBS and Streaming Guides for Twitch and YouTube" (was the app tagline).
+- Header: Guides, Playbook, Docs, FAQ, About, then one menu labelled "streamerOS app" with the status line "Coming
+  February 2027 · not released yet". Pricing and Changelog left the header. The header button reads "Early access"
+  (was "Pre-Register"); the mobile button reads "Join the early-access list" (was "Get the beta").
+- Footer: a Guides column comes first; app pages sit in one "App · pre-launch" column where Pricing and Compare are
+  labelled "(pre-launch)" and the list link is "Early-access list". The brand blurb now describes the guides.
+
+### Pre-launch pages: noindex,follow, out of the sitemap, llms files and header
+
+| Page | Change |
+|---|---|
+| /download | noindex,follow; title "streamerOS Early Access: Join the Waitlist (Not Released Yet)"; eyebrow "Early access · no download yet"; description says there is no download |
+| /pricing | noindex,follow |
+| /vs, /vs/streamlabs, /vs/streamer-bot, /vs/sammi | noindex,follow |
+| /streamers (Founding Streamers beta sign-up) | noindex,follow |
+
+All seven were removed from `app/sitemap.ts`, from `public/llms.txt` (which now lists the guides first) and the three
+comparison URLs from `public/llms-full.txt`. The pages stay live. Searched for "Download now", "free download",
+"download the" CTAs in app, components and lib: none promise a download; the last one ("Download streamerOS" in the
+download page title) is gone.
+
+### AI Blogger paused
+
+`.github/workflows/ai_blogger.yml`: the Thursday cron is commented out with "Paused 19 Nov 2026 for the AdSense
+review; owner re-enables." `workflow_dispatch` is kept, so a reviewed post can still be run by hand. To re-enable,
+uncomment the two `schedule` lines.
+
+### Overlapping posts
+
+Measured: 5-word shingle Jaccard on the markdown bodies (frontmatter and code removed) is low for every pair (highest
+0.017), so the overlap is in the question each post answers, not in copied text. Clustered by question, using the
+14 Oct Search Console page export where it helped choose. In each cluster the stronger post stays indexable; the
+others get `seeAlso: <kept slug>` in frontmatter, which makes the page `noindex, follow`, shows a "See also" box at
+the top linking the kept post, and drops it from the blog index, home page, RSS feed, sitemap and "Keep reading"
+links (`lib/posts.ts`, `app/blog/[slug]/page.tsx`). No URL was deleted.
+
+| Question | Kept (indexable) | Noindexed, see-also to the kept post |
+|---|---|---|
+| Auto-switching OBS scenes from chat | auto-switch-obs-scenes-guide (most clicks of any post) | how-to-build-a-handsfree-obs-workflow-for-youtube-live, make-obs-overlays-react-to-chat-hype-automatically (both product walkthroughs for the unreleased app) |
+| Local vs cloud tools: privacy and latency | what-stream-tools-send-to-the-cloud (and optimizing-desktop-ipc-obs-websocket-latency for lag) | local-obs-automation-beats-cloud-for-latency-and-privacy |
+| Keeping OBS CPU low | best-obs-settings-for-low-cpu-streaming | keep-obs-cpu-low-while-streaming-with-local-automation |
+| What the apps beside OBS cost | obs-high-cpu-usage-busy-chat-companion-apps | obs-automation-on-a-low-end-pc |
+| OBS dropping frames | obs-dropped-frames-find-the-cpu-hog (obs-encoding-overloaded-fix kept for the error message) | obs-dropping-frames-with-good-internet-real-fixes |
+| Reading chat while streaming | how-to-read-chat-while-streaming-one-monitor | popout-chat-masterclass (an app manual, not a general guide) |
+| Finding highlights automatically | auto-clip-twitch-highlights | find-best-clips-in-your-vods-automatically |
+| Turning a stream into vertical Shorts | how-to-make-youtube-shorts-from-a-live-stream | turn-twitch-vods-into-shorts-and-tiktoks |
+| Sponsors for small streamers | sponsors-for-small-streamers | companies-that-sponsor-small-streamers-list-method |
+
+Kept as separate questions on purpose: OBS WebSocket setup vs "connection failed"; Advanced Scene Switcher guide vs
+the cold-start "not switching" story vs the hotkey post; encoder preset, adaptive quantization, NVENC vs x264 and
+bitrate; AI co-host vs AI tool stack (overlapping Ollama setup, different question; the owner may still merge them).
+
+Internal links in kept posts and on `/features/viral-moments` that pointed at noindexed posts were repointed to the
+kept ones (sentence-level edits; one cross-link in the Shorts post became two sentences on doing the same with a
+Twitch VOD). Links that remain still work (pages are live, follow).
+
+Result: blog posts indexable 51 to 41; sitemap 96 to 79 URLs.
+
+### Gates
+
+`npm run lint` and `npm run build` pass: verify-sitemap OK (79 URLs, none noindex), verify-links OK (256 pages),
+verify-no-ads OK (780 files). Checked in `out/`: the seven pre-launch pages and ten posts carry
+`<meta name="robots" content="noindex, follow">` and are absent from `sitemap.xml`, `feed.xml` (41 items), the blog
+index and the home page; the home page and kept posts are `index, follow`; the header reads Guides, Playbook, Docs,
+FAQ, About, streamerOS app, Live demo, Early access.

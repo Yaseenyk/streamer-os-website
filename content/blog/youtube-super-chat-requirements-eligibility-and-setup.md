@@ -58,7 +58,7 @@ Viewers expect an on‑screen reaction when they send a Super Chat. The simplest
 5) Reduce delay so you can react fast
 - In YouTube’s stream settings, choose a lower stream latency (Low or Ultra Low) if your network is stable. This shortens the gap between the viewer’s payment and your on‑air reaction. Use a wired connection if you can.
 
-Tip: if you also want your chat on screen, use your browser’s pop‑out chat and add it to OBS as a Browser Source. See Popout Chat Masterclass for reliable methods: [Popout Chat Masterclass for Streamers](/blog/popout-chat-masterclass)
+Tip: if you also want your chat on screen, use your browser’s pop‑out chat and add it to OBS as a Browser Source. Steps and fixes: [Twitch Chat Overlay in OBS](/blog/twitch-chat-overlay-obs) (the Browser Source method is the same for YouTube chat).
 
 ---
 

@@ -4,6 +4,7 @@ description: "Scene automation is nearly free if the tool is native and local. H
 date: "2026-09-09"
 author: "Yaseen Khatib"
 tags: ["Guides", "OBS Studio", "Performance", "Automation"]
+seeAlso: obs-high-cpu-usage-busy-chat-companion-apps
 ---
 
 There is a belief on low-end streaming setups that automation is a luxury for

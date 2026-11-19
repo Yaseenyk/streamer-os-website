@@ -16,6 +16,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // equivalent per RFC 3986 and Google normalizes them, so the only thing
     // that matters is that the sitemap and the canonical agree.)
     { url: BASE_URL, changeFrequency: 'monthly', priority: 1 },
+    // Left out on purpose (19 Nov 2026): /download, /pricing, /streamers and the
+    // /vs comparisons are pre-launch pages for the unreleased app and are noindex.
     { url: `${BASE_URL}/features`, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE_URL}/features/auto-hype`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/features/obs-bridge`, changeFrequency: 'monthly', priority: 0.8 },
@@ -35,14 +37,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/for/indian-streamers`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/features/performance`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/features/zero-cloud`, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${BASE_URL}/download`, changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${BASE_URL}/streamers`, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${BASE_URL}/pricing`, changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${BASE_URL}/vs/streamlabs`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/trust`, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${BASE_URL}/vs/streamer-bot`, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${BASE_URL}/vs/sammi`, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${BASE_URL}/vs`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/for/low-end-pc`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/for/solo-streamers`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/for/youtube-live`, changeFrequency: 'monthly', priority: 0.8 },

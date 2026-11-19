@@ -4,6 +4,7 @@ description: "Stop scrubbing hours of VOD. Surface your most clip-worthy moments
 date: "2026-07-06"
 author: "Yaseen Khatib"
 tags: ["Guides", "Clipping", "Content", "Workflow"]
+seeAlso: auto-clip-twitch-highlights
 ---
 
 > **Availability:** live hype-spike marking, CSV export and vertical clip export with [Shorts Factory](/features/shorts-factory) all ship in the **February 2027 launch build**.

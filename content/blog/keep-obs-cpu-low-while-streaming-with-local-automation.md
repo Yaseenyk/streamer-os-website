@@ -9,6 +9,7 @@ tags:
 - OBS
 - Automation
 - Local AI
+seeAlso: best-obs-settings-for-low-cpu-streaming
 ---
 
 ## What you’ll set up

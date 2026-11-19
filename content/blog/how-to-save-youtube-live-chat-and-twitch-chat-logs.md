@@ -73,7 +73,7 @@ Ways to do that:
 Saved chat is more useful than it sounds:
 
 * **Find your best moments.** Bursts of messages mark highlights; see
-  [how to find the best clips in your VODs](/blog/find-best-clips-in-your-vods-automatically).
+  [how to auto-clip highlights from chat activity](/blog/auto-clip-twitch-highlights).
 * **Answer questions you missed** during a busy stream.
 * **Keep a record** if someone breaks your channel's rules.
 * **Show sponsors engagement** — messages per stream is a number brands like.

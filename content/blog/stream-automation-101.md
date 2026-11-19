@@ -55,7 +55,7 @@ Start with two rules, not ten. Every rule you add is another way to misfire live
 
 ### 2. Marking clip moments
 
-The best clips happen when you are too busy to grab them. Automation here does not choose your clips; it drops a marker when something spikes (chat speed, for example) so you can find it after the stream. You still watch and pick. See [what chat velocity is](/blog/what-is-chat-velocity) for what the signal means, and [auto-clipping Twitch highlights](/blog/auto-clip-twitch-highlights) or [finding the best clips in your VODs](/blog/find-best-clips-in-your-vods-automatically) for the workflow.
+The best clips happen when you are too busy to grab them. Automation here does not choose your clips; it drops a marker when something spikes (chat speed, for example) so you can find it after the stream. You still watch and pick. See [what chat velocity is](/blog/what-is-chat-velocity) for what the signal means, and [auto-clipping Twitch highlights](/blog/auto-clip-twitch-highlights) for the workflow.
 
 ### 3. Reactive overlays
 
@@ -76,7 +76,7 @@ Automation is not free, and these are the ones that bite:
 
 - **Misfires on air.** A rule that switches to BRB while you are mid-boss looks worse than a manual delay. Test with a recording, never first on a live stream.
 - **Maintenance.** Rules go stale when you rename a scene or change a game. Budget a few minutes a month.
-- **Performance.** Every tool using CPU competes with your game. Measure with OBS stats **while streaming**, not idle. [OBS automation on a low-end PC](/blog/obs-automation-on-a-low-end-pc) has the 60-second test.
+- **Performance.** Every tool using CPU competes with your game. Measure with OBS stats **while streaming**, not idle. [Checking the apps beside OBS](/blog/obs-high-cpu-usage-busy-chat-companion-apps) shows how to see what each one takes.
 - **A false sense of control.** You still need a way to override instantly. Keep a manual hotkey that always wins.
 
 ## A first-week plan

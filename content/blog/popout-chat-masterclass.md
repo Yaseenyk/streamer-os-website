@@ -4,6 +4,7 @@ description: "Popout chat is the most-used window on a streaming PC and the leas
 date: "2026-06-04"
 author: "Yaseen Khatib"
 tags: ["Guides", "YouTube", "Live Chat", "Velocity"]
+seeAlso: how-to-read-chat-while-streaming-one-monitor
 ---
 
 Once your [streaming folders are set up](/blog/streaming-workspace-folder-setup), you will meet the **Control Ribbon** — including the **YouTube Chat** connection badge that opens the **Live Sync modal**. Now it's time to plug in the most important data source of all: your **live chat**.

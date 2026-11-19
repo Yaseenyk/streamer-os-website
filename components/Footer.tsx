@@ -14,28 +14,29 @@ interface FooterLink {
 // eight items on the right. Legal lives in the bottom bar, so no column is a
 // two-link stub and no column is twice the height of its neighbours.
 
-// The headline features, plus a way to all of them. The full list lives in
-// lib/features.ts; the footer carries the ones people search for by name.
-const FEATURE_LINKS: FooterLink[] = [
-  { label: 'Live Cockpit', href: '/features/live-cockpit' },
-  { label: 'Auto-Hype Director', href: '/features/auto-hype' },
-  { label: 'AI Sidekick', href: '/features/ai-sidekick' },
-  { label: 'Clip Library', href: '/features/clip-library' },
-  { label: 'Shorts Factory', href: '/features/shorts-factory' },
-  { label: 'Aura Studio', href: '/features/aura-studio' },
-  { label: 'Sponsor CRM', href: '/features/sponsor-crm' },
-  { label: `All ${FEATURE_COUNT} features →`, href: '/features' },
+// Free reading first (19 Nov 2026). The app is unreleased, so its pages sit in
+// one column labelled pre-launch; pricing, comparisons and the early-access
+// list are noindex and appear only here, never in the header.
+const GUIDES: FooterLink[] = [
+  { label: 'All guides', href: '/blog' },
+  { label: 'Streamer’s Playbook', href: '/playbook' },
+  { label: 'OBS scene switching', href: '/blog/auto-switch-obs-scenes-guide' },
+  { label: 'OBS low-CPU settings', href: '/blog/best-obs-settings-for-low-cpu-streaming' },
+  { label: 'Sponsors for small streamers', href: '/blog/sponsors-for-small-streamers' },
+  { label: 'Glossary', href: '/glossary' },
+  { label: 'Docs', href: '/docs' },
+  { label: 'FAQ', href: '/faq' },
 ];
 
-const PRODUCT: FooterLink[] = [
-  { label: 'Ultra-Light Performance', href: '/features/performance' },
+const APP: FooterLink[] = [
+  { label: `All ${FEATURE_COUNT} features`, href: '/features' },
+  { label: 'Live Cockpit', href: '/features/live-cockpit' },
+  { label: 'Auto-Hype Director', href: '/features/auto-hype' },
   { label: 'Zero-Cloud Privacy', href: '/features/zero-cloud' },
-  { label: 'Pricing', href: '/pricing' },
-  { label: 'Compare', href: '/vs' },
-  { label: 'vs Streamlabs', href: '/vs/streamlabs' },
-  { label: 'OBS Scene Switcher', href: '/features/scene-switcher' },
-  { label: 'Changelog', href: '/changelog' },
-  { label: 'Pre-Register', href: '/download' },
+  { label: 'Pricing (pre-launch)', href: '/pricing' },
+  { label: 'Compare (pre-launch)', href: '/vs' },
+  { label: 'Founding Streamers (beta)', href: '/streamers' },
+  { label: 'Early-access list', href: '/download' },
 ];
 
 const FOR_YOU: FooterLink[] = [
@@ -44,17 +45,12 @@ const FOR_YOU: FooterLink[] = [
   { label: 'Solo Streamers', href: '/for/solo-streamers' },
   { label: 'YouTube Live', href: '/for/youtube-live' },
   { label: 'VTubers', href: '/for/vtubers' },
-  { label: 'Founding Streamers', href: '/streamers' },
 ];
 
 const COMPANY: FooterLink[] = [
   { label: 'About', href: '/about' },
   { label: 'Trust & Verification', href: '/trust' },
-  { label: 'Playbook', href: '/playbook' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Docs', href: '/docs' },
-  { label: 'Glossary', href: '/glossary' },
-  { label: 'FAQ', href: '/faq' },
+  { label: 'Changelog', href: '/changelog' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -111,18 +107,19 @@ export default function Footer() {
               <SignalLogo className="text-2xl" />
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-6 text-zinc-400">
-              The ultra-lightweight desktop cockpit for live streamers. Chat, OBS and your audience in one window, at about 1.8% CPU in the developer’s benchmark, with nothing
-              in the cloud.
+              Free, sourced guides for Twitch and YouTube streamers: OBS settings, scene switching,
+              chat, clips and sponsorships. Written by the developer of streamerOS, a Windows
+              companion app for OBS that is not released yet.
             </p>
             <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-500">
-              Windows 10 &amp; 11 · Launch Feb 2027
+              streamerOS app · coming February 2027
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <Link
                 href="/download"
                 className="inline-flex items-center rounded-lg bg-cyan-500 px-4 py-2 text-sm font-semibold text-black transition-colors hover:bg-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
               >
-                Pre-register free
+                Join the early-access list
               </Link>
               <a href={`mailto:${siteConfig.contactEmail}`} className={linkClass}>
                 {siteConfig.contactEmail}
@@ -132,8 +129,8 @@ export default function Footer() {
 
           {/* Link columns */}
           <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4 lg:col-span-8">
-            <FooterColumn title="Features" links={FEATURE_LINKS} />
-            <FooterColumn title="Product" links={PRODUCT} />
+            <FooterColumn title="Guides" links={GUIDES} />
+            <FooterColumn title="App · pre-launch" links={APP} />
             <FooterColumn title="For you" links={FOR_YOU} />
             <FooterColumn title="Company" links={COMPANY} />
           </div>

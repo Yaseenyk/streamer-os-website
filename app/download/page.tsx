@@ -8,10 +8,13 @@ import InlineSignup from '@/components/InlineSignup';
 import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Download streamerOS (Windows) — Pre-Register for Launch' },
+  title: { absolute: 'streamerOS Early Access: Join the Waitlist (Not Released Yet)' },
   description:
-    'Pre-register for streamerOS for Windows 10/11: OBS scene automation, clip markers and a local AI sidekick. No account, no cloud. 7-day trial, then $29 once.',
+    'streamerOS is not released yet and there is no download. Join the free early-access list for the Windows app, planned for February 2027.',
   alternates: { canonical: 'https://streamerosai.com/download' },
+  // Pre-launch page for an app that is not out yet (planned February 2027):
+  // kept for visitors, kept out of search and the sitemap (19 Nov 2026).
+  robots: { index: false, follow: true },
 };
 
 // The "recommended" profile is streamerOS's documented target hardware.
@@ -48,7 +51,7 @@ export default function DownloadPage() {
         <div aria-hidden className="pointer-events-none absolute left-1/2 top-0 h-[320px] w-[720px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[130px]" />
         <div className="relative mx-auto max-w-3xl px-6 py-24 text-center sm:py-28">
           <Reveal>
-            <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">Download</p>
+            <p className="font-mono text-xs uppercase tracking-widest text-cyan-400/80">Early access · no download yet</p>
           </Reveal>
           <Reveal delay={0.08}>
             <h1 className="mt-3 text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
