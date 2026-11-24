@@ -1,6 +1,6 @@
-'use client';
-
-import { motion } from 'framer-motion';
+// Animated with SVG <animate> (SMIL), not framer-motion: it needs no
+// JavaScript, so this stays a server component and blog posts do not ship
+// framer-motion just for a diagram.
 
 // Staggered launch offsets so packets stream continuously rather than in lockstep.
 const INPUT_PACKETS = [0, 0.5, 1, 1.5];
@@ -21,15 +21,10 @@ export default function EncoderTuningGraphic() {
 
         {/* Raw frames entering the encoder (cyan) */}
         {INPUT_PACKETS.map((delay, i) => (
-          <motion.circle
-            key={`in-${i}`}
-            cx="30"
-            cy="100"
-            r="5"
-            fill="#06b6d4"
-            animate={{ cx: [30, 220], opacity: [0, 1, 1, 0] }}
-            transition={{ duration: 1.4, repeat: Infinity, ease: 'linear', delay }}
-          />
+          <circle key={`in-${i}`} cx="30" cy="100" r="5" fill="#06b6d4" opacity="0">
+            <animate attributeName="cx" values="30;220" dur="1.4s" begin={`${delay}s`} repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0;1;1;0" dur="1.4s" begin={`${delay}s`} repeatCount="indefinite" />
+          </circle>
         ))}
 
         {/* Processor pins */}
@@ -41,18 +36,17 @@ export default function EncoderTuningGraphic() {
         ))}
 
         {/* Encoder block — stroke gently shifts to read as "live" silicon */}
-        <motion.rect
-          x="220"
-          y="55"
-          width="160"
-          height="90"
-          rx="14"
-          fill="#05070a"
-          stroke="#a855f7"
-          strokeWidth="2"
-          animate={{ stroke: ['#a855f7', '#22d3ee', '#a855f7'] }}
-          transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-        />
+        <rect x="220" y="55" width="160" height="90" rx="14" fill="#05070a" stroke="#a855f7" strokeWidth="2">
+          <animate
+            attributeName="stroke"
+            values="#a855f7;#22d3ee;#a855f7"
+            keyTimes="0;0.5;1"
+            calcMode="spline"
+            keySplines="0.42 0 0.58 1;0.42 0 0.58 1"
+            dur="3s"
+            repeatCount="indefinite"
+          />
+        </rect>
         <text
           x="300"
           y="96"
@@ -70,15 +64,10 @@ export default function EncoderTuningGraphic() {
 
         {/* Encoded stream leaving the encoder (purple) */}
         {OUTPUT_PACKETS.map((delay, i) => (
-          <motion.circle
-            key={`out-${i}`}
-            cx="380"
-            cy="100"
-            r="5"
-            fill="#a855f7"
-            animate={{ cx: [380, 570], opacity: [0, 1, 1, 0] }}
-            transition={{ duration: 1.4, repeat: Infinity, ease: 'linear', delay }}
-          />
+          <circle key={`out-${i}`} cx="380" cy="100" r="5" fill="#a855f7" opacity="0">
+            <animate attributeName="cx" values="380;570" dur="1.4s" begin={`${delay}s`} repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0;1;1;0" dur="1.4s" begin={`${delay}s`} repeatCount="indefinite" />
+          </circle>
         ))}
 
         <text x="30" y="80" fill="#64748b" fontSize="10" fontFamily="monospace">

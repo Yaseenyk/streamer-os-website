@@ -1,6 +1,5 @@
-'use client';
-
-import { motion } from 'framer-motion';
+// Animated with SVG <animate> (SMIL), not framer-motion: no JavaScript, so it
+// stays a server component and blog posts do not ship framer-motion for it.
 
 export default function LocalVsCloudDiagram() {
   return (
@@ -21,12 +20,10 @@ export default function LocalVsCloudDiagram() {
             strokeOpacity="0.5"
           />
           <rect x="60" y="52" width="120" height="56" rx="12" fill="none" stroke="#1e293b" strokeWidth="3" />
-          <motion.circle
-            r="5"
-            fill="#34d399"
-            animate={{ cx: [60, 180, 180, 60, 60], cy: [52, 52, 108, 108, 52] }}
-            transition={{ duration: 1.6, repeat: Infinity, ease: 'linear' }}
-          />
+          <circle cx="60" cy="52" r="5" fill="#34d399">
+            <animate attributeName="cx" values="60;180;180;60;60" dur="1.6s" repeatCount="indefinite" />
+            <animate attributeName="cy" values="52;52;108;108;52" dur="1.6s" repeatCount="indefinite" />
+          </circle>
           <text x="120" y="84" textAnchor="middle" fill="#e2e8f0" fontSize="11" fontFamily="monospace">
             on-device
           </text>
@@ -67,15 +64,26 @@ export default function LocalVsCloudDiagram() {
           />
 
           {/* Delayed packet travelling up to the cloud and back */}
-          <motion.circle
-            r="5"
-            fill="#f59e0b"
-            animate={{
-              cx: [120, 104, 136, 120, 136, 104, 120],
-              cy: [116, 92, 76, 58, 76, 92, 116],
-            }}
-            transition={{ duration: 3.4, repeat: Infinity, ease: 'easeInOut' }}
-          />
+          <circle cx="120" cy="116" r="5" fill="#f59e0b">
+            <animate
+              attributeName="cx"
+              values="120;104;136;120;136;104;120"
+              calcMode="spline"
+              keyTimes="0;0.1667;0.3333;0.5;0.6667;0.8333;1"
+              keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1"
+              dur="3.4s"
+              repeatCount="indefinite"
+            />
+            <animate
+              attributeName="cy"
+              values="116;92;76;58;76;92;116"
+              calcMode="spline"
+              keyTimes="0;0.1667;0.3333;0.5;0.6667;0.8333;1"
+              keySplines="0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1;0.42 0 0.58 1"
+              dur="3.4s"
+              repeatCount="indefinite"
+            />
+          </circle>
         </svg>
         <p className="mt-3 font-mono text-xs leading-relaxed text-amber-300/80">
           Round-trip to a remote server · adds latency · fails if it does

@@ -7,7 +7,14 @@ import JsonLd from '@/components/JsonLd';
 import { SITE_URL, siteConfig } from '@/config/site';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'], display: 'swap' });
+// No preload, display "optional", on purpose (24 Nov 2026). With the
+// <link rel="preload"> for the 48 KB Inter file, a cold mobile load (slow 4G,
+// 4x CPU) held first paint of the blog text until about 2.2-4.1 s; without it
+// the same page painted at 0.9-1.3 s (local build, fresh browser per run).
+// "swap" then moved text when Inter arrived (CLS 0.077 on a blog post), so a
+// first visit keeps the metric-matched "Inter Fallback" and Inter is used once
+// it is cached, on the next page view.
+const inter = Inter({ subsets: ['latin'], display: 'optional', preload: false });
 
 const TITLE = 'streamerOS | The OBS Studio Companion for Stream Automation';
 // Leads with the brand and says plainly what it is: this is the snippet Google
@@ -183,6 +190,20 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
   return (
     <html lang="en">
       <head>
+        {/* Translate guard. Must run before React hydrates, so it is the first
+            script in <head>. Browser translation (Chrome's Google Translate)
+            swaps text nodes for <font> elements; when React later removes or
+            inserts next to a node it no longer finds under its parent, the DOM
+            throws (removeChild / insertBefore NotFoundError) and the page can
+            break. Pulse recorded 9 JavaScript errors in one visit to a glossary
+            page. Only the mismatch case is softened; normal calls are untouched.
+            No CSP on this site (GitHub Pages, no meta policy), so inline is fine. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){if(typeof Node!=='function'||!Node.prototype)return;var r=Node.prototype.removeChild;Node.prototype.removeChild=function(c){if(c.parentNode!==this){return c;}return r.apply(this,arguments);};var i=Node.prototype.insertBefore;Node.prototype.insertBefore=function(n,ref){if(ref&&ref.parentNode!==this){return i.call(this,n,null);}return i.apply(this,arguments);};})();",
+          }}
+        />
         <JsonLd data={jsonLd} />
         <script
           defer
