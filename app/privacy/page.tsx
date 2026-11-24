@@ -25,7 +25,7 @@ export default function PrivacyPage() {
       <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
         Privacy Policy
       </h1>
-      <p className="mt-3 text-sm text-zinc-500">Last updated: November 19, 2026</p>
+      <p className="mt-3 text-sm text-zinc-500">Last updated: November 24, 2026</p>
 
       <p className="mt-5 leading-relaxed text-zinc-300">
         Every claim on this page can be checked from outside the app — the{' '}
@@ -157,7 +157,16 @@ export default function PrivacyPage() {
               measures how visitors find and use the site. It sets first-party
               analytics cookies and sends usage data, such as pages viewed and
               approximate location, to Google. We don&apos;t use it for advertising.
-              You can block it with a browser extension, by disabling cookies, or
+              Google signals is switched on: for visitors who are signed in to a
+              Google account with ad personalisation on, Google may associate this
+              site&apos;s visit data with that account to give us aggregated reports on
+              age group, gender and interests (no individual is identified to us).
+              You can turn this off in your Google account under Data &amp; privacy, or
+              in{' '}
+              <a href="https://myadcenter.google.com/" className="text-cyan-400 hover:underline" rel="noopener noreferrer">
+                My Ad Center
+              </a>
+              . You can block it with a browser extension, by disabling cookies, or
               with Google&apos;s{' '}
               <a href="https://tools.google.com/dlpage/gaoptout" className="text-cyan-400 hover:underline" rel="noopener noreferrer">
                 opt-out add-on
@@ -185,7 +194,14 @@ export default function PrivacyPage() {
               size, language, the name of your network provider, scroll depth, time
               on the page, page speed, which links and buttons were clicked and,
               when a form is sent, the form&apos;s name only (never what you typed),
-              so we can tell real readers from automated traffic. It sets no
+              so we can tell real readers from automated traffic. Since 24 November
+              2026 it also records a few technical details that show when a page is
+              broken or slow: up to three script error messages per page (the
+              message, the script file and the line), whether your browser translated
+              the page and into which language, your connection type (such as 4g or
+              3g), how fast the page responded to a tap or click, how much the layout
+              jumped while loading, and the name of a form that was sent or started
+              but not sent (never what you typed). It sets no
               cookies and does not store your IP address or browser user-agent
               string: the IP address is used in memory only, to limit abuse and to
               make a visitor code that changes every day (a one-way hash with a
@@ -197,8 +213,18 @@ export default function PrivacyPage() {
             <li>
               <strong className="text-zinc-200">Pre-registration and the contact
               form</strong> — what you submit, such as your email address and
-              message, is delivered to our inbox through EmailJS. We use it only to
-              reply and to tell you when streamerOS launches.
+              message, is saved in the site owner&apos;s own database (a Cloudflare
+              Worker and D1 database he runs, pulse.yaseenyk.workers.dev), together
+              with where your visit came from (the page you sent it from and the
+              referring site or campaign the visit counter noted for that browser
+              tab). Only he can read it. Messages are kept for up to 24 months (spam
+              for 30 days) and deleted sooner if you ask at{' '}
+              <a href={`mailto:${siteConfig.contactEmail}`} className="text-cyan-400 hover:underline">
+                {siteConfig.contactEmail}
+              </a>
+              . A copy is also emailed to our inbox through EmailJS as a
+              notification. We use it only to reply and to tell you when streamerOS
+              launches.
             </li>
             <li>
               <strong className="text-zinc-200">The support chat</strong> —
@@ -289,8 +315,9 @@ export default function PrivacyPage() {
         <section>
           <h2 className={H2}>How long we keep things</h2>
           <p className={P}>
-            Pre-registration emails and contact messages are kept until you ask for
-            them to be deleted. The visit counter deletes its rows after 90 days. Google
+            Pre-registration emails and contact messages are kept for up to 24
+            months (spam for 30 days), or until you ask for them to be deleted if
+            that comes first. The visit counter deletes its rows after 90 days. Google
             Analytics and Microsoft Clarity keep data under their own retention
             settings, which we do not control beyond the options those tools offer.
             The site is not directed at children under 13 and does not knowingly

@@ -2,9 +2,11 @@
 
 import { useState, type FormEvent } from 'react';
 import { gaEvent } from '@/lib/ga';
+import { sendToInbox } from '@/lib/inbox';
 
-// Delivered via EmailJS's REST API (client-side, works on the static export) to
-// the site contact inbox. Native fetch keeps the bundle lean — no SDK. The
+// Saved first in the owner's form inbox (lib/inbox.ts), which is the record.
+// Also sent via EmailJS's REST API (client-side, works on the static export) to
+// the site contact inbox, as a notification only. Native fetch keeps the bundle lean — no SDK. The
 // public key is safe to expose; that's EmailJS's design.
 const EMAILJS_ENDPOINT = 'https://api.emailjs.com/api/v1.0/email/send';
 const EMAILJS_SERVICE = 'service_560nh3i';
@@ -63,24 +65,29 @@ export default function ContactForm({
 
     setIsSubmitting(true);
     try {
-      const response = await fetch(EMAILJS_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          service_id: EMAILJS_SERVICE,
-          template_id: EMAILJS_TEMPLATE,
-          user_id: EMAILJS_PUBLIC_KEY,
-          template_params: {
-            name,
-            email,
-            message: `Subject: ${subject}\n\n${message}`,
-            to_email: CONTACT_INBOX,
-            reply_to: email,
-          },
-        }),
-      });
-      if (!response.ok) {
-        throw new Error(`EmailJS returned ${response.status}`);
+      // The inbox is the record; the email is a best-effort notification. Success
+      // when either one got the message, an error only when both failed.
+      const [saved, emailed] = await Promise.all([
+        sendToInbox({ form: 'contact', name, email, message, extra: subject ? { subject } : undefined }),
+        fetch(EMAILJS_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            service_id: EMAILJS_SERVICE,
+            template_id: EMAILJS_TEMPLATE,
+            user_id: EMAILJS_PUBLIC_KEY,
+            template_params: {
+              name,
+              email,
+              message: `Subject: ${subject}\n\n${message}`,
+              to_email: CONTACT_INBOX,
+              reply_to: email,
+            },
+          }),
+        }).then((r) => r.ok, () => false),
+      ]);
+      if (!saved && !emailed) {
+        throw new Error('Neither the inbox nor EmailJS accepted the message');
       }
       gaEvent('generate_lead', { form_name: 'contact' });
       setIsSuccess(true);

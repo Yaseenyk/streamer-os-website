@@ -85,8 +85,9 @@ export default function ContactPage() {
             <a href={`mailto:${siteConfig.contactEmail}`} className={A}>
               {siteConfig.contactEmail}
             </a>{' '}
-            reaches the same inbox as the form. The form is delivered through
-            EmailJS; see the privacy policy for what happens to what you send. The
+            reaches the same inbox as the form. The form is saved in the
+            owner&apos;s own database and a copy is emailed through EmailJS; see the
+            privacy policy for what happens to what you send. The
             developer will not ask for passwords, payment card details or licence
             keys by email.
           </p>

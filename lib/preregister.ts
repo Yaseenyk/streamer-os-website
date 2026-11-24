@@ -1,16 +1,21 @@
 import { gaEvent } from './ga';
+import { sendToInbox } from './inbox';
 
 // Pre-registration capture. Shared by the modal (components/PreRegisterModal)
 // and the inline forms embedded in blog posts and the hero, so there is exactly
 // one place that knows how a signup is delivered.
 //
-// Preferred delivery: NEXT_PUBLIC_PREREGISTER_ENDPOINT. Point it at a real list
+// Every signup is saved first in the owner's form inbox (lib/inbox.ts), his own
+// database, which is the record. The channels below run alongside it, and a
+// signup counts as done when the inbox or that channel accepted it.
+//
+// List delivery: NEXT_PUBLIC_PREREGISTER_ENDPOINT. Point it at a real list
 // provider (ConvertKit, Buttondown, Loops, MailerLite…) so subscribers land in a
 // list that can be segmented and mailed on launch day, and so they get a
 // confirmation of their own. It receives {email, source} as JSON. Inlined at
 // build time, like every NEXT_PUBLIC_ value on a static export.
 //
-// Fallback: EmailJS to the contact inbox. It captures the address, but an inbox
+// Without it: EmailJS to the contact inbox, as a notification. It captures the address, but an inbox
 // is not a list — there is nothing to send from at launch except copy-paste, and
 // the subscriber gets no receipt, so a typo'd address is lost silently. The
 // public key is safe to expose; that's EmailJS's design.
@@ -31,13 +36,13 @@ export const SIGNUP_ERROR =
  * identical and there is no way to tell what is working.
  */
 export async function submitPreRegistration(email: string, source: string): Promise<void> {
-  const response = PREREGISTER_ENDPOINT
-    ? await fetch(PREREGISTER_ENDPOINT, {
+  const channel = (PREREGISTER_ENDPOINT
+    ? fetch(PREREGISTER_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({ email, source }),
       })
-    : await fetch(EMAILJS_ENDPOINT, {
+    : fetch(EMAILJS_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -52,9 +57,14 @@ export async function submitPreRegistration(email: string, source: string): Prom
             reply_to: email,
           },
         }),
-      });
-  if (!response.ok) {
-    throw new Error(`Pre-registration endpoint returned ${response.status}`);
+      })
+  ).then((r) => r.ok, () => false);
+  const [saved, delivered] = await Promise.all([
+    sendToInbox({ form: 'preregister', email, extra: { source } }),
+    channel,
+  ]);
+  if (!saved && !delivered) {
+    throw new Error('Neither the inbox nor the pre-registration channel accepted the signup');
   }
 
   trackSignup(source);
@@ -71,6 +81,11 @@ export interface SignupProfile {
 }
 
 export async function submitSignupProfile(email: string, source: string, profile: SignupProfile): Promise<void> {
+  const saved = sendToInbox({
+    form: 'preregister-profile',
+    email,
+    extra: { platform: profile.platform, uses_obs: profile.usesObs, source },
+  });
   try {
     if (PREREGISTER_ENDPOINT) {
       await fetch(PREREGISTER_ENDPOINT, {
@@ -99,6 +114,7 @@ export async function submitSignupProfile(email: string, source: string, profile
   } catch {
     // The signup already succeeded; a lost optional answer is not worth an error.
   }
+  await saved;
   try {
     const plausible = (window as unknown as {
       plausible?: (event: string, options?: { props?: Record<string, string> }) => void;
