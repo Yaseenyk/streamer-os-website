@@ -22,6 +22,8 @@ different from a **chat dock**, which is a panel inside the OBS window that only
 you see. If you want to read chat while you play without showing it to anyone,
 you want a dock, not an overlay — see
 [OBS chat dock missing? How to get it back](/blog/obs-chat-dock-missing).
+If you stream on a single screen, there are other ways to keep chat in view too:
+[five setups for reading chat on one monitor](/blog/how-to-read-chat-while-streaming-one-monitor).
 
 Overlays are for viewers watching on a TV or a second screen, for VOD and clip
 context ("what was chat reacting to?"), and for streams where the chat *is* the
@@ -73,7 +75,9 @@ no CSS required.
 The trade is a third-party page running in your encoder. Each Browser Source is
 a Chromium instance; one is fine, five is a measurable CPU cost on a modest PC.
 Tick **Shutdown source when not visible** so the overlay stops rendering in
-scenes that do not show it.
+scenes that do not show it. If your PC is already close to its limit, the
+[low-end PC settings guide](/blog/best-obs-settings-for-low-cpu-streaming)
+covers the encoder and other settings that take more CPU than one overlay.
 
 ## YouTube and Kick chat overlays
 
@@ -142,3 +146,16 @@ visible" and keep the source's size modest.
 Not with the platforms' own popout pages — each shows one platform. Some widget
 services offer a merged chat box for multistreaming; check the service's
 features.
+
+## What to do next
+
+- **Chat is on screen but you still miss it while playing?** Set up a private
+  view as well: [five ways to read chat on one monitor](/blog/how-to-read-chat-while-streaming-one-monitor),
+  or [bring back the OBS chat dock](/blog/obs-chat-dock-missing).
+- **The stream got choppier after adding the overlay?** Work through
+  [the best OBS settings for a low-end PC](/blog/best-obs-settings-for-low-cpu-streaming).
+- **Viewers typing KEKW and you are not sure what it means?** The
+  [Twitch emotes glossary entry](/glossary/twitch-emotes) explains it.
+- **Curious what a chat-reading tool looks like?** The
+  [streamerOS live demo](https://demo.streamerosai.com/) runs in your browser on
+  sample chat. The app itself is not released yet; it is due in February 2027.
